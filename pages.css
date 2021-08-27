@@ -1,3 +1,34 @@
+body {min-width:552px; font:80% Arial, sans-serif; color:#363636; }
+
+table {min-width:552px; font:100% Arial, sans-serif; color:#363636; }
+
+a:link {
+  color:#666600;
+  text-decoration: none;
+}
+
+a:visited {
+  color:#666600;
+  text-decoration: none;	
+}
+
+span.sidelink {
+  font-family: Futura;
+  font-size: 12pt
+}
+
+span.highlighted {
+  color: FF5533;
+}
+
+span.quote {
+  font-style: italic;
+}
+
+div.mathquote {
+  font-size: 9pt
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
