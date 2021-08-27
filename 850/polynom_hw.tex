@@ -1,0 +1,95 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb,amsmath,latexsym,enumerate}
+
+\hoffset=0in 
+\voffset=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=-.7in 
+%\headsep=0in 
+%\headheight=0in
+\textwidth=6.5in
+\textheight=9in
+
+\newcommand\GL{\operatorname{GL}} 
+\newcommand\Inn{\operatorname{Inn}} 
+\newcommand\Aut{\operatorname{Aut}} 
+\newcommand\Stab{\operatorname{Stab}} 
+\newcommand\orb{\operatorname{orb}} 
+\newcommand\lcm{\operatorname{lcm}} 
+\newcommand\gen[1]{\left< #1 \right>}
+\def\A{\mathbf{A}}
+\def\B{\mathbf{B}}
+\def\0{\mathbf{0}}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\F{\mathbb{F}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\m{\mathbf{m}}
+\def\x{\mathbf{x}}
+\def\y{\mathbf{y}}
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4cm}
+
+\thispagestyle{empty} 
+
+\begin{center} {\bf MATH 850 \qquad \qquad Polynomial Method Homework} \end{center} 
+
+\begin{enumerate}[(1)]
+
+\item Fix $d \in \Z_{ >0 }$ and consider $\binom x d$ as a polynomial in $x$ (over your favorite field of characteristic 0).
+\begin{enumerate}
+  \item Show that, as polynomials, $\binom {-x} d = (-1)^d \binom {x+d-1} d$.
+  \item Prove that $\sum_{ n \ge 0 } \binom {n+d} d \, x^n = \frac{ 1 }{ (1-x)^{ d+1 } }$.
+  \item Show that $p(x)$ is a polynomial of degree $d$ if and only if
+  \[
+    \sum_{ n \ge 0 } p(n) \, x^n \ = \ \frac{ h(x) }{ (1-x)^{ d+1 } } 
+  \]
+  for some polynomial $h(x)$ of degree at most $d$ with $h(1) \ne 0$.
+\end{enumerate}
+
+\item A matrix is \emph{unipotent} if it is the sum of the $d \times d$ identity matrix and a \emph{nilpotent}
+matrix (i.e., a matrix $\B$ for which there exists a positive integer $k$ such that $\B^k = \0$).
+Fix indices $i$ and $j$, and consider the sequence $f(n) := (\A^n)_{ ij }$ formed by the $(i,j)$-entries of the $n$th powers of a unipotent
+matrix $\A$. 
+Prove that $f(n)$ agrees with a polynomial in~$n$. 
+(\emph{Hint:} express $\A^n$ using the binomial theorem.)
+
+\item Let $\Delta$ be the \emph{difference operator} defined by $(\Delta f) (n) := f(n+1) - f(n)$, for a given polynomial $f(n)$.
+Prove that $f(n)$ is of degree $\le d$ if and only if $(\Delta^m f)(0) = 0$ for all $m > d$.
+(\emph{Hint:} use the \emph{shift operator} $(Sf)(n) := f(n+1)$ and express $(S^n f)(0)$ using the binomial theorem.) 
+
+\item A $d \times d$ matrix with nonnegative integer coefficients is \emph{$n$-magic} if each of its rows and columns sum to $n$.
+\begin{enumerate}
+  \item Prove that every $n$-magic matrix is the sum of $n$ permutation matrices.
+  \item Show that
+  \[
+    \left\{ (m_{ 11 }, m_{ 12 } , \dots, m_{ dd }, n) \in \Z_{ \ge 0 }^{ d^2+1 } : \, \m \text{ is an $n$-magic matrix} \right\} 
+  \]
+  forms a semigroup, and deduce that the number $M_d(n)$ of $n$-magic $d \times d$ matrices is a polynomial in~$n$.
+\end{enumerate}
+
+\item Compute $M_3(n)$.
+
+\item Let $\m$ be a magic labelling of a given graph $G$ with ``magic sum'' $n$.
+\begin{enumerate}
+  \item Define the matrix $\A = (a_{ ij })$ where $a_{ ij }$ is the label of $\m$ on the edge connecting the nodes $i$ and $j$. Show that
+each row and column sum of $\A$ is $n$, and deduce with the Exercise (4) that
+  \[
+    2 \A \ = \ \sum_\pi \pi + \pi^T
+  \]
+  where the sum is over a certain set of permutation matrices.
+  \item Prove that $2 \m$ is a sum of magic labellings with magic sum 2, and conclude that every completely fundamental magic labelling of
+$G$ has magic sum 1 or~2.
+\end{enumerate}
+
+\item Show that $\dim {\rm Poly}_D(\F^n) = \binom{ D+n } n$.
+
+\item We proved in class that, given a finite set $S \subset \R^3$, there is a nonzero polynomial of degree $\le c \, |S|^{ \frac 1 3 }$ (for
+some constant $c$) that vanishes on $S$. Given $n$ lines in $\R^3$, prove that there is a nonzero polynomial of degree $\le c \, n^{ \frac 1 2 }$ (for some other constant $c$) that vanishes on all the lines. Generalize.
+
+\end{enumerate}
+\end{document}

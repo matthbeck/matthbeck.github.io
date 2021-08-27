@@ -1,0 +1,195 @@
+\documentclass[11pt]{amsart}
+\usepackage{amssymb,amsmath,latexsym,enumerate,mathptmx,microtype}
+\hoffset=0in 
+\voffset=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=-.2in 
+\textwidth=6.5in
+\textheight=9in
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4cm}
+\thispagestyle{empty} 
+\def\Id{\mathrm I}
+\def\0{\mathbf 0}
+\def\b{\mathbf b}
+\def\c{\mathbf c}
+\def\e{\mathbf e}
+\def\f{\mathbf f}
+\def\u{\mathbf u}
+\def\v{\mathbf v}
+\def\w{\mathbf w}
+\def\x{\mathbf x}
+\def\y{\mathbf y}
+\def\C{\mathbf{C}}
+\def\F{\mathbf{F}}
+\def\R{\mathbf{R}}
+\def\Z{\mathbf{Z}}
+\def\P{\mathcal{P}}
+\newcommand\spn{\operatorname{span}}
+\renewcommand\null{\operatorname{null}}
+\newcommand\range{\operatorname{range}}
+\newcommand\rank{\operatorname{rank}}
+\newcommand\norm[1]{\left|\left| #1 \right|\right|}
+\newcommand\inner[2]{\left< #1, #2 \right>}
+
+\begin{center} {\bf MATH 725 \qquad \qquad Homework Set 10 \qquad \qquad due 11/7/11} \end{center} 
+
+\begin{enumerate}[(1)]
+
+\vspace{12pt}
+
+\item Define a linear map $T \in L(\R^3)$ through $T(x_1, x_2, x_3) = (x_3, 3x_1, 2x_2)$. Compute an isometry $S$ such that $T = S \sqrt{ T^* T }$.
+
+\begin{proof}[Solution]
+Fix the standard basis of $\R^3$; then $T$ has the matrix form
+\[
+  T = \left(
+  \begin{array}{ccc}
+    0 & 0 & 1 \\
+    3 & 0 & 0 \\
+    0 & 2 & 0
+  \end{array}
+  \right) ,
+  \qquad \text{ and } \qquad
+  T^* = \left(
+  \begin{array}{ccc}
+    0 & 3 & 0 \\
+    0 & 0 & 2 \\
+    1 & 0 & 0
+  \end{array}
+  \right) .
+\]
+Thus
+\[
+  T^* T = \left(
+  \begin{array}{ccc}
+    9 & 0 & 0 \\
+    0 & 4 & 0 \\
+    0 & 0 & 1
+  \end{array}
+  \right)
+  \qquad \text{ and } \qquad
+  \sqrt{ T^* T } = \left(
+  \begin{array}{ccc}
+    3 & 0 & 0 \\
+    0 & 2 & 0 \\
+    0 & 0 & 1
+  \end{array}
+  \right) ,
+\]
+and so
+\[
+  S = T \left( \sqrt{ T^* T } \right)^{ -1 } = \left(
+  \begin{array}{ccc}
+    0 & 0 & 1 \\
+    1 & 0 & 0 \\
+    0 & 1 & 0
+  \end{array}
+  \right) ,
+\]
+i.e., $S(x_1, x_2, x_3) = (x_3, x_1, x_2)$ will do the trick.
+\end{proof}
+
+\item Prove that $T \in L(V)$ is invertible if and only if there exists a unique isometry $S$ such that $T = S \sqrt{ T^* T }$.
+(\emph{Hint} for the ``if" direction: look at our proof of the polar decomposition theorem.)
+
+\begin{proof}
+It will be useful (also for later) to know that for $T \in L(V)$,
+\[
+  T \text{ is invertible }
+  \qquad \Longleftrightarrow \qquad
+  \sqrt{ T^* T } \text{ is invertible, }
+  \qquad \qquad \qquad (\star)
+\]
+so we'll prove that first.
+Suppose that $T \in L(V)$ is invertible. Then $T^*$ is also invertible (if $ST = TS = \Id$ then $T^* S^* = S^* T^* = \Id$), and thus so is $T^* T$. But then
+\[
+  \sqrt{ T^* T } \left( \sqrt{ T^* T } \left( T^* T \right)^{ -1 } \right) = \left( \left( T^* T \right)^{ -1 } \sqrt{ T^* T } \right) \sqrt{ T^* T } = \Id \, ,
+\]
+i.e., $\sqrt{ T^* T }$ is invertible.
+Conversely, if $\sqrt{ T^* T }$ is invertible, then
+\[
+  \Id = \left( \left( \sqrt{ T^* T } \right)^{ -1 } \right)^2 T^* T \, .
+\]
+So if $\v \in \null(T)$ then
+\[
+  \v = \left( \left( \sqrt{ T^* T } \right)^{ -1 } \right)^2 T^* T(\v) = \left( \left( \sqrt{ T^* T } \right)^{ -1 } \right)^2 T^* (\0) = \0 \, ,
+\]
+i.e., $\null(T) = \{ \0 \}$, and so $T$ is invertible.
+
+Now for the actual problem: Suppose that $T$ is invertible. Then (as we have just proved) $\sqrt{ T^* T }$ is also invertible, and so the isometry $S$ (which is guaranteed by the polar decomposition theorem) equals $T \left( \sqrt{ T^* T } \right)^{ -1 }$ and is hence unique.
+
+Conversely, suppose there exists a unique isometry $S$ such that $T = S \sqrt{ T^* T }$.
+This means that the isometry $S(\u+\w) = F(\u) + G(\w)$ that we constructed in our proof is unique, and thus the isometries
+\[
+  F: \range \left( \sqrt{ T^* T } \right) \to \range(T)
+  \qquad \text{ and } \qquad
+  G: \left( \range \left( \sqrt{ T^* T } \right) \right)^\perp \to \left( \range(T) \right)^\perp
+\]
+are unique. However, we could have easily replaced $G$ by $-G$, which is still an isometry. Thus $G$ has to be the zero map, and so $\left( \range \left( \sqrt{ T^* T } \right) \right)^\perp = \{ 0 \} = \left( \range(T) \right)^\perp$. But this means $\range(T) = V$, i.e., $T$ is surjective and thus invertible.
+\end{proof}
+
+\item Suppose $n$ is an odd positive integer and $T \in L(\R^n)$ is an isometry. Prove that there exists a nonzero vector $\v \in \R^n$ such that $T^2(\v) = \v$.
+
+\begin{proof}
+We know that there exists an orthonormal basis with respect to which $T$ has block-diagonal form, with $1 \times 1$ blocks (of the form $\pm 1$) and $2 \times 2$ blocks. Since $n$ is odd, there must be a $1 \times 1$ block, and so there must be an eigenvector $\v$ with eigenvalue $\lambda = \pm 1$. But then
+\[
+  T^2(\v) = \lambda^2 \, \v = \v \, . \qedhere
+\]
+\end{proof}
+
+\item Prove that $T \in L(V)$ is 
+  \begin{enumerate}
+  \item invertible if and only if 0 is not a singular value of $T$;
+  \item an isometry if and only if all the singular values of $T$ are 1.
+  \end{enumerate}
+
+\begin{proof}
+\begin{enumerate}
+
+\item 
+\begin{align*}
+  0 \text{ is not a singular value of } T
+  &\qquad \Longleftrightarrow \qquad
+  0 \text{ is not an eigenvalue of } \sqrt{ T^* T } \\
+  &\qquad \Longleftrightarrow \qquad
+  \null \sqrt{ T^* T } = \{ \0 \} \\
+  &\qquad \Longleftrightarrow \qquad
+  \sqrt{ T^* T } \text{ is invertible } \\
+  &\qquad \stackrel{ (\star) }{ \Longleftrightarrow } \qquad
+  T \text{ is invertible. }
+\end{align*}
+
+\item We proved in class that $T$ is an isometry if and only if $T^* T = \Id$. This, in turn, holds if and only if $\sqrt{ T^* T } = \Id$, which holds if and only if all eigenvalues of $\sqrt{ T^* T }$ are 1, which holds if and only if all singular values of $T$ are~1. \qedhere
+
+\end{enumerate}
+\end{proof}
+
+\item Suppose $T \in L(V)$ has smallest singular value $s$ and largest singular value $l$. Show that for all $\v \in V$
+\[
+  s \norm \v \le \norm{ T(\v) } \le l \norm \v .
+\]
+
+\begin{proof}
+Denote the singular values of $T$ by $s = s_1, s_2, \dots, s_n = l$.
+Suppose $\v \in V$.
+By the singular-value decomposition theorem, there exist orthonormal bases $\left( \e_1, \e_2, \dots, \e_n \right)$ and $\left( \f_1, \f_2, \dots, \f_n \right)$ such that
+\[
+  T(\v) = \sum_{ j=1 }^n s_j \inner \v {\e_j } \f_j
+\]
+Since $\left( \f_1, \f_2, \dots, \f_n \right)$ is orthonormal,
+\[
+  \norm{ T(\v) }^2 = \sum_{ j=1 }^n \left| s_j \inner \v {\e_j } \right|^2 = \sum_{ j=1 }^n s_j^2 \left| \inner \v {\e_j } \right|^2
+\]
+and so
+\[
+  s^2 \norm \v^2 = s^2  \sum_{ j=1 }^n \left| \inner \v {\e_j } \right|^2 \le \norm{ T(\v) }^2 \le l^2 \sum_{ j=1 }^n \left| \inner \v {\e_j } \right|^2 = l^2 \norm \v^2 .
+\]
+(Here we used the fact that $\left( \e_1, \e_2, \dots, \e_n \right)$ is orthonormal.)
+\end{proof}
+
+\end{enumerate}
+
+\end{document}

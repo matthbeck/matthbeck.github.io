@@ -1,0 +1,142 @@
+\documentclass[11pt]{amsart}
+\usepackage{amssymb,amsmath,latexsym,enumerate,mathptmx,microtype}
+\hoffset=0in 
+\voffset=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=-.7in 
+\textwidth=6.5in
+\textheight=9.5in
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4cm}
+\thispagestyle{empty} 
+\def\Id{\mathrm I}
+\def\0{\mathbf 0}
+\def\u{\mathbf u}
+\def\v{\mathbf v}
+\def\w{\mathbf w}
+\def\C{\mathbf{C}}
+\def\F{\mathbf{F}}
+\def\R{\mathbf{R}}
+\def\Z{\mathbf{Z}}
+\def\P{\mathcal{P}}
+\newcommand\spn{\operatorname{span}}
+\renewcommand\null{\operatorname{null}}
+\newcommand\range{\operatorname{range}}
+
+\begin{center} {\bf MATH 725 \qquad \qquad Homework Set 5 \qquad \qquad due 9/26/11} \end{center} 
+
+\begin{enumerate}[(1)]
+
+\item Consider the operator $T \in L(\C^n)$ whose matrix (with respect to the standard basis of $\C^n$) consists of all 1's. Find all eigenvalues and eigenvectors of~$T$.
+
+\begin{proof}[Solution]
+If $\v = \left( v_1, v_2, \dots, v_n \right) \in \C^n$ is a nonzero eigenvector of $T$, then $T(\v) = \lambda \v$ for some $\lambda \in \C$. Since $T(\v)$ is a vector all of whose entries are $v_1 + v_2 + \dots + v_n$, this gives the linear system
+\[
+  v_1 + v_2 + \dots + v_n = \lambda v_j \, , \qquad 1 \le j \le n \, .
+\]
+But this means, in particular, that $\lambda v_1 = \lambda v_2 = \dots = \lambda v_n$, and so either $\lambda = 0$ or $v_1 = v_2 = \dots = v_n$. The latter case forces $\lambda = n$, which is an eigenvalue with eigenvector $(1,1, \dots, 1)$ (and its scalar multiples). The eigenvalue $\lambda = 0$ comes with the space of eigenvalues $\left\{ \left( v_1, v_2, \dots, v_n \right) \in \C^n : \, v_1 + v_2 + \dots + v_n = 0 \right\}$ (which is of dimension $n-1$).
+\end{proof}
+
+\item Suppose $T \in L(V)$ is invertible.
+  \begin{enumerate}
+  \item Prove that $\lambda$ is an eigenvalue of $T$ if and only if $\frac 1 \lambda$ is an eigenvalue of $T^{ -1 }$. (In particular, such an eigenvalue cannot be zero.)
+  \item If $\lambda$ is an eigenvalue of $T$ with eigenvector $\v$, show that $\lambda^k$ is an eigenvalue of $T^k$ with eigenvector $\v$. (Note that $k \in \Z$, so you need to consider both positive and negative powers of~$T$.)
+  \end{enumerate}
+
+\begin{proof}
+\begin{enumerate}
+
+\item
+$\lambda$ is an eigenvalue of $T$
+$\Longleftrightarrow$
+$T(\v) = \lambda \v$ for some $\v \in V$
+$\Longleftrightarrow$
+$\v = T^{ -1 } (\lambda \v)$ for some $\v \in V$
+$\Longleftrightarrow$
+$\frac 1 \lambda \v = T^{ -1 } (\v)$ for some $\v \in V$
+$\Longleftrightarrow$
+$\frac 1 \lambda$ is an eigenvalue of $T^{ -1 }$.
+
+\item We prove the result for $k \ge 0$ by induction.
+The base case $k=0$ follows because $T^0(\v) = \v$ and so $\lambda^0 = 1$ is indeed an eigenvalue.
+For the induction step, assume that $T^k(\v) = \lambda^k \, \v$ for some $k \ge 0$. Then
+\[
+  T^{ k+1 } (\v) = T \left( T^k(\v) \right) = T \left( \lambda^k \, \v \right) = \lambda^k \, T(\v) = \lambda^k \cdot \lambda \v = \lambda^{ k+1 } \, \v \, .
+\]
+The case $k<0$ follows with the above case $k>0$ and part (a).
+\end{enumerate}
+\end{proof}
+
+\item Let $U_1$ and $U_2$ be vector spaces, and let $V := U_1 \oplus U_2$. Define $T: V \to V$ by $T(\u_1 + \u_2) = \u_1$ (note the improved notation\dots). Find the eigenvalues and eigenspaces (i.e., subspaces of eigenvectors corresponding to each eigenvalue) of~$T$.
+
+\begin{proof}[Solution]
+An eigenvector $\u_1 + \u_2 \in V$ of $T$ with eigenvalue $\lambda$ satisfies $\u_1 = \lambda (\u_1 + \u_2)$, i.e.,
+\[
+  \u_1 = \lambda \u_1
+  \qquad \text{ and } \qquad
+  \0 = \lambda \u_2 \, .
+\]
+The second equation implies that either $\lambda = 0$ (which forces $\u_1 = \0$) or $\u_2 = \0$ (which forces $\lambda = 1$ by the first equation, because then $\u_1 \ne \0$). Thus we have the eigenvalues
+\begin{align*}
+  \lambda &= 0 \ \text{ with eigenspace } U_2 \\
+  \lambda &= 1 \ \text{ with eigenspace } U_1 \, . \qedhere
+\end{align*}
+\end{proof}
+
+\item Give an example of a vector space $V$, a basis $B$ of $V$, and a linear operator $T \in L(V)$ whose matrix (with respect to $B$) contains
+  \begin{enumerate}
+  \item only 0's on the diagonal, yet $T$ is invertible;
+  \item only nonzero numbers on the diagonal, yet $T$ is not invertible.
+  \end{enumerate}
+
+\begin{proof}[Solution]
+\begin{enumerate}
+
+\item $V = \R^2$ with the standard basis, $T(x,y) = (y,x)$.
+Then $T(1,0) = (0,1)$ and $T(0,1) = (1,0)$, so the matrix of $T$ contains only 0's on the diagonal.
+Since $T^2$ is the identity, $T^{ -1 } = T$, and so $T$ is invertible.
+
+\item $V = \R^2$ with the standard basis, $T(x,y) = (x+y,x+y)$.
+Then $T(1,0) = (1,1) = T(0,1)$, so all of the entries (in particular, on the diagonal) of the matrix of $T$ are 1.
+However, $\range(T) = \left\{ (x,y) \in \R^2 : \, x=y \right\}$ is one-dimensional, so $T$ is not invertible. \qedhere
+
+\end{enumerate}
+\end{proof}
+
+\item
+  \begin{enumerate}
+  \item Suppose $V$ is a vector space over $\C$, $T \in L(V)$, $p \in \P(\C)$, and $\lambda \in \C$. Prove that $\lambda$ is an eigenvalue of $p(T)$ if and only if $\lambda = p(\mu)$ for some eigenvalue $\mu$ of $T$.
+  \item Show that (a) does not hold if $\C$ is replaced by $\R$.
+  \end{enumerate}
+
+\begin{proof}
+\begin{enumerate}
+
+\item Let $p(x) = a_n \, x^n + a_{ n-1 } \, x^{ n-1 } + \dots + a_0 \in \P(\C)$.
+
+Suppose $\lambda$ is an eigenvalue of $p(T)$, i.e., $\null \left( p(T) - \lambda \Id \right) \ne \{\0\}$, where $\Id$ denotes the identity map.
+By the fundamental theorem of algebra, the polynomial $p(x) - \lambda$ has $n$ roots, say $\alpha_1, \alpha_2, \dots, \alpha_n \in \C$.
+Furthermore, by the same reasoning that we gave in class, this means that at least one of the operators
+\[
+  T - \alpha_1 \Id, T - \alpha_2 \Id, \dots, T - \alpha_n \Id
+\]
+has a nontrivial null space, say, $\null \left( T - \alpha_k \Id \right) \ne \{\0\}$. This means that $\alpha_k$ is an eigenvalue of $T$; note that $p(\alpha_k) - \lambda = 0$, so $\mu = \alpha_k$ will do the trick.
+
+Conversely, suppose $\mu$ is an eigenvalue of $T$ with eigenvector $\v$, and let $\lambda := p(\mu)$. Then with Exercise (2),
+\begin{align*}
+  p(T)(\v)
+  &= a_n T^n(\v) + a_{ n-1 } T^{ n-1 } (\v) + \dots + a_1 T(\v) + a_0 \v \\
+  &= a_n \mu^n \v + a_{ n-1 } \mu^{ n-1 } \v + \dots + a_1 \mu \v + a_0 \v \\
+  &= p(\mu) \v = \lambda \v \, . \qedhere
+\end{align*}
+
+\item Let $T \in L(\R^2)$ be given by the matrix $\begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}$, and let $p(x) = x^2$. The operator $T$ has no real eigenvalues (it has the complex eigenvalues $\pm i$). However, $p(T) = T^2 = \begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix}$ which has the eigenvalue $-1$.
+
+\end{enumerate}
+\end{proof}
+
+\end{enumerate}
+
+\end{document}

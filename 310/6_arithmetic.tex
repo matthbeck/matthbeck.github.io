@@ -1,0 +1,85 @@
+\documentclass[11pt]{article} 
+\usepackage{amssymb,latexsym,amsmath,enumerate,graphicx}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+
+\hoffset=0in 
+\voffset=-.7in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in 
+\textwidth=6.5in
+\textheight=9in
+
+\def\Z{\mathbb{Z}}
+\def\sage{{\tt sage}}
+
+\pagestyle{empty}
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.2cm}
+
+{\sc 2018 Math 310: Number Theory}
+\hfill
+{\tt math.sfsu.edu/beck/310.php}
+
+\vspace{.3in}
+
+\begin{center}
+\Large{Worksheet 6: Arithmetic Functions}
+\end{center}
+
+\begin{enumerate}
+
+\item Let $p, q$ be two distinct primes. Compute $\phi(pq)$.
+
+\item Let $p$ be prime and $k \in \Z_{ >0 }$. Compute
+\begin{enumerate}
+  \item $\phi(p^k)$
+  \item $\tau(p^k)$
+  \item $\sigma(p^k)$
+\end{enumerate} 
+
+\item Prove that $\tau$ and $\sigma$ are \emph{multiplicative}, that is, $\tau(mn) = \tau(m) \, \tau(n)$ and
+$\sigma(mn) = \sigma(m) \, \sigma(n)$ whenever $\gcd(m,n) = 1$.
+(\emph{Hint:} start with the case $m = p^j$, $n = q^k$ for distinct primes $p$ and~$q$.)
+
+\item Fix $m, n \in \Z_{ >0 }$ with $\gcd(m,n) = 1$.
+Consider the function $f: \Z_{ mn }^* \to \Z_m^* \times \Z_n^*$ given by
+\[
+  f(k) := (k \bmod m, \ k \bmod n) \, .
+\]
+\begin{enumerate}
+  \item Show that $f$ is well defined.
+  \item Show that $f$ is one-to-one.
+  \item Show that $f$ is onto. (\emph{Hint:} Chinese Remainder Theorem.)
+  \item Conclude that $\phi(mn) = \phi(m) \, \phi(n)$.
+\end{enumerate} 
+
+\item Derive formulas for $\phi(n)$, $\tau(n)$, and $\sigma(n)$ in terms of the prime factorization of~$n$.
+
+\item Fix $n \in \Z_{ >0 }$, and for $d|n$, let
+\[
+  S_d \ := \ \left\{ m \in [n] \, : \, \gcd(m,n) = d \right\} .
+\]
+\begin{enumerate}
+  \item Come up with a bijection $S_d \to \Z_{ \frac n d }^*$.
+  \item Convince yourself that
+  \[
+    [n] \ = \ \bigcup_{ d|n } S_d
+  \]
+  as a disjoint union, and conclude that
+  \[
+    \sum_{ d|n } \phi(d) \ = \ n \, .
+  \]
+\end{enumerate} 
+
+\item Andrews 6.1.1, 6.1.4, 6.2.2, 6.2.9.
+ 
+\item Write down a precise statement for each definition we have given this week.
+For each definition, give an example and a non-example.
+
+\end{enumerate}
+
+\end{document}
+

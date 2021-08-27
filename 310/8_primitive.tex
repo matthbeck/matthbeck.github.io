@@ -1,0 +1,58 @@
+\documentclass[11pt]{article} 
+\usepackage{amssymb,latexsym,amsmath,enumerate,graphicx}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+
+\hoffset=0in 
+\voffset=-.7in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in 
+\textwidth=6.5in
+\textheight=9in
+
+\def\Z{\mathbb{Z}}
+\def\sage{{\tt sage}}
+
+\pagestyle{empty}
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.2cm}
+
+{\sc 2018 Math 310: Number Theory}
+\hfill
+{\tt math.sfsu.edu/beck/310.php}
+
+\vspace{.3in}
+
+\begin{center}
+\Large{Worksheet 8: Primitive Roots}
+\end{center}
+
+\begin{enumerate}
+
+\item Compute all primitive roots mod 6, 7, and 8.
+
+\item Suppose $a$ has order $n$ mod $m$, and $a^k \equiv 1 \bmod m$. Show that~$n|k$.
+
+\item Show that, if $a$ is a primitive root mod $m$, then $\{ a, a^2, \dots, a^{ \phi(m) } \}$ is a
+reduced residue system mod~$m$.
+
+\item Suppose $a$ has order $n$ mod $m$, and $\gcd(k,n) = g$. Show that $a^k$ has order $\frac n g$ mod~$m$.
+Conclude that this implies the following two corollaries:
+  \begin{enumerate}
+  \item If $a$ is a primitive root mod $m$, then $a^k$ is also a primitive root mod $m$ if and only
+if $\gcd(k, \phi(m)) = 1$.
+  \item If there exists a primitive root mod $m$, then there are precisely $\phi(\phi(m))$ primitive
+roots.
+  \end{enumerate}
+
+\item Andrews 7.1.6, 7.2.15, Stein 2.8, 2.30. % something's wrong with the Stein assignments...
+ 
+\item Write down a precise statement for each definition we have given this week.
+For each definition, give an example and a non-example.
+
+\end{enumerate}
+
+\end{document}
+

@@ -1,0 +1,85 @@
+\documentclass[11pt]{article} 
+\usepackage{amssymb,latexsym,enumerate,graphicx}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+
+\hoffset=0in 
+\voffset=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in 
+\textwidth=6.5in
+\textheight=8.6in
+
+\def\Z{\mathbb{Z}}
+\def\sage{{\tt sage} }
+
+\pagestyle{empty}
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.2cm}
+
+$\mbox{}$
+\vspace{-1in}
+
+{\sc 2018 Math 310: Number Theory}
+\hfill
+{\tt math.sfsu.edu/beck/310.php}
+
+\vspace{.3in}
+
+\begin{center}
+\Large{Worksheet 1: Euclidean Algorithm}
+\end{center}
+
+\begin{enumerate}
+
+\item In your group, remind each other about tests for divisibility by 2, 3, and 5.
+Prove that these tests work.
+
+\item Let $a, b, c \in \Z$ with $c \ne 0$.
+Prove that if $c \mid a$ and $c \mid b$ then $c \mid (ax+by)$ for any $x, y \in \Z$. 
+
+\item 
+\begin{enumerate}[(a)]
+  \item Why is the fraction $\frac{a}{0}$ ``undefined'' for $a \ne 0$?
+  \item Why is $\frac{0}{0}$ ``indeterminate?''
+\end{enumerate}
+
+\item The \emph{division algorithm} says that every division problem has a unique quotient and remainder.
+Come up with a precise mathematical statement for the division algorithm and prove it.
+
+\item Come up with a definition of the \emph{greatest common divisor} of two integers.
+There are various ways to define the gcd; discuss advantages and disadvantages in your group.
+
+\item Pick two 3-digit positive integers $a > b$ and run the division algorithm when $b$ is divided into $a$.
+Run the algorithm again when the remainder is divided into $b$; repeat until you get remainder 0.
+What are you computing? Why?
+
+\item Let $a, b \in \Z$, not both zero.
+Prove that there exist $x, y \in \Z$ such that
+\[
+  ax+by = \gcd(a,b) \, .
+\]
+More generally, prove that
+\[
+  ax+by = c
+\]
+has a solution $(x,y) \in \Z^2$ if and only if $\gcd(a,b) \mid c$.
+
+\item Andrews 2.3.1.
+
+\item Experiment with the \sage command {\tt divmod}.
+Use it with two arguments, say a 6-digit and a 3-digit number, and check that \sage gives the correct answer.
+
+\item Experiment with the \sage command {\tt xgcd}.
+Use it with two 5-digit arguments and check that \sage gives the correct answer.
+
+\item Write down a precise statement for each definition we have given this week.
+For each definition, give an example and a non-example.
+
+\end{enumerate}
+
+\end{document}
+

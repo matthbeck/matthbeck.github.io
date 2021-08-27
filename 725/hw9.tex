@@ -1,0 +1,143 @@
+\documentclass[11pt]{amsart}
+\usepackage{amssymb,amsmath,latexsym,enumerate,mathptmx,microtype}
+\hoffset=0in 
+\voffset=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=-.2in 
+\textwidth=6.5in
+\textheight=9in
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4cm}
+\thispagestyle{empty} 
+\def\Id{\mathrm I}
+\def\0{\mathbf 0}
+\def\b{\mathbf b}
+\def\c{\mathbf c}
+\def\e{\mathbf e}
+\def\u{\mathbf u}
+\def\v{\mathbf v}
+\def\w{\mathbf w}
+\def\x{\mathbf x}
+\def\y{\mathbf y}
+\def\C{\mathbf{C}}
+\def\F{\mathbf{F}}
+\def\R{\mathbf{R}}
+\def\Z{\mathbf{Z}}
+\def\P{\mathcal{P}}
+\newcommand\spn{\operatorname{span}}
+\renewcommand\null{\operatorname{null}}
+\newcommand\range{\operatorname{range}}
+\newcommand\rank{\operatorname{rank}}
+\newcommand\norm[1]{\left|\left| #1 \right|\right|}
+\newcommand\inner[2]{\left< #1, #2 \right>}
+
+\begin{center} {\bf MATH 725 \qquad \qquad Homework Set 9 \qquad \qquad due 10/31/11} \end{center} 
+
+\begin{enumerate}[(1)]
+
+\item A linear operator $T \in L(V)$ is \emph{unitary} if $T^* T$ is the identity map.
+Show that all eigenvalues of a unitary operator have absolute value~1.
+
+\begin{proof}
+Suppose $T$ is a unitary operator and $T(\v) = \lambda \v$ for some $\v \ne \0$. Then
+\[
+  \inner \v \v
+  = \inner {T^* T(\v)} \v
+  = \inner {T(\v)} {T(\v)}
+  = \inner {\lambda \v} {\lambda \v}
+  = |\lambda|^2 \inner \v \v ,
+\]
+and so (since $\inner \v \v \ne 0$) $|\lambda| = 1$.
+\end{proof}
+
+\item Suppose $S, T \in L(V)$ are self adjoint.
+  \begin{enumerate}
+  \item Give an example that shows that $ST$ might not be self adjoint.
+  \item Prove that $ST$ is self adjoint if and only if $ST = TS$.
+  \end{enumerate}
+
+\begin{proof}[Solution]
+\begin{enumerate}
+
+\item Let $S = \begin{bmatrix} 1&0\\ 0&0 \end{bmatrix}$ and $T = \begin{bmatrix} 0&1\\ 1&0 \end{bmatrix}$, both expressed in terms of the standard basis of $\R^2$.
+Then $ST = \begin{bmatrix} 0&1\\ 0&0 \end{bmatrix}$ is not self adjoint.
+
+\item Since $S$ and $T$ are self adjoint, we have $(ST)^* = T^* S^* = TS$.
+Thus $ST$ is self adjoint if and only if $ST = TS$. \qedhere
+
+\end{enumerate}
+\end{proof}
+
+\item If $T \in L(V)$ is normal and $k \in \Z_{ >0 }$ then
+\[
+  \null \left( T^k \right) = \null \left( T \right)
+  \qquad \text{ and } \qquad
+  \range \left( T^k \right) = \range \left( T \right) .
+\]
+\emph{Hint:} for one set inclusion, assuming $\v \in \null \left( T^k \right)$, consider $\inner{ T^* T^{ k-1 } (\v) }{ T^* T^{ k-1 } (\v) }$.
+
+\begin{proof}
+Suppose $\v \in \null \left( T^k \right)$. Then
+\begin{align*}
+  0 
+  &= \norm{ T^k(\v) }^2
+  = \inner{ T^k(\v) }{ T^k(\v) }
+  = \inner{ T^{k-1}(\v) }{ T^* T^k(\v) }
+  = \inner{ T^{k-1}(\v) }{ T T^* T^{k-1}(\v) } \\
+  &= \inner{ T^* T^{ k-1 } (\v) }{ T^* T^{ k-1 } (\v) } ,
+\end{align*}
+which implies that $T^* T^{ k-1 } (\v) = \0$. But then
+\[
+  0 = \inner{ T^* T^{ k-1 } (\v) }{ T^{ k-2 } (\v) }
+  = \inner{ T^{ k-1 } (\v) }{ T^{ k-1 } (\v) } ,
+\]
+which implies, in turn, that $T^{ k-1 } (\v) = \0$, i.e., $\v \in \null \left( T^{ k-1 } \right)$.
+We can repeat this proof to conclude that $\v \in \null \left( T^{ k-2 } \right)$, $\v \in \null \left( T^{ k-3 } \right)$, etc., and after a finite number of steps we conclude that $\v \in \null(T)$. This proves $\null \left( T^{ k-1 } \right) \subseteq \null(T)$.
+
+Conversely, suppose $\v \in \null(T)$. Then $T^k(\v) = T^{ k-1 } (T(\v)) = T^{ k-1 } (\0) = \0$. This proves $\null(T) \subseteq \null \left( T^{ k-1 } \right)$.
+
+To see that $\range \left( T^k \right) = \range \left( T \right)$, we note that $\range \left( T^k \right) \subseteq \range \left( T \right)$ (since $\v \in \range \left( T^k \right)$ means that there exists $\u \in V$ such that $T^k(\u) = \v$; but then $T\left( T^{ k-1 } (\u) \right) = \v$, i.e., $\v \in \range(T)$).
+But these two subspaces have the same dimension:
+\[
+  \dim \range \left( T^k \right)
+  = \dim V - \dim \null \left( T^k \right)
+  = \dim V - \dim \null(T)
+  = \dim \range(T) \, ,
+\]
+and thus $\range \left( T^k \right) = \range \left( T \right)$.
+\end{proof}
+
+\item Let $V$ be a complex vector space. Prove that a normal operator in $L(V)$ is self adjoint if and only if all its eigenvalues are real.
+
+\begin{proof}
+We proved in class that all eigenvalues of a self-adjoint operator are real.
+
+Conversely, suppose all eigenvalues of $T \in L(V)$ are real. By the (complex version of the) spectral theorem, there exists an orthonormal basis of eigenvectors of $T$, and with respect to this basis, $T$ has a diagonal matrix whose diagonal entries are the eigenvalues. But since these entries are real, $T^* = T$ (neither conjugation nor transposing changes the matrix), i.e., $T$ is self adjoint.
+\end{proof}
+
+\item Prove that if $T \in L(V)$ is positive, then so is $T^k$, for any $k \in \Z_{ >0 }$.
+
+\begin{proof}
+Suppose $T \in L(V)$ is positive. Note that this implies automatically that $T$ is self adjoint.
+We will prove that $T^k$ is positive by (strong) induction on $k \in \Z_{ >0 }$.
+The base case $k=1$ is given, and for $k=2$ we have for any $\v \in V$
+\[
+  \inner{ T^2(\v) }{ \v }
+  = \inner{ T(\v) }{ T(\v) }
+  \ge 0 \, .
+\]
+For the induction step, assume that $k \ge 3$ and $T^k$ is positive, i.e., $\inner{ T^k(\v) }{ \v } \ge 0$ for any $\v \in V$. Then for any $\v \in V$
+\[
+  \inner{ T^{ k+1 } (\v) }{ \v }
+  = \inner{ T^k(\v) }{ T(\v) }
+  = \inner{ T^{ k-1 } \left( T(\v) \right) }{ T(\v) }
+  \ge 0
+\]
+because $T^{ k-1 }$ is positive by induction hypothesis.
+\end{proof}
+
+\end{enumerate}
+
+\end{document}

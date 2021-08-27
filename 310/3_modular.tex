@@ -1,0 +1,95 @@
+\documentclass[11pt]{article} 
+\usepackage{amssymb,latexsym,amsmath,enumerate,graphicx}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+
+\hoffset=0in 
+\voffset=-.7in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in 
+\textwidth=6.5in
+\textheight=9in
+
+\def\Z{\mathbb{Z}}
+\def\sage{{\tt sage}}
+
+\pagestyle{empty}
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.2cm}
+
+{\sc 2018 Math 310: Number Theory}
+\hfill
+{\tt math.sfsu.edu/beck/310.php}
+
+\vspace{.3in}
+
+\begin{center}
+\Large{Worksheet 3: Modular Arithmetic}
+\end{center}
+
+\begin{enumerate}
+
+\item Fix a positive integer $m$, and define the relation $x \sim y$ by $x \equiv y \bmod m$.
+Prove that $\sim$ is an equivalence relation.
+
+\item Let $a,b,c,m \in \Z$ with $m > 0$.
+  \begin{enumerate}
+  \item Show that, if $\gcd(c,m) = 1$, then
+  \[
+    ac \equiv bc \pmod m
+    \qquad \text{ implies } \qquad
+    a \equiv b  \pmod m \, .
+  \]
+  \item Give an example that shows that the gcd condition is necessary.
+  \end{enumerate}
+
+\item Suppose $a,b,m \in \Z$ with $m > 0$, and let $g := \gcd(a,m)$. Prove:
+  \begin{enumerate}
+  \item If $g \nmid b$ then $ax \equiv b \bmod m$ has no solution $x \in \Z$.
+  \item If $g \mid b$ then $ax \equiv b \bmod m$ has $g$ distinct solutions $x$ modulo~$m$.
+  \item If $g = 1$ then $a$ has a multiplicative inverse modulo~$m$.
+  \end{enumerate}
+
+\item Suppose $a,m \in \Z$ with $m > 0$ and $\gcd(a,m) = 1$, and let $\{ r_1, r_2, \dots, r_{ \phi(m) } \}$ be a
+reduced residue system modulo~$m$.
+  \begin{enumerate}
+  \item Show that $\{ a r_1, a r_2, \dots, a r_{ \phi(m) } \}$ is also a reduced residue system modulo~$m$.
+  \item Conclude that $r_1 r_2 \cdots r_{ \phi(m) } \equiv (a r_1) (a r_2) \cdots (a r_{ \phi(m) }) \bmod m$ and,
+consequently, that
+  \[
+    a^{ \phi(m) } \equiv 1 \pmod m \, .
+  \]
+  (This is \emph{Euler's theorem}.)
+  \item Prove that, if $p$ is prime and $a \in \Z$, then $a^p \equiv a \bmod p$.
+  (This is \emph{Fermat's little theorem}.)
+  \item Conclude that, if $p$ is prime and $a,b \in \Z$, then $(a+b)^p \equiv a^p + b^p \bmod p$.
+  (This is every freshman's dream.)
+  \end{enumerate}
+
+\item Suppose $p$ is prime.
+Prove that $x^2 \equiv 1 \bmod p$ has precisely the two solutions $x \equiv \pm 1 \bmod p$.
+
+\item Suppose $m \in \Z_{ >0 }$.
+  \begin{enumerate}
+  \item Show that, if $m>4$ is not prime, then $(m-1)! \equiv 0 \bmod m$.
+  \item Now suppose $m$ is prime. Show that if $a \not\equiv 0, \pm 1 \bmod m$ then there exists $b \not\equiv 0, \pm 1, a \bmod m$ such that $ab \equiv 1 \bmod m$.
+  \item Conclude \emph{Wilson's theorem}: $(m-1)! \equiv -1 \bmod m$ if and only if $m$ is prime.
+  \end{enumerate}
+
+\item Andrews 5.1.1--3, 3.2.3, 5.2.3, and 5.2.19.
+
+\item Experiment with the \sage \ command {\tt mod}.
+Compare the running times of $2^{1000000000000} \bmod 3$ and $(2 \bmod 3)^{1000000000000}$.
+What do you think \sage \ does?
+
+\item Compute $7^{ 43 } \bmod 11$ without \sage. Check your answer with \sage.
+
+\item Write down a precise statement for each definition we have given this week.
+For each definition, give an example and a non-example.
+
+\end{enumerate}
+
+\end{document}
+

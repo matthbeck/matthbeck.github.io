@@ -1,0 +1,183 @@
+<HTML>
+
+<HEAD><TITLE>
+Calculation times
+</TITLE></HEAD>
+
+<BODY bgcolor="#FFFFCC">
+
+<H1 align=CENTER>
+Calculation times
+</H1>
+
+<p>
+These are the times for various of our calculations, at different stages in
+the development of our algorithms.
+</p>
+
+<p>
+The calculations were performed on a number of different machines, all
+running Linux.  The machine speeds ranged from 350 MHz to 1.6GHz, and there
+were usually other processes running on the machines.  The longer
+jobs were broken into pieces and the pieces were parcelled out among the
+machines.  At times we had 42 machines working at the same time.
+</p>
+
+<p>
+In order to get comparable times we tried to "normalize" all execution times
+to the same speed as our 1GHz machine, and of course we added the normalized
+times for jobs that were split into subjobs.
+So the times are not very precise,
+but should be roughly comparable to each other.
+</p>
+
+<p>
+In the following table we list times for computing the volume only,
+and also for computing the entire polynomial.  The different versions of the
+program correspond roughly to improvements in our algorithm:
+</p>
+
+<ul>
+<li>
+0.5: The first working version.  Always integrated starting with the lowest
+numbered variable, always using exterior residues.
+<li>
+0.6: The "branch count" method, to select the variable and
+direction (interior or exterior) that would generate the fewest terms.
+<li>
+0.7: Option to discard integrals which would not contribute to the volume
+calculation.  Also the first version that could calculate the full
+polynomial. 
+<li>
+0.8: "Factoring" option, to notice when integrals over two or more variables
+are identical; in this case just calculate one integral and raise the result
+to a power.
+<li>
+0.9: Code cleanup. (!)
+<li>
+1.0: Option for early detection of zero integrals.
+
+</ul>
+
+<center>
+<table cellpadding=3 border="1">
+
+<tr>
+<th>Version:</th>
+<th>0.5</th>
+<th>0.6</th>
+<th>0.7</th>
+<th>0.8</th>
+<th>0.9</th>
+<th>1.0</th>
+</tr>
+
+<tr>
+<th>Size and type</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+</tr>
+
+<tr>
+<td>
+n=6, volume
+</td>
+<td>7.7 sec</td>
+<td>0.7 sec</td>
+<td>0.5 sec</td>
+<td>0.2 sec</td>
+<td>0.2 sec</td>
+<td>0.2 sec</td>
+</tr>
+<tr>
+
+<td>
+n=6, polynomial
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>2.3 sec</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>0.9 sec</td>
+</tr>
+
+<td>
+n=7, volume
+</td>
+<td>1 hr</td>
+<td>1 min</td>
+<td>1 min</td>
+<td>18 sec</td>
+<td>13 sec</td>
+<td>12 sec</td>
+</tr>
+<tr>
+
+<td>
+n=7, polynomial
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>7 min</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>2 min</td>
+</tr>
+
+<td>
+n=8, volume
+</td>
+<td>&nbsp;</td>
+<td>7 hr</td>
+<td>5 hr</td>
+<td>1 hr</td>
+<td>40 min</td>
+<td>32 min</td>
+</tr>
+<tr>
+
+<td>
+n=8, polynomial
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>2 days</td>
+<td>11 hr</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<td>
+n=9, volume
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>111 days</td>
+<td>13 days</td>
+<td>8 days</td>
+<td>8 days</td>
+</tr>
+<tr>
+
+<td>
+n=9, polynomial
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>324 days</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+</table>
+</center>
+
+</body>
+</html>
+

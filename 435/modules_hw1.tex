@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb,amsmath,latexsym,enumerate}
+
+\hoffset=0in 
+\voffset=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=-.7in 
+%\headsep=0in 
+%\headheight=0in
+\textwidth=6.5in
+\textheight=9in
+
+\newcommand\GL{\operatorname{GL}} 
+\newcommand\Inn{\operatorname{Inn}} 
+\newcommand\Aut{\operatorname{Aut}} 
+\newcommand\Stab{\operatorname{Stab}} 
+\newcommand\orb{\operatorname{orb}} 
+\newcommand\lcm{\operatorname{lcm}} 
+\newcommand\gen[1]{\left< #1 \right>}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\F{\mathbb{F}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4cm}
+
+\thispagestyle{empty} 
+
+\begin{center} {\bf MATH 435/735 \qquad \qquad Module Homework I} \end{center} 
+
+\begin{enumerate}[(1)]
+
+\item Suppose $R$ is a ring. Prove that is $M$ and $N$ are free $R$-modules, then $M \oplus N$ is also a free $R$-module.
+
+\item Suppose $R$ is a ring and $M$ is an $R$-module. Show that a set that contains a torsion element of $M$ cannot be a basis of $M$.
+
+\item Let $R$ be a commutative ring, viewed as an $R$-module, and let $I$ be an ideal of $R$. Show that any two elements in $I$ are linearly dependent. 
+
+\item (Grad students)
+Let $R$ be a commutative ring. Prove that $R^m \cong R^n$ if and only if $m=n$.
+(\emph{Hint:} try the same trick as in Monday's lecture---start with a maximal ideal of $R$ to reduce the problem to that of vector spaces.)
+
+\item 
+Consider the $\Z$-module $M := \Z \times \Z \times \cdots$
+(which you may think of as consisting of all integer sequences).
+Let $R$ be the set of all homomorphisms $M \to M$.
+This set $R$ becomes a (non-commutative) ring, as usual, by defining for $f, g \in R$
+\[
+  (f+g)(x) := f(x) + g(x)
+  \qquad \text{ and } \qquad
+  (fg)(x) := f(g(x)) \, .
+\]
+Now consider $R$ as an $R$-module.
+\begin{enumerate}[(a)]
+  \item Define the functions $f_1, f_2, g_1, g_2 \in R$ by
+\begin{align*}
+  f_1(x_1, x_2, \dots) &:= (x_1, x_3, x_5, \dots) \\
+  f_2(x_1, x_2, \dots) &:= (x_2, x_4, x_6, \dots) \\
+  g_1(x_1, x_2, \dots) &:= (x_1, 0, x_2, 0, x_3, \dots) \\
+  g_2(x_1, x_2, \dots) &:= (0, x_1, 0, x_2, 0, x_3, \dots) \, .
+\end{align*}
+  Show that $f_1 g_1 = f_2 g_2 = 1$, $f_1 g_2 = f_2 g_1 = 0$, and $g_1 f_1 + g_2 f_2 = 1$.
+  \item Show that $\{ f_1, f_2 \}$ is a basis of $R$.
+  \item Show that $R \cong R^2$.
+\end{enumerate}
+(This gives an example that free modules over non-commutative rings need not have a well-defined notion of rank/dimension.)
+
+\end{enumerate}
+
+\end{document}
+\end{document}

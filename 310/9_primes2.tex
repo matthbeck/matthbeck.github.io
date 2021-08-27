@@ -1,0 +1,67 @@
+\documentclass[11pt]{article} 
+\usepackage{amssymb,latexsym,amsmath,enumerate,graphicx}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+
+\hoffset=0in 
+\voffset=-.7in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in 
+\textwidth=6.5in
+\textheight=9in
+
+\def\Z{\mathbb{Z}}
+\def\sage{{\tt sage}}
+
+\pagestyle{empty}
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.2cm}
+
+{\sc 2018 Math 310: Number Theory}
+\hfill
+{\tt math.sfsu.edu/beck/310.php}
+
+\vspace{.3in}
+
+\begin{center}
+\Large{Worksheet 9: Primes Again}
+\end{center}
+
+\begin{enumerate}
+
+\item Prove that there are infinitely many primes.
+One way to do this is by means of contradiction: assuming $p_1, p_2, \dots, p_k$ are the only primes,
+consider the number $p_1 p_2 \cdots p_k + 1$.\footnote{
+Your proof probably uses two ``obvious'' but nontrivial facts, namely, (1) that every integer can be uniquely
+factored into primes, and (2) that two adjacent integers are relatively prime.
+}
+
+\item Prove that there are infinitely primes $\equiv 3 \bmod 4$.
+(\emph{Hint:} assuming $p_1, p_2, \dots, p_k$ are the only primes $\equiv 3 \bmod 4$, consider the number $4 p_1 p_2 \cdots p_k - 1$.)
+Explain why this is much easier than to prove that there are infinitely primes $\equiv 1 \bmod 4$.\footnote{
+There is a general result, known as \emph{Dirichlet's Theorem}, which says that given $a,b \in \Z$ with $\gcd(a,b) = 1$, there are infinitely primes $\equiv a \bmod b$.
+}
+
+\item Show that if $n$ is composite, then so is $2^n - 1$.
+Thus the \emph{Mersenne number} $M_p := 2^p - 1$ can only possibly be prime if $p$ is prime.
+Find the first five Mersenne primes, and the first five composite Mersenne numbers $M_p$ for which $p$ is
+prime.
+
+\item Prove that $p \in \Z_{ >1 }$ is prime if and only if $a^{ p-1 } \equiv 1 \bmod p$ for all $a
+\not\equiv 0 \bmod p$.\footnote{
+The second condition is subtly different from that of a \emph{Carmichael number}, which is a composite number $n$ such that $a^{ n-1 } \equiv 1 \bmod n$ whenever $\gcd(a,n) = 1$.
+}
+Explain how this can be used for a test for \emph{compositeness} of an integer without actually factoring
+it.
+ 
+% \item Andrews 
+ 
+\item Write down a precise statement for each definition we have given this week.
+For each definition, give an example and a non-example.
+
+\end{enumerate}
+
+\end{document}
+

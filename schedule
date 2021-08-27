@@ -1,0 +1,66 @@
+<h2>weekly schedule (spring'16)</h2>
+
+<table border=1>
+  <tr>
+    <td align=center></td>
+    <td></td>
+    <td align=center>monday</td>
+    <td align=center>wednesday</td>
+    <td align=center>friday</td>
+  </tr>
+  <tr>
+    <td align=center></td>
+    <td></td>
+    <td align=center></td>
+    <td></td>
+    <td align=center></td>
+  </tr>
+  <tr>
+    <td align=center>9-10</td>
+    <td></td>
+    <td align=center><a href="335.php">math 335</a></td>
+    <td align=center><a href="335.php">math 335</a></td>
+    <td align=center><a href="335.php">math 335</a></td>
+  </tr>
+  <tr>
+    <td align=center>10-11</td>
+    <td></td>
+    <td align=center><a href="729.php">math 729</a></td>
+    <td align=center><a href="729.php">math 729</a></td>
+    <td align=center><a href="729.php">math 729</a></td>
+  </tr>
+  <tr>
+    <td align=center>11-12</td>
+    <td></td>
+    <td align=center></td>
+    <td align=center>office hour</td>
+    <td align=center>office hour</td>
+  </tr>
+  <tr>
+    <td align=center>12-1</td>
+    <td></td>
+    <td rowspan=2 align=center style="vertical-align:middle">office hour</td>
+    <td align=center></td>
+    <td rowspan=4 align=center style="vertical-align:middle"></td>
+  </tr>
+  <tr>
+    <td align=center>1-2</td>
+    <td></td>
+    <td align=center>sandra</td>
+  </tr>
+  <tr>       
+    <td align=center>2-3</td>
+    <td></td>
+    <td rowspan=2 align=center style="vertical-align:middle"></td>
+    <td align=center>nicole</td>
+  </tr>
+  <tr>
+    <td align=center>4-5</td>
+    <td></td>
+    <td align=center>seminar</td>
+  </tr>      
+</table>
+
+<br>
+
+

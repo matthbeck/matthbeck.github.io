@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--* Generated from MathBook XML source *-->
+<!--*    on 2016-11-27T14:59:17-08:00    *-->
+<!--*                                    *-->
+<!--*   http://mathbook.pugetsound.edu   *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Proof Templates</title>
+<meta name="Keywords" content="Authored in MathBook XML">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']],
+    },
+    TeX: {
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
+        equationNumbers: { autoNumber: "none",
+                           useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
+                           formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
+                         },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    "HTML-CSS": {
+        scale: 88,
+    },
+});
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-article has-toc has-sidebar-left">
+<div style="display:none;">\(
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
+<header id="masthead"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><span class="title">More Art of Proof</span></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav id="primary-navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="previous-button toolbar-item button" href="more-aop.html">Previous</a><a class="up-button button toolbar-item" href="more-aop.html">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+</div>
+<button class="sidebar-right-toggle-button button active">Annotations</button>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="more-aop.html">Previous</a><a class="up-button button toolbar-item" href="more-aop.html">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+</div>
+</div></nav></header><div class="page">
+<aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
+<nav id="toc"><h2 class="link active"><a href="proof-templates.html"><span class="codenumber">1</span><span class="title">Proof Templates</span></a></h2></nav><div class="extras"><nav><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="proof-templates"><header title="Section 1 Proof Templates"><h1 class="heading hide-type" alt="Section 1 Proof Templates">
+<span class="type">Section</span><span class="codenumber">1</span><span class="title">Proof Templates</span><a href="proof-templates.html" class="permalink">¶ permalink</a>
+</h1></header><ul style="list-style-type: disc;">
+<li id="li-1">
+<p id="p-1">If \(\clubsuit\) then \(\heartsuit\).</p>
+<p id="p-2">Proof: Assume \(\clubsuit\).</p>
+<p id="p-3"><!--Style me with CSS--><em>[lots of good math]</em></p>
+<p id="p-4">Thus \(\heartsuit\).</p>
+<p id="p-5"></p>
+</li>
+<li id="li-2">
+<p id="p-6">Proof of \(\spadesuit\) by contradiction:</p>
+<p id="p-7">Suppose (by way of contradiction) that \(\spadesuit\) does not hold.</p>
+<p id="p-8"><!--Style me with CSS--><em>[lots of good math]</em></p>
+<p id="p-9">This is a contradiction to <!--Style me with CSS--><em>[explain]</em>; thus our assumption that \(\spadesuit\) is false cannot hold, and so \(\spadesuit\) is true.</p>
+<p id="p-10"></p>
+</li>
+<li id="li-3">
+<p id="p-11">\(\clubsuit\) or \(\heartsuit\).</p>
+<p id="p-12">Proof: If \(\clubsuit\) is true, we are done.</p>
+<p id="p-13">So now assume that \(\clubsuit\) is not true.</p>
+<p id="p-14"><!--Style me with CSS--><em>[lots of good math]</em></p>
+<p id="p-15">Thus \(\heartsuit\) is true.</p>
+<p id="p-16"></p>
+</li>
+<li id="li-4">
+<p id="p-17">There exists a unique \(x \in \clubsuit\) such that \(\heartsuit\).</p>
+<p id="p-18">Proof:</p>
+<p id="p-19">Existence: <!--Style me with CSS--><em>[show that there exists \(x \in \clubsuit\) such that \(\heartsuit\)]</em></p>
+<p id="p-20">Uniqueness: Assume \(x_1, x_2 \in \clubsuit\) both satisfy \(\heartsuit\).</p>
+<p id="p-21"><!--Style me with CSS--><em>[lots of good math]</em></p>
+<p id="p-22">Thus \(x_1 = x_2\).</p>
+<p id="p-23"></p>
+</li>
+<li id="li-5">
+<p id="p-24">Proof of \(P(k)\) by induction:</p>
+<p id="p-25">Base case: <!--Style me with CSS--><em>[prove that \(P(1)\) is true.]</em></p>
+<p id="p-26">Induction step: Let \(n \in \mathbf{N}\); assume that \(P(n)\) is true.</p>
+<p id="p-27"><!--Style me with CSS--><em>[lots of good math, using the assumption that \(P(n)\) is true]</em></p>
+<p id="p-28">Thus \(P(n+1)\) is also true.</p>
+<p id="p-29"></p>
+</li>
+<li id="li-6">
+<p id="p-30">Proof of \(P(k)\) by strong induction:</p>
+<p id="p-31">Base case: <!--Style me with CSS--><em>[prove that \(P(1)\) is true.]</em></p>
+<p id="p-32">Induction step: Let \(n \in \mathbf{N}\); assume that \(P(j)\) is true for \(1 \le j \le n\).</p>
+<p id="p-33"><!--Style me with CSS--><em>[lots of good math, using the assumption that \(P(1), P(2), \dots, P(n)\) are true]</em></p>
+<p id="p-34">Thus \(P(n+1)\) is also true.</p>
+<p id="p-35"></p>
+</li>
+<li id="li-7">
+<p id="p-36">\(A=B\) (set equality).</p>
+<p id="p-37">\(\subseteq\): Assume \(x \in A\).</p>
+<p id="p-38"><!--Style me with CSS--><em>[lots of good math]</em></p>
+<p id="p-39">Thus \(x \in B\).</p>
+<p id="p-40">\(\supseteq\): Assume \(x \in B\).</p>
+<p id="p-41"><!--Style me with CSS--><em>[lots of good math]</em></p>
+<p id="p-42">Thus \(x \in A\).</p>
+<p id="p-43"></p>
+</li>
+<li id="li-8">
+<p id="p-44">\(f: A \to B\) is injective.</p>
+<p id="p-45">Assume \(a_1, a_2 \in A\) with \(f(a_1) = f(a_2)\).</p>
+<p id="p-46"><!--Style me with CSS--><em>[lots of good math]</em></p>
+<p id="p-47">Thus \(a_1 = a_2\).</p>
+<p id="p-48"></p>
+</li>
+<li id="li-9">
+<p id="p-49">\(f: A \to B\) is surjective.</p>
+<p id="p-50">Assume \(b \in B\).</p>
+<p id="p-51"><!--Style me with CSS--><em>[lots of good math, finding an \(a \in A\) or proving its existence]</em></p>
+<p id="p-52">Thus \(f(a) = b\).</p>
+<p id="p-53"></p>
+</li>
+<li id="li-10">
+<p id="p-54">\(\lim_{ k \to \infty } a_k = L\).</p>
+<p id="p-55">Given \(\epsilon &gt; 0\), choose \(N\) <!--Style me with CSS--><em>[give conditions on \(N\); they can only depend on \(\epsilon\)]</em>.</p>
+<p id="p-56">Then for \(n \ge N\),</p>
+<p id="p-57">\(|a_n - L| \lt \) <!--Style me with CSS--><em>[string of \(\lt\) inequalities]</em> \( \lt \epsilon \, .\)</p>
+<p id="p-58"></p>
+</li>
+<li id="li-11">
+<p id="p-59">\(\lim_{ k \to \infty } a_k\) does not exist.</p>
+<p id="p-60">Given \(L\), choose \(\epsilon\) <!--Style me with CSS--><em>[give conditions on \(\epsilon\); they can only depend on \(L\)]</em>.</p>
+<p id="p-61">Then given \(N\), choose \(n\) <!--Style me with CSS--><em>[give conditions on \(n\); they can depend on \(L\), \(\epsilon\), and \(N\), and you should make sure that
+          \(n \ge N\)]</em>.</p>
+<p id="p-62">Then \(|a_n - L| \ge \) <!--Style me with CSS--><em>[string of \(\ge\) inequalities]</em> \( \ge \epsilon \, .\)</p>
+<p id="p-63"></p>
+</li>
+</ul></section></div></main>
+</div>
+</body>
+</html>

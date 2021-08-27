@@ -1,0 +1,14 @@
+<h2>Ehrhart polynomials of graphic polytopes</h2>
+<p>
+Let G be a graph with vertex set V = {1, 2, ..., d}. For each edge {j,k} of G, collect the vectors e<sub>j</sub>-e<sub>k</sub> and e<sub>k</sub>-e<sub>j</sub> (where e<sub>j</sub> denotes the j'th unit vector in R<sup>d</sup>). We call the convex hull of all these vectors the <i>graphic polytope</i> P associated to G. The counting function #(tP intersect Z<sup>d</sup>) is called the <i>Ehrhart polynomial</i> of P.
+It is known that graphic Ehrhart polynomials L(t) satisfy the functional relation L(t) = (-1)<sup>d</sup> L(-t-1); in particular, all roots of L(t) are symmetric about the line Re(z) = -1/2.
+A (big) open research problem is a characterization of the graphs for which all roots have real part equal to -1/2. One family of graphs, whose Ehrhart roots <a href="http://arxiv.org/abs/1003.5444">Matsui, Higashitani, Nagazawa, Ohsugi, and Hibi</a> conjectured to all have real part -1/2 is that of complete biparthite graphs of type (2, d-2). Try to prove this conjecture.
+<p>
+First steps:
+<ul>
+  <li>Study Chapters 2-4 of <a href="ccd.html">my book with S. Robins</a>.
+  <li>Familiarize yourself with basic notion of graph theory.
+  <li>Compute lots of examples of graphic Ehrhart polynomials (there are several software packages that compute Ehrhart polynomials).
+  <li>Study <a href="http://arxiv.org/abs/0801.0873">Stapledon's a+b decomposition</a>.
+</ul>
+

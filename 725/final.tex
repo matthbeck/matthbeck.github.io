@@ -1,0 +1,202 @@
+% This is a LaTeX2e file.
+
+\documentclass[12pt]{amsart}
+\usepackage{amssymb,amsmath,latexsym,enumerate,mathptmx,microtype}
+
+\hoffset=0in 
+\voffset=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=-.4in 
+%\headsep=0in 
+%\headheight=0in
+\textwidth=6.5in
+\textheight=9in
+
+\def\phi{\varphi}
+\def\Id{\mathrm I}
+\def\0{\mathbf 0}
+\def\b{\mathbf b}
+\def\c{\mathbf c}
+\def\e{\mathbf e}
+\def\u{\mathbf u}
+\def\v{\mathbf v}
+\def\w{\mathbf w}
+\def\x{\mathbf x}
+\def\y{\mathbf y}
+\def\C{\mathbf{C}}
+\def\F{\mathbf{F}}
+\def\R{\mathbf{R}}
+\def\Z{\mathbf{Z}}
+\def\P{\mathcal{P}}
+\def\ds{\displaystyle}
+\newcommand\spn{\operatorname{span}}
+\renewcommand\null{\operatorname{null}}
+\newcommand\range{\operatorname{range}}
+\newcommand\rank{\operatorname{rank}}
+\newcommand\tr{\operatorname{tr}}
+\newcommand\sign{\operatorname{sign}}
+\newcommand\norm[1]{\left|\left| #1 \right|\right|}
+\newcommand\inner[2]{\left< #1, #2 \right>}
+\newcommand\commentout[1]{}
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4cm}
+
+\pagestyle{empty} 
+
+\begin{center} {\bf MATH 725 \qquad Final Exam \qquad 12/16/11 \qquad 10:45 a.m.\ -- 1:15 p.m. } \end{center} 
+
+Show complete work---that is, all the steps needed to completely justify your answer. % Simplify your answers as much as possible. 
+You may refer to theorems in the book (without referencing theorem numbers etc.).
+\thispagestyle{empty}
+
+\begin{enumerate} 
+
+\item Let $V$ be a vector space.
+  \begin{enumerate} 
+  \item Carefully define \emph{eigenvalues}, \emph{eigenvectors} and \emph{generalized eigenvectors} of $T \in L(V)$.
+  \item Now suppose $T \in L(V)$ is invertible. Show that $\lambda$ is an eigenvalue of $T$ if and only if $\frac 1 \lambda$ is an eigenvalue of $T^{ -1 }$.
+  \item Prove that $T$ and $T^{ -1 }$ have the same generalized eigenspaces.
+  \end{enumerate}
+
+\begin{proof}
+\begin{enumerate} 
+
+\item[(b)] First note that, since $T$ is invertible, $\null(T) = \{ \0 \}$, and so $0$ cannot be an eigenvalue of $T$. Now
+\begin{align*}
+  \lambda \text{ is an eigenvalue of } T
+  &\ \Longleftrightarrow \ T(\v) = \lambda \, \v \text{ for some } \v \ne \0 \\
+  &\ \Longleftrightarrow \ \v = T^{ -1 } (\lambda \, \v) \text{ for some } \v \ne \0 \\
+  &\ \Longleftrightarrow \ \tfrac 1 \lambda \, \v = T^{ -1 } (\v) \text{ for some } \v \ne \0 \\
+  &\ \Longleftrightarrow \ \tfrac 1 \lambda \text{ is an eigenvalue of } T^{ -1 } .
+\end{align*}
+
+\item[(c)]
+Let $n = \dim V$, and consider an eigenvalue $\lambda$ of $T$. Then
+\[
+  \null (T - \lambda \Id)^n
+  = \null \left( \lambda T \left( \tfrac 1 \lambda \Id - T^{ -1 } \right) \right)^n
+  = \null \left( (\lambda T)^n \left( \tfrac 1 \lambda \Id - T^{ -1 } \right)^n \right)
+\]
+for some $j \in \Z_{ >0 } $.
+(Here the last equality holds because $T$ commutes with both $\Id$ and $T^{ -1 }$.)
+But since $\lambda T$ is invertible,
+\[
+  \null \left( (\lambda T)^n \left( \tfrac 1 \lambda \Id - T^{ -1 } \right)^n \right)
+  = \null \left( \tfrac 1 \lambda \Id - T^{ -1 } \right)^n ,
+\]
+and so we have
+\[
+  \null (T - \lambda \Id)^n
+  = \null \left( \tfrac 1 \lambda \Id - T^{ -1 } \right)^n ,
+\]
+in words: the generalized eigenspace of $T$ corresponding to $\lambda$ equals the generalized eigenspace of $T^{ -1 }$ corresponding to $\frac 1 \lambda$. \qedhere
+\end{enumerate}
+\end{proof}
+
+
+\item Let $V$ be a complex inner-product space.
+  \begin{enumerate}
+  \item Define what it means for $T \in L(V)$ to be \emph{normal} and what it means for $T$ to be \emph{self adjoint}.
+  \item Prove that a normal operator in $L(V)$ is self adjoint if and only if all its eigenvalues are real. (\emph{Hint:} you may use the spectral theorem.)
+  \end{enumerate}
+
+\begin{proof}[Proof of {\rm (b)}]
+Suppose $T$ is self adjoint, and $\lambda$ is an eigenvalue with eigenvector $\v \ne \0$.
+Then
+\[
+  \lambda \norm \v^2
+  = \inner{ \lambda \, \v }{ \v } 
+  = \inner{ T(\v) }{ \v } 
+  = \inner{ \v } { T(\v) } 
+  = \inner{ \v } { \lambda \v }
+  = \overline{ \lambda } \norm \v^2
+\]
+and so, since $\norm \v \ne 0$, $\lambda = \overline \lambda$, i.e., $\lambda \in \R$.
+
+Conversely, suppose all eigenvalues of $T \in L(V)$ are real. By the (complex version of the) spectral theorem, there exists an orthonormal basis of eigenvectors of $T$, and with respect to this basis, $T$ has a diagonal matrix whose diagonal entries are the eigenvalues. But since these entries are real, $T^* = T$ (neither conjugation nor transposing changes the matrix), i.e., $T$ is self adjoint.
+\end{proof}
+
+\newpage
+\item Let $V$ be an inner-product space.
+  \begin{enumerate} 
+  \item Define what it means for $T \in L(V)$ to be an \emph{isometry}.
+  \item Suppose $n$ is an odd positive integer and $T \in L(\R^n)$ is an isometry. Prove that $T$ has eigenvalue 1 or~$-1$. (\emph{Hint:} you may use the existence of a certain block-diagonal form of a matrix of $T$.)
+  \end{enumerate}
+
+\begin{proof}[Proof of {\rm (b)}]
+We proved in class that there exists an orthonormal basis with respect to which $T$ has block-diagonal form, with $1 \times 1$ blocks (of the form $\pm 1$) and $2 \times 2$ blocks. Since $n$ is odd, there must be a $1 \times 1$ block, and so there must be an eigenvalue~$\pm 1$.
+\end{proof}
+
+
+\item
+  \begin{enumerate} 
+  \item Carefully define the \emph{characteristic} and \emph{minimal polynomials} of an operator $T \in L(\C^n)$.
+  \item Describe what a \emph{Jordan normal form} for $T$ is.
+  \item If $T \in L(V)$ has minimal polynomial $(x-28)^3 (x-34)$ and characteristic polynomial $(x-28)^6 (x-34)^2$, what are the possible different Jordan normal forms for~$T$?
+  \end{enumerate}
+
+\begin{proof}[Solution for {\rm (c)}]
+Because the minimal polynomial of $T$ is $(x-28)^3 (x-34)$, all the Jordan forms must have a $3 \times 3$ Jordan block with eigenvalue 28 (of the form $\begin{bmatrix} 28&1&0\\ 0&28&1\\ 0&0&28 \end{bmatrix}$) and a $1 \times 1$ blocks with eigenvalue $34$. Since the characteristic polynomial is $(x-28)^6 (x-34)^2$, the possible variations are
+\begin{enumerate}[(i)]
+\item two $3 \times 3$ Jordan blocks with eigenvalue 28 and two $1 \times 1$ blocks with eigenvalue $34$,
+\item one $3 \times 3$ Jordan block with eigenvalue 28, one $2 \times 2$ Jordan block with eigenvalue 28, one $1 \times 1$ Jordan block with eigenvalue 28, and two $1 \times 1$ blocks with eigenvalue $34$, and
+\item one $3 \times 3$ Jordan block with eigenvalue 28, three $1 \times 1$ Jordan blocks with eigenvalue 28, and two $1 \times 1$ blocks with eigenvalue $34$. \qedhere
+\end{enumerate}
+\end{proof}
+
+
+\item 
+  \begin{enumerate} 
+  \item Define the \emph{determinant} of $T \in L(\C^n)$.
+  \item Suppose $x_1, x_2, \dots, x_n \in \C$, and let $A \in L(\C^n)$ be given in matrix form (with respect to the standard basis of $\C^n$)
+\[
+  A := \left( \begin{array}{cccccccccccc}
+  1 & 1 & \cdots & 1 \\
+  x_1 & x_2 & \cdots & x_n \\
+  x_1^2 & x_2^2 & \cdots & x_n^2 \\
+  \vdots & \vdots &        & \vdots \\
+  x_1^{n-1} & x_2^{n-1} & \cdots & x_n^{n-1}
+  \end{array} \right) .
+\]
+  Viewing $x_1, x_2, \dots, x_n$ as variables, prove that $\det(A)$ is a polynomial in $x_1, x_2, \dots, x_n$ of (total) degree at most $\frac{ n(n-1) }{ 2 }$.
+  \item Show that $\det(A) = 0$ if $x_j = x_k$ for some $j \ne k$, and conclude that $x_k - x_j$ divides $\det(A)$.
+  \item Prove that
+\[
+  \det(A) = \prod_{ 1 \le j < k \le n } \left( x_k - x_j \right) .
+\]
+  (\emph{Hint:} use (b) and (c) to show that $\det(A) = c \, \prod_{ 1 \le j < k \le n } \left( x_k - x_j \right)$ for some constant $c$, and then compute the coefficient of $x_1^0 x_2^1 \cdots x_n^{ n-1 }$ on both sides.)
+
+  \end{enumerate}
+
+\begin{proof}
+\begin{enumerate} 
+
+\item[(b)] The determinant formula for a matrix we proved in class gives
+\[
+  \det(A) = \sum_{ \pi \in S_n } \sign(\pi) \prod_{ j=1 }^n x_{ \pi(j) }^{j-1}
+\]
+which is a polynomial of degree at most $\sum_{ j=1 }^{ n } (j-1) = \frac{ n(n-1) }{ 2 }$.
+
+\item[(c)] If $x_j = x_k$ for some $j \ne k$ then two rows of $A$ are equal, in which case we know that $\det(A) = 0$.
+Viewing $\det(A)$ as a polynomial in $x_k$, this means that $x_j$ is a root, and so $x_k - x_j$ divides $\det(A)$.
+
+\item[(d)] From part (c) we know that $\prod_{ 1 \le j < k \le n } \left( x_k - x_j \right)$, which is a polynomial of degree $\frac{ n(n-1) }{ 2 }$, divides $\det(A)$.
+Part (b) then implies that the degree of $\det(A)$ must equal $\frac{ n(n-1) }{ 2 }$, and so
+\[
+  \det(A) = c \prod_{ 1 \le j < k \le n } \left( x_k - x_j \right)
+\]
+for some constant $c$.
+The coefficient of $x_1^0 x_2^1 \cdots x_n^{ n-1 }$ in $\det(A)$ is $\sign(\Id) = 1$, as is
+the coefficient of $x_1^0 x_2^1 \cdots x_n^{ n-1 }$ in $\prod_{ 1 \le j < k \le n } \left( x_k - x_j \right)$, and so $c=1$. \qedhere
+
+\end{enumerate}
+\end{proof}
+
+\emph{Remark:} We have just computed the famous \emph{Vandermonte determinant}.
+
+\end{enumerate}
+
+\end{document}

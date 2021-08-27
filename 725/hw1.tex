@@ -1,0 +1,106 @@
+\documentclass[11pt]{amsart}
+\usepackage{amssymb,amsmath,latexsym,enumerate,mathptmx,microtype}
+\hoffset=0in 
+\voffset=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=-.7in 
+\textwidth=6.5in
+\textheight=9.5in
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4cm}
+\thispagestyle{empty} 
+\def\C{\mathbf{C}}
+\def\F{\mathbf{F}}
+\def\R{\mathbf{R}}
+\def\Z{\mathbf{Z}}
+\def\P{\mathcal{P}}
+
+\begin{center} {\bf MATH 725 \qquad \qquad Homework Set 1 \qquad \qquad due 8/29/11} \end{center} 
+
+\begin{enumerate}[(1)]
+
+\item Find all solutions (in $\C$) to the following equations: 
+  \begin{enumerate} 
+  \item $z^6 = 1$
+  \item $z^4 = -16$
+  \item $z^6=-9$
+  \item $z^6-z^3-2=0 \, .$
+  \end{enumerate}
+
+\begin{proof}[Solution]
+By the fundamental theorem of algebra, a polynomial equation of degree $n$ has exactly $n$ solutions (counting with multiplicities), in which case it thus suffices to give $n$ distinct numbers that satisfy the equation.
+  \begin{enumerate} 
+  \item $z = e^{ \pi i k/3 }$ for $1 \le k \le 6$ satisfy $z^6 = 1$.
+  \item $z = 2 \, e^{ \pi i k/4 }$ for $k = 1, 3, 5, 7$ satisfy $z^4 = -16$.
+  \item $z = \sqrt[3] 3 \, e^{ \pi i k/3 }$ for $k = 1, 3, 5$ satisfy $z^6=-9$.
+  \item The quadratic equation $x^2 - x - 2 = 0$ has the solutions $x = -1, 2$, and so $z^6-z^3-2=0$ has the solutions $z = e^{ \pi i k/3 }$ for $k = 1, 3, 5$ and $z = \sqrt[3] 2 \, e^{ 2 \pi i k/3 }$ for $k = 1, 2, 3$. \qedhere
+  \end{enumerate}
+\end{proof}
+
+\item Suppose $U_1, U_2, \dots, U_n$ are subspaces of $V$. Prove that $U_1 + U_2 + \dots + U_n$ is a subspace of $V$.
+
+\begin{proof}
+We will check that $0 \in U_1 + U_2 + \dots + U_n$ and that $U_1 + U_2 + \dots + U_n$ is closed under addition and scalar multiplication.
+
+The first assertion follows since $0 \in U_j$ for all $j$, and so $0 = 0 + o + \dots + 0 \in U_1 + U_2 + \dots + U_n$.
+
+Now suppose $u_j, w_j \in U_j$ for each $j$; that is, we have two elements $u_1 + u_2 + \dots + u_n \in U_1 + U_2 + \dots + U_n$ and $w_1 + w_2 + \dots + w_n \in U_1 + U_2 + \dots + U_n$. Since $u_j + w_j \in U_j$ (because $U_j$ is a subspace),
+\[
+  u_1 + u_2 + \dots u_n + w_1 + w_2 + \dots w_n
+  = \left( u_1 + w_1 \right) + \left( u_2 + w_2 \right) + \dots + \left( u_n + w_n \right)
+  \in U_1 + U_2 + \dots + U_n \, ,
+\]
+that is, $U_1 + U_2 + \dots + U_n$ is closed under addition.
+Similarly, given $a \in \F$, we know that $a u_j \in U_j$ (again because $U_j$ is a subspace), and so
+\[
+  a \left( u_1 + u_2 + \dots + u_n \right)
+  = a u_1 + a u_2 + \dots + a u_n
+  \in U_1 + U_2 + \dots + U_n \, ,
+\]
+that is, $U_1 + U_2 + \dots + U_n$ is closed under scalar multiplication.
+\end{proof}
+
+\item Carefully reason whether or not the following sets are subspaces of $\R^2$:
+  \begin{enumerate} 
+  \item $\left\{ (a,b) \in \R^2 : \, a, b \ge 0 \right\}$
+  \item $\left\{ (a,b) \in \R^2 : \, ab \ge 0 \right\}$
+  \item $\left\{ (a,b) \in \R^2 : \, a=b \right\}$
+  \item $\Z^2$
+  \end{enumerate}
+
+\begin{proof}[Solution]
+  \begin{enumerate} 
+  \item $(1,1) \in \left\{ (a,b) \in \R^2 : \, a, b \ge 0 \right\}$ but $-(1,1) \notin \left\{ (a,b) \in \R^2 : \, a, b \ge 0 \right\}$, so this is not a subspace.
+  \item $(1,1)$ and $(-2,0)$ are both in $\left\{ (a,b) \in \R^2 : \, ab \ge 0 \right\}$ but $(1,1) + (-2,0) = (-1,1)$ is not, so this is not a subspace.
+  \item $\left\{ (a,b) \in \R^2 : \, a=b \right\}$ is a subspace: $(0,0)$ is in it, it is closed under addition ($(x,x) + (y,y) = (x+y, x+y)$) and scalar multiplication ($a(x,x) = (ax,ax)$).
+  \item $(1,1) \in \Z^2$ but $\frac 1 2 (1,1) \notin \Z^2$, so $\Z^2$ is not a subspace. \qedhere
+  \end{enumerate}
+\end{proof}
+
+\item Consider the subspace $U := \left\{ p \in \P(\F) : \, \deg(p) \le 3 \right\}$ of the vector space $\P(\F)$ consisting of all polynomials with coefficients in $\F$. Construct a subspace $W$ of $\P(\F)$ such that $\P(\F) = U \oplus W$.
+
+\begin{proof}[Solution]
+We claim that $W := \left\{ x^4 p(x) : \, p \in \P(\F) \right\}$ will do the trick (that is, $W$ consists of the zero polynomial and all polynomials that do not have constant, linear, quadratic, or tertiary terms).
+$W$ is a subspace because it contains $0$ and is closed under addition and scalar multiplication.
+By construction we have $\P(\F) = U+W$ and $U \cap W = \left\{ 0 \right\}$, so by Proposition 1.9, $\P(\F) = U \oplus W$.
+\end{proof}
+
+\item Suppose $U$ and $W$ are subspaces of $V$. Prove that $U \cap W$ is the largest subspace of $V$ that is contained in both $U$ and $W$; that is:
+  \begin{enumerate} 
+  \item $U \cap W$ is a subspace of $V$, and
+  \item any other subspace of $V$ that is contained in both $U$ and $W$ is also contained in $U \cap W$.
+  \end{enumerate}
+
+\begin{proof}
+Since $U$ and $W$ are subspaces, they both contain 0, and so $0 \in U \cap W$.
+Given $v_1, v_2 \in U \cap W$, they are both in $U$ and $W$. As subspaces, $U$ and $W$ are closed under addition and scalar multiplication, and so $v_1 + v_2$ is in both $U$ and $V$, that is, $v_1 + v_2 \in U \cap W$; similary, for $a \in \F$, $a v_1$ is in both $U$ and $V$, that is, $a v_1 \in U \cap W$.
+Thus $U \cap W$ is also closed under addition and scalar multiplication, and this proves (a).
+
+Now let $S$ be a subspace of $V$ that is contained in both $U$ and $W$. Then (as a set) $S$ is contained in $U \cap W$, and this proves (b).
+\end{proof}
+
+\end{enumerate}
+
+\end{document}

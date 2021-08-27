@@ -1,0 +1,135 @@
+\documentclass[11pt]{article} 
+\usepackage{amssymb,latexsym,enumerate,graphicx}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+
+\hoffset=0in 
+\voffset=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in 
+\textwidth=6.5in
+\textheight=8.6in
+
+\def\Z{\mathbb{Z}}
+\def\sage{{\tt sage} }
+
+\pagestyle{empty}
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.2cm}
+
+$\mbox{}$
+\vspace{-1in}
+
+{\sc 2018 Math 310: Number Theory}
+\hfill
+{\tt math.sfsu.edu/beck/310.php}
+
+\vspace{.1in}
+
+\begin{center}
+\Large{Worksheet 2: Primes}
+\end{center}
+
+\begin{enumerate}
+
+\item Let $a, b \in \Z_{ >0 }$.
+Show that, if $g = \gcd(a,b)$ then $\gcd(\frac a g, \frac b g) = 1$.
+
+\item Give a careful definition of a \emph{prime number}.
+
+\item Let $a, b, c \in \Z_{ >0 }$.
+  \begin{enumerate}
+  \item Prove that, if $a \mid bc$ and $\gcd(a,b) = 1$, then $a \mid c$.
+  \item Conclude that if $p$ is prime and $p \mid ab$, then $p \mid a$ or $p \mid b$.
+  \item Give a counterexample that shows the previous sentence is wrong if $p$ is not prime.
+  \end{enumerate}
+
+\item Prove the \emph{Fundamental Theorem of Arithmetic}: for every integer $n \ge 2$ there exist unique primes
+$p_1, p_2, \dots, p_k$ and positive integers $a_1, a_2, \dots, a_k$ such that
+\[
+  n \ = \ p_1^{ a_1 } p_2^{ a_2 } \cdots p_k^{ a_k } .
+\]
+  \begin{enumerate}
+  \item For existence, try induction on~$n$.
+  \item For uniqueness, you may use 3(b).
+  \end{enumerate}
+
+\item Andrews 2.4.5 \& 6.
+
+\item Experiment with the \sage commands {\tt factor} and {\tt is\underline{ }prime}.
+Try them with a 100-digit number and a 150-digit number and compare the four running times (e.g., by using {\tt
+\%time} before the command). What's going on here?
+
+\item \emph{Preview: Clock Arithmetic.}
+% In this clock world, we only consider numbers (nonnegative integers) less than the number of hours on the clock.   In this example, we have a 6-hour clock.
+The numbers on the 6-hour clock are the
+remainders we get when we divide by, in this case, 6.   Adding 3 to 4
+gets us to 1, which is also the remainder of dividing 3+4 by 6.
+
+\begin{enumerate}
+
+% \setcounter{enumi}{2}  %% next number will be n+1
+
+\item Explain why the number at the top of the clock is 0 rather
+than 6.
+
+\item Complete the clock addition table and this clock multiplication table
+
+\begin{minipage}[t]{0.4\textwidth}
+\begin{tabular}{|c||c|c|c|c|c|c|}
+\hline
++ & 0 & 1 & 2 &  3  & 4 & 5 \\ \hline \hline
+0 & \hspace*{.2in} & \hspace*{.2in} & \hspace*{.2in} &
+\hspace*{.2in} & \hspace*{.2in} & \hspace*{.2in}\\
+  &  &  &  &  &  &  \\ \hline
+1 &  &  &  &  &  & \\
+  &  &  &  &  &  & \\ \hline
+2 &  &  &  &  &  & \\
+  &  &  &  &  &  & \\ \hline
+3 &  &  &  &  &  & \\
+  &  &  &  &  &  & \\ \hline
+4 &  &  &  &  &  & \\
+  &  &  &  &  &  & \\ \hline
+5 &  &  &  &  &  & \\
+  &  &  &  &  &  & \\ \hline
+\end{tabular}
+\end{minipage}
+\begin{minipage}[t]{0.2\textwidth}
+\includegraphics[width=.8\textwidth]{6-hour-clock.png}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{tabular}{|c||c|c|c|c|c|c|}
+\hline
+$\cdot$ & 0 & 1 & 2 &  3  & 4 & 5 \\ \hline \hline
+0 & \hspace*{.2in} & \hspace*{.2in} & \hspace*{.2in} &
+\hspace*{.2in} & \hspace*{.2in} & \hspace*{.2in}\\
+  &  &  &  &  &  &  \\ \hline
+1 &  &  &  &  &  & \\
+  &  &  &  &  &  & \\ \hline
+2 &  &  &  &  &  & \\
+  &  &  &  &  &  & \\ \hline
+3 &  &  &  &  &  & \\
+  &  &  &  &  &  & \\ \hline
+4 &  &  &  &  &  & \\
+  &  &  &  &  &  & \\ \hline
+5 &  &  &  &  &  & \\
+  &  &  &  &  &  & \\ \hline
+\end{tabular}
+\end{minipage}
+
+\vspace*{.2in}
+
+\item What patterns do you see in these two tables?
+
+\end{enumerate}
+
+\item Write down a precise statement for each definition we have given this week.
+For each definition, give an example and a non-example.
+
+\end{enumerate}
+
+\end{document}
+

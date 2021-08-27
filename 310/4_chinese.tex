@@ -1,0 +1,64 @@
+\documentclass[11pt]{article} 
+\usepackage{amssymb,latexsym,amsmath,enumerate,graphicx}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+
+\hoffset=0in 
+\voffset=-.7in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in 
+\textwidth=6.5in
+\textheight=9in
+
+\def\Z{\mathbb{Z}}
+\def\sage{{\tt sage}}
+
+\pagestyle{empty}
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.2cm}
+
+{\sc 2018 Math 310: Number Theory}
+\hfill
+{\tt math.sfsu.edu/beck/310.php}
+
+\vspace{.3in}
+
+\begin{center}
+\Large{Worksheet 4: Chinese Remainder Theorem}
+\end{center}
+
+\begin{enumerate}
+
+\item Let $a$ by the day (of the month) you were born and $b$ the month.\footnote{
+If $a = 26$ and $b = 9$... happy birthday!!
+}
+Find $x \in \Z$ such that
+\[
+  x \equiv a \bmod 31
+  \qquad \text{ and } \qquad
+  x \equiv b \bmod 12 \, .
+\]
+
+\item\label{crt2eq}
+Suppose $m, n \in \Z_{ >0 }$ are relatively prime, and $a, b \in \Z$.
+Prove that
+\[
+  x \equiv a \bmod m
+  \qquad \text{ and } \qquad
+  x \equiv b \bmod n 
+\]
+has a solution $x \in \Z$ and that $x$ is unique modulo~$mn$.
+
+\item Generalize the statement (and your proof) of \ref{crt2eq}.\ to a system of $k$ congruences.
+
+\item Andrews 5.3.1. (Feel free to use \sage.)
+
+\item Write down a precise statement for each definition we have given this week.
+For each definition, give an example and a non-example.
+
+\end{enumerate}
+
+\end{document}
+

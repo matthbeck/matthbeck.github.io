@@ -1,0 +1,82 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb,amsmath,latexsym,enumerate}
+
+\hoffset=0in 
+\voffset=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=-.7in 
+%\headsep=0in 
+%\headheight=0in
+\textwidth=6.5in
+\textheight=9in
+
+\newcommand\GL{\operatorname{GL}} 
+\newcommand\Inn{\operatorname{Inn}} 
+\newcommand\Aut{\operatorname{Aut}} 
+\newcommand\Stab{\operatorname{Stab}} 
+\newcommand\orb{\operatorname{orb}} 
+\newcommand\lcm{\operatorname{lcm}} 
+\newcommand\gen[1]{\left< #1 \right>}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\F{\mathbb{F}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\x{\mathbf{x}}
+\def\y{\mathbf{y}}
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4cm}
+
+\thispagestyle{empty} 
+
+\begin{center} {\bf MATH 850 \qquad \qquad Gr\"obner Bases Homework} \end{center} 
+
+\begin{enumerate}[(1)]
+
+\item Divide $x^2 y + 1$ and $x^3 + y^2$ into $1 + x^5 + x + y + x^3 y + x^4 y + y^2 + 2 x^2 y^2 + x y^3$ twice, giving preference for one or
+the other polynomial. Use lex order with $x \succ y$.
+
+\item Let $R$ be a ring, $a_1, a_2, \dots, a_n, b_1, b_2, \dots, b_n \in R$, and let $F$ be a field.
+  \begin{enumerate}
+  \item Show that $a_1 a_2 \cdots a_n - b_1 b_2 \cdots b_n \in \gen{ a_1 - b_1, a_2 - b_2, \dots, a_n - b_n }$.
+  \item Prove that, if $f(\x), f_1(\x), f_2(\x), \dots, f_m(\x) \in F[\x]$ and $f = p(f_1, f_2, \dots, f_m)$ for some $p(\y) \in F[\y]$, then
+  \[
+    f(\x) - p(\y) \ \in \ \gen{ y_1 - f_1, y_2 - f_2, \dots, y_m - f_m }
+  \]
+  in $F[\x, \y]$.
+  \end{enumerate}
+
+\item Let $G = \left( x^2 + y, \, x^2 y + 1 \right) \subseteq \R[x,y]$. Show that $G$ is not a Gr\"obner basis with respect to any term order
+on $\Z_{ \ge 0 }^2$.
+
+\item Let $I = \gen{ x^2 + y^2 + z^2 - 4, \, x^2 + 2 y^2 - 5, \, xz - 1 } \subseteq \R[x,y,z]$. Compute a Gr\"obner basis for $I$ with
+respect to lex orders with $x \succ y \succ z$ and $y \succ z \succ x$, and graded lex order.
+
+\item Compute a polynomial $p(y_1, y_2)$ such that $x_1^4 + x_2^4 = p(x_1+x_2, \, x_1 x_2)$.
+
+\item Let $I = \gen{ 5x + y + z - 17, \, x+y-z-1, \, x+y+z-9 } \subseteq \R[x,y,z]$. Compute a Gr\"obner basis for $I$ with respect to the
+usual lex order. Explain the relation to Gau\ss \ elimination when solving the following system:
+\begin{align*}
+  5x + y + z &= 17 \\
+  x+y-z &= 1 \\
+  x+y+z &= 9 \, .
+\end{align*}
+
+\item Blow the dust off your old calculus book and convince yourself that, to find the minimum and maximum values of
+\[
+  x^3 + 2xyz - z^2
+\]
+for $(x,y,z)$ on the sphere given by $x^2 + y^2 + z^2 = 1$ can be solved using Lagrange multipliers via the system
+\begin{align*}
+  3x^2 + 2yz - 2x \lambda &= 0 \\
+  2xz - 2y \lambda &= 0 \\
+  2xy - 2z - 2z \lambda &= 0 \\
+  x^2 + y^2 + z^2 - 1 &= 0 \, .
+\end{align*}
+Solve this via Gr\"obner bases; we suggest to use lex order with $\lambda \succ x \succ y \succ z$.
+
+\end{enumerate}
+\end{document}

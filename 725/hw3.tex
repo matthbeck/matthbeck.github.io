@@ -1,0 +1,173 @@
+\documentclass[11pt]{amsart}
+\usepackage{amssymb,amsmath,latexsym,enumerate,mathptmx,microtype}
+\hoffset=0in 
+\voffset=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=-.7in 
+\textwidth=6.5in
+\textheight=9.5in
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4cm}
+\thispagestyle{empty} 
+\def\0{\mathbf 0}
+\def\v{\mathbf v}
+\def\w{\mathbf w}
+\def\C{\mathbf{C}}
+\def\F{\mathbf{F}}
+\def\R{\mathbf{R}}
+\def\Z{\mathbf{Z}}
+\def\P{\mathcal{P}}
+\newcommand\spn{\operatorname{span}}
+\renewcommand\null{\operatorname{null}}
+\newcommand\range{\operatorname{range}}
+
+\begin{center} {\bf MATH 725 \qquad \qquad Homework Set 3 \qquad \qquad due 9/12/11} \end{center} 
+
+\begin{enumerate}[(1)]
+
+\item Show that $\P(\F)$, the set of all polynomials with coefficients in $\F$, is not finite dimensional.
+
+\begin{proof}
+If $B$ is a finite basis for $\P(\F)$ then there will be a polynomial of largest degree $d$ among the polynomials in $B$. But then there is no way to write $x^{ d+1 }$ as a linear combination of polynomials in $B$. Thus $\P(\F)$ cannot have a finite basis.
+\end{proof}
+
+\item The purpose of this exercise is to prove that every non-trivial vector space has a basis (not just finite-dimensional ones), assuming Zorn's Lemma (which we will give below).
+To do so, we need the following definition: Let $V$ be a vector space over $\F$. A \emph{linear combination} is a sum of the form $\sum_{ \v \in V } a_\v \v$ where all but finitely many of the $a_\v$ are 0.
+Having settled this, we repeat the same definitions what it means for a non-empty subset $S \subseteq V$ to \emph{span} $V$, what it means for $S$ to be \emph{linearly independent}, and what it means for $S$ to be a \emph{basis} of $V$ as in the Axler book.
+
+We also need the definition of a \emph{partially ordered set} (a \emph{poset}): this is a set $P$
+equipped with a relation $\preceq$ that satisfies \emph{reflexivity}, \emph{antisymmetry}, and \emph{transitivity}; that is, for all $a, b, c \in P$,
+\begin{align*}
+  a &\preceq a \\
+  a \preceq b \ \text{ and } \ b &\preceq a \quad \Longrightarrow \quad a = b \\
+  a \preceq b \ \text{ and } \ b &\preceq c \quad \Longrightarrow \quad a \preceq c \, .
+\end{align*}
+A subset $C \subseteq P$ is a \emph{chain} if it is totally ordered, i.e., $a, b \in C \Longrightarrow a \preceq b$ or $b \preceq a$.
+We call $u \in P$ an \emph{upper bound} for the subset $S \subseteq P$ if $a \preceq u$ for all $a \in S$, and we call $u$ \emph{maximal} if it is an upper bound for $P$.
+
+\emph{Zorn's Lemma} (which we will assume for this exercise) says that if $P$ is a partially ordered set in which every chain has an upper bound, then $P$ has a maximal element.\footnote{Zorn's Lemma is equivalent to the \emph{Axiom of Choice}, a remark that suggests that it is a nontrivial item in mathematical logic. Do yourself a favor and spend a few minutes googling these two terms.}
+
+  \begin{enumerate}
+  \item Show that $P(V)$, the \emph{power set} of $V$ consisting of all subsets of $V$, is partially ordered under set containment (i.e., we take $\preceq$ to be $\subseteq$).
+  \item Let $L \subseteq P(V)$ consist of all linearly independent subsets of $V$. Show that every chain in $L$ has an upper bound.
+  \item According to Zorn's Lemma, $L$ contains a maximal element $B$. Show that $B$ is a basis for $V$.
+  \end{enumerate}
+
+\begin{proof}
+\begin{enumerate}
+
+\item Let $A, B, C$ be subsets of $V$.
+Then we have $A \subseteq A$ by definition, $A \subseteq B \subseteq C \Longrightarrow A \subseteq C$ because the statements $x \in A \Longrightarrow x \in B$ and $x \in B \Longrightarrow x \in C$ imply the statement $x \in A \Longrightarrow x \in C$, and $A \subseteq B \supseteq A \Longrightarrow A=B$ by definition of set equality.
+
+\item Suppose $A_1 \subseteq A_2 \subseteq A_3 \subseteq \cdots$ be a chain in $L$. Then $A := \bigcup_{ j=1 }^\infty A_j$ (if the chain is finite, make this a finite union) is a subset of $V$ that by construction contains every $A_j$ as a subset, and so $A$ is an upper bound for the chain.
+
+\item We need to show that $B$ spans $V$ and is linearly independent. The latter statement follows because $B \in L$.
+To prove that $B$ spans $V$, assume the contrary, i.e., there exists a vector $\v \in V$ that is not in $\spn(B)$. But then the set $B \cup \{ \v \}$ is linearly independent, hence $B \cup \{ \v \} \in L$, contradicting the fact that $B$ is the maximum element of $L$. \qedhere
+
+\end{enumerate}
+\end{proof}
+
+\item Suppose $V$ and $W$ are finite-dimensional vector spaces. Show that the following statements are equivalent:
+  \begin{enumerate}
+  \item $\dim(V) \ge \dim(W)$.
+  \item There exists a surjective linear map $V \rightarrow W$.
+  \item There exists an injective linear map $W \rightarrow V$.
+  \end{enumerate}
+
+\begin{proof}
+Fix a basis $\left( \v_1, \v_2, \dots, \v_n \right)$ of $V$ and a basis $\left( \w_1, \w_2, \dots, \w_m \right)$ of $W$.
+We will prove (a) $\Longleftrightarrow$ (b) and (a) $\Longleftrightarrow$ (c), in two steps each.
+
+Suppose $n \ge m$.
+Then $T: V \rightarrow W$ given by
+\[
+  T \left( \sum_{ j=1 }^n a_j \v_j \right) = \sum_{ j=1 }^m a_j \w_j
+\]
+is well defined, surjective, and linear by construction.
+Conversely, suppose there exists a surjective linear map $V \rightarrow W$. Then
+\[
+  \dim V = \dim \null(T) + \dim \range(T) = \dim \null(T) + \dim W \ge \dim W \, .
+\]
+For the second double implication, again suppose $n \ge m$.
+Then $T: W \rightarrow V$ given by
+\[
+  T \left( \sum_{ j=1 }^m a_j \w_j \right) = \sum_{ j=1 }^m a_j \v_j
+\]
+is well defined, injective, and linear, again by construction.
+Conversely, suppose there exists a injective linear map $W \rightarrow V$. Then
+\[
+  \dim W = \dim \null(T) + \dim \range(T) = \dim \range(T) \le \dim V \, . \qedhere
+\]
+\end{proof}
+
+\item Let $S,T: V \rightarrow V$ be linear maps on a vector space $V$.
+  \begin{enumerate}
+  \item Show that $\null(T) \subseteq \null(ST)$.
+  \item Give an example where $\null(S) \not\subseteq \null(ST)$.
+  \item Show that $\range(ST) \subseteq \range(S)$.
+  \item Give an example where  $\range(ST) \not\subseteq \range(T)$.
+  \end{enumerate}
+
+\begin{proof}
+\begin{enumerate}
+
+\item Suppose $\v \in \null(T)$, i.e., $T(\v) = \0$. Then $S(T(\v)) = \0$, i.e., $\v \in \null(ST)$.
+
+\item Let $V = \P(\R)$ and define the maps $S, T \in L(V)$ through
+\[
+  S(p(x)) = p'(x)
+  \qquad \text{ and } \qquad
+  T(p(x)) = \int_0^x p(t) \, dt .
+\]
+Then $ST$ is the identity map with $\null(ST) = \left\{ 0 \right\}$; however, $\null(S)$ consists of all constant polynomials.
+
+\item Suppose $\w \in \range(ST)$, i.e., there exists $\v \in V$ such that $S(T(\v)) = \w$. Then $\w \in \range(S)$ because $T(\v)$ is the pre-image of $\w$ under $S$.
+
+\item Let $V = \P(\R)$, let $T$ be the identity map, and $S(p(x)) = x \, p(x)$.
+Then $\range(T) = V$; however, $\range(ST) = \range(S)$ consists of all polynomials that do not have a nonzero constant term. \qedhere
+
+\end{enumerate}
+\end{proof}
+
+\item As usual, let $\P(\R)$ be the set of all polynomials with coefficients in~$\R$.
+  \begin{enumerate}
+  \item Show that $\frac{d}{dx}$ is a linear map $\P(\R) \rightarrow \P(\R)$. Is the map injective or surjective or both?
+  \item Fix $a \in \R$ and let $I_a: \P(\R) \rightarrow \P(\R)$ be defined by $I_a(f) := \int_a^x f(t)\,dt$. Show that $I_a$ is linear. Is $I_a$ injective or surjective or both?
+  \item Is $I_a$ a left or right inverse of $\frac{d}{dx}$? Is it possible to choose a value of $a$ so that $I_a$ is a two-sided inverse of $\frac{d}{dx}$?
+\end{enumerate}
+
+\begin{proof}
+\begin{enumerate}
+
+\item Given $p(x), q(x) \in \P(\R)$ and $\lambda \in \R$,
+\[
+  \tfrac{d}{dx} \left( \lambda \, p(x) + q(x) \right) = \lambda p'(x) + q'(x)
+\]
+by the rules of calculus, so $\frac{d}{dx}$ is linear. This map is surjective because by the Fundamental Theorem of Calculus
+\[
+  \frac{d}{dx} \int_0^x p(t) \, dt = p(x) \, ,
+\]
+i.e., the polynomial $\int_0^x p(t) \, dt$ is a pre-image of $p(x)$.
+Differentiation is not injective because $\frac{d}{dx} (x+1) = \frac{d}{dx} (x+2) = 1$.
+
+\item Given $p(x), q(x) \in \P(\R)$ and $\lambda \in \R$,
+\[
+  I_a (\lambda \, p(x) + q(x)) = \int_a^x \lambda \, p(t) + q(t) \, dt = \lambda \int_a^x p(t) \, dt + \int_a^x q(t) \, dt
+\]
+by the rules of calculus, so $I_a$ is linear. This map is injective because if
+\[
+  \int_a^x p(t) \, dt = \int_a^x q(t) \, dt
+\]
+then we can differentiate both sides to conclude $p(x) = q(x)$.
+The map $I_a$ is not surjective, because $I_a(p(x))$ is a polynomial of degree $\ge 1$ (unless it is zero).
+
+\item The Fundamental Theorem of Calculus says that $I_a$ is a right inverse of $\frac{d}{dx}$. It cannot be a two-sided inverse because then it would be surjective. \qedhere
+
+\end{enumerate}
+\end{proof}
+
+\end{enumerate}
+
+\end{document}

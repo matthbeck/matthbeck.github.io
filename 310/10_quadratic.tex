@@ -1,0 +1,70 @@
+\documentclass[11pt]{article} 
+\usepackage{amssymb,latexsym,amsmath,enumerate,graphicx}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+
+\hoffset=0in 
+\voffset=-.7in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in 
+\textwidth=6.5in
+\textheight=9in
+
+\def\Z{\mathbb{Z}}
+\def\sage{{\tt sage}}
+\newcommand\leg[2]{\left( \frac{ #1 }{ #2 } \right)}
+
+\pagestyle{empty}
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.2cm}
+
+{\sc 2018 Math 310: Number Theory}
+\hfill
+{\tt math.sfsu.edu/beck/310.php}
+
+\vspace{.3in}
+
+\begin{center}
+\Large{Worksheet 10: Quadratic Residues}
+\end{center}
+
+\begin{enumerate}
+
+\item Make a list of all quadratic residues mod 2, 3, 5, 7, and 11.
+
+\item In this exercise, we'll prove another one of Euler's theorems:
+If $p$ is an odd prime, then $a$ is a quadratic residue mod $p$ if and only if $a^{ \frac{ p-1 }{ 2 } } \equiv 1 \bmod p$.
+
+  \begin{enumerate}
+
+  \item Prove the ``$\Longrightarrow$'' direction, e.g., by recalling another theorem by Euler.
+
+  \item For the ``$\Longleftarrow$'' direction, you may assume that there exits a primitive root $r$ mod $p$ (which is true, although we haven't prove it).
+  Assuming $a^{ \frac{ p-1 }{ 2 } } \equiv 1 \bmod p$, use the fact that $a \equiv r^n$ for some $n$, and show that $n$ is even.
+
+  \end{enumerate}
+
+\item Use Euler's theorem to prove, given a primitive root $r$ mod $p$ (as above, an odd prime), that $g^n$ is a quadratic residue mod $p$ if and only if $n$ is even.
+Conclude that, for an odd prime $p$, exactly half the integers between 1 and $p-1$ are quadratic residues mod~$p$.
+
+\item Let $p$ be and odd prime not dividing $a$ and $b$. Show that:
+
+  \begin{enumerate}
+
+  \item $\leg{ab} p = \leg a p \leg b p$
+
+  \item $\leg a p \equiv a^{ \frac{ p-1 }{ 2 } } \bmod p$
+ 
+  \end{enumerate}
+
+\item Andrews 9.2.2. 
+ 
+\item Write down a precise statement for each definition we have given this week.
+For each definition, give an example and a non-example.
+
+\end{enumerate}
+
+\end{document}
+

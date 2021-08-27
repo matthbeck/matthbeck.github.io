@@ -1,0 +1,126 @@
+<?php
+  include 'header.php';
+?>
+
+
+<div class="row">
+  <div class="column side">
+<ul class="left">
+<li><a href="index.php">home</a></li>
+<li><a href="teach.php">teaching</a></li>
+<li><a href="students.php">advising</a></li>
+<li><a href="research.php">research</a>
+  <ul>
+  <li><a href="books.php">books</a></li>
+  <li><a href="papers.php">papers</a>
+  <li><a href="problems.php">problems</a>
+  <li><a href="slides.php">slides</a>
+  </ul>
+</li>
+<li><a href="cv.php">curriculum vitae</a></li>
+</ul>
+
+  </div>
+
+<!--  <div class="column middle" style="background-color:#bbb;">Column</div> -->
+  <div class="column middle">
+
+      <h3>slides</h3>
+
+<ul>
+
+<li><a href="papers/parfrac.slides.pdf">The partial-fractions method for counting solutions to integral linear systems</a> (MSRI Discrete & Computational Geometry Seminar, 11/3/03)
+
+<li><a href="papers/birkhoff.slides.pdf">Computing the continuous discretely: The magic quest for a volume</a>
+(Universite Pierre et Marie Curie (Paris 6) Seminaire de Combinatoire Algebrique et Geometrique, 4/8/04;
+Technische Universit&auml;t Berlin Discrete Mathematics Colloquium, 5/17/04;
+Universitat de Barcelona Mathematics Colloquium, 6/4/05;
+Universit&auml;t Marburg Mathematics Colloquium, 6/14/05;
+Reed College Mathematics Colloquium, 12/2/04)
+
+<li><a href="papers/numbertheory.slides.pdf">Enumerating integer-points in polytopes: applications to number theory</a> (Northwest Number Theory Conference, Simon Fraser University, 4/23/05; Mathfest, Knoxville, 8/10/06)
+
+<li><a href="papers/frobeasy.slides.pdf">The "coin-exchange problem" of Frobenius</a> (Sonoma State University M*A*T*H Colloquium, 4/27/05; Mathfest short course "Recreational Mathematics in Teaching", 8/3/05)
+
+<li><a href="papers/vectorpar.slides.pdf">Vector-partition functions</a> (Combinatorial & Additive Number Theory Conference, CUNY, 5/19/05; 16th International Conference of the Jangjeon Mathematical Society, Antalya, Turkey, 7/5/05)
+
+<li><a href="papers/nnz.slides.pdf">The enumeration of nowhere-zero integral flows in graphs</a> (INTEGERS Conference, University of West Georgia, 10/27/05)
+
+<li><a href="papers/dedekind.slides.pdf">Dedekind sums: a geometric viewpoint</a> (Diophantine Analysis & Related Topics Conference, Keio University, Japan, 3/8/06; Mathfest, 8/10/06)
+
+<li><a href="papers/capter2.slides.pdf">Volume computations for polytopes: An invitation to Ehrhart theory</a> (Undergraduate Connecticut Valley Colloquium, Amherst College, 5/9/06; Sonoma State Mathematics Colloquium, 12/1/10; Santa Clara University Mathematics Colloquium, 2/22/11))
+
+<li><a href="papers/comix.slides.pdf">My favorite (mostly mathematical) comic strips</a> (SF State Math Graduation, 5/26/06)
+
+<li><a href="papers/iop.slides.short.pdf">Inside-out polytopes</a> (AMS Session Geometric Combinatorics, Cincinnati, 10/22/06)
+
+<li><a href="papers/cyclotomic.slides.pdf">Cyclotomic polytopes and growth series of cyclotomic lattices</a> (AMS Session Algebraic & Analytic Combinatorics, University of Connecticut, 10/28/06)
+
+<li><a href="papers/comix07.slides.pdf">Matt's annual math comic strip</a> (SF State Math Graduation, 5/25/07)
+
+<li><a href="papers/carlitz.slides.pdf">Dedekind-Carlitz polynomials as lattice-point enumerators in rational polyhedra</a> (AMS Session Combinatorial Enumeration, Optimization, Geometry, and Statistics, Murfreesboro, 11/3/07) 
+
+<li><a href="papers/jcca.pdf">Combinatorial reciprocity theorems</a> (Oregon State University Mathematics Colloquium, 2/15/08; Claremont Colleges Mathematics Colloquium, 4/9/08; Tulane University Clifford Lectures, 3/25/10; Southern California-Nevada MAA Meeting, 10/15/11; Case Western Mathematics Colloquium, 2/17/12; Golden Section MAA Meeting, 2/25/12; UCLA Combinatorics Seminar, 3/1/12; George Mason Mathematics Colloquium, 8/29/14; KTH Combinatorics Seminar, 11/19/14; Universit&auml;t Rostock Mathematics Colloquium, 12/3/14; Discrete Math Day of the Northeast, 3/28/15; Combinatexas, 2/10/18; Chico Mathematics Colloquium, 4/5/18;
+Japanese Conference on Combinatorics & Applications, 5/22/18; Magdeburg Mathematics
+Colloquium, 11/27/19)
+
+<li><a href="papers/msri.pdf">Math Circles</a> (MSRI, 3/7/08)
+
+<li><a href="papers/asymptotics.slides.pdf">Asymptotics of Ehrhart series of lattice polytopes</a> (Oberwolfach Workshop Discrete Geometry, 9/23/08; Unversity of Washington Combinatorics Seminar, 10/22/08; UC Berkeley Discrete Mathematics Seminar, 9/16/09)
+
+<li><a href="papers/dominostackings.slides.pdf">Grid graphs, Gorenstein polytopes, and domino stackings</a> (AMS Session Experimental Mathematics, Joint Meetings, 1/5/09) 
+
+<li><a href="papers/badmathdecade.pdf">Ten years BADGeometry: progress and open problems in Ehrhart theory</a> (BADMath Day, MSRI, 10/16/10) 
+
+<li><a href="papers/partitiongeometry.slides.pdf">Partition identities via polyhedral geometry</a> (CMS Session Discrete Mathematics, Vancouver, 12/4/10; Mathfest Session Polyhedra Are Everywhere, Lexington, 8/5/11; Oberwolfach Workshop Discrete Geometry, 9/6/11; Claremont Algebra/Number Theory/Combinatorics Seminar, 12/3/13; TU Berlin SFB Discretization in Geometry & Dynamics Colloquium, 10/21/14; Universit&auml;t W&uuml;rzburg Number Theory Seminar, 12/18/14; Banach Center conference Cconvex, Discrete & Integral Geometry, 6/7/17)
+
+<li><a href="papers/eulerianpol.slides.pdf">Euler-Mahonian statistics via polyhedral geometry</a> (University of Kansas Algebra & Combinatorics Seminar, 2/13/12; MIT Combinatorics Seminar, 2/22/12; AMS Session Algebraic Combinatorics, Honolulu, 3/4/12; FU Berlin Discrete Math Seminar, 4/3/12; SIAM Minisymposium Symbolic Combinatorics, 8/2/13; SUNY Binghamton Combinatorics Seminar, 9/2/14; York University Applied Algebra Seminar, 3/9/15)
+
+<li><a href="papers/golomb.slides.pdf">Golomb rulers</a> (UC Davis Discrete Math Seminar, 1/26/12; Fresno State Math Colloquium, 3/16/12; FU Berlin Monday Lecture, 10/21/13)
+
+<li><a href="papers/barnes.slides.pdf">Relations for Barnes zeta functions</a> (AMS Session in memory of Marvin Knopp, 10/13/13)
+
+<li><a href="papers/shimixedparking_slides.pdf">Parking functions & friends</a> (Claremont McKenna College Atul Vyas Memorial Lecture in Mathematics, 12/3/13; George Mason CAG Seminar, 8/29/14; Swarthmore Mathematics Colloquium, 9/9/14; James Madison Mathematics Colloquium, 4/13/15)
+
+<li><a href="papers/cyclotomic_and_growthseries.slides.pdf">Growth series of cyclotomic and root lattices</a> (Polyhedra, Lattices, Algebra, and Moments conference, IMS Singapore, 1/10/14; Cornell Discrete Geometry & Combinatorics Seminar, 9/15/14; Binghamton Combinatorics Seminar, 9/23/14)
+
+<li><a href="papers/veryample.slides.pdf">Very ample and Koszul segmental fibrations</a> (AMS Session Geometric & Algebraic Combinatorics, Knoxville, 3/22/14; Philadelphia Area Combinatorics & Algebraic Geometry Seminar, 9/11/14; Polymake Workshop, 12/5/14)
+
+<li><a href="papers/signedgraphs.slides.pdf">(Enumeration results for) Signed graphs</a> (NIST Applied & Computational Mathematics Seminar, 8/28/14)
+
+<li><a href="papers/mpileipzig_slides.pdf">Discrete volume computations for polyhedra</a> (Discrete Geometry for Computer Imagery conference, Nantes, 4/19/16 [<a href="http://videos.univ-nantes.fr/medias/2016/04/0ac92b75475abbc7f1b10f7bf192969e.mp4">video</a>]; ECCO 2016; Graduate Student Meeting on Applied Algebra & Combinatorics MPI Leipzig 2019)
+
+<li><a href="papers/antimagic.slides.pdf">Partially magic labelings and the antimagic graph conjecture</a> (Discrete Math Seminar, Iowa State, 3/7/17)
+
+<li><a href="papers/crt.slides_bamo.pdf">(-5 choose 12) and other combinatorial reciprocity instances</a> (Bay Area Math Olympiad Award Ceremony, MSRI, 3/12/17)
+
+<li><a href="papers/fixeddiffpart_slides.pdf">Partitions with fixed differences between largest & smallest part</a>
+(Frankfurt Discrete Mathematics Seminar 6/28/17; St. Petersburg State University & Euler International Mathematical
+Institute Number Theory Seminar, 9/24/20)
+
+<li><a href="papers/beulerian_slides.pdf">Ehrhart polynomials of zonotopes</a> (AMS Session Ehrhart Theory & Applications, Hunter College, 5/7/17; Berlin Monday Lectures, 6/12/17; Algebra & Discrete Math Seminar, UC Davis, 1/10/18; Kent State Math Colloquium, 1/18/18; Japanese Conference on Combinatorics & Applications, 5/23/18)
+
+<li><a href="papers/lonelyrunnerslides.pdf">Lonely runner polyhedra</a> (Berlin Monday Lectures, 6/17/19; KTH Combinatorics Seminar, 12/4/19; Queen Mary University of London Combinatorics Reading Groiup, 1/31/20; Würzburg Number Theory Seminar, 1/13/21)
+
+<li><a href="papers/quasipol.slides.pdf">Quasipolynomials in Discrete Geometry & Combinatorial Commutative Algebra</a> (Discrete Geometry with a view on Symplectic and Tropical Geometry 9/24/19; BUGCAT 11/2/19; MACIS 11/14/19)
+
+<li><a href="papers/zaslavsky75_slides.pdf">Facing up to Tom Zaslavsky: Making arrangements count (lattice points)</a> (AMS special session in honor of Tom Zaslavsky's 75th birthday, 10/11/19)
+
+<li><a href="papers/dehnsomm.slides.pdf">Weighted lattice point sums in lattice
+polytopes</a> (Einstein Workshop on Polytopes and Algebraic Geometry FU Berlin, 12/2/19)
+
+<li><a href="papers/coxeter.slides.pdf">The arithmetic of Coxeter permutahedra</a> (Discrete Geometry Seminar FU Berlin, 4/9/20; DMV Annual Meeting 9/15/20)
+
+<li><a href="papers/frobgen.slides.pdf">Frobenius coin-exchange generating functions</a> (Algebra-Geometry-Combinatorics Seminar SF State, 2/10/21)
+
+<li><a href="papers/rationalehr_slides.pdf">Rational Ehrhart theory</a> (Polytopics MPI
+Leipzig, 4/7/21)
+
+</ul>
+
+</div>
+
+<?php
+  $quotation = '"Spending time with math people is a lot of fun. As a result of the play, I have had semi-drunken dinners with mathematicians all over the country. I recommend the experience." <br>David Auburn (playwright of <i>Proof</i>)';
+  include 'footer.php';
+?>

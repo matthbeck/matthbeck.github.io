@@ -1,0 +1,104 @@
+\documentclass[11pt]{article} 
+\usepackage{amssymb,latexsym,amsmath,enumerate,graphicx,multicol,multirow}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+
+\hoffset=0in 
+\voffset=-.7in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in 
+\textwidth=6.5in
+\textheight=9in
+
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\Z{\mathbb{Z}}
+\def\sage{{\tt sage}}
+\newcommand\leg[2]{\left( \frac{ #1 }{ #2 } \right)}
+
+\pagestyle{empty}
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.2cm}
+
+{\sc 2018 Math 310: Number Theory}
+\hfill
+{\tt math.sfsu.edu/beck/310.php}
+
+\vspace{.3in}
+
+\begin{center}
+\Large{Worksheet 11: Continued Fractions}
+\end{center}
+
+\begin{enumerate}
+
+\item Find continued fraction expansions for
+  \begin{multicols}{3}
+  \begin{enumerate}
+  \item $\frac{ 100 }{ 37 }$
+  \item $\frac{ 1001 }{ 45 }$
+  \item $\frac{ 21 }{ 13 }$
+  \item $\frac{ 1000 }{ 301 }$
+  \item $\frac{ 13 }{ 35 }$
+  \item $\frac{ \sqrt 5 - 1 }{ 2 }$
+  \end{enumerate}
+  \end{multicols}
+
+\item Compute
+  \begin{multicols}{3}
+  \begin{enumerate}
+  \item $[2,3,2,3, \dots]$
+  \item $[1,2,1,2, \dots]$
+  \item $[1,2,2,2, \dots]$
+  \end{enumerate}
+  \end{multicols}
+
+\item Compute the start of a continued fraction expansion for $\pi$ and compare the accuracy of $[a_0, a_1,
+\dots, a_n]$ with that of the decimal expansion up to $n$ digits, for $n = 1, 2, 3, 4$.
+
+\item Compute the continued fraction expansions of $e$, $\sqrt{19}$, and $\tan(1)$ with \sage.
+
+\item\label{two} Prove that $[a_0, a_1, \dots, a_n] = \frac{ p_n }{ q_n }$ where
+
+  \begin{tabular}{llll}
+    $p_0 = a_0$ \hspace{1cm} & $p_1 = a_1 \, p_0 + 1$ \hspace{1cm} & $p_n = a_n \, p_{ n-1 } + p_{ n-2 }$ & \multirow{2}{*}{for $n \ge 2$} \\
+    $q_0 = 1$                & $q_1 = a_1$                         & $q_n = a_n \, q_{ n-1 } + q_{ n-2 }$ 
+  \end{tabular}
+
+\item Keeping the notation from \ref{two}., show that
+\[
+  p_n \, q_{ n-1 } - q_n \, p_{ n-1 } \ = \ (-1)^{ n-1 } .
+\]
+(\emph{Hint:} an easy way to proceed is to extend the definition of the $p_j$'s and $q_j$'s by setting $p_{ -2 }
+= q_{ -1 } = 0$ and $q_{ -2 } = p_{ -1 } = 1$.)
+Conclude that $\gcd(p_n, q_n) = 1$, i.e., the fraction $[a_0, a_1, \dots, a_n] = \frac{ p_n }{ q_n }$ is written
+in lowest terms.
+
+\item Prove that the sequence $( \frac{ p_n }{ q_n } )_{ n \ge 1 }$ converges.
+(\emph{Hint:} first show that $(q_n)_{ n \ge 1 }$ is strictly increasing, and then prove that $( \frac{ p_n }{ q_n } )_{ n \ge 1 }$ is a Cauchy sequence.)
+
+\item Show that
+\[
+  p_n \, q_{ n-2 } - q_n \, p_{ n-2 } \ = \ (-1)^n \, a_n
+\]
+and conclude that $( \frac{ p_{ 2n } }{ q_{ 2n } } )_{ n \ge 1 }$ increases and $( \frac{ p_{ 2n+1 } }{ q_{ 2n+1 } } )_{ n \ge 1 }$ decreases.
+
+\item Suppose $a \in \R \setminus \Q$ has an eventually periodic continued fraction expansion, i.e.,
+\[
+  a \ = \ [a_0, a_1, \dots, a_n, a_{ n+1 } , \dots, a_{ n+k }, a_{ n+1 } , \dots, a_{ n+k }, \dots ]
+\]
+for some positive integers $n$ and $k$. Prove that $[a_{ n+1 } , \dots, a_{ n+k }, a_{ n+1 } , \dots, a_{ n+k },
+\dots ]$ satisfies a quadratic equation and conclude that $a = b+cx$ where $b, c \in \Q$ and $x \in \R$
+satisfies a quadratic equation, i.e., $a$ is a \emph{quadratic irrational}.
+
+\item Stein 5.1--4. 
+ 
+\item Write down a precise statement for each definition we have given this week.
+For each definition, give an example and a non-example.
+
+\end{enumerate}
+
+\end{document}
+

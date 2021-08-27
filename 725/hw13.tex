@@ -1,0 +1,134 @@
+\documentclass[11pt]{amsart}
+\usepackage{amssymb,amsmath,latexsym,enumerate,mathptmx,microtype}
+\hoffset=0in 
+\voffset=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=-.2in 
+\textwidth=6.5in
+\textheight=9in
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4cm}
+\thispagestyle{empty} 
+\def\Id{\mathrm I}
+\def\0{\mathbf 0}
+\def\b{\mathbf b}
+\def\c{\mathbf c}
+\def\e{\mathbf e}
+\def\f{\mathbf f}
+\def\u{\mathbf u}
+\def\v{\mathbf v}
+\def\w{\mathbf w}
+\def\x{\mathbf x}
+\def\y{\mathbf y}
+\def\C{\mathbf{C}}
+\def\F{\mathbf{F}}
+\def\R{\mathbf{R}}
+\def\Z{\mathbf{Z}}
+\def\P{\mathcal{P}}
+\newcommand\spn{\operatorname{span}}
+\renewcommand\null{\operatorname{null}}
+\newcommand\range{\operatorname{range}}
+\newcommand\rank{\operatorname{rank}}
+\newcommand\mult{\operatorname{mult}}
+\newcommand\norm[1]{\left|\left| #1 \right|\right|}
+\newcommand\inner[2]{\left< #1, #2 \right>}
+
+\begin{center} {\bf MATH 725 \qquad \qquad Homework Set 13 \qquad \qquad due 12/5/11} \end{center} 
+
+\begin{enumerate}[(1)]
+
+\vspace{12pt}
+
+\item Give an example of an operator $T \in L(V)$ whose characteristic polynomial is $x (x-29)^3 (x-34)$ and whose minimal polynomial is $x (x-29)^2 (x-34)$.
+
+\begin{proof}[Solution]
+One example is $T \in L \left( \C^5 \right)$ given by the matrix (with respect to the standard basis of $\C^5$)
+\[
+  T := \left( \begin{array}{cccccccccc}
+    0 & \\
+      & 29 &  1 & \\
+      &    & 29 & \\
+      &    &    & 29 & \\
+      &    &    &    & 34
+  \end{array} \right) . \qedhere
+\]
+\end{proof}
+
+\item Fix $a_0, a_1, \dots, a_{ n-1 } \in \C$, and let
+\[
+  T := \left( \begin{array}{ccccc}
+    0 &   &        &   & -a_0 \\
+    1 & 0 &        &   & -a_1 \\
+      & 1 & \ddots &   & -a_2 \\
+      &   & \ddots &   & \vdots \\
+      &   &        & \ \ \ 0 & -a_{ n-2 } \\
+      &   &        & \ \ \ 1 & -a_{ n-1 } 
+  \end{array} \right)
+\]
+(with respect to the standard basis of $\C^n$).
+Compute the minimal and characteristic polynomial of~$T$.\footnote{This shows that every monic polynomial over $\C$ is the characteristic polynomial of some linear operator.}
+
+\begin{proof}[Solution]
+Denote the standard basis vectors of $\C^n$ by $\e_1, \e_2, \dots, \e_n$.
+By looking at the matrix, we see that
+\begin{align*}
+  T(\e_1) &= \e_2 \\
+  T^2(\e_1) &= T(\e_2) = \e_3 \\
+  &\vdots \\
+  T^{ n-1 } (\e_1) &= T(\e_{ n-1 }) = \e_n \\
+  T^n (\e_1) &= T(\e_n) = -a_0 \, \e_1 - a_1 \, \e_2 - \dots - a_{ n-1 } \, \e_n \, . \qquad (\star)
+\end{align*}
+From this we deduce that $\e_1, T(\e_1), T^2(\e_1), \dots, T^{n-1}(\e_1)$ is a linearly independent list; in particular the minimal polynomial $m(x)$ of $T$ has degree $n$ (otherwise, $m(T) (\e_1) \ne 0$), and so it equals the characteristic polynomial of $T$.
+Rewriting $(\star)$ as
+\[
+  T^n (\e_1) = -a_0 \, \e_1 - a_1 T(\e_1) - a_2 T^2(\e_1) - \dots - a_{ n-1 } T^{n-1}(\e_1) \, ,
+\]
+we see that the polynomial $p(x) := x^n + a_{ n-1 } \, x^{ n-1 } + \dots + a_0$ satisfies $p(T) = 0$.
+But since $m(x)$ is monic and of degree $n$, we must have $m(x) = p(x)$.
+\end{proof}
+
+\item Suppose $T \in L(V)$ and $\v \in V$. Prove that, if $p(x)$ be the monic polynomial of smallest degree such that $p(T) (\v) = \0$, then $p(x)$ divides the minimal polynomial of~$T$.
+
+\begin{proof}
+Fix $\v \in V$, let $p(x)$ be the monic polynomial of smallest degree such that $p(T) (\v) = \0$, and denote the minimal polynomial of $T$ by $m(x)$. By the division algorithm, there exist polynomials $q(x)$ and $r(x)$ with
+\[
+  m(x) = p(x) \, q(x) + r(x)
+\]
+and the degree of $r(x)$ is less than the degree of $p(x)$. But then
+\[
+  m(T) (\v) = p(T) (\v) \, q(T) (\v) + r(T) (\v) \, ,
+\]
+which gives $r(T)(\v) = \0$. Since we can divide this equation by the leading coefficient of $r(x)$ (thus making $r(x)$ monic), this contradicts the minimality of $p(x)$, unless $r(x) = 0$. But this means that $p(x)$ divides $m(x)$.
+\end{proof}
+
+\item Suppose $V$ is an inner-product space, and $T \in L(V)$ is normal. Prove that the minimal polynomial of $T$ has no repeated roots.\footnote{\emph{Hint:} start by observing that, if $\lambda$ is an eigenvalue of $T$, then $T - \lambda \Id$ is also normal.}
+
+\begin{proof}
+Denote the minimal polynomial of $T$ by $m(x)$ and suppose $\lambda$ is an eigenvalue of $T$.
+Then $m(x) = (x-\lambda)^k q(x)$ for some polynomial $q(x)$ which does not have $\lambda$ as a root.
+Thus $m(T) = (T - \lambda \Id)^k q(T) = 0$, which means that
+\[
+  \range q(T) \subseteq \null (T - \lambda \Id)^k = \null (T - \lambda \Id) \, ,
+\]
+where for the last equality we used that $T - \lambda \Id$ is normal (because $T$ is) and so this equality follows from Homework \#3 on Set 9.
+Thus $(T - \lambda \Id) q(T) = 0$, and so $k > 1$ would contradict the minimality of $m(x)$.
+So we must have $k=1$, which means that any root of $m(x)$ is simple.
+\end{proof}
+
+\item If $T \in L(V)$ has minimal polynomial $(x-1)^2 (x+1)$ and characteristic polynomial $(x-1)^6 (x+1)^2$, what are the possible different Jordan normal forms for~$T$? 
+
+\begin{proof}[Solution]
+All the Jordan forms must have a $2 \times 2$ Jordan block with eigenvalue 1 (of the form $\begin{bmatrix} 1&1\\ 0&1 \end{bmatrix}$) and two $1 \times 1$ blocks with eigenvalue $-1$.
+The possible variations are
+\begin{enumerate}[(a)]
+\item three $2 \times 2$ Jordan blocks with eigenvalue 1 and two $1 \times 1$ blocks with eigenvalue $-1$,
+\item two $2 \times 2$ Jordan blocks with eigenvalue 1, two $1 \times 1$ blocks with eigenvalue $1$, and two $1 \times 1$ blocks with eigenvalue $-1$, and
+\item one $2 \times 2$ Jordan block with eigenvalue 1, four $1 \times 1$ blocks with eigenvalue $1$, and two $1 \times 1$ blocks with eigenvalue $-1$. \qedhere
+\end{enumerate}
+\end{proof}
+
+\end{enumerate}
+
+\end{document}
