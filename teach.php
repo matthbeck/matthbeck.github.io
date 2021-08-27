@@ -17,6 +17,11 @@
 <!--  <div class="column middle" style="background-color:#bbb;">Column</div> -->
   <div class="column middle">
 
+<h3>office hours </h3>
+<ul>
+    <li>Mondays 11-12, Wednesdays 1-2 & by appointment (TH 933 & <a href="https://sfsu.zoom.us/my/mattbeck?pwd=ejFTazVMQXVEY2Z5dHBHVnhLVGhBdz09">zoom</a>)
+</ul>
+
 <h3>course (fall'21 sf state)</h3>
 
 <ul>

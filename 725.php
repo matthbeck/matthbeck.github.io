@@ -61,6 +61,10 @@
   <tr><td></td><td></td></tr>
 </table>
 
+<p>
+While our class is designed to meet in person, it will also be live streamed (zoom link on <a href="https://ilearn.sfsu.edu">iLearn</a>), so that students who cannot/should not come to campus on a given day (e.g., because they have cold symptoms) can keep up.
+</p>
+
 <p><b>Course objectives.</b>
 This is a second course in linear algebra in which students make the transition from Euclidean spaces and matrices to abstract
 vector spaces, inner product spaces and linear transformations. The emphasis is on axiomatic development, proof and conceptual
@@ -79,7 +83,7 @@ self-adjoint and normal operators, the spectral theorem, positive operators, iso
 generalized eigenvalues, characteristic and minimal polynomials, nilpotent operators, Jordan canonical form.
 
 <p><b>Textbook.</b> 
-<a href="https://www.axler.net/">Sheldon Axler</a>, <a href="https://linear.axler.net/">Linear Algebra Done Right (3rd edition)</a>, Springer 2015. [<a href="https://linear.axler.net/LADRErrataThird.html">errata</a>]
+<a href="https://www.axler.net/">Sheldon Axler</a>, <a href="https://linear.axler.net/">Linear Algebra Done Right (3rd edition)</a>, Springer 2015. [<a href="https://linear.axler.net/LADRErrataThird.html">errata</a>, <a href="https://linear.axler.net/LADRvideos.html">videos</a>]
 
 <p><b>Homework.</b>
 I will assign homework problems as we go through the material; the problems assigned in any given week are due at 9 a.m. of the following Friday.
@@ -148,7 +152,7 @@ are given in class. If you miss a class, it is your responsibility to find
 out what's going on. I will try to keep this course web page as updated as
 possible, however, the most recent information will always be given in class. 
 Always ask lots of questions in class; my courses are interactive. 
-You are always encouraged to see me in my office.
+You are always encouraged to see me in my office (TH 933 & <a href="https://sfsu.zoom.us/my/mattbeck?pwd=ejFTazVMQXVEY2Z5dHBHVnhLVGhBdz09">zoom</a>).
 
 </div>
 
