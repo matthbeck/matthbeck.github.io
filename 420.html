@@ -1,20 +1,114 @@
-<?php
-  include 'header.php';
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>matthias beck</title>
+<link rel="icon" type="image/png" href="images/pentagonyellow.png"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: #0B0B61;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #610B38;
+}
+
+/* Style the header */
+.header {
+  background-color: #F5F5F5;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* Left and right column */
+.column.side {
+  width: 20%;
+}
+
+/* Middle column */
+.column.middle {
+  width: 60%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #F5F5F5;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to
+each other */
+@media (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+
+ul.left {
+  list-style-type: none;
+  padding: 0;
+}
+
+.hide {
+  display: none;
+}
+    
+.myDIV:hover + .hide {
+  display: block;
+  color: red;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>matthias beck</h1>
+  <p>
+  <div class="myDIV">professor of mathematics</div> 
+  <div class="hide"><img width=150 src="images/kumimath.jpeg" alt="kumi does math"/></div>
+  <a href="http://math.sfsu.edu/">san francisco state university</a> 
+</div>
 
 <div class="row">
   <div class="column side">
 <ul class="left">
-<li><a href="index.php">home</a></li>
-<li><a href="teach.php">teaching</a>
+<li><a href="index.html">home</a></li>
+<li><a href="teach.html">teaching</a>
   <ul>
-  <li><a href="420.php">math 420/720</a></li>
-  <li><a href="729.php">math 729</a></li>
+  <li><a href="420.html">math 420/720</a></li>
+  <li><a href="729.html">math 729</a></li>
   </ul>
 </li>
-<li><a href="students.php">advising</a></li>
-<li><a href="research.php">research</a></li>
-<li><a href="cv.php">curriculum vitae</a></li>
+<li><a href="students.html">advising</a></li>
+<li><a href="research.html">research</a></li>
+<li><a href="cv.html">curriculum vitae</a></li>
 </ul>
   </div>
 
@@ -45,7 +139,7 @@ Spring 2018
   </tr>
   <tr>
     <td>Instructor</td>
-    <td><a href="index.php">Dr. Matthias Beck</a></td>
+    <td><a href="index.html">Dr. Matthias Beck</a></td>
   </tr>
   <tr>
     <td>Office</td>
@@ -117,15 +211,15 @@ At any time you feel overwhelmed or lost, please come and talk with me.
 
 <p><b>Fine print.</b>
 <br><A HREF="http://www.sfsu.edu/deptpage/acal4.htm">SFSU academic calender</A>
-<br><A HREF="fineprint.php#bs.html">BS rule</A>
-<br><A HREF="fineprint.php#plagiarism.html">Academic integrity and plagiarism</A>
-<br><A HREF="fineprint.php#tutoring.html">Tutoring</A>
-<br><A HREF="fineprint.php#crncr.html">CR/NCR grading</A>
-<br><A HREF="fineprint.php#incompletes.html">Incomplete grades</A>
-<br><A HREF="fineprint.php#withdrawals.html">Late and retroactive withdrawals</A>
-<br><A HREF="fineprint.php#titleix">Student disclosures of sexual violence</A>
-<br><A HREF="fineprint.php#disabilities">Students with disabilities</A>
-<br><A HREF="fineprint.php#religious">Religious holidays</A>
+<br><A HREF="fineprint.html#bs.html">BS rule</A>
+<br><A HREF="fineprint.html#plagiarism.html">Academic integrity and plagiarism</A>
+<br><A HREF="fineprint.html#tutoring.html">Tutoring</A>
+<br><A HREF="fineprint.html#crncr.html">CR/NCR grading</A>
+<br><A HREF="fineprint.html#incompletes.html">Incomplete grades</A>
+<br><A HREF="fineprint.html#withdrawals.html">Late and retroactive withdrawals</A>
+<br><A HREF="fineprint.html#titleix">Student disclosures of sexual violence</A>
+<br><A HREF="fineprint.html#disabilities">Students with disabilities</A>
+<br><A HREF="fineprint.html#religious">Religious holidays</A>
 
 <p>
 
@@ -139,8 +233,35 @@ You are always encouraged to see me in my office.
 
 </div>
 
-<?php
-  $quotation = '"Combinatorics is not a science, it is an attitude." <br>anon';
-  include 'footer.php';
-?>
+<div class="column side">
+
+<p>
+<a href="http://math.sfsu.edu/">department of mathematics</a>
+<br><a href="http://www.fogcam.org/">san francisco state university</a>
+<br><a href="http://maps.google.com/maps?oi=map&q=1600+Holloway+Ave,+San+Francisco,+CA">1600
+holloway ave</a>
+<br>san francisco, ca 94132
+</p>
+
+<table><tr><td><p>mattbeck</p></td><td><p>@</p></td><td><p>sfsu.edu</p></td></tr></table>
+
+<table><tr><td height=10></td></tr></table>
+
+</div>
+</div>
+
+<div class="footer">
+  <p>
+"Combinatorics is not a science, it is an attitude." <br>anon
+  </p>
+  <span style="font-size:0.7em">
+  <p><a href="quotes.html">more pearls of wisdom</a></p>
+  <p>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+  all materials on my websites are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">creative commons attribution-noncommercial 3.0 unported license</a>, unless otherwise noted.
+  </p>
+  </span>
+</div>
+
+</body>
 
