@@ -1,0 +1,250 @@
+<HTML>
+
+<HEAD>
+<TITLE>CSC/MATH 870 -- Spring 2007 -- Student Research Projects</TITLE>
+<link rel=STYLESHEET HREF="../../pages.css">
+</HEAD>
+<BODY bgcolor="FFE0A0">
+
+<p>
+        <center>
+          <b>
+            CSC/MATH 870<p>
+            Computational Discrete Geometry<p>
+          </b>
+          Spring 2007<p>
+          Student Research Projects
+
+<p>
+
+<table border=2>
+  <tr>
+    <td>Anastasia Chavez & Chris O'Neill</td>
+    <td><a href="nacha.chris.ppt">Ehrhart quasipolynomials I</a>, <a href="nacha.chris.2.ppt">II</a> & <a href="nacha.chris.3.ppt">III</a></td>
+  </tr>
+  <tr>
+    <td>Brendan Colloran</td>
+    <td><a href="brendan.pdf">Proximity graphs I</a>, <a href="brendan.2.pdf">II</a> & <a href="brendan.3.pdf">III</a></td>
+  </tr>
+  <tr>
+    <td>Philipp Richter</td>
+    <td><a href="philipp.ppt">Alpha shapes I</a> & <a href="philipp.2.ppt">II</a></td>
+  </tr>
+  <tr>
+    <td>Ido Heskia</td>
+    <td><a href="ido.ppt">Image segmentation I</a> & <a href="ido.2.ppt">II</a></td>
+  </tr>
+  <tr>
+    <td>Arash Farahmand</td>
+    <td><a href="arash.ppt">Frobenius problem</a></td>
+  </tr>
+  <tr>
+    <td>Connie Phong</td>
+    <td><a href="connie.ppt">Reconstructing time series I</a>, <a href="connie.2.ppt">II</a> & <a href="connie.3.ppt">III</a></td>
+  </tr>
+  <tr>
+    <td>Tim Lee</td>
+    <td><a href="tim.ppt">Protein sequencing I</a>, <a href="tim.2.ppt">II</a> & <a href="tim.3.ppt">III</a></td>
+  </tr>
+  <tr>
+    <td>Yelena Gartsman</td>
+    <td><a href="yelena.pps">Hausdorff distance I</a>, <a href="yelena.2.pps">II</a> & <a href="yelena.3.ppt">III</a></td>
+  </tr>
+</table>
+
+        </center>
+
+<p>
+
+<b>Schedule of final presentations</b>
+
+<p>
+
+May 3: Tim, Brendan, Nacha, and Chris
+<br>May 10: Philipp, Yelena, Connie, and Ido
+
+<p>
+
+<a href="finalinstr.pdf">Here</a> are some instructions and suggestions for the final presentations.
+
+<p><hr><p>
+
+<b>Suggested Projects</b><p>
+
+<ul>
+
+<li><b>Efficient K-Nearest Neighbors</b><p>
+
+The <i>K-Nearest Neighbor technique</i> (K-NN) is a powerful tool in 
+pattern analysis and non-parametric classification. <p>
+
+General Goal: This project will study the algorithms used in K-NN classification and
+focus on specific approaches to reduce the complexity of this technique without 
+impacting on the quality of results.<p>
+
+Specific Goals: 
+<ol>
+<li> Study and implement algorithms for efficient NN-classification.
+<li> Provide an analysis of the complexity and correctness of the selected implementation.
+<li> Conduct experiments to analyze the technique for complexity and correctness both for data sizes and for number of classes. 
+
+<li> Can these ideas be extended to design an efficient K-means algorithm? 
+</ol><p>
+
+Next Step: Read the paper <a href="http://cgm.cs.mcgill.ca/~godfried/publications/interface.pdf">"Proximity Graphs for Nearest-Neighbor Decision Rules"</a>, by G. Toussaint, Section 1-3.<p>
+
+<li><b>Proximity Graphs</b><p>
+
+<i>Proximity graphs</i> describe neighborhood relationships between entities, for example, points on an Euclidean plane.<p>
+
+General goal: Study the following graphs: Nearest Neighbor Graph, Minimum
+Spanning Tree, Relative Neighborhood Graph, Gabriel Graph, and Delaunay 
+Triangulation. Explore the relationship that exists between these graphs.<p>
+
+Specific goals:
+<ol>
+<li> Study and understand efficient algorithms for creating NNG, MST, RNG, GG, and DT. Code an efficient implementation of each of these algorithms. 
+<li>Prove the relationship that exists between these graphs. For 10 examples of random point distributions in the plane, confirm the relationship.
+<li>For randomly generated graphs of increasing size (complexity), verify the performance of your implementation.
+<li>Design an interface (e.g. an applet) to specify arbitrary point distributions and output an appropriate proximity graph.
+<li>Implement the Principal curve algorithm. Investigate the proximity relationships induced 
+by it and relate them to the NNG, MST, RNG, GG, DT, and shape skeletons.
+</ol><p>
+
+Next steps:
+<ol>
+<li>An excellent project report is available <a href="http://cgm.cs.mcgill.ca/~athens/cs507/Projects/2004/Svetlana-Stolpner/">here</a>.
+
+<li> Refer to "Relative Neighborhood Graphs and their Relatives", J. Jaromczyk and G. Toussaint, Proc. of IEEE, 1992,
+and references therein.
+<li> For Principal curves see: T. Hastie and W. Stuetzle, "Principal Curves", 
+J. of Am. Stat. Assoc., Vol 84, pp. 502-516.
+>li> Also see: R. Singh, V. Cherkassky, and N. P. Papanikolopoulos, 
+"Self-Organizing Maps for the Skeletonization of Sparse Shapes", IEEE Transactions 
+on Neural Networks, Vol. 11, No. 1, pp. 241-248, 2000.
+</ol><p>
+
+<li><b>Geometric Approaches for Reconstructing Time-Series Data</b><p>
+
+Many processes, such as a biological process, generates time-sequenced 
+data. However, due to a variety of factors such as sampling-rate, synchronization etc., 
+establishing the time-series for an unordered or poorly ordered series of data points is
+complex. This project seeks to study the role of geometric structures to solve this
+problem.<p>
+
+Specific Goals: 
+<ol>
+<li> Analyze the <a href="http://biology.duke.edu/magwenelab/publications/magwene-etal-2003-bioinformatics-19.pdf">MST-based algorithm</a> of Magwene, Lizardi, and Kim.
+
+<li> Implement this algorithm on the data sets indicated in the above paper.
+<li> Using other, empirically derived data-sets, comment on the robustness of this algorithm.
+<li> Explore ways to improve this algorithm by using ideas from proximity-graphs and the notion of principal-curves (both in terms of quality and complexity).
+<li> Experimentally test the improved algorithm.
+</ol><p>
+
+Further Reading:
+<ul>
+<li> T. Hastie and W. Stuetzle, "Principal Curves", J. of Am. Stat. Assoc., Vol 84, pp. 502-516.
+<li> R. Singh, V. Cherkassky, and N. P. Papanikolopoulos, "Self-Organizing Maps for the Skeletonization of Sparse Shapes", IEEE Transactions on Neural Networks, Vol. 11, No. 1, pp. 241-248, 2000.
+<li> B. Kegl et.al., "Learning and Design of Principal Curves", IEEE Trans. on PAMI, Vol 22, 2000.
+
+</ul><p>
+
+<li><b>Alpha Shapes and Molecular Representations</b><p>
+
+Different methods have been used to study the shapes of small molecules and proteins.
+Alpha-shapes are a generalized shape descriptor which seems to show potential
+in this context.<p>
+
+Specific Goals: 
+<ol>
+<li> Study the alpha shape algorithm and implementations.
+<li> Apply to different point sets in 2D and 3D.
+<li> Explore the problem of applying these to molecular coordinates from publicly available datasets such as PDB and ChemDB.
+</ol><p>
+
+Further Reading:
+<ul>
+<li> <a href="http://www.netsci.org/Science/Compchem/feature14h.html">Connolly, Introduction to molecular surfaces</a>, 
+<a href="http://cnx.org/content/m11616/latest/">Kavraki, Talks about alpha shapes</a>.
+<li> <a href="http://biogeometry.duke.edu/software/alphashapes/">Introduction to alpha shapes</a>
+(intro + software + links to other papers), also see <a href="http://www.evl.uic.edu/EVL/VROOM/HTML/PROJECTS/06Fu.html">this web site</a>.
+<li> A nice <a href="http://www.mpi-inf.mpg.de/~jgiesen/tch/sem06/Celikik.pdf">set of slides</a> have been made available by Celkik Marjan.
+
+</ul><p>
+
+<li><b>Investigating the Hausdorff Distance</b><p>
+
+Felix Hausdorff (1868?-1942) devised a metric function between subsets of a 
+metric space. 
+By definition, the Hausdorff distance is the maximum distance of a set to the 
+nearest point in the other set. 
+Typically, when we talk of distances, we mean the "smallest" distance. For example, if
+a point X is at distance d from some polygon P, we mean that the distance of X from
+the nearest point in P is d. 
+This idea can be unsatisfactory, however.<p>
+
+Specific Goals: 
+<ol>
+<li> Study the Hausdorff distance.
+<li> Compute the Hausdorff distance between point sets. What is the effect of outliers and noise on the distance? Compare with other distances.
+<li> Compute the Hausdorff distance between polygons.
+<li> Application of Hausdorff distance: on image data sets or data from other application domains.
+
+</ol><p>
+
+Further Reading:
+<ul>
+<li><a href="http://www.diss.fu-berlin.de/1999/1/kap2.pdf">Introduction to the Hausdorff metric</a>
+<li><a href="http://cgm.cs.mcgill.ca/~godfried/teaching/cg-projects/98/normand/main.html">Intro and nice demos</a>
+<li><a href="http://www.cs.cornell.edu/~dph/papers%5CHKR-TPAMI-93.pdf">Image Matching</a>
+</ul><p>
+
+<li><b>Characteristic polynomials of hyperplane arrangements</b><p>
+
+A <i>hyperplane arrangement</i> is simply a finite set of hyperplanes in R<sup>d</sup>. (A hyperplane is a set of the form {x in R<sup>d</sup>: a<sup>.</sup>x = b}, for some vector a and some scalar b.) The <i>characteristic polynomial</i> of a hyperplane arrangement encodes the intersection properties of the arrangement, i.e., all possible interesections, ordered by set inclusions. 
+
+Specific Goals: 
+
+
+<ol>
+<li> Study hyperplane arrangements and compute a few simple examples by hand.
+<li> Devise an efficient algorithm that computes a characteristic polynomial of a given hyperplane arrangement.
+<li> Experimentally test your algorithm, using some classic combinatorial problems.
+</ol><p>
+
+<li><b>Periods of degree-2 Ehrhart quasipolynomials</b><p>
+
+Given a rational polygon P (i.e., the vertices of P have rational coordinates), the <i>Ehrhart quasipolynomial</i> of P is the function E(t) that counts integer points in dilates of P, i.e., if we dilate P by a factor t, then E(t) records the number of integer points in tP. This function is a degree-2 <i>quasipolynomial</i>, namely, E(t) is of the form c<sub>2</sub>t<sup>2</sup> + c<sub>1</sub>(t) t + c<sub>0</sub>, where c<sub>1</sub>(t) and c<sub>0</sub>(t) are periodic functions in t. Suppose c<sub>1</sub>(t) has period p<sub>1</sub> and c<sub>0</sub>(t) has period p<sub>0</sub>. Which pairs (p<sub>1</sub>, p<sub>0</sub>) can occur?
+
+Specific Goals: 
+
+
+<ol>
+<li> Study the paper <a href="http://arxiv.org/abs/math.CO/0310255">"The Minimum Period of the Ehrhart Quasi-polynomial of a Rational Polytope"</a> by Tyrrell McAllister and Kevin Woods, and basic Ehrhart theory (see, e.g., Chapter 2 & 3 of <a HREF=../../ccd.html>"Computing the Continuous Discretely"</a>, by M. Beck and S. Robins).
+<li> Familiarize yourself with the software <a href="http://www.math.ucdavis.edu/~latte/">LattE</a>.
+<li> Implement an algorithm that computes many examples of degree-2 Ehrhart quasipolynomials.
+</ol><p>
+
+<li><b>Transportation polytopes</b><p>
+
+A <i>transportation polytope</i> consists of all nonnegative matrices with a fixed <i>margin</i>, that is all matrices with a fixed prescribed sum for each row and column. These polytopes and their higher-dimensional analogs (multi-way contingency tables) have important applications to statistics, for example, disclosure limitation procedures. Many of these applications involve <i>integer tables</i>, that is, matrices with integer entries. In this case, we can study the associated counting function, with the margins as parameters. This function turns out to be a piecewise-defined polynomial, which is hard to compute.<p>
+
+Specific Goals: 
+<ol>
+<li> Study the algorithm proposed in <A HREF="http://front.math.ucdavis.edu/math.CO/0309332">"The partial-fractions method for counting solutions to integral linear systems"</A> by M. Beck.
+
+
+
+<li> Implement the partial-fraction algorithm for the case of transportation polytopes.
+<li> Experimentally test your algorithm using small transportation polytopes.
+</ol><p>
+
+Next Step: Read Section 5 of <A HREF="http://www.math.binghamton.edu/dennis/Birkhoff/">"The Ehrhart polynomial of the Birkhoff polytope"</A>, by M. Beck & D. Pixton, for a definition of transportation polytopes and their associated counting functions.<p>
+
+</ul>
+
+</BODY>
+
+</HTML>
+
