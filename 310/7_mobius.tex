@@ -1,0 +1,68 @@
+\documentclass[11pt]{article} 
+\usepackage{amssymb,latexsym,amsmath,enumerate,graphicx}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+
+\hoffset=0in 
+\voffset=-.7in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in 
+\textwidth=6.5in
+\textheight=9in
+
+\def\Z{\mathbb{Z}}
+\def\sage{{\tt sage}}
+
+\pagestyle{empty}
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.2cm}
+
+{\sc 2022 Math 310: Number Theory} \hfill {\tt https://matthbeck.github.io/310.html}
+
+\vspace{.3in}
+
+\begin{center}
+\Large{Worksheet 7: The M\"obius Function}
+\end{center}
+
+\begin{enumerate}
+
+\item Show that $\mu(n)$ is multiplicative.
+
+\item Prove that
+\[
+  \sum_{ d|n } \mu(d) \ = \ \begin{cases}
+    1 & \text{ if } n=1, \\
+    0 & \text{ if } n>1.
+  \end{cases}
+\]
+\emph{Hint:} for $n>1$, try induction on the number of prime factors of~$n$.
+
+\item Suppose that $g(n)$ is multiplicative, and let
+\[
+  f(n) \ := \ \sum_{ d|n } g(d) \, .
+\]
+Prove that $f(n)$ is also multiplicative.
+
+\item Prove the \emph{M\"obius Inversion Formula}:
+\[
+  f(n) \ = \ \sum_{ d|n } g(d)
+  \qquad \text{ if and only if } \qquad
+  g(n) \ = \ \sum_{ d|n } \mu(d) \, f(\tfrac n d) \, .
+\]
+\emph{Hint:} write sums like the one on the right-hand side as
+\[
+  \sum_{ d|n } \mu(d) \, f(\tfrac n d) \ = \ \sum_{ de = n } \mu(d) \, f(e) \, .
+\]
+
+\item Andrews 6.4.1, 6.4.3, 6.4.7, 6.4.8, 6.4.11.
+ 
+\item Write down a precise statement for each definition we have given this week.
+For each definition, give an example and a non-example.
+
+\end{enumerate}
+
+\end{document}
+
