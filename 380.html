@@ -1,183 +1,231 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>matthias beck</title>
-  <link rel=stylesheet href="pages.css">
+<title>matthias beck</title>
+<link rel="icon" type="image/png" href="images/pentagonyellow.png"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: #0B0B61;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #610B38;
+}
+
+/* Style the header */
+.header {
+  background-color: #F5F5F5;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* Left and right column */
+.column.side {
+  width: 20%;
+}
+
+/* Middle column */
+.column.middle {
+  width: 60%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #F5F5F5;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to
+each other */
+@media (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+
+ul.left {
+  list-style-type: none;
+  padding: 0;
+}
+
+.hide {
+  display: none;
+}
+    
+.myDIV:hover + .hide {
+  display: block;
+  color: red;
+}
+
+</style>
 </head>
 <body>
-<table cellpadding=10>
-  <tr><td><table border=0><tr>
-    <td valign=top><table cellpadding=10>
-      <tr><td align=right><a href="index.html"><img src="images/24-cell-jv.gif" border=0 height=140></a></td></tr>
-      <tr><td align=right><a href="cv.html"><span class="sidelink">curriculum vitae</span></a></td></tr>
-      <tr><td align=right><a href="teach.html"><span class="sidelink"><span class="highlighted">teaching</span></span></a></td></tr>
-      <tr><td align=right><a href="research.html"><span class="sidelink">research</span></a></td></tr>
-      <tr><td align=right><a href="news.html"><span class="sidelink">upcoming activities</span></a></td></tr>
-      <tr><td align=right>
-        <table>
-          <tr><td align=center><a href="http://www.sfsu.edu"><img src="images/sfsu.gif" border=0 height=37 alt="SF State"></a></td></tr>
-          <tr><td align=center height=20 style="background-color:43428A"><a href="http://math.sfsu.edu"><font face="Times" color=#E0E0E0>M<font size=-1>ATHEMATICS</font></font></a></td></tr>
-        </table>
-      </td></tr>
-    </table></td>
-    <td width=30></td>
-    <td>
 
-<center>
+<div class="header">
+  <h1>matthias beck</h1>
+  <p>
+  <div class="myDIV">professor of mathematics</div> 
+  <div class="hide"><img width=150 src="images/kumimath.jpeg" alt="kumi does math"/></div>
+  <a href="http://math.sfsu.edu/">san francisco state university</a> 
+</div>
+
+<div class="row">
+  <div class="column side">
+<ul class="left">
+<li><a href="index.html">home</a></li>
+<li><a href="teach.html">teaching</a>
+  <ul>
+  <li><a href="380.html">math 380</a></li>
+  <li><a href="850.html">math 850</a></li>
+  </ul>
+</li>
+<li><a href="students.html">advising</a></li>
+<li><a href="research.html">research</a></li>
+<li><a href="cv.html">curriculum vitae</a></li>
+</ul>
+  </div>
+
+<!--  <div class="column middle" style="background-color:#bbb;">Column</div> -->
+  <div class="column middle">
+
   <table>
     <tr>
-
       <td>
         <center>
           <b>
-            MATH 380<p>
-            Functions of a Complex Variable<p>
+            <p>MATH 380<p>
+            Introduction to Complex Analysis<p>
           </b>
-          Fall 2007
+          Spring 2023
         </center>
-
       </td>
-      <td width=80></td>
-      <td><a href="http://www.mai.liu.se/~halun/complex/"><IMG SRC="images/complexpic.jpg" alt="A complex picture from Halun's collection" width=200 border=0></a></td>
+      <td width=30></td>
+      <td><IMG SRC="images/complexpic.jpg" width=500 alt="image of a complex function"></td>
     </tr>
-  </table>
-</center>
+  </table>   
 
 <p>
 
 <table>
   <tr>
-
-    <td>Lecture:</td>
-    <td>MWF 11:10-12:00 HSS 302</td>
+    <td>Lecture</td>
+    <td>Mon/Wed/Fri 1:00-1:50 p.m. TH 210</td>
   </tr>
   <tr>
     <td>Prerequisites:</td>
-    <td>MATH 228 (Calculus III) & MATH 325 (Linear Algebra) with grades of C or better or consent of the instructor</td>
+    <td>MATH 228 & 301 with a grade of C or better or consent of the instructor</td>
   </tr>
-
-</table>
-
-<p>
-
-<table>
   <tr>
-    <td>Instructor:</td>
-    <td><a href="index.html">Matthias Beck</a></td>
-    <td></td>
+    <td>Instructor</td>
+    <td><a href="index.html">Dr. Matthias Beck</a></td>
   </tr>
-
   <tr>
-    <td>Office:</td>
+    <td>Office</td>
     <td><a href="http://www.sfsu.edu/~sfsumap/">Thornton Hall</a> 933</td>
   </tr>
   <tr>
-    <td>Office hours:</td>
-    <td>
-      <table border=0>
-        <tr><td>M 2:10-3:00</td></tr>
-        <tr><td>W 1:10-2:00</td></tr>
-        <tr><td>F 10:10-11:00</td></tr>
-      </table>
-    </td>
-    <td>& by appointment</td>
+    <td>Office hours</td>
+    <td>Mondays 4-5, Wednesdays 11-12, Fridays 10-11 & by appointment</td>
   </tr>
-  <tr>
-    <td>Phone:</td>
-    <td>+1 415 405 3473</td>
-  </tr>
-  <tr>
-    <td>Email:</td>
+  <tr><td></td><td></td></tr>
+</table>
 
-    <td><table><tr><td>beck</td><td>@</td><td>math.sfsu.edu</td></tr></table></td>
+<p><b>Course objectives.</b>
+Our goal is to study the calculus of functions in one complex variable. That is, we will look at concepts of real-variable functions and see which of these concepts and their accompanying theorems can be transferred into the complex realm, which have to be modified, and which don't exist in the world of complex numbers. We will see that there are concepts and theorems in all of these three categories. 
+</p>
+
+<p><b>Syllabus.</b> 
+Topics in this course will include:
+</p>
+<ul>
+<li>complex numbers and functions
+<li>differentiation
+<li>integration
+<li>Cauchy's theorem and its consequences
+<li>power and Laurent series
+<li>residues
+</ul>
+
+<p><b>Textbook.</b> 
+M. Beck, G. Marchesi, D. Pixton, and L. Sabalka, A First Course in Complex Analysis</a>.
+
+<p><b>Homework.</b>
+I will assign homework problems as we go through the material. You may (and should) work together with your class mates. We can discuss the homework problems at any time during class, and you can hand any of your solutions for feedback. We will have a homework quiz every Monday at the beginning of class, in which you will be asked one definition and one problem given in the previous week. 
+</p>
+
+<p><b>Sage.</b>
+You will be expected to use the <a href="http://www.sagemath.org/">open math software sage</a> in some of your homework assignments.
+<a href="http://www.sageforundergraduates.org/">Here is a good introduction to sage</a>.
+</p>
+
+<p><b>Grading system.</b>
+
+<table border=1>
+  <tr>
+    <td>Homework quizzes</td>
+    <td align=center>60%</td>
+  </tr>
+  <tr>
+    <td>Midterm Exam</a> (March 29, in class)</td> 
+    <td>20%</td>
+  </tr>
+    <td>Final Exam (May 22, 12:30 p.m.)</td> 
+    <td align=center>20%</td>
   </tr>
 </table>
 
 <p>
-
-Our goal is to study the calculus of functions in one complex variable. That is, we will look at concepts of real-variable functions and see which of these concepts and their accompanying theorems can be transferred into the complex realm, which have to be modified, and which don't exist in the world of complex numbers. We will see that there are concepts and theorems in all of these three categories.
-Topics we will study include complex numbers and functions, differentiation, integration, 
-Cauchy's theorem and its consequences, harmonic functions, power and Laurent series, and residues. 
-
-<p>
-
-<b>Texts</b>: M. Beck, G. Marchesi, and D. Pixton, <a href="http://math.sfsu.edu/beck/complex.html"><i>A First Course in Complex Analysis</i></a>.
-
-<p>
-
-<b>Grading system & exam dates</b>: 
-
-<table>
-  <tr><td>
-    <table>
-      <tr>
-        <td>40%</td>
-        <td><a href="380_hw.html">Homework</a></td>
-      </tr>
-      <tr>
-
-        <td>20%</td>
-        <td>Quizzes</td>
-      </tr>
-      <tr>
-        <td>20%</td>
-        <td><a href="teach/complexmidterm.pdf">Midterm</a> (Nov 5)</td>
-      </tr>
-      <tr>
-        <td>20%</td>
-        <td><a href="teach/380_final.pdf">Final exam</a> (Dec 19 10:45-1:15)</td>
-      </tr>
-
-    </table>
-  </td>
-  <td width=40></td>
-  <td>
-    <table>
-      <tr>
-        <td>Grades will</td>
-        <td>be assigned according to the following scheme:</td>
-
-      </tr>
-      <tr><td>87-100%</td><td>A</td></tr>
-      <tr><td>75-86%</td><td>B</td></tr>
-      <tr><td>58-74%</td><td>C</td></tr>
-      <tr><td>50-57%</td><td>D</td></tr>
-      <tr><td>0-49%</td><td>F</td></tr>
-    </table>
-  </td></tr>
-</table>
-
-<p>
-
 I want to ensure that each of you accomplishes the goals of this course as comfortably and successfully as possible. 
 At any time you feel overwhelmed or lost, please come and talk with me.
+</p>
 
 <p>
-
-<b>Homework</b>: I will <a href="380_hw.html">assign homework problems</a> as we go
-through the material. You may (and should) work together with your class mates. We can discuss the homework problems at any time during class, and
-you can hand any of your solutions for feedback. We will have a homework quiz every
-Monday at the beginning of class, in which you will be asked one definition and one
-problem given in the previous week.
-
-<p>
-
-<b>Quizzes</b>: I will frequently check your progress through unannounced quizzes given at the beginning of class. A quiz will typically test your concept of a certain definition or concept. There will be no make-up quizzes. At the end of the semester, I will drop the lowest of your quiz grades.
-
-<p>
-
+<b>The math.</b>
 The way to <i>learn</i> math is through <i>doing</i> math. 
-It is vital and expected that you attend every lecture. You will get
+It is vital and expected that you attend every class meeting. You will get
 a good feel for the math from there, but it is even more crucial that you do the 
 homework. Working in groups is not only allowed but strongly recommended. 
-The <a href="http://ilearn.sfsu.edu">iLearn</a> system allows you to send emails to anybody in your class. 
-<a href="http://ilearn.sfsu.edu">iLearn</a> also features an online discussion board.
-Contact each other and work together. 
+Our class is based on <a href="http://math.sfsu.edu/federico/">Federico Ardila</a>'s Axioms:
+<ol>
+  <li>Mathematical potential is distributed equally among different groups, irrespective of geographic, demographic, and economic boundaries.
+  <li>Everyone can have joyful, meaningful, and empowering mathematical experiences.
+  <li>Mathematics is a powerful, malleable tool that can be shaped and used differently by various communities to serve their needs.
+  <li>Every student deserves to be treated with dignity and respect.
+</ol>
 
 <p>
 
-Some more general fine print:
+<b>Fine print.</b>
 <br><A HREF="http://www.sfsu.edu/deptpage/acal4.htm">SFSU academic calender</A>
-<br><A HREF="mathtype.html">Math typesetting programs</A>
+<br><A HREF="fineprint.html#bs.html">BS rule</A>
+<br><A HREF="fineprint.html#plagiarism.html">Academic Integrity and Plagiarism</A>
 <br><A HREF="fineprint.html#tutoring.html">Tutoring</A>
 <br><A HREF="fineprint.html#crncr.html">CR/NCR grading</A>
 <br><A HREF="fineprint.html#incompletes.html">Incomplete grades</A>
@@ -195,22 +243,38 @@ possible, however, the most recent information will always be given in class.
 Always ask lots of questions in class; my courses are interactive. 
 You are always encouraged to see me in my office.
 
-    </td>
-  </tr></table></td></tr>
-  <tr><td><table cellpadding=10><tr><td>
-    <font size=-1>
-    "I believe that numbers and functions of Analysis are not the arbitrary result of our minds; I think that they exist outside of us, with the same character of necessity as the things of objective reality, and we meet them or discover them, and study them, as do the physicists, the chemists and the zoologists."
-    <br>David Hilbert (1862-1943)
-    <p><a href="quotes.html">more pearls of wisdom</a>
-    </font>
-  </td></tr></table></td></tr>
-</table>
-<center>
-  <a href="http://www.anybrowser.org/campaign/"><img src="images/bview.gif" border=0 height=25 alt="best viewed with any browser"></A>
-  <a href="http://www.opencontent.org/"><img src="images/button_takeone.gif" border=0 height=25 alt="opencontent"></A>
-  <br>
-  <font size=-2>
-  24-cell courtesy of <a href="http://www.math.tu-berlin.de/polymake/">polymake</a>
-</center>
+</div>
+
+<div class="column side">
+
+<p>
+<a href="http://math.sfsu.edu/">department of mathematics</a>
+<br><a href="http://www.fogcam.org/">san francisco state university</a>
+<br><a href="http://maps.google.com/maps?oi=map&q=1600+Holloway+Ave,+San+Francisco,+CA">1600
+holloway ave</a>
+<br>san francisco, ca 94132
+</p>
+
+<table><tr><td><p>becksfsu</p></td><td><p>@</p></td><td><p>gmail.com</p></td></tr></table>
+
+<table><tr><td height=10></td></tr></table>
+
+</div>
+</div>
+
+<div class="footer">
+  <p>
+"I believe that numbers and functions of Analysis are not the arbitrary result of our minds; I think that they exist outside of us, with the same character of necessity as the things of objective reality, and we meet them or discover them, and study them, as do the physicists, the chemists and the zoologists."
+<br>David Hilbert (1862-1943) 
+  </p>
+  <span style="font-size:0.7em">
+  <p><a href="quotes.html">more pearls of wisdom</a></p>
+  <p>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+  all materials on my websites are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">creative commons attribution-noncommercial 3.0 unported license</a>, unless otherwise noted.
+  </p>
+  </span>
+</div>
+
 </body>
-</html>
+
