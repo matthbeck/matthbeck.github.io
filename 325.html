@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>matthias beck</title>
+<link rel="icon" type="image/png" href="images/pentagonyellow.png"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: #0B0B61;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #610B38;
+}
+
+/* Style the header */
+.header {
+  background-color: #F5F5F5;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* Left and right column */
+.column.side {
+  width: 20%;
+}
+
+/* Middle column */
+.column.middle {
+  width: 60%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #F5F5F5;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to
+each other */
+@media (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+
+ul.left {
+  list-style-type: none;
+  padding: 0;
+}
+
+.hide {
+  display: none;
+}
+    
+.myDIV:hover + .hide {
+  display: block;
+  color: red;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>matthias beck</h1>
+  <p>
+  <div class="myDIV">professor of mathematics</div> 
+  <div class="hide"><img width=150 src="images/kumimath.jpeg" alt="kumi does math"/></div>
+  <a href="http://math.sfsu.edu/">san francisco state university</a> 
+</div>
+
+<div class="row">
+  <div class="column side">
+<ul class="left">
+<li><a href="index.html">home</a></li>
+<li><a href="teach.html">teaching</a>
+  <ul>
+  <li><a href="301.html">math 301</a></li>
+  <li><a href="325.html">math 325</a></li>
+  </ul>
+</li>
+<li><a href="students.html">advising</a></li>
+<li><a href="research.html">research</a></li>
+<li><a href="cv.html">curriculum vitae</a></li>
+</ul>
+ </div>
+
+<!--  <div class="column middle" style="background-color:#bbb;">Column</div> -->
+  <div class="column middle">
+
+  <table>
+    <tr>
+      <td>
+        <center>
+          <b>
+            <p>MATH 325<p>
+            Linear Algebra<p>
+          </b>
+          Spring 2024
+        </center>
+      </td>
+      <td width=10></td>
+      <td><a href="http://xkcd.com"><IMG SRC="images/xkcd.matrix.png" width=400></a></td>
+    </tr>
+  </table>   
+<p>
+
+<table>
+  <tr>
+    <td>Lecture</td>
+    <td>Mondays & Wednesdays 2:00-3:40 p.m. TH 404</td>
+  </tr>
+  <tr>
+    <td>Prerequisites</td>
+    <td>Calculus I (Math 226 or equivalent); Proof & Exploration (Math 301) recommended as a concurrent course</td>
+  </tr>
+  <tr>
+    <td>Instructor</td>
+    <td><a href="index.html">Dr. Matthias Beck</a></td>
+  </tr>
+  <tr>
+    <td>Office</td>
+    <td><a href="http://www.sfsu.edu/~sfsumap/">Thornton Hall</a> 933 
+  </tr>
+  <tr>
+    <td>Office hours</td>
+    <td>Mondays 4-5, Wednesdays 11-12, Fridays 2-3 & by appointment</td>
+  </tr>
+  <tr><td></td><td></td></tr>
+</table>
+
+<p><b>Course objectives.</b>
+Linear algebra is motivated by solving system of linear equations. Despite this
+simple starting point, linear algebra plays deep and profound roles in both
+applied and "pure" mathematics, as well as many other fields such as computer
+science, data analysis, the natural sciences, economics, any many more.
+Our course will start with systems of linear equations and techniques of
+finding their solutions based on row operations and Gaussian elimination. This
+will naturally lead us to matrix algebra operation and abstract vector space
+notions. Representation of  linear transformations by matrices and change of
+basis will be introduced with an eye towards diagonalization, and inner
+products will be used as a gateway to symmetric positive (semi-)definite
+matrices. Eigenvalues and eigenvectors will be introduced with applications of
+diagonalization in mind. We will conclude with spectral
+decomposition/factorization of symmetric matrices and singular value decomposition and its applications.
+
+</p>
+
+<p><b>Syllabus.</b> 
+Topics in this course will include:
+</p>
+<ul>
+<li>Solution of system of linear equations using Gaussian elimination
+<li>Matrix algebra, special matrices (diagonal, triangular, symmetric), matrix inverse and transpose
+<li>Abstract vector spaces and main examples (<b>R</b><sup>n</sup>, matrix and polynomial spaces, function spaces)
+<li>Linear dependence/independence, subspaces, their bases and dimension (rank)
+<li>Linear transformations of vector spaces,matrix representations, change of basis 
+<li>Range and kernel of linear transformations, finding their bases, rank-nullity theorem
+<li>Real inner product spaces and positive (semi-)definite matrices,inner products on function spaces
+<li>Cauchy-Schwarz and triangle inequalities
+<li>Orthogonality, orthogonal bases, orthogonal projections, Gram-Schmidt orthogonalization
+<li>Determinants 
+<li>Eigenvalues, eigenvectors, eigenspaces and their bases
+<li>Diagonalization and spectral factorization of symmetric matrices
+<li>Singular Value Decomposition and applications
+</ul>
+
+<p><b>Textbooks.</b> 
+<ul>
+<li><a href="https://www-users.cse.umn.edu/~olver/">Peter J. Olver</a> & <a
+href="https://universityofsaintthomas.github.io/cshakiban/">Chehrzad Shakiban</a>, <a href="https://www-users.cse.umn.edu/~olver/ala.html">Applied Linear
+Algebra</a>, Springer, 2018. A pdf copy of this book can be freely downloaded
+via the <a href"https://library.sfsu.edu/">SFSU Library</a>. 
+</ul>
+
+<p><b>Participation.</b>
+A nontrivial part of the material covered in this class will be worked out in small groups during class sessions.
+It will thus be essential that every student participates actively in every class. If you have to miss a class due to a medical or family emergency, please let me know before the class; otherwise, I expect you to be in class and actively engaged.
+</p>
+
+<p><b>Homework.</b>
+I will assign homework problems as we go through the material. You may (and
+should) work together with your class mates. We can discuss the homework
+problems at any time during class, and you can hand any of your solutions for
+feedback. We will have a homework quiz every Wednesday at the beginning of class, in which you will be asked one definition and one problem given in the previous week. 
+</p>
+
+<p><b>Grading system.</b>
+
+<table border=1>
+  <tr>
+    <td>Homework quizzes</td>
+    <td align=center>60%</td>
+  </tr>
+  <tr>
+    <td>Midterm Exam</a> (March 18, in class)</td> 
+    <td>20%</td>
+  </tr>
+    <td>Final Exam (May 20, 2:45-4:45 p.m.)</td> 
+    <td align=center>20%</td>
+  </tr>
+</table>
+
+<p>
+I want to ensure that each of you accomplishes the goals of this course as comfortably and successfully as possible. 
+At any time you feel overwhelmed or lost, please come and talk with me.
+</p>
+
+<p>
+<b>The math.</b>
+The way to <i>learn</i> math is through <i>doing</i> math. 
+It is vital and expected that you attend every class meeting. You will get
+a good feel for the math from there, but it is even more crucial that you do the 
+homework. Working in groups is not only allowed but strongly recommended. 
+Our class is based on Federico Ardila's Axioms:
+<ol>
+  <li>Mathematical potential is distributed equally among different groups, irrespective of geographic, demographic, and economic boundaries.
+  <li>Everyone can have joyful, meaningful, and empowering mathematical experiences.
+  <li>Mathematics is a powerful, malleable tool that can be shaped and used differently by various communities to serve their needs.
+  <li>Every student deserves to be treated with dignity and respect.
+</ol>
+
+<p>
+<b>Fine print.</b>
+<br><A HREF="http://www.sfsu.edu/deptpage/acal4.htm">SFSU academic calender</A>
+<br><A HREF="fineprint.html#bs.html">BS rule</A>
+<br><A HREF="fineprint.html#plagiarism.html">Academic Integrity and Plagiarism</A>
+<br><A HREF="fineprint.html#tutoring.html">Tutoring</A>
+<br><A HREF="fineprint.html#crncr.html">CR/NCR grading</A>
+<br><A HREF="fineprint.html#incompletes.html">Incomplete grades</A>
+<br><A HREF="fineprint.html#withdrawals.html">Late and retroactive withdrawals</A>
+<br><A HREF="fineprint.html#titleix">Student disclosures of sexual violence</A>
+<br><A HREF="fineprint.html#disabilities">Students with disabilities</A>
+<br><A HREF="fineprint.html#religious">Religious holidays</A>
+
+<p>
+
+This syllabus is subject to change. 
+All assignments, as well as other announcements on tests, policies, etc.,
+are given in class. If you miss a class, it is your responsibility to find
+out what's going on. I will try to keep this course web page as updated as
+possible, however, the most recent information will always be given in class. 
+Always ask lots of questions in class; my courses are interactive. 
+You are always encouraged to see me in my office.
+
+</div>
+
+<div class="column side">
+
+<p>
+<a href="http://math.sfsu.edu/">department of mathematics</a>
+<br><a href="http://www.fogcam.org/">san francisco state university</a>
+<br><a href="http://maps.google.com/maps?oi=map&q=1600+Holloway+Ave,+San+Francisco,+CA">1600
+holloway ave</a>
+<br>san francisco, ca 94132
+</p>
+
+<table><tr><td><p>becksfsu</p></td><td><p>@</p></td><td><p>gmail.com</p></td></tr></table>
+
+<table><tr><td height=10></td></tr></table>
+
+</div>
+</div>
+
+<div class="footer">
+  <p>
+"It is my experience that proofs involving matrices can be shortened by 50% if one throws the matrices out." <br>E. Artin (<i>Geometric Algebra</i>, p. 14)
+  </p>
+  <span style="font-size:0.7em">
+  <p><a href="quotes.html">more pearls of wisdom</a></p>
+  <p>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+  all materials on my websites are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">creative commons attribution-noncommercial 3.0 unported license</a>, unless otherwise noted.
+  </p>
+  </span>
+</div>
+
+</body>
+
