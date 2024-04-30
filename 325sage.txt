@@ -1,12 +1,30 @@
-sage: M = matrix([[.5, .3, .35], [.25, .4, .35], [.25, .3, .3]])                
-sage: v = vector([100, 100, 100])
-sage: M*v                                                                       
-(115.000000000000, 100.000000000000, 85.0000000000000)
-
 sage: A = matrix([[0,0,1,1/2],[1/3,0,0,0],[1/3,1/2,0,1/2],[1/3,1/2,0,0]])
 sage: v = vector([1/4,1/4,1/4,1/4])
-sage: A^34*v                                                                    
+sage: A^34*v
 (1150464574049/2972033482752, 287616143213/2229025112064, 5177090584417/17832200896512, 3451393722097/17832200896512)
-sage: N(A^34*v)                                                                 
+sage: N(A^34*v) # returns numerical values 
 (0.387096774220629, 0.129032257939291, 0.290322580732569, 0.193548387107510)
+
+sage: A = matrix(3, 3, [0, -1, -1, 1, 2, 1, 1, 1, 2]) 
+sage: b = vector([1, 2, 3])
+sage: A.solve_right(b) # solves Ax = b
+(4, -1, 0)
+
+sage: A.inverse()                                              
+[ 3/2  1/2  1/2]
+[-1/2  1/2 -1/2]
+[-1/2 -1/2  1/2]
+
+sage: I = identity_matrix(3)                                   
+sage: I                                                        
+[1 0 0]
+[0 1 0]
+[0 0 1]
+
+sage: A = matrix(2, 2, [1, 2, 3, 6])                           
+sage: A.kernel()                                               
+Free module of degree 2 and rank 1 over Integer Ring
+Echelon basis matrix:
+[ 3 -1]
+
 
