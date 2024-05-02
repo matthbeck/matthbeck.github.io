@@ -1,3 +1,12 @@
+sage: a = vector([1, 2])
+sage: b = vector([3, 4])
+sage: a.dot_product(b)
+11
+sage: norm(a)
+sqrt(5)
+sage: latex(norm(a)) # if you ever need LaTeX code
+\sqrt{5}
+
 sage: A = matrix([[0,0,1,1/2],[1/3,0,0,0],[1/3,1/2,0,1/2],[1/3,1/2,0,0]]) # one way of writing down a matrix
 sage: v = vector([1/4,1/4,1/4,1/4])
 sage: A^34*v
@@ -26,18 +35,34 @@ sage: A.right_kernel() # careful: A.kernel() returns the left kernel...
 Free module of degree 2 and rank 1 over Integer Ring
 Echelon basis matrix:
 [ 3 -1]
-
 sage: det(A)
 0
+sage: A.eigenvalues()
+[7, 0]
+sage: A.eigenvectors_right() # returns a basis for each eigenspace
+[(7,
+  [
+  (1, 2)
+  ],
+  1),
+ (0,
+  [
+  (1, -1/3)
+  ]
+sage: A.charpoly()                                                              
+x^2 - 7*x
 
-sage: a = vector([1, 2])
-sage: b = vector([3, 4])
-sage: a.dot_product(b)
-11
-sage: norm(a)
-sqrt(5)
-sage: latex(norm(a)) # if you ever need LaTeX code
-\sqrt{5}
+sage: A.LU() # factors A into permutation, lower-triangular, and upper-triangular matrix
+(
+[0 1]  [  1   0]  [2 6]
+[1 0], [1/2   1], [0 0]
+)
+
+sage:  A.gram_schmidt()                                                         
+(
+       [1]
+[1 3], [2]
+)
 
 
 
