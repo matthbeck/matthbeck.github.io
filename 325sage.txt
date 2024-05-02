@@ -24,6 +24,14 @@ sage: A.inverse()
 [-1/2  1/2 -1/2]
 [-1/2 -1/2  1/2]
 
+sage: A = matrix(3, 3, [0, -1, -1, 1, 2, 1, 1, 1, 2])
+sage: A.gram_schmidt() # returns a matrix B whose rows are an orthogonal basis and the transition matrix C, i.e., C*B = A
+(
+[   0   -1   -1]  [   1    0    0]
+[   1  1/2 -1/2]  [-3/2    1    0]
+[ 2/3 -2/3  2/3], [-3/2  1/3    1]
+)
+
 sage: I = identity_matrix(3) 
 sage: I
 [1 0 0]
@@ -58,11 +66,10 @@ sage: A.LU() # factors A into permutation, lower-triangular, and upper-triangula
 [1 0], [1/2   1], [0 0]
 )
 
-sage:  A.gram_schmidt()                                                         
+sage: A.eigenmatrix_right() # returns the diagonal matrix with eigenvalues and a matrix whose columns are a basis of eigenvectors
 (
-       [1]
-[1 3], [2]
+[7 0]  [   1    1]
+[0 0], [   2 -1/3]
 )
-
 
 
