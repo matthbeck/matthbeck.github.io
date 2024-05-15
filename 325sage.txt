@@ -38,10 +38,18 @@ sage: I
 [0 0 1]
 
 sage: A = matrix(2, 2, [1, 3, 2, 6])
+sage: A
+[1 3]
+[2 6]
 sage: A.right_kernel() # careful: A.kernel() returns the left kernel...
 Free module of degree 2 and rank 1 over Integer Ring
 Echelon basis matrix:
 [ 3 -1]
+sage: A.column_space() # image of A
+Free module of degree 2 and rank 1 over Integer Ring
+Echelon basis matrix:
+[1 2] 
+
 sage: det(A)
 0
 sage: A.eigenvalues()
@@ -58,7 +66,14 @@ sage: A.eigenvectors_right() # returns a basis for each eigenspace
   ]
 sage: A.charpoly()                                                              
 x^2 - 7*x
+sage: A.fcp() # attempts to factor the characteristic polynomial 
+(x - 7) * x
 
+sage: A.rref() # row-reduced echelon form
+[1 3]
+[0 0]
+sage: A.pivots() # indices of columns spanning the image; note that Sage starts indexing at 0
+(0,)
 sage: A.LU() # factors A into permutation, lower-triangular, and upper-triangular matrix
 (
 [0 1]  [  1   0]  [2 6]
