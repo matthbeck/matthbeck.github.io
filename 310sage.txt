@@ -4,6 +4,10 @@ sage: xgcd(24, 35)
 (1, -16, 11)
 sage: 24*(-16) + 35*11
 1
+sage: mod(123,35)
+18
+sage: mod(24^(-1),35) # multiplicative inverse
+19
 sage: n = randint(10^30,10^31)
 sage: n
 7784491264756418221413430314892
