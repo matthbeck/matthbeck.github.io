@@ -4,10 +4,12 @@ sage: xgcd(24, 35)
 (1, -16, 11)
 sage: 24*(-16) + 35*11
 1
+
 sage: mod(123,35)
 18
 sage: mod(24^(-1),35) # multiplicative inverse
 19
+
 sage: n = randint(10^30,10^31)
 sage: n
 7784491264756418221413430314892
@@ -15,4 +17,10 @@ sage: is_prime(n)
 False
 sage: factor(n)
 2^2 * 19 * 101 * 2897 * 4049 * 28591 * 77527 * 39004675877
+
+sage: mod(123^1098209812309823,34)
+...
+FloatingPointError: Floating point exception
+sage: mod(123,34)^1098209812309823
+13
 
