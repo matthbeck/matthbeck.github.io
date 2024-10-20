@@ -24,3 +24,10 @@ FloatingPointError: Floating point exception
 sage: mod(123,34)^1098209812309823
 13
 
+sage: mod(2,7).multiplicative_order()
+3
+sage: mod(3,7).multiplicative_order()
+6
+sage: primitive_root(7)
+3
+
