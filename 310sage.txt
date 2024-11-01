@@ -31,3 +31,7 @@ sage: mod(3,7).multiplicative_order()
 sage: primitive_root(7)
 3
 
+sage: legendre_symbol(8,101)
+-1
+
+
