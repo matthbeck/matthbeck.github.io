@@ -34,4 +34,9 @@ sage: primitive_root(7)
 sage: legendre_symbol(8,101)
 -1
 
+sage: continued_fraction(113/23)
+[4; 1, 10, 2]
+sage: continued_fraction(sqrt(2))
+[1; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, ...]
+
 
