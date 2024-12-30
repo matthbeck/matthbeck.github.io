@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Equivalence Assumptions</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="article">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.5.0';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.917314eae5e3ab90.bundle.js"></script><script src="_static/prefix-347.8328b60515045466.bundle.js"></script><script src="_static/prefix-runestone.b5027876c2f06108.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.97f3ae4f7a71ba18.css">
+<style>
+#sec_equassumptions-3-7 { counter-set: sec_equassumptions-3-7 0; }
+#sec_equassumptions-3-7 > li::marker { content: ""counter(sec_equassumptions-3-7,decimal)"."; }
+#sec_equassumptions-3-7 > li { counter-increment: sec_equassumptions-3-7; }
+#sec_equassumptions-5-8 { counter-set: sec_equassumptions-5-8 0; }
+#sec_equassumptions-5-8 > li::marker { content: ""counter(sec_equassumptions-5-8,decimal)"."; }
+#sec_equassumptions-5-8 > li { counter-increment: sec_equassumptions-5-8; }
+</style>
+</head>
+<body class="pretext article ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">Mathemusics</span></a></h1>
+<p class="byline">Matthias Beck</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec_intro.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="root-1-2.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_intfractions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\matt}[1]{{\color{blue}  [comment: #1]}}
+\renewcommand{\emptyset}{\varnothing}
+\renewcommand{\th}{^{\text{th}}}
+\newcommand{\fr}[1]{\left\{ {#1} \right\}}
+\newcommand{\commentout}[1]{}
+\newcommand{\Def}[1]{\textbf{#1}}
+\newcommand{\set}[2]{{#1} : \, {#2}}
+\renewcommand{\vec}{\overrightarrow}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\vspan}{\operatorname{span}}
+\newcommand{\const}{\operatorname{const}}
+\newcommand{\cone}{\operatorname{cone}}
+\newcommand{\link}{\operatorname{link}}
+\newcommand{\height}{\operatorname{height}}
+\newcommand{\ehr}{\operatorname{ehr}}
+\newcommand{\Ehr}{\operatorname{Ehr}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bc}{\mathbf{c}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\bm}{\mathbf{m}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bz}{\mathbf{z}}
+\newcommand{\bzero}{\mathbf{0}}
+\newcommand{\bone}{\mathbf{1}}
+\newcommand{\rat}{\!\! : \!\!}
+\newcommand{\sh}{$\sharp$}
+\newcommand{\fl}{$\flat$}
+\newcommand{\newreptheorem}[2]{}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth1 focused" data-preexpanded-levels="0" data-max-levels="1"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="root-1-2-2.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_intro.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec_equassumptions.html" class="internal"><span class="codenumber">2</span> <span class="title">Equivalence Assumptions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_intfractions.html" class="internal"><span class="codenumber">3</span> <span class="title">Interval Fractions and Chord Weights</span></a></div></li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="root-1-2-6.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-references"><div class="toc-title-box"><a href="root-1-2-6-1.html" class="internal"><span class="title">Bibliography</span></a></div></li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_equassumptions"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2</span><span class="space"> </span><span class="title">Equivalence Assumptions</span>
+</h2>
+<div class="para" id="sec_equassumptions-2">For the sake of simplicity, we discuss triads (chords with three distinct notes) on a 12-notes scale; our model can be adapted to any set of chords with the same number of notes on a scale with any number of notes.</div>
+<div class="para logical" id="sec_equassumptions-3">
+<div class="para">The underlying space of triads is <span class="process-math">\(\ZZ_{ 12 }^3\)</span> with the planes <span class="process-math">\(x_1 = x_2\text{,}\)</span> <span class="process-math">\(x_2 = x_3\text{,}\)</span> and <span class="process-math">\(x_3 = x_1\)</span> taken out; thus we encode the twelve half tones by the elements in <span class="process-math">\(\ZZ_{ 12 }\text{,}\)</span> say starting with C as 0, C<span class="process-math">\(\sharp\)</span> as 1, D as 2, etc., ending with B as 11. Computing modulo 12 means we do not distinguish between a given note and its octave. We develop further equivalencies, such as the following (we think) reasonable assumptions:</div>
+<ol class="decimal" id="sec_equassumptions-3-7">
+<li id="sec_equassumptions-3-7-1">
+<span class="heading"><span class="title">(a).</span></span><div class="para" id="sec_equassumptions-3-7-1-2">chords that are translates of each other (e.g., E-minor and F<span class="process-math">\(\sharp\)</span>-minor) are equivalent;</div>
+</li>
+<li id="sec_equassumptions-3-7-2">
+<span class="heading"><span class="title">(b).</span></span><div class="para" id="sec_equassumptions-3-7-2-2">chords that are inversions of each other (e.g., in <a href="sec_equassumptions.html#fig_inversions" class="xref" data-knowl="./knowl/xref/fig_inversions.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1">Figure 2.1</a>) are equivalent.<details class="ptx-footnote" aria-live="polite" id="sec_equassumptions-3-7-2-2-2"><summary class="ptx-footnote__number" title="Footnote 2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_equassumptions-3-7-2-2-2">Considering only equivalence (b) means the space of triads becomes <span class="process-math">\(\ZZ_{ 12 }^3/S_3\text{,}\)</span> a discrete version of an orbifold <a href="root-1-2-6-1.html#tymoczko" class="xref" data-knowl="./knowl/xref/tymoczko.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry 13">[13]</a>.</div></details>
+</div>
+</li>
+</ol>
+</div>
+<figure class="figure figure-like" id="fig_inversions"><div class="image-box" style="width: 73%; margin-left: 13.5%; margin-right: 13.5%;"><img src="external/images/inversions.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.1<span class="period">.</span></span><span class="space"> </span>F-major inversions.</figcaption></figure><div class="para logical" id="sec_equassumptions-5">
+<div class="para">Our model will assign each triad a numerical value which we call its <em class="emphasis">weight</em>, and any two equivalent chords will have the same weight. It is based on a given scale, from which we assign a value (which we will call <em class="emphasis">interval fraction</em>) to each interval; the weight of a given triad equals the sum of all numerators and denominators of all interval fractions appearing in the triad. Let’s denote the respective interval fractions by <span class="process-math">\(h_1\)</span> (for a semitone), <span class="process-math">\(h_2\)</span> (whole tone), <span class="process-math">\(h_3\)</span> (minor third), …, <span class="process-math">\(h_{ 11 }\)</span> (major seven). When computing the weight of a chord, another natural assumption is that</div>
+<ol class="decimal" id="sec_equassumptions-5-8"><li id="sec_equassumptions-5-8-1">
+<span class="heading"><span class="title">(c).</span></span><div class="para" id="sec_equassumptions-5-8-1-2">chords with the same set of interval fractions (e.g., G-minor and G-major, each of which contain one major and one minor third) are equivalent.<details class="ptx-footnote" aria-live="polite" id="sec_equassumptions-5-8-1-2-1"><summary class="ptx-footnote__number" title="Footnote 2.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="sec_equassumptions-5-8-1-2-1">At this point we would be remiss not pointing out the infamous question in harmony theory why major and minor chords are different in character from one another to our ears; our equivalence (c) demands that our model does not prefer one over the other.</div></details>
+</div>
+</li></ol>
+</div>
+<div class="para" id="sec_equassumptions-6">It is an amusing combinatorial problem to count the resulting equivalence classes. By the translation equivalence (a), we may consider only triads that contain the note C. There are seven equivalence classes consisting of triads with distinct distances (and so they contain six chords each), four equivalence classes consisting of triads with two distinct distances (containing three chords each), and one class consisting of a single triad in which the three notes have equal distance; <a href="sec_equassumptions.html#fig_equclasses" class="xref" data-knowl="./knowl/xref/fig_equclasses.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.2">Figure 2.2</a> shows one equivalence class each (for ease of computing intervals, we repeated the C).</div>
+<figure class="figure figure-like" id="fig_equclasses"><div class="image-box" style="width: 73%; margin-left: 13.5%; margin-right: 13.5%;"><img src="external/images/equclasses.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2<span class="period">.</span></span><span class="space"> </span>Three sample equivalence classes.</figcaption></figure></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec_intro.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_intfractions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
