@@ -1,0 +1,3 @@
+Student ID	Name	HW1	HW2	Total%												
+922772406	Lucas	8	7	75												
+OOOOOOOO	max	10	10	20												

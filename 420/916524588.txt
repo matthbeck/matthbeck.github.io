@@ -1,3 +1,0 @@
-Student ID	Name	HW1	HW2	Total%								
-916524588	Zack			0								
-OOOOOOOOO	max	10		100								
