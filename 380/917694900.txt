@@ -1,3 +1,0 @@
-Student ID	Name	HW1	HW2	Total%												
-917694900	Vernon	6	7	65												
-OOOOOOOO	max	10	10	20												

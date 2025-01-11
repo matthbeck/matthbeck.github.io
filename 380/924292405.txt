@@ -1,3 +1,0 @@
-Student ID	Name	HW1	HW2	Total%												
-924292405	Joseph	3	6	45												
-OOOOOOOO	max	10	10	20												
