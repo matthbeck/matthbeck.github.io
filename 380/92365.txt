@@ -1,3 +1,3 @@
-ID	Name	HW1	HW2	Total%												
-92365	Kenna			0												
-OOOOO	max	10		100												
+ID	Name	Partic	HW1	HW2	Homew												
+92365	Kenna	20			0												
+OOOOO	max	20	5		5												

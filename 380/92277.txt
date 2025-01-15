@@ -1,3 +1,3 @@
-ID	Name	HW1	HW2	Total%												
-92277	Lucas			0												
-OOOOO	max	10		100												
+ID	Name	Partic	HW1	HW2	Homew												
+92277	Lucas	20			0												
+OOOOO	max	20	5		5												
