@@ -1,0 +1,3 @@
+ID	Name	HW1	HW2	Total%								
+98765	Sample	8		80								
+OOOOO	max	10		100								
