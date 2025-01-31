@@ -1,0 +1,12 @@
+sage: real(1+i)
+1
+
+sage: imaginary(1+i)
+1
+
+sage: abs(1+i)
+sqrt(2)
+
+sage: arg(1+i)
+1/4*pi
+
