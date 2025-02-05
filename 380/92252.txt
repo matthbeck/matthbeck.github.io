@@ -1,3 +1,3 @@
 ID	Name	Partic	HW1	HW2	Homew												
-92252	Arye	20			0												
+92252	Arye	20	1		1												
 OOOOO	max	20	5		5												
