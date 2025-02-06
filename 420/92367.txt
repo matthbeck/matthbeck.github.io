@@ -1,3 +1,3 @@
-ID	Name	HW1	HW2	Total%								
-92367	Jordan			0								
+ID	Name	HW1		Total%								
+92367	Jordan	13		87								
 OOOOO	max	15		100								
