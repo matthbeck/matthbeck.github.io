@@ -1,3 +1,3 @@
-ID	Name	HW1	HW2	HW3		Total%						
-92429	Floren	15	15	15		100						
-OOOOO	max	15	15	15		100						
+ID	Name	HW1	HW2	HW3	Test1.1	Test1.2	Test1.3	Test1.4	Test1%	Total%		
+92429	Floren	15	15	15					0	63		
+OOOOO	max	15	15	15	15	15	15	15	100	100		
