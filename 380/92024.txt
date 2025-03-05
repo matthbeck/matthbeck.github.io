@@ -1,3 +1,3 @@
-ID	Name	Partic	HW1	HW2	HW3	Homew	Def1	Exam1										
-92024	Vanessa	18	5	5	3	13	2	3										
-OOOOO	max	20	5	5	5	15	3	3										
+ID	Name	Partic	HW1	HW2	HW3	HW4	Homew	Def1	Exam1										
+92024	Vanessa	19	5	5	3	4	17	2	3										
+OOOOO	max	20	5	5	5	5	20	3	3										
