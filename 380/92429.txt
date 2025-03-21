@@ -1,3 +1,3 @@
-ID	Name	Partic	HW1	HW2	HW3	HW4	Homew	Def1	Exam1	Def2	Exam2								
-92429	Joseph	20	5	5	5	5	20	3	3	3	3								
-OOOOO	max	20	5	5	5	5	20	3	3	3	3								
+ID	Name	Partic	Homew	Defs	Exams	HW1	HW2	HW3	HW4	HW5	Def1	Exam1	Def2	Exam2								
+92429	Joseph	19	20	6	6	5	5	5	5		3	3	3	3								
+OOOOO	max	20	25	6	6	5	5	5	5	5	3	3	3	3								
