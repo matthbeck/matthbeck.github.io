@@ -1,3 +1,3 @@
-ID	Name	HW1	HW2	HW3	HW4	HW5	HW6	Test1.1	Test1.2	Test1.3	Test1.4	Test1%	Test2.1	Test2.2	Test2.3	Test2.4	Test2%	Total%		
-92312	Matt	7	9	12	5	10	3		4	8	14	58	6	9	6		47	52		
-OOOOO	max	15	15	15	15	15	15	15	15	15	15	100	15	15	15	15	100	100		
+ID	Name	HW1	HW2	HW3	HW4	HW5	HW6	HW7	Test1.1	Test1.2	Test1.3	Test1.4	Test1%	Test2.1	Test2.2	Test2.3	Test2.4	Test2%	Total%		
+92312	Matt	7	9	12	5	10	3	7		4	8	14	58	6	9	6		47	51		
+OOOOO	max	15	15	15	15	15	15	15	15	15	15	15	100	15	15	15	15	100	100		
