@@ -1,3 +1,3 @@
 ID	Name	Partic	Homew	Defs	Exams	HW1	HW2	HW3	HW4	HW5	HW6	HW7	Def1	Exam1	Def2	Exam2	Def3	Exam3						
-92277	Lucas	16	17	9	6	5		3	5		1	3	3	3	3	1	3	2						
+92277	Lucas	15	17	9	6	5		3	5		1	3	3	3	3	1	3	2						
 OOOOO	max	20	35	9	9	5	5	5	5	5	5	5	3	3	3	3	3	3						
