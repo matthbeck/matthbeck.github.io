@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Exercises</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="A First Course in Complex Analysis">
+<meta property="book:author" content="Matthias Beck">
+<meta property="book:author" content="Gerald Marchesi">
+<meta property="book:author" content="Dennis Pixton">
+<meta property="book:author" content="Lucas Sabalka">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.4';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="fcca" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
+<p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec_constantfcts.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="functionchapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="exampleschapter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\def\versionnumber{1.54}
+\def\JPicScale{0.7}
+\def\versionyear{2018}
+\def\JPicScale{0.7}
+\def\versionmonth{July \versionyear}
+\def\JPicScale{0.7}
+\def\JPicScale{0.7}
+\newcommand{\ix}[1]{#1\index{#1}}
+\def\JPicScale{0.7}
+\newcommand{\Z}{\mathbb{Z}}
+\def\JPicScale{0.7}
+\newcommand{\Q}{\mathbb{Q}}
+\def\JPicScale{0.6}
+\newcommand{\R}{\mathbb{R}}
+\def\JPicScale{0.6}
+\newcommand{\C}{\mathbb{C}}
+\def\s{\sum_{k \geq 0}}
+\newcommand{\N}{\mathbb{N}}
+\def\sz{\sum_{ k \in \Z }}
+\newcommand{\Chat}{\hat\C}
+\def\JPicScale{0.7}
+\newcommand{\Rhat}{\hat\R}
+\def\i{\int_\gg}
+\newcommand{\gd}{\delta}
+\def\JPicScale{0.7}
+\renewcommand{\gg}{\gamma}
+\newcommand{\D}{\Delta}
+\newcommand{\Dp}{\check{D}}
+\DeclareMathOperator{\length}{length}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fArg}{\mathcal{A}rg}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\let\Im\relax
+\let\Re\relax
+\DeclareMathOperator{\Im}{Im}
+\DeclareMathOperator{\Re}{Re}
+\def\sz{\sum_{ k \in \Z }}
+\def\s{\sum_{k \geq 0}}
+\DeclareMathOperator{\Res}{Res}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\Def}[1]{\textbf{#1}}
+\newcommand{\hint}[1]{(\emph{Hint}: #1)}
+\newcommand{\histremark}[1]{}
+\newcommand{\histremarktwo}[2]{}
+\newcommand{\listset}[1]{\left\{#1\right\}}
+\newcommand{\makeset}[2]{\listset{#1\colon\,#2}}
+\newcommand{\listseq}[1]{\left\langle#1\right\rangle}
+\newcommand{\makeseq}[2]{\listseq{#1\colon\,#2}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\zbar}{\overline{z}}
+\def\o{\overline}
+\newcommand{\fderiv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\sderiv}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\mderiv}[3]{\frac{\partial^2 #1}{\partial #2 \, \partial #3}}
+\newcommand{\mat}[1]{\displaystyle\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\disp}[1]{$\displaystyle#1$}
+\renewcommand{\th}{^{ th}}
+\newcommand{\boldcdot}{\boldsymbol{\cdot}}
+\newcommand{\diff}[1]{{d#1}}
+\newcommand{\itref}[1]{\eqref{#1}}
+\def\newnotes{
+\begin{remarks}
+\thenotes.
+}
+\def\writenote{
+\vspace{10pt} \thenotes.
+}
+\newcommand{\putqed}{\pushQED{\qed}\popQED}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\newcommand{\fillinmath}[1]{\mathchoice{\underline{\displaystyle     \phantom{\ \,#1\ \,}}}{\underline{\textstyle        \phantom{\ \,#1\ \,}}}{\underline{\scriptstyle      \phantom{\ \,#1\ \,}}}{\underline{\scriptscriptstyle\phantom{\ \,#1\ \,}}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="complexnumberchapter.html" class="internal"><span class="codenumber">1</span> <span class="title">Complex Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_defalg.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Definitions and Algebraic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="geomprop.html" class="internal"><span class="codenumber">1.2</span> <span class="title">From Algebra to Geometry and Back</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_geometricprops.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Geometric Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_topologyintro.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Elementary Topology of the Plane</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="chapter1-exercises.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec_optionallab-alt.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Optional Lab</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="functionchapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Differentiation</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_limitsandcontinuity.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Limits and Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_diffholom.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Differentiability and Holomorphicity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_Cauchy-Riemann.html" class="internal"><span class="codenumber">2.3</span> <span class="title">The Cauchy–Riemann Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_constantfcts.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Constant Functions</span></a></div></li>
+<li class="toc-item toc-exercises active"><div class="toc-title-box"><a href="chapter2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="exampleschapter.html" class="internal"><span class="codenumber">3</span> <span class="title">Examples of Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_mobius.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Möbius Transformations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_riemannspere.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Infinity and the Cross Ratio</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_stereoproj.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Stereographic Projection</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_exptrigfcts.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Exponential and Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_logexp.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Logarithms and Complex Exponentials</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="chapter3-exercises.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intchapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Integration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_intdef.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Definition and Basic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_antiderivatives.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Antiderivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_cauchythm.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Cauchy’s Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_CIF.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Cauchy’s Integral Formula</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intchapter-7.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cachyconschapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Consequences of Cauchy’s Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_variationstheme.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Variations of a Theme</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_antiderivagain.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Antiderivatives Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_cauchytothelimit.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Taking Cauchy’s Formulas to the Limit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="cachyconschapter-6.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="harmonicChapter.html" class="internal"><span class="codenumber">6</span> <span class="title">Harmonic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_defharmonic.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Definition and Basic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_harmonicmeanvalue.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Mean-Value and Maximum/Minimum Principle</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="harmonicChapter-5.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="powerchapter.html" class="internal"><span class="codenumber">7</span> <span class="title">Power Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_sequencescomplete.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Sequences and Completeness</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_series.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Series</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_sequseriesfunctions.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Sequences and Series of Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_regionsconvergence.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Regions of Convergence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="powerchapter-7.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="taylorchapter.html" class="internal"><span class="codenumber">8</span> <span class="title">Taylor and Laurent Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_powerseriesholom.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Power Series and Holomorphic Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_classifzeros.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Classification of Zeros and the Identity Principle</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_LaurentSeries.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Laurent Series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="taylorchapter-6.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="residuechapter.html" class="internal"><span class="codenumber">9</span> <span class="title">Isolated Singularities and the Residue Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_classificationsingul.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Classification of Singularities</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_residues.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Residues</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_argprinc.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Argument Principle and Rouché’s Theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="residuechapter-6.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_discreteresidues.html" class="internal"><span class="codenumber">10</span> <span class="title">Discrete Applications of the Residue Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-calculus.html" class="internal"><span class="codenumber">A</span> <span class="title">Theorems from Calculus</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="title">Index</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-4.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="exercises" id="chapter2-exercises"><h2 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber">2.5</span><span class="space"> </span><span class="title">Exercises</span>
+</h2>
+<article class="exercise exercise-like" id="chapter2-exercises-1"><h3 class="heading"><span class="codenumber">1<span class="period">.</span></span></h3>
+<div class="para" id="chapter2-exercises-1-1-1">Use the definition of limit to show for any <span class="process-math">\(z_0 \in \C\)</span> that <span class="process-math">\(\displaystyle \lim_{z \to z_0} (a z + b) = a z_0 + b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-1-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.1"><a href="#chapter2-exercises-1" title="Copy heading and permalink for Exercise 2.5.1">🔗</a></div></article><article class="exercise exercise-like" id="ex_2_1"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
+<div class="introduction" id="ex_2_1-1"><div class="para" id="ex_2_1-1-1">Evaluate the following limits or explain why they don’t exist.<div class="autopermalink" data-description="Paragraph"><a href="#ex_2_1-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="ex_2_1-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="ex_2_1-2-1-1">
+<span class="process-math">\(\displaystyle \lim_{z \to i} \frac{i z^3 - 1}{z + i}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_1-2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2_1-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_2_1-2-2-1">
+<span class="process-math">\(0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_1-2-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.2.a.1"><a href="#ex_2_1-2-2" title="Copy heading and permalink for Answer 2.5.2.a.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.2.a"><a href="#ex_2_1-2" title="Copy heading and permalink for Task 2.5.2.a">🔗</a></div></article><article class="task exercise-like" id="ex_2_1-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="ex_2_1-3-1-1">
+<span class="process-math">\(\displaystyle \lim_{z \to 1 - i} \left(x + i(2x +
+y)\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_1-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2_1-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_2_1-3-2-1">
+<span class="process-math">\(1+i\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_1-3-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.2.b.1"><a href="#ex_2_1-3-2" title="Copy heading and permalink for Answer 2.5.2.b.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.2.b"><a href="#ex_2_1-3" title="Copy heading and permalink for Task 2.5.2.b">🔗</a></div></article><div class="autopermalink" data-description="Exercise 2.5.2"><a href="#ex_2_1" title="Copy heading and permalink for Exercise 2.5.2">🔗</a></div></article><article class="exercise exercise-like" id="ex_limitunique"><h3 class="heading"><span class="codenumber">3<span class="period">.</span></span></h3>
+<div class="para" id="ex_limitunique-1-1">Prove that, if a limit exists, then it is unique.<div class="autopermalink" data-description="Paragraph"><a href="#ex_limitunique-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.3"><a href="#ex_limitunique" title="Copy heading and permalink for Exercise 2.5.3">🔗</a></div></article><article class="exercise exercise-like" id="ex_limits"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
+<div class="para" id="ex_limits-1-1">Prove <a href="sec_limitsandcontinuity.html#limits" class="xref" data-knowl="./knowl/xref/limits.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.1.6">Proposition 2.1.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ex_limits-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.4"><a href="#ex_limits" title="Copy heading and permalink for Exercise 2.5.4">🔗</a></div></article><article class="exercise exercise-like" id="ex_limiteq0"><h3 class="heading"><span class="codenumber">5<span class="period">.</span></span></h3>
+<div class="para" id="ex_limiteq0-1-1">Let <span class="process-math">\(f: G \to \C\)</span> and suppose <span class="process-math">\(z_0\)</span> is an accumulation point of <span class="process-math">\(G\text{.}\)</span> Show that <span class="process-math">\(\lim_{ z \to z_0 } f(z) = 0\)</span> if and only if <span class="process-math">\(\lim_{ z \to z_0 } |f(z)| = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_limiteq0-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.5"><a href="#ex_limiteq0" title="Copy heading and permalink for Exercise 2.5.5">🔗</a></div></article><article class="exercise exercise-like" id="chapter2-exercises-6"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
+<div class="para logical" id="chapter2-exercises-6-1-1">
+<div class="para">
+<a href="sec_limitsandcontinuity.html#restrictedlimit" class="xref" data-knowl="./knowl/xref/restrictedlimit.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.1.4">Proposition 2.1.4</a> is useful for showing that limits <em class="emphasis">do not</em> exist, but it is not at all useful for showing that a limit <em class="emphasis">does</em> exist. For example, define</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/restrictedlimit.html">
+\begin{equation*}
+f(z) = \frac{x^2y}{x^4+y^2}\text{ where }  z=x+iy\ne0\,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-6-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="chapter2-exercises-6-1-2">Show that the limits of <span class="process-math">\(f\)</span> at <span class="process-math">\(0\)</span> along all straight lines through the origin exist and are equal, but <span class="process-math">\(\displaystyle\lim_{z\to0}f(z)\)</span> does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-6-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="chapter2-exercises-6-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="chapter2-exercises-6-2-1">Consider the limit along the parabola <span class="process-math">\(y=x^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-6-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 2.5.6.1"><a href="#chapter2-exercises-6-2" title="Copy heading and permalink for Hint 2.5.6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 2.5.6"><a href="#chapter2-exercises-6" title="Copy heading and permalink for Exercise 2.5.6">🔗</a></div></article><article class="exercise exercise-like" id="chapter2-exercises-7"><h3 class="heading"><span class="codenumber">7<span class="period">.</span></span></h3>
+<div class="para logical" id="chapter2-exercises-7-1-1">
+<div class="para">Suppose that <span class="process-math">\(f(z) = u(x,y) + i \, v(x,y)\)</span> and <span class="process-math">\(z_0 =
+x_0 + i \, y_0\text{.}\)</span> Prove that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{ z \to z_0 } f(z) = u_0 + i \, v_0
+\end{equation*}
+</div>
+<div class="para">if and only if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{ (x,y) \to (x_0, y_0) } u(x,y) = u_0 \qquad \text{ and
+}  \qquad \lim_{ (x,y) \to (x_0, y_0) } v(x,y) = v_0 \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-7-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.7"><a href="#chapter2-exercises-7" title="Copy heading and permalink for Exercise 2.5.7">🔗</a></div></article><article class="exercise exercise-like" id="ex_zsquaredcontinuous"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
+<div class="para" id="ex_zsquaredcontinuous-1-1">Show that the function <span class="process-math">\(f: \C \to \C\)</span> given by <span class="process-math">\(f(z) = z^2\)</span> is continuous on <span class="process-math">\(\C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_zsquaredcontinuous-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.8"><a href="#ex_zsquaredcontinuous" title="Copy heading and permalink for Exercise 2.5.8">🔗</a></div></article><article class="exercise exercise-like" id="ex_zbaroverzcont"><h3 class="heading"><span class="codenumber">9<span class="period">.</span></span></h3>
+<div class="para logical" id="ex_zbaroverzcont-1-1">
+<div class="para">Show that the function <span class="process-math">\(g: \C \to \C\)</span> given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(z) = \begin{cases}\frac{\, \overline z \, } z \amp  \text{
+if }  z \ne 0 \, , \\ 1 \amp  \text{ if }  z = 0 \end{cases} 
+\end{equation*}
+</div>
+<div class="para">is continuous on <span class="process-math">\(\C \setminus \{ 0 \}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_zbaroverzcont-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.9"><a href="#ex_zbaroverzcont" title="Copy heading and permalink for Exercise 2.5.9">🔗</a></div></article><article class="exercise exercise-like" id="chapter2-exercises-10"><h3 class="heading"><span class="codenumber">10<span class="period">.</span></span></h3>
+<div class="introduction" id="chapter2-exercises-10-1"><div class="para" id="chapter2-exercises-10-1-1">Determine where each of the following functions <span class="process-math">\(f: \C \to
+\C\)</span> is continuous:<div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-10-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="chapter2-exercises-10-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="chapter2-exercises-10-2-1-1">
+<span class="process-math">\(f(z) = \begin{cases}0 \amp \text{ if } z=0 \text{ or
+\(|z|\) is irrational, } \\ \frac 1 q \amp \text{ if }
+|z| = \frac p q \in \Q \setminus \{ 0 \} \text{ 
+(written in lowest terms). } \end{cases}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-10-2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 2.5.10.a"><a href="#chapter2-exercises-10-2" title="Copy heading and permalink for Task 2.5.10.a">🔗</a></div></article><article class="task exercise-like" id="chapter2-exercises-10-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="chapter2-exercises-10-3-1-1">
+<span class="process-math">\(f(z) = \begin{cases}0 \amp \text{ if } z=0 , \\ \sin
+\phi \amp \text{ if } z = r \, e^{ i \phi } \ne 0
+. \end{cases}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-10-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 2.5.10.b"><a href="#chapter2-exercises-10-3" title="Copy heading and permalink for Task 2.5.10.b">🔗</a></div></article><div class="autopermalink" data-description="Exercise 2.5.10"><a href="#chapter2-exercises-10" title="Copy heading and permalink for Exercise 2.5.10">🔗</a></div></article><article class="exercise exercise-like" id="ex_continuitydefs"><h3 class="heading"><span class="codenumber">11<span class="period">.</span></span></h3>
+<div class="para" id="ex_continuitydefs-1-1">Show that the two definitions of continuity in <a href="sec_limitsandcontinuity.html" class="internal" title="Section 2.1: Limits and Continuity">Section 2.1</a> are equivalent. Consider separately the cases where <span class="process-math">\(z_0\)</span> is an accumulation point of <span class="process-math">\(G\)</span> and where <span class="process-math">\(z_0\)</span> is an isolated point of <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_continuitydefs-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.11"><a href="#ex_continuitydefs" title="Copy heading and permalink for Exercise 2.5.11">🔗</a></div></article><article class="exercise exercise-like" id="chapter2-exercises-12"><h3 class="heading"><span class="codenumber">12<span class="period">.</span></span></h3>
+<div class="para" id="chapter2-exercises-12-1-1">Consider the function <span class="process-math">\(f: \C \setminus \{ 0 \} \to \C\)</span> given by <span class="process-math">\(f(z) = \frac 1 z\text{.}\)</span> Apply the definition of the derivative to give a direct proof that <span class="process-math">\(f'(z) = - \frac 1 { z^2 }\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-12-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.12"><a href="#chapter2-exercises-12" title="Copy heading and permalink for Exercise 2.5.12">🔗</a></div></article><article class="exercise exercise-like" id="chapter2-exercises-13"><h3 class="heading"><span class="codenumber">13<span class="period">.</span></span></h3>
+<div class="para" id="chapter2-exercises-13-1-1">Prove <a href="sec_limitsandcontinuity.html#funoflimit" class="xref" data-knowl="./knowl/xref/funoflimit.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.1.11">Proposition 2.1.11</a>.<div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-13-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.13"><a href="#chapter2-exercises-13" title="Copy heading and permalink for Exercise 2.5.13">🔗</a></div></article><article class="exercise exercise-like" id="ex_diffrules"><h3 class="heading"><span class="codenumber">14<span class="period">.</span></span></h3>
+<div class="para" id="ex_diffrules-1-1">Prove <a href="sec_diffholom.html#derivativerules" class="xref" data-knowl="./knowl/xref/derivativerules.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.2.5">Proposition 2.2.5</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ex_diffrules-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.14"><a href="#ex_diffrules" title="Copy heading and permalink for Exercise 2.5.14">🔗</a></div></article><article class="exercise exercise-like" id="chapter2-exercises-15"><h3 class="heading"><span class="codenumber">15<span class="period">.</span></span></h3>
+<div class="para" id="chapter2-exercises-15-1-1">Find the derivative of the function <span class="process-math">\(T(z) :=
+\frac{az+b}{cz+d}\text{,}\)</span> where <span class="process-math">\(a,b,c,d \in \C\)</span> with <span class="process-math">\(ad - bc \neq 0\text{.}\)</span> When is <span class="process-math">\(T'(z) = 0\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-15-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.15"><a href="#chapter2-exercises-15" title="Copy heading and permalink for Exercise 2.5.15">🔗</a></div></article><article class="exercise exercise-like" id="polynomialsholomorphic"><h3 class="heading"><span class="codenumber">16<span class="period">.</span></span></h3>
+<div class="para" id="polynomialsholomorphic-1-1">Prove that if <span class="process-math">\(f(z)\)</span> is given by a polynomial in <span class="process-math">\(z\)</span> then <span class="process-math">\(f\)</span> is entire. What can you say if <span class="process-math">\(f(z)\)</span> is given by a polynomial  in <span class="process-math">\(x = \Re z\)</span> and <span class="process-math">\(y = \Im z\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#polynomialsholomorphic-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.16"><a href="#polynomialsholomorphic" title="Copy heading and permalink for Exercise 2.5.16">🔗</a></div></article><article class="exercise exercise-like" id="chapter2-exercises-17"><h3 class="heading"><span class="codenumber">17<span class="period">.</span></span></h3>
+<div class="para" id="chapter2-exercises-17-1-1">Prove or find a counterexample: If <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> are real valued and continuous, then <span class="process-math">\(f(z) = u(x,y) + i \, v(x,y)\)</span> is continuous; if <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> are (real) differentiable then <span class="process-math">\(f\)</span> is (complex) differentiable.<div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-17-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.17"><a href="#chapter2-exercises-17" title="Copy heading and permalink for Exercise 2.5.17">🔗</a></div></article><article class="exercise exercise-like" id="ex_2_2"><h3 class="heading"><span class="codenumber">18<span class="period">.</span></span></h3>
+<div class="introduction" id="ex_2_2-1"><div class="para" id="ex_2_2-1-1">Where are the following functions differentiable? Where are they holomorphic? Determine their derivatives at points where they are differentiable.<div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="ex_2_2-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="ex_2_2-2-1-1">
+<span class="process-math">\(f(z) = e^{-x}e^{-iy}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2_2-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_2_2-2-2-1">differentiable and holomorphic in <span class="process-math">\(\C\)</span> with derivative <span class="process-math">\(-e^{-x} e^{-iy}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-2-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.18.a.1"><a href="#ex_2_2-2-2" title="Copy heading and permalink for Answer 2.5.18.a.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.18.a"><a href="#ex_2_2-2" title="Copy heading and permalink for Task 2.5.18.a">🔗</a></div></article><article class="task exercise-like" id="ex_2_2-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="ex_2_2-3-1-1">
+<span class="process-math">\(f(z) = 2 x + i x y^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2_2-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_2_2-3-2-1">nowhere differentiable or holomorphic<div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-3-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.18.b.1"><a href="#ex_2_2-3-2" title="Copy heading and permalink for Answer 2.5.18.b.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.18.b"><a href="#ex_2_2-3" title="Copy heading and permalink for Task 2.5.18.b">🔗</a></div></article><article class="task exercise-like" id="ex_2_2-4"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="ex_2_2-4-1-1">
+<span class="process-math">\(f(z) = x^2 + i y^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-4-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2_2-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_2_2-4-2-1">differentiable only on <span class="process-math">\(\{ x+iy \in \C : \ x=y \}\)</span> with derivative <span class="process-math">\(2x\text{,}\)</span> nowhere holomorphic<div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-4-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.18.c.1"><a href="#ex_2_2-4-2" title="Copy heading and permalink for Answer 2.5.18.c.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.18.c"><a href="#ex_2_2-4" title="Copy heading and permalink for Task 2.5.18.c">🔗</a></div></article><article class="task exercise-like" id="ex_2_2-5"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="ex_2_2-5-1-1">
+<span class="process-math">\(f(z) = e^x e^{-i y}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-5-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2_2-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_2_2-5-2-1">nowhere differentiable or holomorphic<div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-5-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.18.d.1"><a href="#ex_2_2-5-2" title="Copy heading and permalink for Answer 2.5.18.d.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.18.d"><a href="#ex_2_2-5" title="Copy heading and permalink for Task 2.5.18.d">🔗</a></div></article><article class="task exercise-like" id="ex_2_2-6"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para" id="ex_2_2-6-1-1">
+<span class="process-math">\(f(z) = \cos x \cosh y - i \sin x \sinh y\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-6-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2_2-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_2_2-6-2-1">differentiable and holomorphic in <span class="process-math">\(\C\)</span> with derivative <span class="process-math">\(-\sin x \cosh y - i \cos x \sinh y\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-6-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.18.e.1"><a href="#ex_2_2-6-2" title="Copy heading and permalink for Answer 2.5.18.e.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.18.e"><a href="#ex_2_2-6" title="Copy heading and permalink for Task 2.5.18.e">🔗</a></div></article><article class="task exercise-like" id="ex_2_2-7"><h4 class="heading"><span class="codenumber">(f)</span></h4>
+<div class="para" id="ex_2_2-7-1-1">
+<span class="process-math">\(f(z)=\Im z\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-7-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2_2-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_2_2-7-2-1">nowhere differentiable or holomorphic<div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-7-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.18.f.1"><a href="#ex_2_2-7-2" title="Copy heading and permalink for Answer 2.5.18.f.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.18.f"><a href="#ex_2_2-7" title="Copy heading and permalink for Task 2.5.18.f">🔗</a></div></article><article class="task exercise-like" id="ex_2_2-8"><h4 class="heading"><span class="codenumber">(g)</span></h4>
+<div class="para" id="ex_2_2-8-1-1">
+<span class="process-math">\(f(z) = |z|^2 = x^2 + y^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-8-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2_2-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_2_2-8-2-1">differentiable only at <span class="process-math">\(0\)</span> with derivative <span class="process-math">\(0\text{,}\)</span> nowhere holomorphic<div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-8-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.18.g.1"><a href="#ex_2_2-8-2" title="Copy heading and permalink for Answer 2.5.18.g.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.18.g"><a href="#ex_2_2-8" title="Copy heading and permalink for Task 2.5.18.g">🔗</a></div></article><article class="task exercise-like" id="ex_2_2-9"><h4 class="heading"><span class="codenumber">(h)</span></h4>
+<div class="para" id="ex_2_2-9-1-1">
+<span class="process-math">\(f(z) = z \Im z\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-9-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2_2-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_2_2-9-2-1">differentiable only at <span class="process-math">\(0\)</span> with derivative <span class="process-math">\(0\text{,}\)</span> nowhere holomorphic<div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-9-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.18.h.1"><a href="#ex_2_2-9-2" title="Copy heading and permalink for Answer 2.5.18.h.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.18.h"><a href="#ex_2_2-9" title="Copy heading and permalink for Task 2.5.18.h">🔗</a></div></article><article class="task exercise-like" id="ex_2_2-10"><h4 class="heading"><span class="codenumber">(i)</span></h4>
+<div class="para" id="ex_2_2-10-1-1">
+<span class="process-math">\(f(z)= \frac{ ix+1 } y\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-10-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2_2-10-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_2_2-10-2-1">differentiable only at <span class="process-math">\(i\)</span> with derivative <span class="process-math">\(i\text{,}\)</span> nowhere holomorphic<div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-10-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.18.i.1"><a href="#ex_2_2-10-2" title="Copy heading and permalink for Answer 2.5.18.i.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.18.i"><a href="#ex_2_2-10" title="Copy heading and permalink for Task 2.5.18.i">🔗</a></div></article><article class="task exercise-like" id="ex_2_2-11"><h4 class="heading"><span class="codenumber">(j)</span></h4>
+<div class="para" id="ex_2_2-11-1-1">
+<span class="process-math">\(f(z)=4(\Re z)(\Im z)-i(\conj z)^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-11-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2_2-11-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_2_2-11-2-1">differentiable and holomorphic in <span class="process-math">\(\C\)</span> with derivative <span class="process-math">\(2y - 2xi
+= -2iz\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-11-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.18.j.1"><a href="#ex_2_2-11-2" title="Copy heading and permalink for Answer 2.5.18.j.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.18.j"><a href="#ex_2_2-11" title="Copy heading and permalink for Task 2.5.18.j">🔗</a></div></article><article class="task exercise-like" id="ex_2_2-12"><h4 class="heading"><span class="codenumber">(k)</span></h4>
+<div class="para" id="ex_2_2-12-1-1">
+<span class="process-math">\(f(z)=2xy-i(x+y)^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-12-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2_2-12-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_2_2-12-2-1">differentiable only at <span class="process-math">\(0\)</span> with derivative <span class="process-math">\(0\text{,}\)</span> nowhere holomorphic<div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-12-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.18.k.1"><a href="#ex_2_2-12-2" title="Copy heading and permalink for Answer 2.5.18.k.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.18.k"><a href="#ex_2_2-12" title="Copy heading and permalink for Task 2.5.18.k">🔗</a></div></article><article class="task exercise-like" id="ex_2_2-13"><h4 class="heading"><span class="codenumber">(l)</span></h4>
+<div class="para" id="ex_2_2-13-1-1">
+<span class="process-math">\(f(z)=z^2-\conj z^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-13-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2_2-13-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_2_2-13-2-1">differentiable only at <span class="process-math">\(0\)</span> with derivative <span class="process-math">\(0\text{,}\)</span> nowhere holomorphic<div class="autopermalink" data-description="Paragraph"><a href="#ex_2_2-13-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.18.l.1"><a href="#ex_2_2-13-2" title="Copy heading and permalink for Answer 2.5.18.l.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.18.l"><a href="#ex_2_2-13" title="Copy heading and permalink for Task 2.5.18.l">🔗</a></div></article><div class="autopermalink" data-description="Exercise 2.5.18"><a href="#ex_2_2" title="Copy heading and permalink for Exercise 2.5.18">🔗</a></div></article><article class="exercise exercise-like" id="chapter2-exercises-19"><h3 class="heading"><span class="codenumber">19<span class="period">.</span></span></h3>
+<div class="para" id="chapter2-exercises-19-1-1">Define <span class="process-math">\(f(z) = 0\)</span> if <span class="process-math">\(\Re(z)\cdot\Im(z)=0\text{,}\)</span> and <span class="process-math">\(f(z)=1\)</span> if <span class="process-math">\(\Re(z)\cdot\Im(z)\ne0\text{.}\)</span> Show that <span class="process-math">\(f\)</span> satisfies the Cauchy–Riemann equation <a href="sec_Cauchy-Riemann.html#complexcr" class="xref" data-knowl="./knowl/xref/complexcr.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.2">(2.2)</a> at <span class="process-math">\(z = 0\text{,}\)</span> yet <span class="process-math">\(f\)</span> is not differentiable at <span class="process-math">\(z = 0\text{.}\)</span> Why doesn’t this contradict <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a>(b)?<div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-19-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.19"><a href="#chapter2-exercises-19" title="Copy heading and permalink for Exercise 2.5.19">🔗</a></div></article><article class="exercise exercise-like" id="ex_realimpliesconst"><h3 class="heading"><span class="codenumber">20<span class="period">.</span></span></h3>
+<div class="para" id="ex_realimpliesconst-1-1">Prove: If <span class="process-math">\(f\)</span> is holomorphic in the region <span class="process-math">\(G \subseteq \C\)</span> and always real valued, then <span class="process-math">\(f\)</span> is constant in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_realimpliesconst-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_realimpliesconst-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="ex_realimpliesconst-2-1">Use the Cauchy–Riemann equations <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a> to show that <span class="process-math">\(f'=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_realimpliesconst-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 2.5.20.1"><a href="#ex_realimpliesconst-2" title="Copy heading and permalink for Hint 2.5.20.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 2.5.20"><a href="#ex_realimpliesconst" title="Copy heading and permalink for Exercise 2.5.20">🔗</a></div></article><article class="exercise exercise-like" id="ex_fandconjfimpliesconst"><h3 class="heading"><span class="codenumber">21<span class="period">.</span></span></h3>
+<div class="para" id="ex_fandconjfimpliesconst-1-1">Prove: If <span class="process-math">\(f(z)\)</span> and <span class="process-math">\(\overline{ f(z) }\)</span> are both holomorphic in the region <span class="process-math">\(G \subseteq \C\)</span> then <span class="process-math">\(f(z)\)</span> is constant in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_fandconjfimpliesconst-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.21"><a href="#ex_fandconjfimpliesconst" title="Copy heading and permalink for Exercise 2.5.21">🔗</a></div></article><article class="exercise exercise-like" id="chapter2-exercises-22"><h3 class="heading"><span class="codenumber">22<span class="period">.</span></span></h3>
+<div class="para" id="chapter2-exercises-22-1-1">Suppose <span class="process-math">\(f\)</span> is entire and can be written as <span class="process-math">\(f(z) =
+u(x) + i \, v(y)\text{,}\)</span> that is, the real part of <span class="process-math">\(f\)</span> depends only on <span class="process-math">\(x = \Re(z)\)</span> and the imaginary part of <span class="process-math">\(f\)</span> depends only on <span class="process-math">\(y = \Im(z)\text{.}\)</span> Prove that <span class="process-math">\(f(z) = az + b\)</span> for some <span class="process-math">\(a \in \R\)</span> and <span class="process-math">\(b \in \C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-22-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.22"><a href="#chapter2-exercises-22" title="Copy heading and permalink for Exercise 2.5.22">🔗</a></div></article><article class="exercise exercise-like" id="chapter2-exercises-23"><h3 class="heading"><span class="codenumber">23<span class="period">.</span></span></h3>
+<div class="para" id="chapter2-exercises-23-1-1">Suppose <span class="process-math">\(f\)</span> is entire, with real and imaginary parts <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> satisfying <span class="process-math">\(u(x,y) \, v(x,y)=3\)</span> for all <span class="process-math">\(z=x+iy\text{.}\)</span> Show that <span class="process-math">\(f\)</span> is constant.<div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-23-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.23"><a href="#chapter2-exercises-23" title="Copy heading and permalink for Exercise 2.5.23">🔗</a></div></article><article class="exercise exercise-like" id="ex_crepolar"><h3 class="heading"><span class="codenumber">24<span class="period">.</span></span></h3>
+<div class="para logical" id="ex_crepolar-1-1">
+<div class="para">Prove that the Cauchy–Riemann equations take on the following form in polar coordinates:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{ \partial u }{ \partial r } \ = \ \frac 1 r \, \frac{
+\partial v }{ \partial \phi } \qquad \text{ and }  \qquad
+\frac 1 r \, \frac{ \partial u }{ \partial \phi } \ = \ -
+\frac{ \partial v }{ \partial r } \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_crepolar-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.24"><a href="#ex_crepolar" title="Copy heading and permalink for Exercise 2.5.24">🔗</a></div></article><article class="exercise exercise-like" id="ex_harmconj"><h3 class="heading"><span class="codenumber">25<span class="period">.</span></span></h3>
+<div class="introduction" id="ex_harmconj-1"><div class="para" id="ex_harmconj-1-1">For each of the following functions <span class="process-math">\(u\text{,}\)</span> find a function <span class="process-math">\(v\)</span> such that <span class="process-math">\(u+iv\)</span> is holomorphic in some region. Maximize that region.<div class="autopermalink" data-description="Paragraph"><a href="#ex_harmconj-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="ex_harmconj-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="ex_harmconj-2-1-1">
+<span class="process-math">\(u(x,y) = x^2 - y^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_harmconj-2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_harmconj-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_harmconj-2-2-1">
+<span class="process-math">\(2xy\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_harmconj-2-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.25.a.1"><a href="#ex_harmconj-2-2" title="Copy heading and permalink for Answer 2.5.25.a.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.25.a"><a href="#ex_harmconj-2" title="Copy heading and permalink for Task 2.5.25.a">🔗</a></div></article><article class="task exercise-like" id="ex_harmconj-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="ex_harmconj-3-1-1">
+<span class="process-math">\(u(x,y) = \cosh (y) \sin (x)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_harmconj-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_harmconj-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_harmconj-3-2-1">
+<span class="process-math">\(\cos(x) \sinh(y)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_harmconj-3-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.25.b.1"><a href="#ex_harmconj-3-2" title="Copy heading and permalink for Answer 2.5.25.b.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.5.25.b"><a href="#ex_harmconj-3" title="Copy heading and permalink for Task 2.5.25.b">🔗</a></div></article><article class="task exercise-like" id="ex_harmconj-4"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="ex_harmconj-4-1-1">
+<span class="process-math">\(u(x,y) = 2x^2 + x + 1 - 2y^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_harmconj-4-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 2.5.25.c"><a href="#ex_harmconj-4" title="Copy heading and permalink for Task 2.5.25.c">🔗</a></div></article><article class="task exercise-like" id="ex_harmconj-5"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="ex_harmconj-5-1-1">
+<span class="process-math">\(u(x,y) = \frac{x}{x^2 + y^2}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_harmconj-5-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 2.5.25.d"><a href="#ex_harmconj-5" title="Copy heading and permalink for Task 2.5.25.d">🔗</a></div></article><div class="autopermalink" data-description="Exercise 2.5.25"><a href="#ex_harmconj" title="Copy heading and permalink for Exercise 2.5.25">🔗</a></div></article><article class="exercise exercise-like" id="ex_225"><h3 class="heading"><span class="codenumber">26<span class="period">.</span></span></h3>
+<div class="para" id="ex_225-1-1">Is <span class="process-math">\(u(x,y) = \frac x {x^2+y^2}\)</span> harmonic on <span class="process-math">\(\C\text{?}\)</span> What about <span class="process-math">\(u(x,y) = \frac{ x^2 }{ x^2+y^2 }\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_225-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_225-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="ex_225-2-1">Neither is defined at the origin, nor continuously extendable to the origin, so neither is harmonic on all of <span class="process-math">\(\C\text{.}\)</span> Away from the origin, the first is harmonic, while the second is not.<div class="autopermalink" data-description="Paragraph"><a href="#ex_225-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.5.26.1"><a href="#ex_225-2" title="Copy heading and permalink for Answer 2.5.26.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 2.5.26"><a href="#ex_225" title="Copy heading and permalink for Exercise 2.5.26">🔗</a></div></article><article class="exercise exercise-like" id="chapter2-exercises-27"><h3 class="heading"><span class="codenumber">27<span class="period">.</span></span></h3>
+<div class="introduction" id="chapter2-exercises-27-1"><div class="para" id="chapter2-exercises-27-1-1">Consider the general real homogeneous quadratic function <span class="process-math">\(u(x,y) = ax^2+bxy+cy^2\,\text{,}\)</span> where <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\)</span> and <span class="process-math">\(c\)</span> are real constants.<div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-27-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="chapter2-exercises-27-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="chapter2-exercises-27-2-1-1">Show that <span class="process-math">\(u\)</span> is harmonic if and only if <span class="process-math">\(a=-c\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-27-2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 2.5.27.a"><a href="#chapter2-exercises-27-2" title="Copy heading and permalink for Task 2.5.27.a">🔗</a></div></article><article class="task exercise-like" id="chapter2-exercises-27-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="chapter2-exercises-27-3-1-1">If <span class="process-math">\(u\)</span> is harmonic then show that it is the real part of a function of the form <span class="process-math">\(f(z) = Az^2\)</span> for some <span class="process-math">\(A \in \C\text{.}\)</span> Give a formula for <span class="process-math">\(A\)</span> in terms of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\)</span> and <span class="process-math">\(c\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#chapter2-exercises-27-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 2.5.27.b"><a href="#chapter2-exercises-27-3" title="Copy heading and permalink for Task 2.5.27.b">🔗</a></div></article><div class="autopermalink" data-description="Exercise 2.5.27"><a href="#chapter2-exercises-27" title="Copy heading and permalink for Exercise 2.5.27">🔗</a></div></article><article class="exercise exercise-like" id="ex_diffrulesViaCR"><h3 class="heading"><span class="codenumber">28<span class="period">.</span></span></h3>
+<div class="para" id="ex_diffrulesViaCR-1-1">Re-prove <a href="sec_diffholom.html#derivativerules" class="xref" data-knowl="./knowl/xref/derivativerules.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.2.5">Proposition 2.2.5</a> by using the formula for <span class="process-math">\(f'\)</span> given in <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ex_diffrulesViaCR-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 2.5.28"><a href="#ex_diffrulesViaCR" title="Copy heading and permalink for Exercise 2.5.28">🔗</a></div></article><article class="exercise exercise-like" id="ex_2ndderivative0"><h3 class="heading"><span class="codenumber">29<span class="period">.</span></span></h3>
+<div class="para" id="ex_2ndderivative0-1-1">Prove that, If <span class="process-math">\(G\subseteq\C\)</span> is a region and <span class="process-math">\(f: G \to \C\)</span> is a complex-valued function with <span class="process-math">\(f''(z)\)</span> defined and equal to <span class="process-math">\(0\)</span> for all <span class="process-math">\(z \in
+G\text{,}\)</span> then <span class="process-math">\(f(z) = a z + b\)</span> for some <span class="process-math">\(a,
+b \in \C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2ndderivative0-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex_2ndderivative0-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="ex_2ndderivative0-2-1">Use <a href="sec_constantfcts.html#derivative0" class="xref" data-knowl="./knowl/xref/derivative0.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.4.2">Theorem 2.4.2</a> to show that <span class="process-math">\(f'(z) = a\text{,}\)</span> and then use <a href="sec_constantfcts.html#derivative0" class="xref" data-knowl="./knowl/xref/derivative0.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.4.2">Theorem 2.4.2</a> again for the function <span class="process-math">\(f(z) - a z\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_2ndderivative0-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 2.5.29.1"><a href="#ex_2ndderivative0-2" title="Copy heading and permalink for Hint 2.5.29.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Exercise 2.5.29"><a href="#ex_2ndderivative0" title="Copy heading and permalink for Exercise 2.5.29">🔗</a></div></article><div class="autopermalink" data-description="Exercises 2.5"><a href="#chapter2-exercises" title="Copy heading and permalink for Exercises 2.5">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec_constantfcts.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="exampleschapter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

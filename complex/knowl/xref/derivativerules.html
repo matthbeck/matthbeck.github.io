@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">Suppose <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are differentiable at <span class="process-math">\(z \in \C\)</span> and <span class="process-math">\(h\)</span> is differentiable at <span class="process-math">\(g(z)\text{.}\)</span> Then</div>
+<ol class="lower-alpha ol-marker-1" id="derivativerules-1-1-6">
+<li>
+<div class="para">
+<span class="process-math">\(\bigl( f(z) + c \, g(z) \bigr)' \ = \ f'(z) + c \,
+g'(z)\)</span> for any <span class="process-math">\(c \in \C\)</span><div class="autopermalink" data-description="Paragraph"><a href="#derivativerules-1-1-6-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#derivativerules-1-1-6-1" title="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li>
+<div class="para">
+<span class="process-math">\(\displaystyle \bigl( f(z) \, g(z) \bigr)' \ = \ f'(z) \, g(z) + f(z)
+\, g'(z)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#diffproductrule-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item b"><a href="#diffproductrule" title="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li>
+<div class="para">
+<span class="process-math">\(\displaystyle \left( \frac{ f(z) }{ g(z) } \right)'
+\ = \ \frac{ f'(z) \, g(z) - f(z) \, g'(z) }{ g(z)^2 }\)</span> provided that <span class="process-math">\(g(z)^2 \ne 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#derivativerules-1-1-6-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item c"><a href="#derivativerules-1-1-6-3" title="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+<li>
+<div class="para">
+<span class="process-math">\(\bigl( z^n \bigr)' \ = \ n \, z^{n-1}\)</span> for any nonzero integer <span class="process-math">\(n\)</span><div class="autopermalink" data-description="Paragraph"><a href="#derivativerules-1-1-6-4-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item d"><a href="#derivativerules-1-1-6-4" title="Copy heading and permalink for Item d">🔗</a></div>
+</li>
+<li>
+<div class="para">
+<span class="process-math">\(g\)</span> is continuous at <span class="process-math">\(z\)</span><div class="autopermalink" data-description="Paragraph"><a href="#derivativerules-1-1-6-5-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item e"><a href="#derivativerules-1-1-6-5" title="Copy heading and permalink for Item e">🔗</a></div>
+</li>
+<li>
+<div class="para">
+<span class="process-math">\(\bigl( h(g(z)) \bigr)' \ = \ h'(g(z)) \, g'(z) \, \text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#derivativerules-1-1-6-6-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item f"><a href="#derivativerules-1-1-6-6" title="Copy heading and permalink for Item f">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#derivativerules-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 2.2.5"><a href="#derivativerules" title="Copy heading and permalink for Proposition 2.2.5">🔗</a></div></article><article class="proof"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para">We give a sample proof (b):<div class="autopermalink" data-description="Paragraph"><a href="#derivativerules-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/limits.html ./knowl/xref/limitsadd.html ./knowl/xref/limitsmultiply.html">
+\begin{align*}
+\bigl( f(z) g(z) \bigr)'
+\amp \ = \ \lim_{ h \to 0 } \frac{ f(z+h) \, g(z+h) - f(z) \,
+g(z) }{ h }\\
+\amp \ = \ \lim_{ h \to 0 } \frac{ f(z+h) \left( g(z+h) - g(z)
+\right) + \left( f(z+h) - f(z) \right) g(z) }{ h }\\
+\amp \ = \ \lim_{ h \to 0 } f(z+h) \frac{ g(z+h) - g(z) } h \\
+\amp \qquad + \lim_{ h \to 0 } \frac{ f(z+h) - f(z) } h g(z)\\
+\amp \ = \ f(z) \, g'(z) + f'(z) \, g(z) \,\text{.}
+\end{align*}
+</div>
+<div class="para">Note that we have used the definition of the derivative and <a href="sec_limitsandcontinuity.html#limits" class="xref" data-knowl="./knowl/xref/limits.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.1.6">Proposition 2.1.6</a> (<a href="sec_limitsandcontinuity.html#limitsadd" class="xref" data-knowl="./knowl/xref/limitsadd.html" data-reveal-label="Reveal" data-close-label="Close" title="Item a">a</a>) &amp; (<a href="sec_limitsandcontinuity.html#limitsmultiply" class="xref" data-knowl="./knowl/xref/limitsmultiply.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">b</a>) (the addition and multiplication rules for limits).<div class="autopermalink" data-description="Paragraph"><a href="#derivativerules-2-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2.2.5.1"><a href="#derivativerules-2" title="Copy heading and permalink for Proof 2.2.5.1">🔗</a></div></article><span class="incontext"><a class="internal" href="sec_diffholom.html#derivativerules">in-context</a></span>
+</body>
+</html>

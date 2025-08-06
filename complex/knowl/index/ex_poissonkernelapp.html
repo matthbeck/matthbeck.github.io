@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">13<span class="period">.</span></span>
+</h3>
+<div class="introduction">
+<div class="para logical">
+<div class="para">Recall from <a href="intchapter-7.html#ex_poissonkernel" class="xref" data-knowl="./knowl/xref/ex_poissonkernel.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.31">Exercise 4.5.31</a> the Poisson kernel</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_poissonkernel.html">
+\begin{equation*}
+P_r(\phi) \ = \ \frac{ 1-r^2 }{ 1 - 2r \cos(\phi) + r^2 } \,\text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(0 \lt  r \lt  1\text{.}\)</span> In this exercise, we will prove the <em class="emphasis">Poisson Integral Formula</em>: if <span class="process-math">\(u\)</span> is harmonic on an open set containing the closed unit disk <span class="process-math">\(\overline D[0,1]\)</span> then for any <span class="process-math">\(r\lt 1\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_poissonkernel.html">
+\begin{equation}
+u \! \left( r \, e^{ i \phi } \right) \ = \ \frac{ 1 }{ 2 \pi }
+\int_0^{ 2 \pi } u \! \left( e^{ i t } \right) P_r(\phi - t)
+\, \diff{t} \, \text{.}\tag{6.2}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_poissonkernelapp-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">Suppose <span class="process-math">\(u\)</span> is harmonic on an open set containing <span class="process-math">\(\overline D[0,1]\text{.}\)</span> By <a href="harmonicChapter-5.html#ex_biggerdisk" class="xref" data-knowl="./knowl/xref/ex_biggerdisk.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 6.3.14">Exercise 6.3.14</a> we can find <span class="process-math">\(R_0&gt;1\)</span> so that <span class="process-math">\(u\)</span> is harmonic in <span class="process-math">\(D[0,R_0]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_poissonkernelapp-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para logical">
+<div class="para">Recall the Möbius function</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_mobiusunitcircletounitcircle.html">
+\begin{equation*}
+f_a(z) \ = \ \frac{ z-a }{ 1 - \conj{a} z } \,\text{,}
+\end{equation*}
+</div>
+<div class="para">for some fixed <span class="process-math">\(a \in \C\)</span> with <span class="process-math">\(|a| \lt  1\text{,}\)</span> from <a href="chapter3-exercises.html#ex_mobiusunitcircletounitcircle" class="xref" data-knowl="./knowl/xref/ex_mobiusunitcircletounitcircle.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.9">Exercise 3.6.9</a>. Show that <span class="process-math">\(u(f_{ -a }(z))\)</span> is harmonic on an open disk <span class="process-math">\(D[0,R_1]\)</span> containing <span class="process-math">\(\overline D[0,1]\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_poissonkernelapp-2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 6.3.13.a"><a href="#ex_poissonkernelapp-2" title="Copy heading and permalink for Task 6.3.13.a">🔗</a></div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para logical">
+<div class="para">Apply <a href="sec_harmonicmeanvalue.html#harmonicmeanvalue" class="xref" data-knowl="./knowl/xref/harmonicmeanvalue.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.2.1">Theorem 6.2.1</a> to the function <span class="process-math">\(u(f_{ -a }(z))\)</span> with <span class="process-math">\(w=0\)</span> to deduce</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/harmonicmeanvalue.html">
+\begin{equation}
+u(a) \ = \ \frac{ 1 }{ 2 \pi i } \int_{ C[0,1] } \frac{
+u(f_{ -a }(z)) }{ z } \, \diff{z} \,\text{.}\tag{6.3}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_poissonkernelapp-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 6.3.13.b"><a href="#ex_poissonkernelapp-3" title="Copy heading and permalink for Task 6.3.13.b">🔗</a></div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para logical">
+<div class="para">Recalling, again from <a href="chapter3-exercises.html#ex_mobiusunitcircletounitcircle" class="xref" data-knowl="./knowl/xref/ex_mobiusunitcircletounitcircle.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.9">Exercise 3.6.9</a>, that <span class="process-math">\(f_a(z)\)</span> maps the unit circle to itself, apply a change of variables to <a href="harmonicChapter-5.html#eq_poissoninterm" class="xref" data-knowl="./knowl/xref/eq_poissoninterm.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 6.3">(6.3)</a> to prove</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_mobiusunitcircletounitcircle.html ./knowl/xref/eq_poissoninterm.html">
+\begin{equation*}
+u(a) \ = \ \frac{ 1 }{ 2 \pi } \int_0^{ 2 \pi } u \!
+\left( e^{ i t } \right) \frac{ 1 - |a|^2 }{ \left|
+e^{ i t } - a \right|^2 } \, \diff{t} \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_poissonkernelapp-4-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 6.3.13.c"><a href="#ex_poissonkernelapp-4" title="Copy heading and permalink for Task 6.3.13.c">🔗</a></div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para">Deduce <a href="harmonicChapter-5.html#eq_poissonintform" class="xref" data-knowl="./knowl/xref/eq_poissonintform.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 6.2">(6.2)</a> by setting <span class="process-math">\(a =
+r \, e^{ i \phi }\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_poissonkernelapp-5-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 6.3.13.d"><a href="#ex_poissonkernelapp-5" title="Copy heading and permalink for Task 6.3.13.d">🔗</a></div></article><div class="autopermalink" data-description="Exercise 6.3.13"><a href="#ex_poissonkernelapp" title="Copy heading and permalink for Exercise 6.3.13">🔗</a></div></article><span class="incontext"><a class="internal" href="harmonicChapter-5.html#ex_poissonkernelapp">in-context</a></span>
+</body>
+</html>

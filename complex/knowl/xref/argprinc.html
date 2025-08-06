@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Argument Principle <details class="ptx-footnote" aria-live="polite" id="argprinc-1-1"><summary class="ptx-footnote__number" title="Footnote 9.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="argprinc-1-1">The name <em class="emphasis">Argument Principle</em> stems from interpreting the integral <span class="process-math">\(\int_\gamma \frac{f'}{f}\)</span> as the change in the argument of <span class="process-math">\(f(z)\)</span> as <span class="process-math">\(z\)</span> traverses <span class="process-math">\(\gg\text{,}\)</span> since <span class="process-math">\(\fLog(f(z))' =
+\frac{ f'(z) }{ f(z) }\text{.}\)</span>
+</div></details>.</span>
+</h3>
+<div class="para logical">
+<div class="para">Suppose <span class="process-math">\(f\)</span> is meromorphic in a region <span class="process-math">\(G\)</span> and <span class="process-math">\(\gg\)</span> is a positively oriented, simple, closed, piecewise smooth path that does not pass through any zero or pole of <span class="process-math">\(f\text{,}\)</span> and <span class="process-math">\(\gg \sim_G 0\text{.}\)</span> Denote by <span class="process-math">\(Z(f,\gg)\)</span> the number of zeros of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gg\)</span> counted according to multiplicity and by <span class="process-math">\(P(f,\gg)\)</span> the number of poles of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gg\)</span> counted according to order. Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{2 \pi i} \i \frac{f'}{f} \ = \ Z(f,\gg) - P(f,\gg) \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#argprinc-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 9.3.2: Argument Principle "><a href="#argprinc" title="Copy heading and permalink for Theorem 9.3.2: Argument Principle ">🔗</a></div></article><article class="proof"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical">
+<div class="para">Suppose the zeros of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gg\)</span> are <span class="process-math">\(z_1, \dots,z_j\)</span> of multiplicities <span class="process-math">\(n_1, \dots, n_j\text{,}\)</span> respectively, and the poles inside <span class="process-math">\(\gg\)</span> are <span class="process-math">\(p_1, \dots, p_k\)</span> with order <span class="process-math">\(m_1, \dots, m_k\text{,}\)</span> respectively. (You may meditate about the fact why there can be only finitely many zeros and poles inside <span class="process-math">\(\gg\text{.}\)</span>) In fact, we may shrink <span class="process-math">\(G\text{,}\)</span> if necessary, so that these are the only zeros and poles in <span class="process-math">\(G\text{.}\)</span> By <a href="sec_argprinc.html#sec_argprinc-5-12" class="xref" data-knowl="./knowl/xref/logderzeros.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 9.1">(9.1)</a> and <a href="sec_argprinc.html#logderpoles" class="xref" data-knowl="./knowl/xref/logderpoles.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 9.2">(9.2)</a>,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/logderpoles.html ./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html">
+\begin{equation*}
+\frac{ f'(z) }{ f(z) } \ = \ \frac{ n_1 }{ z - z_1 } + \dots +
+\frac{ n_j }{ z - z_j } - \frac{ m_1 }{ z - p_1 } - \dots -
+\frac{ m_k }{ z - p_k } + \frac{ g'(z) }{ g(z) } \, \text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(g\)</span> is a function that is holomorphic in <span class="process-math">\(G\)</span> (in particular, without poles) and never zero. Thanks to Cauchy’s <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a> and <a href="intchapter-7.html#ex_circleint" class="xref" data-knowl="./knowl/xref/ex_circleint.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.4">Exercise 4.5.4</a>, the integral is easy:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/logderpoles.html ./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html">
+\begin{align*}
+\i \frac{ f' }{ f } \amp \ = \ n_1 \i \frac{ \diff{z}
+}{ z - z_1 } \, + \, \cdots \, + \, n_j \i \frac{ \diff{z}
+}{ z - z_j }\\
+\amp \qquad - \, m_1 \i \frac{ \diff{z} }{ z - p_1 }
+\, - \, \cdots \, - \, m_k \i \frac{ \diff{z} }{ z - p_k }
++ \i \frac{ g' }{ g }\\
+\amp \ = \ 2 \pi i \left( n_1 + \dots + n_j - m_1 -
+\dots - m_k \right) + \i \frac{ g' }{ g } \, \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#argprinc-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">Finally, <span class="process-math">\(\frac{g'}{g}\)</span> is holomorphic in <span class="process-math">\(G\)</span> (because <span class="process-math">\(g\)</span> is never zero in <span class="process-math">\(G\)</span>), so that <a href="sec_cauchythm.html#cauchycor" class="xref" data-knowl="./knowl/xref/cauchycor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.3.8">Corollary 4.3.8</a> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchycor.html">
+\begin{equation*}
+\i \frac{g'} g \ = \ 0 \,  \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#argprinc-3-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 9.3.2.1"><a href="#argprinc-3" title="Copy heading and permalink for Proof 9.3.2.1">🔗</a></div></article><span class="incontext"><a class="internal" href="sec_argprinc.html#argprinc">in-context</a></span>
+</body>
+</html>

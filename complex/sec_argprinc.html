@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Argument Principle and Rouché’s Theorem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="A First Course in Complex Analysis">
+<meta property="book:author" content="Matthias Beck">
+<meta property="book:author" content="Gerald Marchesi">
+<meta property="book:author" content="Dennis Pixton">
+<meta property="book:author" content="Lucas Sabalka">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.4';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="fcca" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
+<p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec_residues.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="residuechapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="residuechapter-6.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\def\versionnumber{1.54}
+\def\JPicScale{0.7}
+\def\versionyear{2018}
+\def\JPicScale{0.7}
+\def\versionmonth{July \versionyear}
+\def\JPicScale{0.7}
+\def\JPicScale{0.7}
+\newcommand{\ix}[1]{#1\index{#1}}
+\def\JPicScale{0.7}
+\newcommand{\Z}{\mathbb{Z}}
+\def\JPicScale{0.7}
+\newcommand{\Q}{\mathbb{Q}}
+\def\JPicScale{0.6}
+\newcommand{\R}{\mathbb{R}}
+\def\JPicScale{0.6}
+\newcommand{\C}{\mathbb{C}}
+\def\s{\sum_{k \geq 0}}
+\newcommand{\N}{\mathbb{N}}
+\def\sz{\sum_{ k \in \Z }}
+\newcommand{\Chat}{\hat\C}
+\def\JPicScale{0.7}
+\newcommand{\Rhat}{\hat\R}
+\def\i{\int_\gg}
+\newcommand{\gd}{\delta}
+\def\JPicScale{0.7}
+\renewcommand{\gg}{\gamma}
+\newcommand{\D}{\Delta}
+\newcommand{\Dp}{\check{D}}
+\DeclareMathOperator{\length}{length}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fArg}{\mathcal{A}rg}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\let\Im\relax
+\let\Re\relax
+\DeclareMathOperator{\Im}{Im}
+\DeclareMathOperator{\Re}{Re}
+\def\sz{\sum_{ k \in \Z }}
+\def\s{\sum_{k \geq 0}}
+\DeclareMathOperator{\Res}{Res}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\Def}[1]{\textbf{#1}}
+\newcommand{\hint}[1]{(\emph{Hint}: #1)}
+\newcommand{\histremark}[1]{}
+\newcommand{\histremarktwo}[2]{}
+\newcommand{\listset}[1]{\left\{#1\right\}}
+\newcommand{\makeset}[2]{\listset{#1\colon\,#2}}
+\newcommand{\listseq}[1]{\left\langle#1\right\rangle}
+\newcommand{\makeseq}[2]{\listseq{#1\colon\,#2}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\zbar}{\overline{z}}
+\def\o{\overline}
+\newcommand{\fderiv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\sderiv}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\mderiv}[3]{\frac{\partial^2 #1}{\partial #2 \, \partial #3}}
+\newcommand{\mat}[1]{\displaystyle\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\disp}[1]{$\displaystyle#1$}
+\renewcommand{\th}{^{ th}}
+\newcommand{\boldcdot}{\boldsymbol{\cdot}}
+\newcommand{\diff}[1]{{d#1}}
+\newcommand{\itref}[1]{\eqref{#1}}
+\def\newnotes{
+\begin{remarks}
+\thenotes.
+}
+\def\writenote{
+\vspace{10pt} \thenotes.
+}
+\newcommand{\putqed}{\pushQED{\qed}\popQED}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\newcommand{\fillinmath}[1]{\mathchoice{\underline{\displaystyle     \phantom{\ \,#1\ \,}}}{\underline{\textstyle        \phantom{\ \,#1\ \,}}}{\underline{\scriptstyle      \phantom{\ \,#1\ \,}}}{\underline{\scriptscriptstyle\phantom{\ \,#1\ \,}}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="complexnumberchapter.html" class="internal"><span class="codenumber">1</span> <span class="title">Complex Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_defalg.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Definitions and Algebraic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="geomprop.html" class="internal"><span class="codenumber">1.2</span> <span class="title">From Algebra to Geometry and Back</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_geometricprops.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Geometric Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_topologyintro.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Elementary Topology of the Plane</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="chapter1-exercises.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec_optionallab-alt.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Optional Lab</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="functionchapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Differentiation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_limitsandcontinuity.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Limits and Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_diffholom.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Differentiability and Holomorphicity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_Cauchy-Riemann.html" class="internal"><span class="codenumber">2.3</span> <span class="title">The Cauchy–Riemann Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_constantfcts.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Constant Functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="chapter2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="exampleschapter.html" class="internal"><span class="codenumber">3</span> <span class="title">Examples of Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_mobius.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Möbius Transformations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_riemannspere.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Infinity and the Cross Ratio</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_stereoproj.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Stereographic Projection</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_exptrigfcts.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Exponential and Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_logexp.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Logarithms and Complex Exponentials</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="chapter3-exercises.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intchapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Integration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_intdef.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Definition and Basic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_antiderivatives.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Antiderivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_cauchythm.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Cauchy’s Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_CIF.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Cauchy’s Integral Formula</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intchapter-7.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cachyconschapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Consequences of Cauchy’s Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_variationstheme.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Variations of a Theme</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_antiderivagain.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Antiderivatives Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_cauchytothelimit.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Taking Cauchy’s Formulas to the Limit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="cachyconschapter-6.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="harmonicChapter.html" class="internal"><span class="codenumber">6</span> <span class="title">Harmonic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_defharmonic.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Definition and Basic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_harmonicmeanvalue.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Mean-Value and Maximum/Minimum Principle</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="harmonicChapter-5.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="powerchapter.html" class="internal"><span class="codenumber">7</span> <span class="title">Power Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_sequencescomplete.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Sequences and Completeness</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_series.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Series</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_sequseriesfunctions.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Sequences and Series of Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_regionsconvergence.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Regions of Convergence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="powerchapter-7.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="taylorchapter.html" class="internal"><span class="codenumber">8</span> <span class="title">Taylor and Laurent Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_powerseriesholom.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Power Series and Holomorphic Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_classifzeros.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Classification of Zeros and the Identity Principle</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_LaurentSeries.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Laurent Series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="taylorchapter-6.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="residuechapter.html" class="internal"><span class="codenumber">9</span> <span class="title">Isolated Singularities and the Residue Theorem</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_classificationsingul.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Classification of Singularities</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_residues.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Residues</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec_argprinc.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Argument Principle and Rouché’s Theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="residuechapter-6.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_discreteresidues.html" class="internal"><span class="codenumber">10</span> <span class="title">Discrete Applications of the Residue Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-calculus.html" class="internal"><span class="codenumber">A</span> <span class="title">Theorems from Calculus</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="title">Index</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-4.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_argprinc"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">9.3</span><span class="space"> </span><span class="title">Argument Principle and Rouché’s Theorem</span>
+</h2>
+<div class="para" id="sec_argprinc-2">In the previous section we saw how to compute integrals via residues, but in many applications we actually do not have an explicit expression for a function that we need to integrate (or this expression is very complicated). However, it may still be possible to compute the value of a function at any given point. In this situation we cannot immediately apply the Residue Theorem because we don’t know where the singularities are. Of course, we could use numerical integration to compute integrals over any path, but computationally this task could be very resource intensive. But if we do know the singularities, we can compute the residues numerically by computing a finite number of the integrals over small circles around these singularities. And after that we can apply the residue theorem to compute the integral over any closed path very effectively: we just sum up the residues inside this path. The argument principle that we study below, in particular, addresses this question. We start by introducing the logarithmic derivative.<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_argprinc-3">Suppose we have a differentiable function <span class="process-math">\(f\text{.}\)</span> Differentiating <span class="process-math">\(\fLog f\)</span> (where <span class="process-math">\(\fLog\)</span> is some branch of the logarithm) gives <span class="process-math">\(\frac{f'}{f}\text{,}\)</span> which is one good reason to call this quotient the <em class="emphasis">logarithmic derivative</em> of <span class="process-math">\(f\text{.}\)</span>  It has some remarkable properties, one of which we would like to discuss here.<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_argprinc-4">
+<div class="para">Now let’s say we have two functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> holomorphic in some region. Then the logarithmic derivative of their product behaves very nicely:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{ (fg)' }{ fg } \ = \ \frac{ f' g + f g' }{ fg } \ = \ \frac{ f'
+}{ f } + \frac{ g' }{ g } \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_argprinc-5">
+<div class="para">We can apply this fact to the following situation: Suppose that <span class="process-math">\(f\)</span> is holomorphic in a region <span class="process-math">\(G\)</span> and <span class="process-math">\(f\)</span> has (finitely many) zeros <span class="process-math">\(z_1, \dots,
+z_j\)</span> of multiplicities <span class="process-math">\(n_1, \dots, n_j\text{,}\)</span> respectively. By <a href="sec_classifzeros.html#classificationzeros" class="xref" data-knowl="./knowl/xref/classificationzeros.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.2.1: Classification of Zeros">Theorem 8.2.1</a>, we can express <span class="process-math">\(f\)</span> as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html">
+\begin{equation*}
+f(z) \ = \ ( z - z_1 )^{n_1} \cdots ( z - z_j )^{n_j} g(z) \,\text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(g\)</span> is also holomorphic in <span class="process-math">\(G\)</span> and never zero. Let’s compute the logarithmic derivative of <span class="process-math">\(f\)</span> and play the same remarkable cancellation game as above:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html" id="sec_argprinc-5-12">
+\begin{align}
+\frac{ f'(z) }{ f(z) } \amp \ = \ \frac{n_1 (z - z_1)^{n_1-1}
+(z - z_2)^{n_2} \cdots (z - z_j)^{n_j} g(z) + \dots + ( z - z_1
+)^{n_1} \cdots ( z - z_j )^{n_j} g'(z) }{ ( z - z_1 )^{n_1}
+\cdots ( z - z_j )^{n_j} g(z) } \nonumber\notag\\
+\amp \ = \ \frac{ n_1 }{ z
+- z_1 } + \frac{ n_2 }{ z - z_2 } + \cdots + \frac{ n_j }{ z -
+z_j } + \frac{ g'(z) }{ g(z) } \, \text{.}\tag{9.1}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_argprinc-6">
+<div class="para">Something similar happens if <span class="process-math">\(f\)</span> has finitely many poles in <span class="process-math">\(G\text{.}\)</span> In <a href="residuechapter-6.html#ex_logderpoles" class="xref" data-knowl="./knowl/xref/ex_logderpoles.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 9.4.18">Exercise 9.4.18</a>, we invite you to prove that, if <span class="process-math">\(p_1, \dots, p_k\)</span> are all the poles of <span class="process-math">\(f\)</span> in <span class="process-math">\(G\)</span> with order <span class="process-math">\(m_1, \dots, m_k\text{,}\)</span> respectively, then the logarithmic derivative of <span class="process-math">\(f\)</span> can be expressed as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_logderpoles.html" id="logderpoles">
+\begin{equation}
+\frac{f'(z)}{f(z)} \ = \ - \frac{ m_1 }{ z - p_1 } -
+\frac{m_2}{z - p_2} - \dots - \frac{ m_k }{ z - p_k } + \frac{
+g'(z) }{ g(z) } \, \text{,}\tag{9.2}
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(g\)</span> is a function without poles in <span class="process-math">\(G\text{.}\)</span> Naturally, we can combine the expressions for zeros and poles, as we will do in a moment.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="sec_argprinc-7"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.3.1</span><span class="period">.</span>
+</h3>
+<div class="para" id="sec_argprinc-7-1-1">A function <span class="process-math">\(f\)</span> is <em class="emphasis">meromorphic</em> in the region <span class="process-math">\(G\)</span> if <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(G\)</span> except for poles. <div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-7-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 9.3.1"><a href="#sec_argprinc-7" title="Copy heading and permalink for Definition 9.3.1">🔗</a></div></article><article class="theorem theorem-like" id="argprinc"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Argument Principle <details class="ptx-footnote" aria-live="polite" id="argprinc-1-1"><summary class="ptx-footnote__number" title="Footnote 9.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="argprinc-1-1">The name <em class="emphasis">Argument Principle</em> stems from interpreting the integral <span class="process-math">\(\int_\gamma \frac{f'}{f}\)</span> as the change in the argument of <span class="process-math">\(f(z)\)</span> as <span class="process-math">\(z\)</span> traverses <span class="process-math">\(\gg\text{,}\)</span> since <span class="process-math">\(\fLog(f(z))' =
+\frac{ f'(z) }{ f(z) }\text{.}\)</span>
+</div></details>.</span>
+</h3>
+<div class="para logical" id="argprinc-2-1">
+<div class="para">Suppose <span class="process-math">\(f\)</span> is meromorphic in a region <span class="process-math">\(G\)</span> and <span class="process-math">\(\gg\)</span> is a positively oriented, simple, closed, piecewise smooth path that does not pass through any zero or pole of <span class="process-math">\(f\text{,}\)</span> and <span class="process-math">\(\gg \sim_G 0\text{.}\)</span> Denote by <span class="process-math">\(Z(f,\gg)\)</span> the number of zeros of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gg\)</span> counted according to multiplicity and by <span class="process-math">\(P(f,\gg)\)</span> the number of poles of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gg\)</span> counted according to order. Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{2 \pi i} \i \frac{f'}{f} \ = \ Z(f,\gg) - P(f,\gg) \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#argprinc-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 9.3.2: Argument Principle "><a href="#argprinc" title="Copy heading and permalink for Theorem 9.3.2: Argument Principle ">🔗</a></div></article><article class="proof" id="argprinc-3"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="argprinc-3-1">
+<div class="para">Suppose the zeros of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gg\)</span> are <span class="process-math">\(z_1, \dots,z_j\)</span> of multiplicities <span class="process-math">\(n_1, \dots, n_j\text{,}\)</span> respectively, and the poles inside <span class="process-math">\(\gg\)</span> are <span class="process-math">\(p_1, \dots, p_k\)</span> with order <span class="process-math">\(m_1, \dots, m_k\text{,}\)</span> respectively. (You may meditate about the fact why there can be only finitely many zeros and poles inside <span class="process-math">\(\gg\text{.}\)</span>) In fact, we may shrink <span class="process-math">\(G\text{,}\)</span> if necessary, so that these are the only zeros and poles in <span class="process-math">\(G\text{.}\)</span> By <a href="sec_argprinc.html#sec_argprinc-5-12" class="xref" data-knowl="./knowl/xref/logderzeros.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 9.1">(9.1)</a> and <a href="sec_argprinc.html#logderpoles" class="xref" data-knowl="./knowl/xref/logderpoles.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 9.2">(9.2)</a>,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/logderpoles.html ./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html">
+\begin{equation*}
+\frac{ f'(z) }{ f(z) } \ = \ \frac{ n_1 }{ z - z_1 } + \dots +
+\frac{ n_j }{ z - z_j } - \frac{ m_1 }{ z - p_1 } - \dots -
+\frac{ m_k }{ z - p_k } + \frac{ g'(z) }{ g(z) } \, \text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(g\)</span> is a function that is holomorphic in <span class="process-math">\(G\)</span> (in particular, without poles) and never zero. Thanks to Cauchy’s <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a> and <a href="intchapter-7.html#ex_circleint" class="xref" data-knowl="./knowl/xref/ex_circleint.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.4">Exercise 4.5.4</a>, the integral is easy:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/logderpoles.html ./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html" id="argprinc-3-1-19">
+\begin{align*}
+\i \frac{ f' }{ f } \amp \ = \ n_1 \i \frac{ \diff{z}
+}{ z - z_1 } \, + \, \cdots \, + \, n_j \i \frac{ \diff{z}
+}{ z - z_j }\\
+\amp \qquad - \, m_1 \i \frac{ \diff{z} }{ z - p_1 }
+\, - \, \cdots \, - \, m_k \i \frac{ \diff{z} }{ z - p_k }
++ \i \frac{ g' }{ g }\\
+\amp \ = \ 2 \pi i \left( n_1 + \dots + n_j - m_1 -
+\dots - m_k \right) + \i \frac{ g' }{ g } \, \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#argprinc-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="argprinc-3-2">
+<div class="para">Finally, <span class="process-math">\(\frac{g'}{g}\)</span> is holomorphic in <span class="process-math">\(G\)</span> (because <span class="process-math">\(g\)</span> is never zero in <span class="process-math">\(G\)</span>), so that <a href="sec_cauchythm.html#cauchycor" class="xref" data-knowl="./knowl/xref/cauchycor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.3.8">Corollary 4.3.8</a> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchycor.html">
+\begin{equation*}
+\i \frac{g'} g \ = \ 0 \,  \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#argprinc-3-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 9.3.2.1"><a href="#argprinc-3" title="Copy heading and permalink for Proof 9.3.2.1">🔗</a></div></article><div class="para" id="sec_argprinc-9">As mentioned above, this beautiful theorem helps to locate poles and zeroes of a function <span class="process-math">\(f\text{.}\)</span> The idea is simple: we can first numerically integrate <span class="process-math">\(\frac{f'}{f}\)</span> over a big circle <span class="process-math">\(\gamma\)</span> that includes all possible paths over which we potentially will be integrating <span class="process-math">\(f\text{.}\)</span> Then the numerical value of <span class="process-math">\(\frac{ 1 }{ 2 \pi i } \int_{\gamma} \frac{ f' }{ f }\)</span> will be close to an integer that, according to the Argument Principle, equals <span class="process-math">\(Z(f,\gamma)-P(f,\gamma)\text{.}\)</span> Then we can integrate <span class="process-math">\(\frac{f'}{f}\)</span> over a smaller closed path <span class="process-math">\(\gamma_1\)</span> that encompasses half of the interior of <span class="process-math">\(\gamma\)</span> and find <span class="process-math">\(Z(f,\gamma_1)-P(f,\gamma_1)\text{.}\)</span> Continuing this process for smaller and smaller regions will (after certain verification) produce small regions where <span class="process-math">\(f\)</span> has exactly one zero or exactly one pole. Integrating <span class="process-math">\(f\)</span> over the boundaries of those small regions that contain poles and dividing by <span class="process-math">\(2\pi i\)</span> gives all residues of <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_argprinc-10">Another nice related application of the Argument Principle is a famous theorem due to Eugene Rouché (1832–1910). <div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="rouche"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Rouché’s Theorem.</span>
+</h3>
+<div class="para logical" id="rouche-2-1">
+<div class="para">Suppose <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are holomorphic in a region <span class="process-math">\(G\)</span> and <span class="process-math">\(\gg\)</span> is a positively oriented, simple, closed, piecewise smooth path, such that <span class="process-math">\(\gg \sim_G 0\)</span> and <span class="process-math">\(|f(z)|&gt;|g(z)|\)</span> for all <span class="process-math">\(z \in \gg\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Z(f+g,\gg) \ = \ Z(f,\gg) \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#rouche-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 9.3.3: Rouché’s Theorem"><a href="#rouche" title="Copy heading and permalink for Theorem 9.3.3: Rouché’s Theorem">🔗</a></div></article><div class="para" id="sec_argprinc-12">This theorem is of surprising practicality. It allows us to locate the zeros of a function fairly precisely. Here is an illustration.<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-12" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="roucheexample"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.3.4</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="roucheexample-1-1">
+<div class="para">All the roots of the polynomial <span class="process-math">\(p(z) = z^5 + z^4 + z^3 + z^2 + z + 1\)</span> have modulus less than two.<details class="ptx-footnote" aria-live="polite" id="roucheexample-1-1-2"><summary class="ptx-footnote__number" title="Footnote 9.3.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="roucheexample-1-1-2">The Fundamental Theorem of Algebra (<a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra ">Theorem 5.3.2</a>) asserts that <span class="process-math">\(p\)</span> has five roots in <span class="process-math">\(\C\text{.}\)</span>  What’s special about the statement of <a href="sec_argprinc.html#roucheexample" class="xref" data-knowl="./knowl/xref/roucheexample.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.3.4">Example 9.3.4</a> is that they all have modulus <span class="process-math">\(\lt 2\text{.}\)</span> Note also that there is no general formula for computing roots of a polynomial of degree 5. (Although for this <span class="process-math">\(p\)</span> it’s not hard to find one root—and therefore all of them.)</div></details> To see this, let <span class="process-math">\(f(z) = z^5\)</span> and <span class="process-math">\(g(z) = z^4 + z^3 + z^2 + z + 1\text{.}\)</span> Then for <span class="process-math">\(z \in C[0,2]\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fundthmalg.html ./knowl/xref/roucheexample.html">
+\begin{equation*}
+|g(z)| \ \le \ |z|^4 + |z|^3 + |z|^2 + |z| + 1 \ = \ 16 + 8 + 4
++ 2 + 1 \ = \ 31 \ \lt  \ 32 \ = \ |z|^5 \ = \ |f(z)| \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#roucheexample-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="roucheexample-1-2">
+<div class="para">So <span class="process-math">\(g\)</span> and <span class="process-math">\(f\)</span> satisfy the condition of the <a href="sec_argprinc.html#rouche" class="xref" data-knowl="./knowl/xref/rouche.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.3.3: Rouché’s Theorem">Theorem 9.3.3</a>. But <span class="process-math">\(f\)</span> has just one root, of multiplicity 5 at the origin, whence</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/rouche.html">
+\begin{equation*}
+Z(p, \, C[0,2]) \ = \ Z(f+g, \, C[0,2]) \ = \ Z(f, \, C[0,2]) \ = \ 5 \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#roucheexample-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 9.3.4"><a href="#roucheexample" title="Copy heading and permalink for Example 9.3.4">🔗</a></div></article><article class="proof" id="sec_argprinc-14"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="sec_argprinc-14-1">
+<div class="para">By <a href="sec_argprinc.html#sec_argprinc-5-12" class="xref" data-knowl="./knowl/xref/logderzeros.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 9.1">(9.1)</a> and the Argument Principle (<a href="sec_argprinc.html#argprinc" class="xref" data-knowl="./knowl/xref/argprinc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.3.2: Argument Principle ">Theorem 9.3.2</a>)</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/argprinc.html" id="sec_argprinc-14-1-3">
+\begin{align*}
+Z(f+g,\gg) \amp \ = \ \frac 1 {2 \pi i} \i \frac{ (f+g)' }{
+f+g }\\
+\amp \ = \ \frac 1 {2 \pi i} \i \frac{ \left( f \left( 1 + \frac
+g f \right) \right)' }{ f \left( 1 + \frac g f \right) }\\
+\amp \ = \
+\frac 1 {2 \pi i} \i \left( \frac{ f' }{ f } + \frac{ \left( 1
++ \frac g f \right)'}{ 1 + \frac g f } \right)\\
+\amp \ = \ Z(f,\gg) + \frac 1 {2 \pi i} \i \frac{\left( 1 +
+\frac g f \right)' }{ 1 + \frac g f } \, \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-14-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_argprinc-14-2">
+<div class="para">We are assuming that <span class="process-math">\(| \frac g f | \lt  1\)</span> on <span class="process-math">\(\gg\text{,}\)</span> which means that the function <span class="process-math">\(1 + \frac g f\)</span> evaluated on <span class="process-math">\(\gg\)</span> stays away from <span class="process-math">\(\R_{ \le 0 }\text{.}\)</span> But then <span class="process-math">\(\Log ( 1 + \frac g f)\)</span> is a well-defined holomorphic function on <span class="process-math">\(\gg\text{.}\)</span> Its derivative is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antidercor.html">
+\begin{equation*}
+\dfrac{ \left( 1 + \frac g f \right)' }{ 1 + \frac g f }
+\end{equation*}
+</div>
+<div class="para">which implies by <a href="sec_antiderivatives.html#antidercor" class="xref" data-knowl="./knowl/xref/antidercor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.2.7">Corollary 4.2.7</a> that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antidercor.html">
+\begin{equation*}
+\frac 1 {2 \pi i} \int_\gamma \frac{ \left( 1 + \frac g f
+\right)' }{ 1 + \frac g f } \ = \ 0 \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-14-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 9.3.1"><a href="#sec_argprinc-14" title="Copy heading and permalink for Proof 9.3.1">🔗</a></div></article><div class="autopermalink" data-description="Section 9.3: Argument Principle and Rouché’s Theorem"><a href="#sec_argprinc" title="Copy heading and permalink for Section 9.3: Argument Principle and Rouché’s Theorem">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec_residues.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="residuechapter-6.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

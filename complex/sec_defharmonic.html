@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Definition and Basic Properties</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="A First Course in Complex Analysis">
+<meta property="book:author" content="Matthias Beck">
+<meta property="book:author" content="Gerald Marchesi">
+<meta property="book:author" content="Dennis Pixton">
+<meta property="book:author" content="Lucas Sabalka">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.4';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="fcca" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
+<p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="harmonicChapter.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="harmonicChapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_harmonicmeanvalue.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\def\versionnumber{1.54}
+\def\JPicScale{0.7}
+\def\versionyear{2018}
+\def\JPicScale{0.7}
+\def\versionmonth{July \versionyear}
+\def\JPicScale{0.7}
+\def\JPicScale{0.7}
+\newcommand{\ix}[1]{#1\index{#1}}
+\def\JPicScale{0.7}
+\newcommand{\Z}{\mathbb{Z}}
+\def\JPicScale{0.7}
+\newcommand{\Q}{\mathbb{Q}}
+\def\JPicScale{0.6}
+\newcommand{\R}{\mathbb{R}}
+\def\JPicScale{0.6}
+\newcommand{\C}{\mathbb{C}}
+\def\s{\sum_{k \geq 0}}
+\newcommand{\N}{\mathbb{N}}
+\def\sz{\sum_{ k \in \Z }}
+\newcommand{\Chat}{\hat\C}
+\def\JPicScale{0.7}
+\newcommand{\Rhat}{\hat\R}
+\def\i{\int_\gg}
+\newcommand{\gd}{\delta}
+\def\JPicScale{0.7}
+\renewcommand{\gg}{\gamma}
+\newcommand{\D}{\Delta}
+\newcommand{\Dp}{\check{D}}
+\DeclareMathOperator{\length}{length}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fArg}{\mathcal{A}rg}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\let\Im\relax
+\let\Re\relax
+\DeclareMathOperator{\Im}{Im}
+\DeclareMathOperator{\Re}{Re}
+\def\sz{\sum_{ k \in \Z }}
+\def\s{\sum_{k \geq 0}}
+\DeclareMathOperator{\Res}{Res}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\Def}[1]{\textbf{#1}}
+\newcommand{\hint}[1]{(\emph{Hint}: #1)}
+\newcommand{\histremark}[1]{}
+\newcommand{\histremarktwo}[2]{}
+\newcommand{\listset}[1]{\left\{#1\right\}}
+\newcommand{\makeset}[2]{\listset{#1\colon\,#2}}
+\newcommand{\listseq}[1]{\left\langle#1\right\rangle}
+\newcommand{\makeseq}[2]{\listseq{#1\colon\,#2}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\zbar}{\overline{z}}
+\def\o{\overline}
+\newcommand{\fderiv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\sderiv}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\mderiv}[3]{\frac{\partial^2 #1}{\partial #2 \, \partial #3}}
+\newcommand{\mat}[1]{\displaystyle\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\disp}[1]{$\displaystyle#1$}
+\renewcommand{\th}{^{ th}}
+\newcommand{\boldcdot}{\boldsymbol{\cdot}}
+\newcommand{\diff}[1]{{d#1}}
+\newcommand{\itref}[1]{\eqref{#1}}
+\def\newnotes{
+\begin{remarks}
+\thenotes.
+}
+\def\writenote{
+\vspace{10pt} \thenotes.
+}
+\newcommand{\putqed}{\pushQED{\qed}\popQED}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\newcommand{\fillinmath}[1]{\mathchoice{\underline{\displaystyle     \phantom{\ \,#1\ \,}}}{\underline{\textstyle        \phantom{\ \,#1\ \,}}}{\underline{\scriptstyle      \phantom{\ \,#1\ \,}}}{\underline{\scriptscriptstyle\phantom{\ \,#1\ \,}}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="complexnumberchapter.html" class="internal"><span class="codenumber">1</span> <span class="title">Complex Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_defalg.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Definitions and Algebraic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="geomprop.html" class="internal"><span class="codenumber">1.2</span> <span class="title">From Algebra to Geometry and Back</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_geometricprops.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Geometric Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_topologyintro.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Elementary Topology of the Plane</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="chapter1-exercises.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec_optionallab-alt.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Optional Lab</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="functionchapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Differentiation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_limitsandcontinuity.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Limits and Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_diffholom.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Differentiability and Holomorphicity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_Cauchy-Riemann.html" class="internal"><span class="codenumber">2.3</span> <span class="title">The Cauchy–Riemann Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_constantfcts.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Constant Functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="chapter2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="exampleschapter.html" class="internal"><span class="codenumber">3</span> <span class="title">Examples of Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_mobius.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Möbius Transformations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_riemannspere.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Infinity and the Cross Ratio</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_stereoproj.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Stereographic Projection</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_exptrigfcts.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Exponential and Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_logexp.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Logarithms and Complex Exponentials</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="chapter3-exercises.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intchapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Integration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_intdef.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Definition and Basic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_antiderivatives.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Antiderivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_cauchythm.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Cauchy’s Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_CIF.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Cauchy’s Integral Formula</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intchapter-7.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cachyconschapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Consequences of Cauchy’s Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_variationstheme.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Variations of a Theme</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_antiderivagain.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Antiderivatives Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_cauchytothelimit.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Taking Cauchy’s Formulas to the Limit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="cachyconschapter-6.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="harmonicChapter.html" class="internal"><span class="codenumber">6</span> <span class="title">Harmonic Functions</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec_defharmonic.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Definition and Basic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_harmonicmeanvalue.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Mean-Value and Maximum/Minimum Principle</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="harmonicChapter-5.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="powerchapter.html" class="internal"><span class="codenumber">7</span> <span class="title">Power Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_sequencescomplete.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Sequences and Completeness</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_series.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Series</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_sequseriesfunctions.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Sequences and Series of Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_regionsconvergence.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Regions of Convergence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="powerchapter-7.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="taylorchapter.html" class="internal"><span class="codenumber">8</span> <span class="title">Taylor and Laurent Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_powerseriesholom.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Power Series and Holomorphic Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_classifzeros.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Classification of Zeros and the Identity Principle</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_LaurentSeries.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Laurent Series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="taylorchapter-6.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="residuechapter.html" class="internal"><span class="codenumber">9</span> <span class="title">Isolated Singularities and the Residue Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_classificationsingul.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Classification of Singularities</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_residues.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Residues</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_argprinc.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Argument Principle and Rouché’s Theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="residuechapter-6.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_discreteresidues.html" class="internal"><span class="codenumber">10</span> <span class="title">Discrete Applications of the Residue Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-calculus.html" class="internal"><span class="codenumber">A</span> <span class="title">Theorems from Calculus</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="title">Index</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-4.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_defharmonic"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">6.1</span><span class="space"> </span><span class="title">Definition and Basic Properties</span>
+</h2>
+<div class="para" id="sec_defharmonic-2">Recall from <a href="sec_Cauchy-Riemann.html" class="internal" title="Section 2.3: The Cauchy–Riemann Equations">Section 2.3</a> the definition of a harmonic function:<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="sec_defharmonic-3"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.1</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="sec_defharmonic-3-1-1">
+<div class="para">Let <span class="process-math">\(G \subseteq \C\)</span> be a region. A function <span class="process-math">\(u: G \to \R\)</span> is <em class="emphasis">harmonic</em> in <span class="process-math">\(G\)</span> if it has continuous second partials in <span class="process-math">\(G\)</span> and satisfies the <em class="emphasis">Laplace <details class="ptx-footnote" aria-live="polite" id="sec_defharmonic-3-1-1-6-1"><summary class="ptx-footnote__number" title="Footnote 6.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_defharmonic-3-1-1-6-1">Named after Pierre-Simon Laplace (1749–1827).</div></details> equation</em>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u_{xx} + u_{yy} \ = \ 0 \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 6.1.1"><a href="#sec_defharmonic-3" title="Copy heading and permalink for Definition 6.1.1">🔗</a></div></article><article class="example example-like" id="exam_xyharmonic"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.2</span><span class="period">.</span>
+</h3>
+<div class="para" id="exam_xyharmonic-1-1">The function <span class="process-math">\(u(x,y) = xy\)</span> is harmonic in <span class="process-math">\(\C\)</span> since <span class="process-math">\(u_{xx} + u_{yy} = 0 + 0 = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exam_xyharmonic-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 6.1.2"><a href="#exam_xyharmonic" title="Copy heading and permalink for Example 6.1.2">🔗</a></div></article><article class="example example-like" id="exam_excosyharmonic"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.3</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="exam_excosyharmonic-1-1">
+<div class="para">The function <span class="process-math">\(u(x,y) = e^x \cos(y)\)</span> is harmonic in <span class="process-math">\(\C\)</span> because</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u_{xx} + u_{yy} \ = \ e^x \cos(y) - e^x \cos(y) \ = \ 0 \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exam_excosyharmonic-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 6.1.3"><a href="#exam_excosyharmonic" title="Copy heading and permalink for Example 6.1.3">🔗</a></div></article><div class="para" id="sec_defharmonic-6">There are (at least) two reasons why harmonic functions are part of the study of complex analysis, and they can be found in the next two results.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proposition theorem-like" id="reimharmonic"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.1.4</span><span class="period">.</span>
+</h3>
+<div class="para" id="reimharmonic-1-1">Suppose <span class="process-math">\(f=u+iv\)</span> is holomorphic in the region <span class="process-math">\(G\text{.}\)</span> Then <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> are harmonic in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#reimharmonic-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 6.1.4"><a href="#reimharmonic" title="Copy heading and permalink for Proposition 6.1.4">🔗</a></div></article><article class="proof" id="reimharmonic-2"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="reimharmonic-2-1">
+<div class="para">First, by <a href="sec_variationstheme.html#infdiff" class="xref" data-knowl="./knowl/xref/infdiff.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.1.6">Corollary 5.1.6</a>, <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> have continuous second partials. By <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a>, <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> satisfy the Cauchy–Riemann equations <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/infdiff.html ./knowl/xref/cre.html ./knowl/xref/crequations.html ./knowl/xref/eq_firstharmonicinstance.html">
+\begin{equation*}
+u_x = v_y \qquad \text{ and }  \qquad u_y = - v_x
+\end{equation*}
+</div>
+<div class="para">in <span class="process-math">\(G\text{.}\)</span> Hence we can repeat our argumentation in <a href="sec_Cauchy-Riemann.html#eq_firstharmonicinstance" class="xref" data-knowl="./knowl/xref/eq_firstharmonicinstance.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4">(2.4)</a>,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/infdiff.html ./knowl/xref/cre.html ./knowl/xref/crequations.html ./knowl/xref/eq_firstharmonicinstance.html">
+\begin{equation*}
+u_{xx} + u_{yy} \ = \ \left( u_x \right)_x + \left( u_y
+\right)_y \ = \ \left( v_y \right)_x + \left( -v_x \right)_y \ = \
+v_{yx} - v_{xy} \ = \ 0 \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#reimharmonic-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="reimharmonic-2-2">Note that in the last step we used the fact that <span class="process-math">\(v\)</span> has continuous second partials. The proof that <span class="process-math">\(v\)</span> satisfies the Laplace equation is practically identical.<div class="autopermalink" data-description="Paragraph"><a href="#reimharmonic-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 6.1.4.1"><a href="#reimharmonic-2" title="Copy heading and permalink for Proof 6.1.4.1">🔗</a></div></article><div class="para" id="sec_defharmonic-8">
+<a href="sec_defharmonic.html#reimharmonic" class="xref" data-knowl="./knowl/xref/reimharmonic.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 6.1.4">Proposition 6.1.4</a> gives us an effective way to show that certain functions are harmonic in <span class="process-math">\(G\)</span> by way of constructing an accompanying holomorphic function on <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec_defharmonic-9"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.5</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="sec_defharmonic-9-1-1">
+<div class="para">Revisiting <a href="sec_defharmonic.html#exam_xyharmonic" class="xref" data-knowl="./knowl/xref/exam_xyharmonic.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.1.2">Example 6.1.2</a>, we can see that <span class="process-math">\(u(x,y) = xy\)</span> is harmonic in <span class="process-math">\(\C\)</span> also by noticing that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_xyharmonic.html">
+\begin{equation*}
+f(z) \ = \ \tfrac 1 2 \, z^2 \ = \ \tfrac 1 2 \left( x^2 - y^2
+\right) + i xy 
+\end{equation*}
+</div>
+<div class="para">is entire and <span class="process-math">\(\Im(f) = u\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-9-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 6.1.5"><a href="#sec_defharmonic-9" title="Copy heading and permalink for Example 6.1.5">🔗</a></div></article><article class="example example-like" id="sec_defharmonic-10"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.6</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="sec_defharmonic-10-1-1">
+<div class="para">A second reason that the function <span class="process-math">\(u(x,y) = e^x \cos(y)\)</span> from <a href="sec_defharmonic.html#exam_excosyharmonic" class="xref" data-knowl="./knowl/xref/exam_excosyharmonic.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.1.3">Example 6.1.3</a> is harmonic in <span class="process-math">\(\C\)</span> is that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_excosyharmonic.html">
+\begin{equation*}
+f(z) \ = \ \exp(z) \ = \ e^x \cos(y) + i \, e^x \sin(y)
+\end{equation*}
+</div>
+<div class="para">is entire and <span class="process-math">\(\Re(f) = u\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-10-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 6.1.6"><a href="#sec_defharmonic-10" title="Copy heading and permalink for Example 6.1.6">🔗</a></div></article><div class="para" id="sec_defharmonic-11">
+<a href="sec_defharmonic.html#reimharmonic" class="xref" data-knowl="./knowl/xref/reimharmonic.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 6.1.4">Proposition 6.1.4</a> practically shouts for a converse. There are, however, functions that are harmonic in a region <span class="process-math">\(G\)</span> but not the real part (say) of a holomorphic function in <span class="process-math">\(G\)</span> (<a href="harmonicChapter-5.html#logharmonic" class="xref" data-knowl="./knowl/xref/logharmonic.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 6.3.5">Exercise 6.3.5</a>). We do obtain a converse of <a href="sec_defharmonic.html#reimharmonic" class="xref" data-knowl="./knowl/xref/reimharmonic.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 6.1.4">Proposition 6.1.4</a> if we restrict ourselves to <em class="emphasis">simply-connected</em> regions. <div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="harmonictoholomorphic"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.7</span><span class="period">.</span>
+</h3>
+<div class="para" id="harmonictoholomorphic-1-1">Suppose <span class="process-math">\(u\)</span> is harmonic on a simply-connected region <span class="process-math">\(G\text{.}\)</span>  Then there exists a harmonic function <span class="process-math">\(v\)</span> in <span class="process-math">\(G\)</span> such that <span class="process-math">\(f=u+iv\)</span> is holomorphic in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#harmonictoholomorphic-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 6.1.7"><a href="#harmonictoholomorphic" title="Copy heading and permalink for Theorem 6.1.7">🔗</a></div></article><div class="para" id="sec_defharmonic-13">The function <span class="process-math">\(v\)</span> is called a <em class="emphasis">harmonic conjugate</em> of <span class="process-math">\(u\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proof" id="sec_defharmonic-14"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="sec_defharmonic-14-1">
+<div class="para">We will explicitly construct a holomorphic function <span class="process-math">\(f\)</span> (and thus <span class="process-math">\(v = \Im f\)</span>). First, let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g \ := \ u_x - i \, u_y \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-14-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_defharmonic-14-2">
+<div class="para">The plan is to prove that <span class="process-math">\(g\)</span> is holomorphic, and then to construct an antiderivative of <span class="process-math">\(g\text{,}\)</span> which will be almost the function <span class="process-math">\(f\)</span> that we’re after. To prove that <span class="process-math">\(g\)</span> is holomorphic, we use <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a>: first because <span class="process-math">\(u\)</span> is harmonic, <span class="process-math">\(\Re g = u_x\)</span> and <span class="process-math">\(\Im g = - u_y\)</span> have continuous partials. Moreover, again because <span class="process-math">\(u\)</span> is harmonic, <span class="process-math">\(\Re g\)</span> and <span class="process-math">\(\Im g\)</span> satisfy the Cauchy–Riemann equations <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/crequations.html">
+\begin{equation*}
+\left( \Re g \right)_x \ = \ u_{xx} \ = \ - u_{yy} \ = \ \left( \Im g
+\right)_y 
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/crequations.html">
+\begin{equation*}
+\left( \Re g \right)_y \ = \ u_{xy} \ = \ u_{yx} \ = \ - \left( \Im g
+\right)_x \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-14-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_defharmonic-14-3">
+<div class="para">
+<a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a> implies that <span class="process-math">\(g\)</span> is holomorphic in <span class="process-math">\(G\text{,}\)</span> and so we can use <a href="sec_antiderivagain.html#cor_simplyconnectedprimitive" class="xref" data-knowl="./knowl/xref/cor_simplyconnectedprimitive.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.2.4">Corollary 5.2.4</a> to obtain an antiderivative <span class="process-math">\(h\)</span> of <span class="process-math">\(g\)</span> on <span class="process-math">\(G\)</span> (here is where we use the fact that <span class="process-math">\(G\)</span> is simply connected). Now we decompose <span class="process-math">\(h\)</span> into its real and imaginary parts as <span class="process-math">\(h=a+ib\text{.}\)</span> Then, again using <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a>,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/cor_simplyconnectedprimitive.html ./knowl/xref/cre.html">
+\begin{equation*}
+g \ = \ h' \ = \ a_x + i \, b_x \ = \ a_x - i \, a_y \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-14-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_defharmonic-14-4">
+<div class="para">(The second equation follows from the Cauchy–Riemann equations <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a>.) But the real part of <span class="process-math">\(g\)</span> is <span class="process-math">\(u_x\text{,}\)</span> so we obtain <span class="process-math">\(u_x = a_x\)</span> and thus <span class="process-math">\(u(x,y) = a(x,y) + c(y)\)</span> for some function <span class="process-math">\(c\)</span> that depends only on <span class="process-math">\(y\text{.}\)</span> On the other hand, comparing the imaginary parts of <span class="process-math">\(g\)</span> and <span class="process-math">\(h'\)</span> yields <span class="process-math">\(-u_y = -a_y\)</span> and so <span class="process-math">\(u(x,y) = a(x,y) + c(x)\)</span> where <span class="process-math">\(c\)</span> depends only on <span class="process-math">\(x\text{.}\)</span> Hence <span class="process-math">\(c\)</span> has to be constant, and <span class="process-math">\(u(x,y)=a(x,y)+c\text{.}\)</span> But then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/crequations.html">
+\begin{equation*}
+f(z) \ := \ h(z) + c
+\end{equation*}
+</div>
+<div class="para">is a function holomorphic in <span class="process-math">\(G\)</span> whose real part is <span class="process-math">\(u\text{,}\)</span> as promised.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-14-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 6.1.1"><a href="#sec_defharmonic-14" title="Copy heading and permalink for Proof 6.1.1">🔗</a></div></article><div class="para logical" id="sec_defharmonic-15">
+<div class="para">As a side remark, with hindsight it should not be surprising that the function <span class="process-math">\(g\)</span> that we first constructed in our proof is the derivative of the sought-after function <span class="process-math">\(f\text{.}\)</span> Namely, by <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a> such a function <span class="process-math">\(f=u+iv\)</span> must satisfy</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html">
+\begin{equation*}
+f' \ = \ u_x + i \, v_x \ = \ u_x - i \, u_y \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-15" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_defharmonic-16">(The second equation follows from the Cauchy–Riemann equations <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a>.) It is also worth mentioning that our proof of <a href="sec_defharmonic.html#harmonictoholomorphic" class="xref" data-knowl="./knowl/xref/harmonictoholomorphic.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.1.7">Theorem 6.1.7</a> shows that if <span class="process-math">\(u\)</span> is harmonic in <span class="process-math">\(G\text{,}\)</span> then <span class="process-math">\(u_x\)</span> is the real part of the function <span class="process-math">\(g=u_x-iu_y\text{,}\)</span> which is holomorphic in <span class="process-math">\(G\)</span> <em class="emphasis">regardless of whether <span class="process-math">\(G\)</span> is simply connected or not</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_defharmonic-17">As our proof of <a href="sec_defharmonic.html#harmonictoholomorphic" class="xref" data-knowl="./knowl/xref/harmonictoholomorphic.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.1.7">Theorem 6.1.7</a> is constructive, we can use it to produce harmonic conjugates.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-17" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec_defharmonic-18"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.8</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="sec_defharmonic-18-1-1">
+<div class="para">Revisiting <a href="sec_defharmonic.html#exam_xyharmonic" class="xref" data-knowl="./knowl/xref/exam_xyharmonic.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.1.2">Example 6.1.2</a> for the second time, we can construct a harmonic conjugate of <span class="process-math">\(u(x,y) = xy\)</span> along the lines of our proof of <a href="sec_defharmonic.html#harmonictoholomorphic" class="xref" data-knowl="./knowl/xref/harmonictoholomorphic.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.1.7">Theorem 6.1.7</a>: first let</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_xyharmonic.html ./knowl/xref/harmonictoholomorphic.html">
+\begin{equation*}
+g \ := \ u_x - i \, u_y \ = \   y - i \, x \ = \  -i \, z
+\end{equation*}
+</div>
+<div class="para">which has antiderivative</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_xyharmonic.html ./knowl/xref/harmonictoholomorphic.html">
+\begin{equation*}
+h(z) \ = \ - \tfrac i 2 \, z^2 \ = \ xy - \tfrac i 2 \left( x^2 -
+y^2 \right) 
+\end{equation*}
+</div>
+<div class="para">whose real part is <span class="process-math">\(u\)</span> and whose imaginary part</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_xyharmonic.html ./knowl/xref/harmonictoholomorphic.html">
+\begin{equation*}
+v(x,y) \ := \ - \tfrac 1 2 \left( x^2 - y^2 \right)
+\end{equation*}
+</div>
+<div class="para">gives a harmonic conjugate for <span class="process-math">\(u\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-18-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 6.1.8"><a href="#sec_defharmonic-18" title="Copy heading and permalink for Example 6.1.8">🔗</a></div></article><div class="para" id="sec_defharmonic-19">We can give a more practical machinery for computing harmonic conjugates, which only depends on computing certain (calculus) integrals; thus this can be easily applied, e.g., to polynomials. We state it for functions that are harmonic in the whole complex plane, but you can easily adjust it to functions that are harmonic on certain subsets of <span class="process-math">\(\C\text{.}\)</span> <details class="ptx-footnote" aria-live="polite" id="sec_defharmonic-19-2"><summary class="ptx-footnote__number" title="Footnote 6.1.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="sec_defharmonic-19-2">
+<a href="sec_defharmonic.html#thm_axler" class="xref" data-knowl="./knowl/xref/thm_axler.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.1.9">Theorem 6.1.9</a> is due to Sheldon Axler and the basis for his <code class="code-inline tex2jax_ignore">Mathematica</code> package Harmonic Function Theory.</div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm_axler"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.9</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="thm_axler-1-1">
+<div class="para">Suppose <span class="process-math">\(u\)</span> is harmonic on <span class="process-math">\(\C\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+v(x,y) := \int_0^y \frac{ \partial u }{ \partial x } (x,t)
+\, \diff{t} - \int_0^x \frac{ \partial u }{ \partial y }
+(t,0) \, \diff{t} 
+\end{equation*}
+</div>
+<div class="para">is a harmonic conjugate for <span class="process-math">\(u\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm_axler-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 6.1.9"><a href="#thm_axler" title="Copy heading and permalink for Theorem 6.1.9">🔗</a></div></article><article class="proof" id="sec_defharmonic-21"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="sec_defharmonic-21-1">
+<div class="para">We will prove that <span class="process-math">\(u+iv\)</span> satisfies the Cauchy–Riemann equations  <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a>. The first follows from</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/crequations.html ./knowl/xref/fundthmcalc.html">
+\begin{equation*}
+\frac{ \partial v }{ \partial y } (x,y) = \frac{ \partial u }{
+\partial x } (x,y) \, \text{,}
+\end{equation*}
+</div>
+<div class="para">by the Fundamental Theorem of Calculus (<a href="appendix-calculus.html#fundthmcalc" class="xref" data-knowl="./knowl/xref/fundthmcalc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.3: Fundamental Theorem of Calculus">Theorem A.0.3</a>).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-21-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_defharmonic-21-2">
+<div class="para">Second, by Leibniz’s Rule (<a href="appendix-calculus.html#leibnizrule" class="xref" data-knowl="./knowl/xref/leibnizrule.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.9: Leibniz’s Rule">Theorem A.0.9</a>), the Fundamental Theorem of Calculus (<a href="appendix-calculus.html#fundthmcalc" class="xref" data-knowl="./knowl/xref/fundthmcalc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.3: Fundamental Theorem of Calculus">Theorem A.0.3</a>), and the fact that <span class="process-math">\(u\)</span> is harmonic,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/leibnizrule.html ./knowl/xref/fundthmcalc.html" id="sec_defharmonic-21-2-4">
+\begin{align*}
+\frac{ \partial v }{ \partial x } (x,y) \amp = \int_0^y
+\frac{ \partial^2 u }{ \partial x^2 } (x,t) \, \diff{t} -
+\frac{ \partial u }{ \partial y } (x,0)\\
+\amp = - \int_0^y \frac{
+\partial^2 u }{ \partial t^2 } (x,t) \, \diff{t} - \frac{
+\partial u }{ \partial y } (x,0)\\
+\amp = - \left( \frac{ \partial u }{ \partial y } (x,y)
+- \frac{ \partial u }{ \partial y } (x,0) \right) - \frac{
+\partial u }{ \partial y } (x,0)\\
+\amp = - \frac{ \partial u }{
+\partial y } (x,y) \, \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-21-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 6.1.2"><a href="#sec_defharmonic-21" title="Copy heading and permalink for Proof 6.1.2">🔗</a></div></article><div class="para" id="sec_defharmonic-22">As you might imagine, <a href="sec_defharmonic.html#reimharmonic" class="xref" data-knowl="./knowl/xref/reimharmonic.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 6.1.4">Proposition 6.1.4</a> and <a href="sec_defharmonic.html#harmonictoholomorphic" class="xref" data-knowl="./knowl/xref/harmonictoholomorphic.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.1.7">Theorem 6.1.7</a> allow for a powerful interplay between harmonic and holomorphic functions. In that spirit, the following theorem appears not too surprising. You might appreciate its depth better when looking back at the simple definition of a harmonic function.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-22" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="corollary theorem-like" id="cor_harmonicinfdiff"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">6.1.10</span><span class="period">.</span>
+</h3>
+<div class="para" id="cor_harmonicinfdiff-1-1">A harmonic function is infinitely differentiable.<div class="autopermalink" data-description="Paragraph"><a href="#cor_harmonicinfdiff-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 6.1.10"><a href="#cor_harmonicinfdiff" title="Copy heading and permalink for Corollary 6.1.10">🔗</a></div></article><article class="proof" id="cor_harmonicinfdiff-2"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para" id="cor_harmonicinfdiff-2-1">Suppose <span class="process-math">\(u\)</span> is harmonic in <span class="process-math">\(G\)</span> and <span class="process-math">\(z_0 \in G\text{.}\)</span> We will show that <span class="process-math">\(u^{ (n) } (z_0)\)</span> exists for all positive integers <span class="process-math">\(n\text{.}\)</span> Let <span class="process-math">\(r&gt;0\)</span> such that the disk <span class="process-math">\(D[z_0,r]\)</span> is contained in <span class="process-math">\(G\text{.}\)</span> Since <span class="process-math">\(D[z_0,r]\)</span> is simply connected, <a href="sec_defharmonic.html#harmonictoholomorphic" class="xref" data-knowl="./knowl/xref/harmonictoholomorphic.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.1.7">Theorem 6.1.7</a> asserts the existence of a holomorphic function <span class="process-math">\(f\)</span> in <span class="process-math">\(D[z_0,r]\)</span> such that <span class="process-math">\(u = \Re f\)</span> on <span class="process-math">\(D[z_0,r]\text{.}\)</span> By <a href="sec_variationstheme.html#infdiff" class="xref" data-knowl="./knowl/xref/infdiff.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.1.6">Corollary 5.1.6</a>, <span class="process-math">\(f\)</span> is infinitely differentiable on <span class="process-math">\(D[z_0,r]\text{,}\)</span> and hence so is its real part <span class="process-math">\(u\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor_harmonicinfdiff-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 6.1.10.1"><a href="#cor_harmonicinfdiff-2" title="Copy heading and permalink for Proof 6.1.10.1">🔗</a></div></article><div class="para" id="sec_defharmonic-24">This proof is the first in a series of proofs that uses the fact that the property of being harmonic is <em class="emphasis">local</em>—it is a property at each point of a certain region. Note that in our proof of <a href="sec_defharmonic.html#cor_harmonicinfdiff" class="xref" data-knowl="./knowl/xref/cor_harmonicinfdiff.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 6.1.10">Corollary 6.1.10</a> we did not construct a function <span class="process-math">\(f\)</span> that is holomorphic in <span class="process-math">\(G\text{;}\)</span> we only constructed such a function on the disk <span class="process-math">\(D[z_0,r]\text{.}\)</span> This <span class="process-math">\(f\)</span> might very well differ from one disk to the next.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-24" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Section 6.1: Definition and Basic Properties"><a href="#sec_defharmonic" title="Copy heading and permalink for Section 6.1: Definition and Basic Properties">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="harmonicChapter.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_harmonicmeanvalue.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

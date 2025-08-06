@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html">
+\begin{align}
+\amp \left| \int_{C[w,R]} \frac{ f(z) }{ z-w } \, \diff{z} -
+2 \pi i \, f(w) \right| \notag\\
+\amp \qquad = \ \left| \int_{C[w,r]} \frac{
+f(z) }{ z-w } \, \diff{z} - f(w) \int_{C[w,r]} \frac{ \diff{z}
+}{ z-w } \right| \nonumber\notag\\
+\amp \qquad = \ \left| \int_{C[w,r]} \frac{ f(z) - f(w) }{ z-w
+} \, \diff{z} \right| \nonumber\notag\\
+\amp \qquad \le \ \max_{
+z \in C[w,r] } \left| \frac{ f(z) - f(w) }{ z-w } \right|
+\length \left( C[w,r] \right)\tag{4.6}\\
+\amp \qquad = \ \max_{ z \in C[w,r] } \frac{ \left| f(z) -
+f(w) \right| }{ r } \ 2 \pi r \nonumber\notag\\
+\amp \qquad = \ 2 \pi \max_{ z \in C[w,r] } \left| f(z) - f(w)
+\right| \, . \nonumber\notag
+\end{align}
+</div>
+<span class="incontext"><a class="internal" href="sec_CIF.html#sec_CIF-6-1-10">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="period">.</span>
+</h3>
+<div class="para">Let’s prove that <span class="process-math">\(\ds \lim_{ z \to i } z^2 = -1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exam_limitexists-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">Given <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> we need to determine <span class="process-math">\(\gd &gt; 0\)</span> such that <span class="process-math">\(0 \lt |z-i| \lt \gd\)</span> implies <span class="process-math">\(|z^2 + 1| \lt
+\epsilon\text{.}\)</span>  We rewrite</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left| z^2 + 1 \right| \ = \ \left| z-i \right| \left| z+i
+\right| \ \lt  \ \gd \left| z+i \right| \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exam_limitexists-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">If we choose <span class="process-math">\(\gd\text{,}\)</span> say, smaller than 1 then the factor <span class="process-math">\(|z+i|\)</span> on the right can be bounded by 3 (draw a picture!). This means that any <span class="process-math">\(\gd \lt  \min \{ \frac \epsilon 3, 1
+\}\)</span> should do the trick: in this case, <span class="process-math">\(0 \lt  |z-i| \lt  \gd\)</span> implies</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left| z^2 + 1 \right| \ \lt  \ 3 \gd \ \lt  \ \epsilon \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exam_limitexists-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para">This was a proof written out in a way one might come up with it. Here’s a short, neat version:<div class="autopermalink" data-description="Paragraph"><a href="#exam_limitexists-1-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">Given <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> choose <span class="process-math">\(0 \lt  \gd \lt  \min \{ \frac \epsilon 3, 1 \}\text{.}\)</span> Then <span class="process-math">\(0 \lt  |z-i| \lt  \gd\)</span> implies</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left|z+i\right| \ = \ \left|z-i + 2i\right| \ \le \ \left|
+z-i \right| + \left| 2i \right| \ \lt  \ 3 \,
+\end{equation*}
+</div>
+<div class="para">from which we conclude that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left| z^2 - (-1) \right| \ = \ \left| z^2 + 1 \right| \ = \
+\left| z-i \right| \left| z+i \right| \ \lt  \ 3 \gd \ \lt
+\ \epsilon \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exam_limitexists-1-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para">This proves <span class="process-math">\(\lim_{ z \to i } z^2 = -1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exam_limitexists-1-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.1.3"><a href="#exam_limitexists" title="Copy heading and permalink for Example 2.1.3">🔗</a></div></article><span class="incontext"><a class="internal" href="sec_limitsandcontinuity.html#exam_limitexists">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">9.1.6</span><span class="period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">Suppose <span class="process-math">\(z_0\)</span> is an isolated singularity of <span class="process-math">\(f\text{.}\)</span> Then</div>
+<ol class="lower-alpha ol-marker-1" id="singbasics-1-1-3">
+<li>
+<div class="para">
+<span class="process-math">\(z_0\)</span> is removable if and only if <span class="process-math">\(\lim_{z \to
+z_0} \left( z - z_0 \right) f(z) = 0\text{;}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#singbasics-1-1-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#singbasics-1-1-3-1" title="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li>
+<div class="para">
+<span class="process-math">\(z_0\)</span> is a pole if and only if it is not removable and <span class="process-math">\(\lim_{z \to z_0} \left( z - z_0 \right)^{n+1} f(z) =
+0\)</span> for some positive integer <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#singbasics-1-1-3-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item b"><a href="#singbasics-1-1-3-2" title="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#singbasics-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 9.1.6"><a href="#singbasics" title="Copy heading and permalink for Proposition 9.1.6">🔗</a></div></article><article class="proof"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical">
+<ol class="lower-alpha ol-marker-1" id="singbasics-2-1-1">
+<li>
+<div class="para logical">
+<div class="para">Suppose that <span class="process-math">\(z_0\)</span> is a removable singularity of <span class="process-math">\(f\text{,}\)</span> so there exists a holomorphic function <span class="process-math">\(h\)</span> on <span class="process-math">\(D[z_0,R]\)</span> such that <span class="process-math">\(f(z) = h(z)\)</span> for all <span class="process-math">\(z \in \Dp[z_0,R]\text{.}\)</span> But then <span class="process-math">\(h\)</span> is continuous at <span class="process-math">\(z_0\text{,}\)</span> and so</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{z \to z_0} \left( z - z_0 \right) f(z) \ = \ \lim_{z
+\to z_0} \left( z - z_0 \right) h(z) \ = \ h(z_0) \lim_{z
+\to z_0} \left( z - z_0 \right) \ = \ 0 \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#singbasics-2-1-1-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">Conversely, suppose that <span class="process-math">\(\lim_{z \to z_0} \left( z -
+z_0 \right) f(z) = 0\)</span> and <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(\Dp[z_0,R]\text{.}\)</span> We define the function <span class="process-math">\(g: D[z_0,R] \to \C\)</span> by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(z) := \begin{cases}(z-z_0)^2 \, f(z) \amp \text{ if } z\ne
+z_0 \, , \\ 0             \amp \text{ if } z=z_0 \,
+. \end{cases} 
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#singbasics-2-1-1-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">Then <span class="process-math">\(g\)</span> is holomorphic in <span class="process-math">\(\Dp[z_0,R]\)</span> and</div>
+<div class="displaymath process-math">
+\begin{align*}
+g'(z_0) \amp \ = \ \lim_{z\to
+z_0}\frac{g(z)-g(z_0)}{z-z_0}\\
+\amp \ = \
+\lim_{z\to z_0}\frac{(z-z_0)^2 \, f(z)}{z-z_0}\\
+\amp \ = \
+\lim_{z \to z_0} (z - z_0) \, f(z)\\
+\amp \ = \ 0\,\text{,}
+\end{align*}
+</div>
+<div class="para">so <span class="process-math">\(g\)</span> is holomorphic in <span class="process-math">\(D[z_0,R]\text{.}\)</span> We can thus expand <span class="process-math">\(g\)</span> into a power series</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(z) \ = \ \s c_k \, (z-z_0)^k
+\end{equation*}
+</div>
+<div class="para">whose first two terms are zero: <span class="process-math">\(c_0 = g(z_0) = 0\)</span> and <span class="process-math">\(c_1 = g'(z_0) = 0\text{.}\)</span> But then we can write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(z) \ = \ (z-z_0)^2 \sum_{k\ge0}c_{k+2} \, (z-z_0)^k
+\end{equation*}
+</div>
+<div class="para">and so</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) \ = \ \sum_{k\ge0}c_{k+2} \, (z-z_0)^k \qquad \text{
+for all }  z \in \Dp[z_0,R] \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#singbasics-2-1-1-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">But this power series is holomorphic in <span class="process-math">\(D[z_0,R]\text{,}\)</span> so <span class="process-math">\(z_0\)</span> is a removable singularity.<div class="autopermalink" data-description="Paragraph"><a href="#singbasics-2-1-1-1-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#singbasics-2-1-1-1" title="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Suppose that <span class="process-math">\(z_0\)</span> is a pole of <span class="process-math">\(f\text{.}\)</span> Since <span class="process-math">\(f(z)\to\infty\)</span> as <span class="process-math">\(z\to z_0\)</span> we may assume that <span class="process-math">\(R\)</span> is small enough that <span class="process-math">\(f(z)\ne 0\)</span> for <span class="process-math">\(z\in \Dp[z_0,R]\text{.}\)</span> Then <span class="process-math">\(\frac1f\)</span> is holomorphic in <span class="process-math">\(\Dp[z_0,R]\)</span> and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html">
+\begin{equation*}
+\lim_{z \to z_0} \frac 1 {f(z)} \ = \ 0 \,\text{,}
+\end{equation*}
+</div>
+<div class="para">so part a) implies that <span class="process-math">\(\frac 1 f\)</span> has a removable singularity at <span class="process-math">\(z_0\text{.}\)</span> More precisely, the function <span class="process-math">\(g: D[z_0,R] \to \C\)</span> defined by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html">
+\begin{equation*}
+g(z) := \begin{cases}\frac{ 1 }{ f(z) } \amp \text{ if
+} z\in \Dp[z_0,R] \, ,\\ 0            \amp \text{ if }
+z=z_0 \, , \end{cases} 
+\end{equation*}
+</div>
+<div class="para">is holomorphic. By <a href="sec_classifzeros.html#classificationzeros" class="xref" data-knowl="./knowl/xref/classificationzeros.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.2.1: Classification of Zeros">Theorem 8.2.1</a>, there exist a positive integer <span class="process-math">\(n\)</span> and a holomorphic function <span class="process-math">\(h\)</span> on <span class="process-math">\(D[z_0,R]\)</span> such that <span class="process-math">\(h(z_0) \ne 0\)</span> and <span class="process-math">\(g(z) = (z-z_0)^n \, h(z) \text{.}\)</span> Actually, <span class="process-math">\(h(z) \ne 0\)</span> for all <span class="process-math">\(z \in D[z_0,R]\)</span> since <span class="process-math">\(g(z) \ne 0\)</span> for all <span class="process-math">\(z \in \Dp[z_0,R]\text{.}\)</span> Thus</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html">
+\begin{align*}
+\lim_{z \to z_0} (z-z_0)^{n+1} f(z) \amp \ = \
+\lim_{z \to z_0} \frac{ (z-z_0)^{n+1} }{ g(z) }\\
+\amp \ = \ \lim_{z \to z_0} \frac{
+z-z_0 }{ h(z) }\\
+\amp \ = \ \frac{ 1 }{ h(z_0) } \lim_{z \to
+z_0}(z-z_0)\\
+\amp \ = \ 0 \,\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#singbasics-2-1-1-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">Note that <span class="process-math">\(\frac1h\)</span> is holomorphic and non-zero on <span class="process-math">\(D[z_0,R]\text{,}\)</span> <span class="process-math">\(n&gt;0\text{,}\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac1{g(z)} = \frac1{(z-z_0)^n} \cdot \frac1{h(z)}
+\text{ for all } \ z\in\Dp[z_0,R]\, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#singbasics-2-1-1-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">Conversely, suppose <span class="process-math">\(z_0\)</span> is not a removable singularity and <span class="process-math">\(\lim_{z \to z_0} (z-z_0)^{n+1} f(z) = 0\)</span> for some non-negative integer <span class="process-math">\(n\text{.}\)</span> We choose the <em class="emphasis">smallest</em> such <span class="process-math">\(n\text{.}\)</span> By part a), <span class="process-math">\(h(z) := (z-z_0)^n f(z)\)</span> has a removable singularity at <span class="process-math">\(z_0\text{,}\)</span> so there is a holomorphic function <span class="process-math">\(g\)</span> on <span class="process-math">\(D[z_0,R]\)</span> that agrees with <span class="process-math">\(h\)</span> on <span class="process-math">\(\Dp[z_0,R]\text{.}\)</span> Now if <span class="process-math">\(n=0\)</span> this just says that <span class="process-math">\(f\)</span> has a removable singularity at <span class="process-math">\(z_0\text{,}\)</span> which we have excluded. Hence <span class="process-math">\(n&gt;0\text{.}\)</span> Since <span class="process-math">\(n\)</span> was chosen as small as possible and <span class="process-math">\(n-1\)</span> is a non-negative integer less than <span class="process-math">\(n\text{,}\)</span> we must have <span class="process-math">\(g(z_0) = \lim_{z \to z_0} (z-z_0)^n f(z)
+\ne 0\text{.}\)</span> Summarizing, <span class="process-math">\(g\)</span> is holomorphic on <span class="process-math">\(D[z_0,R]\)</span> and non-zero at <span class="process-math">\(z_0\text{,}\)</span> <span class="process-math">\(n&gt;0\text{,}\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{g(z)}{(z-z_0)^n} \text{ for all } \
+z\in\Dp[z_0,R]\, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#singbasics-2-1-1-2-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">But then <span class="process-math">\(z_0\)</span> is a pole of <span class="process-math">\(f\text{,}\)</span> since</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lim_{ z \to z_0 } |f(z)| \amp \ = \ \lim_{ z \to z_0 }
+\left| \frac{ h(z) }{ (z-z_0)^n } \right|\\
+\amp \ = \ \lim_{ z \to z_0 } \left|
+\frac{ g(z) }{ (z-z_0)^n } \right|\\
+\amp \ = \ |g(z_0)| \lim_{ z \to
+z_0 } \frac{ 1 }{ |z-z_0|^n }\\
+\amp \ = \ \infty \,\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#singbasics-2-1-1-2-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item b"><a href="#singbasics-2-1-1-2" title="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#singbasics-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 9.1.6.1"><a href="#singbasics-2" title="Copy heading and permalink for Proof 9.1.6.1">🔗</a></div></article><span class="incontext"><a class="internal" href="sec_classificationsingul.html#singbasics">in-context</a></span>
+</body>
+</html>

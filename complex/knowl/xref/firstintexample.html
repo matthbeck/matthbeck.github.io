@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.2</span><span class="period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">To see this definition in action, we compute the integral of the function <span class="process-math">\(f: \C \to \C\)</span> given by <span class="process-math">\(f(z) = \zbar^2\)</span> over several paths from 0 to <span class="process-math">\(1 + i\text{.}\)</span>
+</div>
+<ol class="lower-alpha ol-marker-1" id="firstintexample-1-1-4">
+<li>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(\gg\)</span> be the line segment from <span class="process-math">\(0\)</span> to <span class="process-math">\(1
++ i\text{.}\)</span>  A parametrization of this path is <span class="process-math">\(\gg(t) =
+t + i t , \ 0 \leq t \leq 1\text{.}\)</span> Here <span class="process-math">\(\gg'(t) = 1+i\)</span> and <span class="process-math">\(f(\gg(t)) = \left( t-it
+\right)^2\text{,}\)</span> and so</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_\gg f \ = \ \int_0^1 \left( t-it \right)^2 \left(
+1+i \right) \diff{t} \ = \ 2(1-i) \int_0^1 t^2 \,
+\diff{t} \ = \ \frac{ 2 }{ 3 } (1-i) \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#firstintexample-1-1-4-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#firstintexample-1-1-4-1" title="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(\gg\)</span> be the arc of the parabola <span class="process-math">\(y=x^2\)</span> from <span class="process-math">\(0\)</span> to <span class="process-math">\(1 + i\text{.}\)</span> A parametrization of this path is <span class="process-math">\(\gg(t) = t + i t^2
+, \ 0 \leq t \leq 1\text{.}\)</span> Now we have <span class="process-math">\(\gg'(t) = 1 + 2it\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(\gg(t)) \ = \ \left( t - it^2 \right)^2 = t^2 - t^4 -
+2it^3 \, \text{,}
+\end{equation*}
+</div>
+<div class="para">whence</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int_\gg f \ \amp = \ \int_0^1 ( t^2 - t^4 - 2it^3 ) \left( 1
++ 2it \right) \, \diff{t}\\
+\amp = \ \int_0^1 ( t^2 + 3 t^4 -
+2i t^5 ) \, \diff{t} \ = \ \frac{ 14 }{ 15 } - \frac i 3
+\, \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#firstintexample-1-1-4-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item b"><a href="#firstintexample-1-1-4-2" title="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(\gg\)</span> be the union of the two line segments <span class="process-math">\(\gg_1\)</span> from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\)</span> and <span class="process-math">\(\gg_2\)</span> from <span class="process-math">\(1\)</span> to <span class="process-math">\(1+i\text{.}\)</span> Parametrizations are <span class="process-math">\(\gg_1(t) = t , \ 0 \leq t \leq 1\text{,}\)</span> and <span class="process-math">\(\gg_2(t) = 1 + it , \ 0 \leq t \leq 1\text{.}\)</span> Hence</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int_\gg f \ \amp = \ \int_{\gg_1} f +
+\int_{\gg_2} f\\
+\amp  = \ \int_0^1 t^2 \, \diff{t} + \int_0^1
+(1-it)^2 \, i \, \diff{t}\\
+\amp  = \ \frac 1 3 + i \int_0^1 (1
+- 2it - t^2) \, \diff{t}\\
+\amp = \ \frac 1 3 + i \left( 1 - 2i \frac 1 2 -
+\frac 1 3 \right)\\
+\amp  = \ \frac 4 3 + \frac 2 3 i \,\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#firstintexample-1-1-4-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item c"><a href="#firstintexample-1-1-4-3" title="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#firstintexample-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.1.2"><a href="#firstintexample" title="Copy heading and permalink for Example 4.1.2">🔗</a></div></article><span class="incontext"><a class="internal" href="sec_intdef.html#firstintexample">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.1.2</span><span class="period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">Suppose <span class="process-math">\(f(z) = \s c_k ( z - z_0 )^k\)</span> has radius of convergence <span class="process-math">\(R&gt;0\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(z) \ = \ \sum_{ k \geq 1 } k \, c_k ( z - z_0 )^{k-1}
+\;\text{ for any } \;z\in D[z_0, R] \, \text{,}
+\end{equation*}
+</div>
+<div class="para">and the radius of convergence of this power series is also <span class="process-math">\(R\text{.}\)</span> </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#powerderivative-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 8.1.2"><a href="#powerderivative" title="Copy heading and permalink for Theorem 8.1.2">🔗</a></div></article><article class="proof"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical">
+<div class="para">If <span class="process-math">\(z\in D[z_0,R]\)</span> then <span class="process-math">\(|z-z_0|\lt R\text{,}\)</span> so we can choose <span class="process-math">\(R_1\)</span> so that <span class="process-math">\(|z-z_0|\lt R_1\lt R\text{.}\)</span> Then the circle <span class="process-math">\(\gg:=C[z_0,R_1]\)</span> lies in <span class="process-math">\(D[z_0,R]\)</span> and <span class="process-math">\(z\)</span> is inside <span class="process-math">\(\gg\text{.}\)</span> Since <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(D[z_0,R]\)</span> we can use Cauchy’s Integral Formula for <span class="process-math">\(f'\)</span> (<a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a>), as well as <a href="sec_regionsconvergence.html#powseriesintegral" class="xref" data-knowl="./knowl/xref/powseriesintegral.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.4.10">Corollary 7.4.10</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformula2.html ./knowl/xref/powseriesintegral.html">
+\begin{align*}
+f'(z) \amp \ = \ \frac{1}{2 \pi i} \int_\gg
+\frac{f(w)}{(w-z)^2} \, \diff{w} \ = \ \frac{1}{2 \pi i} \int_\gg
+\frac{1}{(w-z)^2} \s c_k (w-z_0)^k \, \diff{w}\\
+\amp \ = \ \s c_k \, \frac{1}{2 \pi i} \int_\gg
+\frac{(w-z_0)^k}{(w-z)^2} \, \diff{w} \ = \ \s c_k
+\left.\frac{d}{\diff{w}} (w-z_0)^k\right|_{w=z}\\
+\amp \ = \ \sum_{ k \ge 1 }  k \, c_k (z-z_0)^{k-1} \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#powerderivative-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">Note that we used <a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a> <em class="emphasis">again</em> in the penultimate step, but now applied to the function <span class="process-math">\((z-z_0)^k\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#powerderivative-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">The last statement of the theorem is easy to show: the radius of convergence of <span class="process-math">\(f'(z)\)</span> is at least <span class="process-math">\(R\)</span> (since we have shown that the series for <span class="process-math">\(f'\)</span> converges whenever <span class="process-math">\(\abs{z-z_0}\lt R\)</span>), and it cannot be larger than <span class="process-math">\(R\)</span> by comparison to the series for <span class="process-math">\(f(z)\text{,}\)</span> since the coefficients for <span class="process-math">\((z-z_0) \, f'(z)\)</span> are larger than the corresponding ones for <span class="process-math">\(f(z)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#powerderivative-2-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 8.1.2.1"><a href="#powerderivative-2" title="Copy heading and permalink for Proof 8.1.2.1">🔗</a></div></article><span class="incontext"><a class="internal" href="sec_powerseriesholom.html#powerderivative">in-context</a></span>
+</body>
+</html>

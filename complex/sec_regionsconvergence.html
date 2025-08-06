@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Regions of Convergence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="A First Course in Complex Analysis">
+<meta property="book:author" content="Matthias Beck">
+<meta property="book:author" content="Gerald Marchesi">
+<meta property="book:author" content="Dennis Pixton">
+<meta property="book:author" content="Lucas Sabalka">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.4';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="fcca" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
+<p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec_sequseriesfunctions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="powerchapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="powerchapter-7.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\def\versionnumber{1.54}
+\def\JPicScale{0.7}
+\def\versionyear{2018}
+\def\JPicScale{0.7}
+\def\versionmonth{July \versionyear}
+\def\JPicScale{0.7}
+\def\JPicScale{0.7}
+\newcommand{\ix}[1]{#1\index{#1}}
+\def\JPicScale{0.7}
+\newcommand{\Z}{\mathbb{Z}}
+\def\JPicScale{0.7}
+\newcommand{\Q}{\mathbb{Q}}
+\def\JPicScale{0.6}
+\newcommand{\R}{\mathbb{R}}
+\def\JPicScale{0.6}
+\newcommand{\C}{\mathbb{C}}
+\def\s{\sum_{k \geq 0}}
+\newcommand{\N}{\mathbb{N}}
+\def\sz{\sum_{ k \in \Z }}
+\newcommand{\Chat}{\hat\C}
+\def\JPicScale{0.7}
+\newcommand{\Rhat}{\hat\R}
+\def\i{\int_\gg}
+\newcommand{\gd}{\delta}
+\def\JPicScale{0.7}
+\renewcommand{\gg}{\gamma}
+\newcommand{\D}{\Delta}
+\newcommand{\Dp}{\check{D}}
+\DeclareMathOperator{\length}{length}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fArg}{\mathcal{A}rg}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\let\Im\relax
+\let\Re\relax
+\DeclareMathOperator{\Im}{Im}
+\DeclareMathOperator{\Re}{Re}
+\def\sz{\sum_{ k \in \Z }}
+\def\s{\sum_{k \geq 0}}
+\DeclareMathOperator{\Res}{Res}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\Def}[1]{\textbf{#1}}
+\newcommand{\hint}[1]{(\emph{Hint}: #1)}
+\newcommand{\histremark}[1]{}
+\newcommand{\histremarktwo}[2]{}
+\newcommand{\listset}[1]{\left\{#1\right\}}
+\newcommand{\makeset}[2]{\listset{#1\colon\,#2}}
+\newcommand{\listseq}[1]{\left\langle#1\right\rangle}
+\newcommand{\makeseq}[2]{\listseq{#1\colon\,#2}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\zbar}{\overline{z}}
+\def\o{\overline}
+\newcommand{\fderiv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\sderiv}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\mderiv}[3]{\frac{\partial^2 #1}{\partial #2 \, \partial #3}}
+\newcommand{\mat}[1]{\displaystyle\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\disp}[1]{$\displaystyle#1$}
+\renewcommand{\th}{^{ th}}
+\newcommand{\boldcdot}{\boldsymbol{\cdot}}
+\newcommand{\diff}[1]{{d#1}}
+\newcommand{\itref}[1]{\eqref{#1}}
+\def\newnotes{
+\begin{remarks}
+\thenotes.
+}
+\def\writenote{
+\vspace{10pt} \thenotes.
+}
+\newcommand{\putqed}{\pushQED{\qed}\popQED}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\newcommand{\fillinmath}[1]{\mathchoice{\underline{\displaystyle     \phantom{\ \,#1\ \,}}}{\underline{\textstyle        \phantom{\ \,#1\ \,}}}{\underline{\scriptstyle      \phantom{\ \,#1\ \,}}}{\underline{\scriptscriptstyle\phantom{\ \,#1\ \,}}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="complexnumberchapter.html" class="internal"><span class="codenumber">1</span> <span class="title">Complex Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_defalg.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Definitions and Algebraic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="geomprop.html" class="internal"><span class="codenumber">1.2</span> <span class="title">From Algebra to Geometry and Back</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_geometricprops.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Geometric Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_topologyintro.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Elementary Topology of the Plane</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="chapter1-exercises.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec_optionallab-alt.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Optional Lab</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="functionchapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Differentiation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_limitsandcontinuity.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Limits and Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_diffholom.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Differentiability and Holomorphicity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_Cauchy-Riemann.html" class="internal"><span class="codenumber">2.3</span> <span class="title">The Cauchy–Riemann Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_constantfcts.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Constant Functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="chapter2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="exampleschapter.html" class="internal"><span class="codenumber">3</span> <span class="title">Examples of Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_mobius.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Möbius Transformations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_riemannspere.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Infinity and the Cross Ratio</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_stereoproj.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Stereographic Projection</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_exptrigfcts.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Exponential and Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_logexp.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Logarithms and Complex Exponentials</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="chapter3-exercises.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intchapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Integration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_intdef.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Definition and Basic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_antiderivatives.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Antiderivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_cauchythm.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Cauchy’s Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_CIF.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Cauchy’s Integral Formula</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intchapter-7.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cachyconschapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Consequences of Cauchy’s Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_variationstheme.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Variations of a Theme</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_antiderivagain.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Antiderivatives Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_cauchytothelimit.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Taking Cauchy’s Formulas to the Limit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="cachyconschapter-6.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="harmonicChapter.html" class="internal"><span class="codenumber">6</span> <span class="title">Harmonic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_defharmonic.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Definition and Basic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_harmonicmeanvalue.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Mean-Value and Maximum/Minimum Principle</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="harmonicChapter-5.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="powerchapter.html" class="internal"><span class="codenumber">7</span> <span class="title">Power Series</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_sequencescomplete.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Sequences and Completeness</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_series.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Series</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_sequseriesfunctions.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Sequences and Series of Functions</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec_regionsconvergence.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Regions of Convergence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="powerchapter-7.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="taylorchapter.html" class="internal"><span class="codenumber">8</span> <span class="title">Taylor and Laurent Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_powerseriesholom.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Power Series and Holomorphic Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_classifzeros.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Classification of Zeros and the Identity Principle</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_LaurentSeries.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Laurent Series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="taylorchapter-6.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="residuechapter.html" class="internal"><span class="codenumber">9</span> <span class="title">Isolated Singularities and the Residue Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_classificationsingul.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Classification of Singularities</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_residues.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Residues</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_argprinc.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Argument Principle and Rouché’s Theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="residuechapter-6.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_discreteresidues.html" class="internal"><span class="codenumber">10</span> <span class="title">Discrete Applications of the Residue Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-calculus.html" class="internal"><span class="codenumber">A</span> <span class="title">Theorems from Calculus</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="title">Index</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-4.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_regionsconvergence"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">7.4</span><span class="space"> </span><span class="title">Regions of Convergence</span>
+</h2>
+<div class="para" id="sec_regionsconvergence-2">For the remainder of this chapter (indeed, this book) we concentrate on some very special series of functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="sec_regionsconvergence-3"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.4.1</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="sec_regionsconvergence-3-1-1">
+<div class="para">A <em class="emphasis">power series centered at <span class="process-math">\(z_0\)</span></em> is a series of the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\s c_k \left( z - z_0 \right)^k
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(c_0, c_1, c_2, \ldots \in \C\text{.}\)</span> </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 7.4.1"><a href="#sec_regionsconvergence-3" title="Copy heading and permalink for Definition 7.4.1">🔗</a></div></article><article class="example example-like" id="sec_regionsconvergence-4"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.2</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="sec_regionsconvergence-4-1-1">
+<div class="para">A slight modification of <a href="sec_sequseriesfunctions.html#ex_geomseriesasfunction" class="xref" data-knowl="./knowl/xref/ex_geomseriesasfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.8">Example 7.3.8</a> gives a fundamental power series, namely the <em class="emphasis">geometric series</em>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_geomseriesasfunction.html">
+\begin{equation*}
+\sum_{ k \ge 0 } z^k \ = \ \frac 1 {1-z} \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-4-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="sec_regionsconvergence-4-1-2">So here <span class="process-math">\(z_0 = 0\)</span> and <span class="process-math">\(c_k = 1\)</span> for all <span class="process-math">\(k \ge 0\text{.}\)</span> We note that, as in <a href="sec_sequseriesfunctions.html#ex_geomseriesasfunction" class="xref" data-knowl="./knowl/xref/ex_geomseriesasfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.8">Example 7.3.8</a>, this power series converges absolutely for <span class="process-math">\(|z| \lt 1\)</span> and uniformly for <span class="process-math">\(|z| \le r\text{,}\)</span> for any fixed <span class="process-math">\(r\lt 1\text{.}\)</span> Finally, as in <a href="sec_series.html#ex_geomseriesdiv" class="xref" data-knowl="./knowl/xref/ex_geomseriesdiv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.2.9">Example 7.2.9</a>, the geometric series <span class="process-math">\(\sum_{ k \ge 0 } z^k\)</span> diverges for <span class="process-math">\(|z| \ge 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-4-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 7.4.2"><a href="#sec_regionsconvergence-4" title="Copy heading and permalink for Example 7.4.2">🔗</a></div></article><div class="para" id="sec_regionsconvergence-5">A general power series has a very similar convergence behavior which, in fact, comes from comparing it to a geometric series.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="convergenceradius"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.4.3</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="convergenceradius-1-1">
+<div class="para">Given a power series <span class="process-math">\(\s c_k ( z - z_0)^k\text{,}\)</span> there exists a real number <span class="process-math">\(R \ge 0\)</span> or <span class="process-math">\(R = \infty\text{,}\)</span> such that</div>
+<ol class="lower-alpha ol-marker-1" id="convergenceradius-1-1-4">
+<li id="convergenceradius-1-1-4-1">
+<div class="para" id="convergenceradius-1-1-4-1-1">
+<span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges absolutely for <span class="process-math">\(|z-z_0| \lt R\text{;}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#convergenceradius-1-1-4-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#convergenceradius-1-1-4-1" title="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="convergenceradius-1-1-4-2">
+<div class="para" id="convergenceradius-1-1-4-2-1">
+<span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges absolutely and uniformly for <span class="process-math">\(|z-z_0| \le r\text{,}\)</span> for any <span class="process-math">\(r \lt R\text{;}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#convergenceradius-1-1-4-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item b"><a href="#convergenceradius-1-1-4-2" title="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="convergenceradius-1-1-4-3">
+<div class="para" id="convergenceradius-1-1-4-3-1">
+<span class="process-math">\(\s c_k ( z - z_0)^k\)</span> diverges for <span class="process-math">\(|z-z_0| &gt; R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#convergenceradius-1-1-4-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item c"><a href="#convergenceradius-1-1-4-3" title="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#convergenceradius-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 7.4.3"><a href="#convergenceradius" title="Copy heading and permalink for Theorem 7.4.3">🔗</a></div></article><div class="para" id="sec_regionsconvergence-7">We remark that this theorem says nothing about the convergence/divergence of <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> for <span class="process-math">\(|z-z_0| = R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="sec_regionsconvergence-8"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.4.4</span><span class="period">.</span>
+</h3>
+<div class="para" id="sec_regionsconvergence-8-1-1">The number <span class="process-math">\(R\)</span> in <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a> is called the <em class="emphasis">radius of convergence</em> of <span class="process-math">\(\s c_k ( z - z_0)^k\text{.}\)</span> The open disk <span class="process-math">\(D[z_0,R]\)</span> in which the power series converges absolutely is the <em class="emphasis">region of convergence</em>. (If <span class="process-math">\(R=\infty\)</span> then this is <span class="process-math">\(\C\text{.}\)</span>) <div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-8-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 7.4.4"><a href="#sec_regionsconvergence-8" title="Copy heading and permalink for Definition 7.4.4">🔗</a></div></article><div class="para" id="sec_regionsconvergence-9">In preparation for the proof of <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a>, we start with the following observation.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proposition theorem-like" id="prop_convergenceradius"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">7.4.5</span><span class="period">.</span>
+</h3>
+<div class="para" id="prop_convergenceradius-1-1">If <span class="process-math">\(\s c_k ( w - z_0)^k\)</span> converges, then <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges absolutely whenever <span class="process-math">\(|z
+- z_0| \lt |w - z_0|\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prop_convergenceradius-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 7.4.5"><a href="#prop_convergenceradius" title="Copy heading and permalink for Proposition 7.4.5">🔗</a></div></article><article class="proof" id="prop_convergenceradius-2"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="prop_convergenceradius-2-1">
+<div class="para">Let <span class="process-math">\(r := |w - z_0|\text{.}\)</span> If <span class="process-math">\(\s c_k ( w - z_0)^k\)</span> converges then <span class="process-math">\(\lim_{ k \to \infty } c_k ( w - z_0)^k = 0\)</span> and so this sequence of terms is bounded (by <a href="powerchapter-7.html#ex_convseqbounded" class="xref" data-knowl="./knowl/xref/ex_convseqbounded.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.6">Exercise 7.5.6</a>), say</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_convseqbounded.html">
+\begin{equation*}
+\left| c_k ( w - z_0)^k \right| \ = \ |c_k| \, r^k \ \le \ M \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_convergenceradius-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="prop_convergenceradius-2-2">
+<div class="para">Now if <span class="process-math">\(|z - z_0| \lt  |w - z_0|\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\s \left| c_k ( z - z_0)^k \right| \ = \ \s |c_k| \, r^k \left(
+\frac{ |z-z_0| }{ r } \right)^k \ \le \ M \s \left( \frac{
+|z-z_0| }{ r } \right)^k \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_convergenceradius-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="prop_convergenceradius-2-3">The sum on the right-hand side is a convergent geometric sequence, since <span class="process-math">\(|z-z_0| \lt r\text{,}\)</span> and so <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges absolutely by <a href="sec_series.html#cor_comparisonseries" class="xref" data-knowl="./knowl/xref/cor_comparisonseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.6">Corollary 7.2.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#prop_convergenceradius-2-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 7.4.5.1"><a href="#prop_convergenceradius-2" title="Copy heading and permalink for Proof 7.4.5.1">🔗</a></div></article><article class="proof" id="sec_regionsconvergence-11"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="sec_regionsconvergence-11-1">
+<div class="para">Consider the set</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S \ := \ \left\{ x \in \R_{ \ge 0 } : \, \s c_k \, x^k \text{
+converges }  \right\} \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-11-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_regionsconvergence-11-2">(This set is nonempty since <span class="process-math">\(0 \in S\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-11-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_regionsconvergence-11-3">If <span class="process-math">\(S\)</span> is unbounded then <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges absolutely and uniformly for <span class="process-math">\(|z-z_0| \le r\text{,}\)</span> for any <span class="process-math">\(r\)</span> (and so this gives the <span class="process-math">\(R = \infty\)</span> case of <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a>): choose <span class="process-math">\(x \in S\)</span> with <span class="process-math">\(x &gt; r\text{,}\)</span> then <a href="sec_regionsconvergence.html#prop_convergenceradius" class="xref" data-knowl="./knowl/xref/prop_convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.4.5">Proposition 7.4.5</a> says that <span class="process-math">\(\s c_k \, r^k\)</span> converges absolutely. Since <span class="process-math">\(\left| c_k ( z - z_0)^k \right| \le |c_k| r^k\text{,}\)</span> we can now use <a href="sec_sequseriesfunctions.html#mtest" class="xref" data-knowl="./knowl/xref/mtest.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.7">Proposition 7.3.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-11-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_regionsconvergence-11-4">If <span class="process-math">\(S\)</span> is bounded, let <span class="process-math">\(R\)</span> be its least upper bound.  If <span class="process-math">\(R = 0\)</span> then <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges only for <span class="process-math">\(z = z_0\text{,}\)</span> which establishes <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a> in this case.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-11-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_regionsconvergence-11-5">
+<div class="para">Now assume <span class="process-math">\(R &gt; 0\text{.}\)</span> If <span class="process-math">\(|z-z_0| \lt  R\)</span> then (because <span class="process-math">\(R\)</span> is a least upper bound for <span class="process-math">\(S\)</span>) there exists <span class="process-math">\(r \in S\)</span> such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+|z-z_0| \lt  r \le R \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-11-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_regionsconvergence-11-6">Thus <span class="process-math">\(\s c_k ( w - z_0)^k\)</span> converges for <span class="process-math">\(w=z_0+r\text{,}\)</span> and so <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges absolutely by <a href="sec_regionsconvergence.html#prop_convergenceradius" class="xref" data-knowl="./knowl/xref/prop_convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.4.5">Proposition 7.4.5</a>. This finishes (a).<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-11-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_regionsconvergence-11-7">If <span class="process-math">\(|z-z_0| \le r\)</span> for some <span class="process-math">\(r \lt R\text{,}\)</span> again we can find <span class="process-math">\(x \in S\)</span> such that <span class="process-math">\(r \lt x \le R\text{.}\)</span> Then <span class="process-math">\(\s |c_k| \, r^k\)</span> converges by <a href="sec_regionsconvergence.html#prop_convergenceradius" class="xref" data-knowl="./knowl/xref/prop_convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.4.5">Proposition 7.4.5</a>, and so <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges absolutely and uniformly for <span class="process-math">\(|z-z_0|\le r\)</span> by <a href="sec_sequseriesfunctions.html#mtest" class="xref" data-knowl="./knowl/xref/mtest.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.7">Proposition 7.3.7</a>. This proves (b).<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-11-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_regionsconvergence-11-8">
+<div class="para">Finally, if <span class="process-math">\(|z-z_0| &gt; R\)</span> then there exists <span class="process-math">\(r \notin
+S\)</span> such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R \le r \lt  |z-z_0| \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-11-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_regionsconvergence-11-9">But <span class="process-math">\(\s c_k \, r^k\)</span> diverges, so (by the contrapositive of <a href="sec_series.html#absconvthm" class="xref" data-knowl="./knowl/xref/absconvthm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.2.16">Theorem 7.2.16</a>) <span class="process-math">\(\s |c_k| \, r^k\)</span> diverges, and so (by the contrapositive of <a href="sec_regionsconvergence.html#prop_convergenceradius" class="xref" data-knowl="./knowl/xref/prop_convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.4.5">Proposition 7.4.5</a>) <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> diverges, which finishes c).<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-11-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 7.4.1"><a href="#sec_regionsconvergence-11" title="Copy heading and permalink for Proof 7.4.1">🔗</a></div></article><article class="corollary theorem-like" id="cor_roottest"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">7.4.6</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="cor_roottest-1-1">
+<div class="para">If <span class="process-math">\(\lim_{ k \to \infty } \sqrt[k]{ |c_k| }\)</span> exists then the radius of convergence of <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> equals</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R = \begin{cases}\infty \amp  \text{ if }  \lim_{ k \to
+\infty } \sqrt[k]{ |c_k| } = 0 \, , \\ \frac{ 1 }{ \lim_{ k
+\to \infty } \sqrt[k]{ |c_k| } } \amp  \text{ otherwise. }
+\end{cases} 
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor_roottest-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 7.4.6"><a href="#cor_roottest" title="Copy heading and permalink for Corollary 7.4.6">🔗</a></div></article><article class="proof" id="cor_roottest-2"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para" id="cor_roottest-2-1">We treat the case that <span class="process-math">\(R\)</span> is finite and leave the case <span class="process-math">\(R = \infty\)</span> to <a href="powerchapter-7.html#ex_roottestRinfty" class="xref" data-knowl="./knowl/xref/ex_roottestRinfty.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.31">Exercise 7.5.31</a>.<div class="autopermalink" data-description="Paragraph"><a href="#cor_roottest-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="cor_roottest-2-2">Given <span class="process-math">\(R\)</span> as in the statement of the corollary, it suffices (by <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a>) to show that <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges for <span class="process-math">\(|z-z_0| \lt R\)</span> and diverges for <span class="process-math">\(|z-z_0| &gt; R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor_roottest-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="cor_roottest-2-3">
+<div class="para">Suppose <span class="process-math">\(r := |z-z_0| \lt  R\text{.}\)</span> Since <span class="process-math">\(\lim_{ k \to \infty } \sqrt[k]{ |c_k| } = \frac 1
+R\)</span> and <span class="process-math">\(\frac{ 2 }{ R+r } &gt; \frac 1 R\text{,}\)</span> there exists <span class="process-math">\(N\)</span> such that <span class="process-math">\(\sqrt[k]{ |c_k| } \lt  \frac{
+2 }{ R+r }\)</span> for <span class="process-math">\(k \ge N\text{.}\)</span> For those <span class="process-math">\(k\)</span> we then have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/mtest.html">
+\begin{equation*}
+\left| c_k (z-z_0)^k \right| \ = \ |c_k| |z-z_0|^k \ = \ \left(
+\sqrt[k]{ |c_k| } \, r \right)^k \ \lt  \ \left( \frac{ 2r
+}{ R+r } \right)^k 
+\end{equation*}
+</div>
+<div class="para">and so <span class="process-math">\(\sum_{ k=N }^\infty c_k (z-z_0)^k\)</span> converges (absolutely) by <a href="sec_sequseriesfunctions.html#mtest" class="xref" data-knowl="./knowl/xref/mtest.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.7">Proposition 7.3.7</a>, because <span class="process-math">\(\frac{ 2r }{ R+r } \lt 1\)</span> and thus <span class="process-math">\(\s \left( \frac{ 2r }{ R+r } \right)^k\)</span> converges as a geometric series. Thus <span class="process-math">\(\s c_k (z-z_0)^k\)</span> converges.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor_roottest-2-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="cor_roottest-2-4">
+<div class="para">Now suppose <span class="process-math">\(r = |z-z_0| &gt; R\text{.}\)</span> Again because <span class="process-math">\(\lim_{ k \to \infty } \sqrt[k]{ |c_k| } =
+\frac 1 R\)</span> and now <span class="process-math">\(\frac{ 2 }{ R+r } \lt  \frac 1 R\text{,}\)</span> there exists <span class="process-math">\(N\)</span> such that <span class="process-math">\(\sqrt[k]{ |c_k| } &gt; \frac{
+2 }{ R+r }\)</span> for <span class="process-math">\(k \ge N\text{.}\)</span> For those <span class="process-math">\(k\text{,}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_divtest.html">
+\begin{equation*}
+\left| c_k (z-z_0)^k \right| \ = \ \left( \sqrt[k]{ |c_k| } \,
+r \right)^k \ &gt; \ \left( \frac{ 2r }{ R+r } \right)^k \ &gt; \
+1 \, \text{,}
+\end{equation*}
+</div>
+<div class="para">and so the sequence <span class="process-math">\(c_k (z-z_0)^k\)</span> cannot converge to 0. Subsequently (by <a href="sec_series.html#cor_divtest" class="xref" data-knowl="./knowl/xref/cor_divtest.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.8">Corollary 7.2.8</a>), <span class="process-math">\(\s c_k (z-z_0)^k\)</span> diverges.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor_roottest-2-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 7.4.6.1"><a href="#cor_roottest-2" title="Copy heading and permalink for Proof 7.4.6.1">🔗</a></div></article><div class="para" id="sec_regionsconvergence-13">You might remember this corollary from calculus, where it goes by the name <em class="emphasis">root test</em>.  Its twin sister, the <em class="emphasis">ratio test</em>, is the subject of <a href="powerchapter-7.html#ex_ratiotest" class="xref" data-knowl="./knowl/xref/ex_ratiotest.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.32">Exercise 7.5.32</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec_regionsconvergence-14"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.7</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="sec_regionsconvergence-14-1-1">
+<div class="para">For the power series <span class="process-math">\(\ds \s k \, z^k\)</span> we compute</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_roottest.html">
+\begin{equation*}
+\lim_{ k \to \infty } \sqrt[k]{ |c_k| } \ = \ \lim_{ k \to
+\infty } \sqrt[k]{ k } \ = \ \lim_{ k \to \infty } e^{ \frac 1
+k \ln(k) } \ = \ e^{ \lim_{ k \to \infty } \frac { \ln(k) } k }
+\ = \ e^0 \ = \ 1 \, \text{,}
+\end{equation*}
+</div>
+<div class="para">and <a href="sec_regionsconvergence.html#cor_roottest" class="xref" data-knowl="./knowl/xref/cor_roottest.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.4.6">Corollary 7.4.6</a> gives the radius of convergence 1. (Alternatively, we can argue by differentiating the geometric series.)</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-14-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 7.4.7"><a href="#sec_regionsconvergence-14" title="Copy heading and permalink for Example 7.4.7">🔗</a></div></article><article class="example example-like" id="exponentialfunctionradius"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.8</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="exponentialfunctionradius-1-1">
+<div class="para">Consider the power series <span class="process-math">\(\ds \sum_{ k \ge 0 } \frac{ 1 }{
+k! } \, z^k \text{.}\)</span> Since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_ratiotest.html">
+\begin{equation*}
+\lim_{ k \to \infty } \left| \frac{ c_{ k+1 } }{ c_{ k } }
+\right| \ = \ \lim_{ k \to \infty } \frac{ k! }{ (k+1)! } \ = \
+\lim_{ k \to \infty } \frac{ 1 }{ k+1 } \ = \ 0 \, \text{,}
+\end{equation*}
+</div>
+<div class="para">the ratio test (<a href="powerchapter-7.html#ex_ratiotest" class="xref" data-knowl="./knowl/xref/ex_ratiotest.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.32">Exercise 7.5.32</a>) implies that the radius of convergence of <span class="process-math">\(\sum_{ k \ge 0 }
+\frac{ 1 }{ k! } \, z^k\)</span> is <span class="process-math">\(\infty\text{,}\)</span> and so the power series converges absolutely in <span class="process-math">\(\C\text{.}\)</span> <details class="ptx-footnote" aria-live="polite" id="exponentialfunctionradius-1-1-7"><summary class="ptx-footnote__number" title="Footnote 7.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="exponentialfunctionradius-1-1-7">In the next chapter, we will see that this power series represents the exponential function.</div></details>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exponentialfunctionradius-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 7.4.8"><a href="#exponentialfunctionradius" title="Copy heading and permalink for Example 7.4.8">🔗</a></div></article><div class="para" id="sec_regionsconvergence-16">By way of <a href="sec_sequseriesfunctions.html#sequencecontionuos" class="xref" data-knowl="./knowl/xref/sequencecontionuos.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.4">Proposition 7.3.4</a>, <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a> almost immediately implies the following.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="corollary theorem-like" id="powseriescontinuous"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">7.4.9</span><span class="period">.</span>
+</h3>
+<div class="para" id="powseriescontinuous-1-1">Suppose the power series <span class="process-math">\(\s c_k ( z - z_0 )^k\)</span> has radius of convergence <span class="process-math">\(R&gt;0\text{.}\)</span> Then the series represents a function that is continuous on <span class="process-math">\(D[z_0, R]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#powseriescontinuous-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 7.4.9"><a href="#powseriescontinuous" title="Copy heading and permalink for Corollary 7.4.9">🔗</a></div></article><article class="proof" id="sec_regionsconvergence-18"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para" id="sec_regionsconvergence-18-1">Given any point <span class="process-math">\(w \in D[z_0, R]\text{,}\)</span> we can find <span class="process-math">\(r\lt R\)</span> such that <span class="process-math">\(w \in D[z_0, r]\)</span> (e.g., if <span class="process-math">\(R\ne\infty\)</span> then <span class="process-math">\(r = \frac{ |w-z_0| + R }{ 2 }\)</span> will do the trick). <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a> says that <span class="process-math">\(\s c_k ( z - z_0 )^k\)</span> converges uniformly in <span class="process-math">\(D[z_0, r]\text{,}\)</span> and so <a href="sec_sequseriesfunctions.html#sequencecontionuos" class="xref" data-knowl="./knowl/xref/sequencecontionuos.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.4">Proposition 7.3.4</a> implies that the power series is continuous in <span class="process-math">\(D[z_0, r]\text{,}\)</span> and so particularly at <span class="process-math">\(w\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-18-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 7.4.2"><a href="#sec_regionsconvergence-18" title="Copy heading and permalink for Proof 7.4.2">🔗</a></div></article><div class="para" id="sec_regionsconvergence-19">Finally, mixing <a href="sec_sequseriesfunctions.html#seriesintegral" class="xref" data-knowl="./knowl/xref/seriesintegral.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.6">Proposition 7.3.6</a> with <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a> gives:<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="corollary theorem-like" id="powseriesintegral"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">7.4.10</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="powseriesintegral-1-1">
+<div class="para">Suppose the power series <span class="process-math">\(\s c_k ( z - z_0 )^k\)</span> has radius of convergence <span class="process-math">\(R&gt;0\)</span> and <span class="process-math">\(\gamma\)</span> is a piecewise smooth path in <span class="process-math">\(D[z_0, R]\text{.}\)</span>  Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_\gamma \ \s c_k ( z - z_0 )^k \, \diff{z} \ = \ \s c_k
+\int_\gamma ( z - z_0 )^k \, \diff{z} \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#powseriesintegral-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="powseriesintegral-1-2">In particular, if <span class="process-math">\(\gg\)</span> is closed then <span class="process-math">\(\ds \int_\gg \ \s c_k ( z -
+z_0 )^k \, \diff{z} \ = \ 0 \text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#powseriesintegral-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 7.4.10"><a href="#powseriesintegral" title="Copy heading and permalink for Corollary 7.4.10">🔗</a></div></article><article class="proof" id="sec_regionsconvergence-21"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para" id="sec_regionsconvergence-21-1">Let <span class="process-math">\(r := \max_{ z \in \gg } \left| \gamma(z) -z_0 \right|\)</span> (whose existence is guaranteed by <a href="appendix-calculus.html#realEVT" class="xref" data-knowl="./knowl/xref/realEVT.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.1: Extreme-Value Theorem">Theorem A.0.1</a>). Then <span class="process-math">\(\gg \subset \overline D[z_0, r]\)</span> and <span class="process-math">\(r\lt R\text{.}\)</span> <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a> says that <span class="process-math">\(\s c_k \left( z - z_0 \right)^k\)</span> converges uniformly in <span class="process-math">\(\overline D[z_0, r]\text{,}\)</span> and so <a href="sec_sequseriesfunctions.html#seriesintegral" class="xref" data-knowl="./knowl/xref/seriesintegral.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.6">Proposition 7.3.6</a> allows us to switch integral and summation.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-21-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_regionsconvergence-21-2">The last statement follows now with <a href="intchapter-7.html#ex_laurentoutlook" class="xref" data-knowl="./knowl/xref/ex_laurentoutlook.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.15">Exercise 4.5.15</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-21-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 7.4.3"><a href="#sec_regionsconvergence-21" title="Copy heading and permalink for Proof 7.4.3">🔗</a></div></article><div class="para" id="sec_regionsconvergence-22">These corollaries will become extremely useful in the next chapter.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-22" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Section 7.4: Regions of Convergence"><a href="#sec_regionsconvergence" title="Copy heading and permalink for Section 7.4: Regions of Convergence">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec_sequseriesfunctions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="powerchapter-7.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Cauchy’s Theorem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="A First Course in Complex Analysis">
+<meta property="book:author" content="Matthias Beck">
+<meta property="book:author" content="Gerald Marchesi">
+<meta property="book:author" content="Dennis Pixton">
+<meta property="book:author" content="Lucas Sabalka">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.4';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="fcca" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
+<p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec_antiderivatives.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="intchapter.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_CIF.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\def\versionnumber{1.54}
+\def\JPicScale{0.7}
+\def\versionyear{2018}
+\def\JPicScale{0.7}
+\def\versionmonth{July \versionyear}
+\def\JPicScale{0.7}
+\def\JPicScale{0.7}
+\newcommand{\ix}[1]{#1\index{#1}}
+\def\JPicScale{0.7}
+\newcommand{\Z}{\mathbb{Z}}
+\def\JPicScale{0.7}
+\newcommand{\Q}{\mathbb{Q}}
+\def\JPicScale{0.6}
+\newcommand{\R}{\mathbb{R}}
+\def\JPicScale{0.6}
+\newcommand{\C}{\mathbb{C}}
+\def\s{\sum_{k \geq 0}}
+\newcommand{\N}{\mathbb{N}}
+\def\sz{\sum_{ k \in \Z }}
+\newcommand{\Chat}{\hat\C}
+\def\JPicScale{0.7}
+\newcommand{\Rhat}{\hat\R}
+\def\i{\int_\gg}
+\newcommand{\gd}{\delta}
+\def\JPicScale{0.7}
+\renewcommand{\gg}{\gamma}
+\newcommand{\D}{\Delta}
+\newcommand{\Dp}{\check{D}}
+\DeclareMathOperator{\length}{length}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fArg}{\mathcal{A}rg}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\let\Im\relax
+\let\Re\relax
+\DeclareMathOperator{\Im}{Im}
+\DeclareMathOperator{\Re}{Re}
+\def\sz{\sum_{ k \in \Z }}
+\def\s{\sum_{k \geq 0}}
+\DeclareMathOperator{\Res}{Res}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\Def}[1]{\textbf{#1}}
+\newcommand{\hint}[1]{(\emph{Hint}: #1)}
+\newcommand{\histremark}[1]{}
+\newcommand{\histremarktwo}[2]{}
+\newcommand{\listset}[1]{\left\{#1\right\}}
+\newcommand{\makeset}[2]{\listset{#1\colon\,#2}}
+\newcommand{\listseq}[1]{\left\langle#1\right\rangle}
+\newcommand{\makeseq}[2]{\listseq{#1\colon\,#2}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\zbar}{\overline{z}}
+\def\o{\overline}
+\newcommand{\fderiv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\sderiv}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\mderiv}[3]{\frac{\partial^2 #1}{\partial #2 \, \partial #3}}
+\newcommand{\mat}[1]{\displaystyle\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\disp}[1]{$\displaystyle#1$}
+\renewcommand{\th}{^{ th}}
+\newcommand{\boldcdot}{\boldsymbol{\cdot}}
+\newcommand{\diff}[1]{{d#1}}
+\newcommand{\itref}[1]{\eqref{#1}}
+\def\newnotes{
+\begin{remarks}
+\thenotes.
+}
+\def\writenote{
+\vspace{10pt} \thenotes.
+}
+\newcommand{\putqed}{\pushQED{\qed}\popQED}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\newcommand{\fillinmath}[1]{\mathchoice{\underline{\displaystyle     \phantom{\ \,#1\ \,}}}{\underline{\textstyle        \phantom{\ \,#1\ \,}}}{\underline{\scriptstyle      \phantom{\ \,#1\ \,}}}{\underline{\scriptscriptstyle\phantom{\ \,#1\ \,}}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="complexnumberchapter.html" class="internal"><span class="codenumber">1</span> <span class="title">Complex Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_defalg.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Definitions and Algebraic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="geomprop.html" class="internal"><span class="codenumber">1.2</span> <span class="title">From Algebra to Geometry and Back</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_geometricprops.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Geometric Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_topologyintro.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Elementary Topology of the Plane</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="chapter1-exercises.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec_optionallab-alt.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Optional Lab</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="functionchapter.html" class="internal"><span class="codenumber">2</span> <span class="title">Differentiation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_limitsandcontinuity.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Limits and Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_diffholom.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Differentiability and Holomorphicity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_Cauchy-Riemann.html" class="internal"><span class="codenumber">2.3</span> <span class="title">The Cauchy–Riemann Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_constantfcts.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Constant Functions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="chapter2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="exampleschapter.html" class="internal"><span class="codenumber">3</span> <span class="title">Examples of Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_mobius.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Möbius Transformations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_riemannspere.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Infinity and the Cross Ratio</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_stereoproj.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Stereographic Projection</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_exptrigfcts.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Exponential and Trigonometric Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_logexp.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Logarithms and Complex Exponentials</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="chapter3-exercises.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="intchapter.html" class="internal"><span class="codenumber">4</span> <span class="title">Integration</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_intdef.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Definition and Basic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_antiderivatives.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Antiderivatives</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec_cauchythm.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Cauchy’s Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_CIF.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Cauchy’s Integral Formula</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="intchapter-7.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cachyconschapter.html" class="internal"><span class="codenumber">5</span> <span class="title">Consequences of Cauchy’s Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_variationstheme.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Variations of a Theme</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_antiderivagain.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Antiderivatives Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_cauchytothelimit.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Taking Cauchy’s Formulas to the Limit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="cachyconschapter-6.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="harmonicChapter.html" class="internal"><span class="codenumber">6</span> <span class="title">Harmonic Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_defharmonic.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Definition and Basic Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_harmonicmeanvalue.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Mean-Value and Maximum/Minimum Principle</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="harmonicChapter-5.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="powerchapter.html" class="internal"><span class="codenumber">7</span> <span class="title">Power Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_sequencescomplete.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Sequences and Completeness</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_series.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Series</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_sequseriesfunctions.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Sequences and Series of Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_regionsconvergence.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Regions of Convergence</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="powerchapter-7.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="taylorchapter.html" class="internal"><span class="codenumber">8</span> <span class="title">Taylor and Laurent Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_powerseriesholom.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Power Series and Holomorphic Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_classifzeros.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Classification of Zeros and the Identity Principle</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_LaurentSeries.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Laurent Series</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="taylorchapter-6.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="residuechapter.html" class="internal"><span class="codenumber">9</span> <span class="title">Isolated Singularities and the Residue Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_classificationsingul.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Classification of Singularities</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_residues.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Residues</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_argprinc.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Argument Principle and Rouché’s Theorem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="residuechapter-6.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_discreteresidues.html" class="internal"><span class="codenumber">10</span> <span class="title">Discrete Applications of the Residue Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-calculus.html" class="internal"><span class="codenumber">A</span> <span class="title">Theorems from Calculus</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="title">Index</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-4.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_cauchythm"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.3</span><span class="space"> </span><span class="title">Cauchy’s Theorem</span>
+</h2>
+<div class="para" id="sec_cauchythm-2">
+<em class="emphasis">The</em> central theorem of complex analysis is based on the following concept.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="sec_cauchythm-3"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.3.1</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="sec_cauchythm-3-1-1">
+<div class="para">Suppose <span class="process-math">\(\gg_0\)</span> and <span class="process-math">\(\gg_1\)</span> are closed paths in the region <span class="process-math">\(G \subseteq \C\text{,}\)</span> parametrized by <span class="process-math">\(\gg_0(t), \ 0 \leq t \leq 1\text{,}\)</span> and <span class="process-math">\(\gg_1(t), \ 0 \leq t \leq 1\text{,}\)</span> respectively. Then <span class="process-math">\(\gg_0\)</span> is <em class="emphasis"><span class="process-math">\(G\)</span>-homotopic</em> to <span class="process-math">\(\gg_1\)</span> if there exists a continuous function <span class="process-math">\(h :
+[0,1]^2 \to G\)</span> such that, for all <span class="process-math">\(s,\,t\in[0,1]\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="sec_cauchythm-3-1-1-11">
+\begin{align}
+h(t,0) \amp = \gg_0(t) \, , \notag\\
+h(t,1) \amp =
+\gg_1(t) \, ,\tag{4.3}\\
+h(0,s) \amp = h(1,s) \,\text{.}\notag
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="sec_cauchythm-3-1-2">We use the notation <span class="process-math">\(\gg_1\sim_G\gg_2\)</span> to mean <span class="process-math">\(\gg_1\)</span> is <span class="process-math">\(G\)</span>-homotopic to <span class="process-math">\(\gg_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-3-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 4.3.1"><a href="#sec_cauchythm-3" title="Copy heading and permalink for Definition 4.3.1">🔗</a></div></article><div class="para" id="sec_cauchythm-4">The function <span class="process-math">\(h(t,s)\)</span> is called a <em class="emphasis">homotopy</em>.  For each fixed <span class="process-math">\(s\text{,}\)</span> a homotopy <span class="process-math">\(h(t,s)\)</span> is a path parametrized by <span class="process-math">\(t\text{,}\)</span> and as <span class="process-math">\(s\)</span> goes from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\text{,}\)</span> these paths continuously transform from <span class="process-math">\(\gg_0\)</span> to <span class="process-math">\(\gg_1\text{.}\)</span> The last condition in <a href="sec_cauchythm.html#sec_cauchythm-3-1-1-11" class="xref" data-knowl="./knowl/xref/eq_homotopydef.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.3">(4.3)</a> simply says that each of these paths is also closed.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="exam_homotopy"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.2</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="exam_homotopy-1-1">
+<div class="para">
+<a href="sec_cauchythm.html#homotopicfig" class="xref" data-knowl="./knowl/xref/homotopicfig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3.3">Figure 4.3.3</a> attempts to illustrate that the unit circle is <span class="process-math">\((\C \setminus \{ 0 \})\)</span>-homotopic to the square with vertices <span class="process-math">\(\pm 3 \pm 3i\text{.}\)</span> Indeed, you should check (<a href="intchapter-7.html#ex_checkhomotopyexample" class="xref" data-knowl="./knowl/xref/ex_checkhomotopyexample.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.20">Exercise 4.5.20</a>) that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/homotopicfig.html ./knowl/xref/ex_checkhomotopyexample.html" id="eq_checkhomotopyexample">
+\begin{equation}
+h(t,s) \ := \ (1-s) e^{ 2 \pi i t } + 3s \times
+\begin{cases} 1 + 8it \amp  \text{ if }  0 \le t \le \frac 1
+8 \, , \\ 2-8t + i \amp  \text{ if }  \frac 1 8 \le t \le
+\frac 3 8 \, , \\ -1 + 4i(1-2t) \amp  \text{ if }  \frac 3 8
+\le t \le \frac 5 8 \, , \\ 8t-6 - i \amp  \text{ if }
+\frac 5 8 \le t \le \frac 7 8 \, , \\ 1 + 8i(t-1) \amp
+\text{ if }  \frac 7 8 \le t \le 1 \end{cases} \tag{4.4}
+\end{equation}
+</div>
+<div class="para">gives a homotopy. Note that <span class="process-math">\(h(t,s) \ne 0\)</span> for any <span class="process-math">\(0 \le t, s \le 1\)</span> (hence “<span class="process-math">\((\C \setminus \{ 0 \})\)</span>-homotopic”).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exam_homotopy-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="exam_homotopy-1-2">
+<a href="sec_cauchythm.html#homotopicfig" class="xref" data-knowl="./knowl/xref/homotopicfig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3.3">Figure 4.3.3</a> shows the paths <span class="process-math">\(h(t,s)\)</span> for <span class="process-math">\(s=0,0.25, 0.5,0.75\)</span> and <span class="process-math">\(1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exam_homotopy-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="homotopicfig"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="generated/prefigure/fig-homotopic.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.3<span class="period">.</span></span><span class="space"> </span>This square and circle are <span class="process-math">\((\C \setminus \{ 0
+\})\)</span>-homotopic.<div class="autopermalink" data-description="Figure 4.3.3"><a href="#homotopicfig" title="Copy heading and permalink for Figure 4.3.3">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 4.3.2"><a href="#exam_homotopy" title="Copy heading and permalink for Example 4.3.2">🔗</a></div></article><div class="para" id="sec_cauchythm-6">
+<a href="intchapter-7.html#ex_homotopyEquivalence" class="xref" data-knowl="./knowl/xref/ex_homotopyEquivalence.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.23">Exercise 4.5.23</a> shows that <span class="process-math">\(\sim_G\)</span> is an equivalence relation on the set of closed paths in <span class="process-math">\(G\text{.}\)</span> The definition of homotopy applies to <em class="emphasis">parametrizations</em> of curves; but <a href="intchapter-7.html#ex_homotopyReparametrization" class="xref" data-knowl="./knowl/xref/ex_homotopyReparametrization.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.24">Exercise 4.5.24</a>, together with transitivity of <span class="process-math">\(\sim_G\text{,}\)</span> shows that homotopy is invariant under reparametrizations.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="cauchythm"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Cauchy’s Theorem.</span>
+</h3>
+<div class="para logical" id="cauchythm-2-1">
+<div class="para">Suppose <span class="process-math">\(G \subseteq \C\)</span> is a region, <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(G\text{,}\)</span> <span class="process-math">\(\gg_0\)</span> and <span class="process-math">\(\gg_1\)</span> are piecewise smooth paths in <span class="process-math">\(G\text{,}\)</span> and <span class="process-math">\(\gg_0 \sim_G \gg_1\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_{\gg_0} f \ = \ \int_{\gg_1} f \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cauchythm-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 4.3.4: Cauchy’s Theorem"><a href="#cauchythm" title="Copy heading and permalink for Theorem 4.3.4: Cauchy’s Theorem">🔗</a></div></article><div class="para" id="sec_cauchythm-8">As a historical aside, it is assumed that Johann Carl Friedrich Gauß (1777–1855) knew a version of this theorem in 1811 but published it only in 1831. Cauchy (of Cauchy–Riemann equations fame) published his version in 1825, Karl Theodor Wilhelm Weierstraß (1815–1897) his in 1842. <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a> is often called the <em class="emphasis">Cauchy–Goursat Theorem</em>, since Cauchy assumed that the derivative of <span class="process-math">\(f\)</span> was continuous, a condition that was first removed by Edouard Jean-Baptiste Goursat (1858–1936). <div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_cauchythm-9">Before discussing a proof of <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a>, we give a basic, yet prototypical application of it:<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec_cauchythm-10"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.5</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="sec_cauchythm-10-1-1">
+<div class="para">We claim that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/homotopicfig.html ./knowl/xref/cauchythm.html ./knowl/xref/eq_checkhomotopyexample.html ./knowl/xref/ex_circleint.html ./knowl/xref/cauchythm.html ./knowl/xref/eq_cauchyexample.html" id="eq_cauchyexample">
+\begin{equation}
+\int_\gg \frac {\diff{z}} z \ = \ 2 \pi i\tag{4.5}
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(\gg\)</span> is the square in <a href="sec_cauchythm.html#homotopicfig" class="xref" data-knowl="./knowl/xref/homotopicfig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3.3">Figure 4.3.3</a>, oriented counter-clockwise. We could, of course, compute this integral by hand, but it is easier to apply Cauchy’s <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a> to the function <span class="process-math">\(f(z) = \frac 1 z\text{,}\)</span> which is holomorphic in <span class="process-math">\(G = \C \setminus \{ 0 \}\text{.}\)</span> We showed in <a href="sec_cauchythm.html#eq_checkhomotopyexample" class="xref" data-knowl="./knowl/xref/eq_checkhomotopyexample.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.4">(4.4)</a> that <span class="process-math">\(\gg\)</span> is <span class="process-math">\(G\)</span>-homotopic to the unit circle. <a href="intchapter-7.html#ex_circleint" class="xref" data-knowl="./knowl/xref/ex_circleint.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.4">Exercise 4.5.4</a> says that integrating <span class="process-math">\(f\)</span> over the unit circle gives <span class="process-math">\(2
+\pi i\)</span> and so Cauchy’s <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a> implies <a href="sec_cauchythm.html#eq_cauchyexample" class="xref" data-knowl="./knowl/xref/eq_cauchyexample.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.5">(4.5)</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-10-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.3.5"><a href="#sec_cauchythm-10" title="Copy heading and permalink for Example 4.3.5">🔗</a></div></article><article class="proof" id="sec_cauchythm-11"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="sec_cauchythm-11-1">
+<div class="para">The full proof of Cauchy’s Theorem is beyond the scope of this book. However, there are several easier proofs under more restrictive hypotheses than <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a>. We shall present a proof under the following extra assumptions:</div>
+<ul class="disc" id="sec_cauchythm-11-1-2">
+<li id="sec_cauchythm-11-1-2-1">
+<div class="para" id="sec_cauchythm-11-1-2-1-1">The derivative <span class="process-math">\(f'\)</span> is continuous in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-11-1-2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_cauchythm-11-1-2-1" title="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec_cauchythm-11-1-2-2">
+<div class="para" id="sec_cauchythm-11-1-2-2-1">The homotopy <span class="process-math">\(h\)</span> from <span class="process-math">\(\gg_0\)</span> to <span class="process-math">\(\gg_1\)</span> has piecewise, continuous second derivatives.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-11-1-2-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec_cauchythm-11-1-2-2" title="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-11-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_cauchythm-11-2">
+<div class="para">Technically, this is the assumption on <span class="process-math">\(h\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_homotopy.html">
+\begin{equation*}
+h(t,s) = \begin{cases}h_1(t,s) \amp  \text{ if }  0 \le t \le
+t_1 \, , \\ h_2(t,s) \amp  \text{ if }  t_1 \le t \le t_2 \, ,
+\\ \vdots \\ h_n(t,s) \amp  \text{ if }  t_{ n-1 } \le t \le 1
+\, , \end{cases} 
+\end{equation*}
+</div>
+<div class="para">where each <span class="process-math">\(h_j(t,s)\)</span> has continuous second partials<details class="ptx-footnote" aria-live="polite" id="sec_cauchythm-11-2-4"><summary class="ptx-footnote__number" title="Footnote 4.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_cauchythm-11-2-4">As we have seen with other “piecewise” definitions, the behavior of <span class="process-math">\(h\)</span> at the subdivision lines <span class="process-math">\(t=t_i\)</span> needs to be understood in terms of limits.</div></details>. (<a href="sec_cauchythm.html#exam_homotopy" class="xref" data-knowl="./knowl/xref/exam_homotopy.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.3.2">Example 4.3.2</a> gives one instance.) Now we turn to the proof under these extra assumptions.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-11-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_cauchythm-11-3">
+<div class="para">For <span class="process-math">\(0 \leq s \leq 1\text{,}\)</span> let <span class="process-math">\(\gg_s\)</span> be the path parametrized by <span class="process-math">\(h(t,s), \ 0 \leq
+t \leq 1\text{.}\)</span> Consider the function <span class="process-math">\(I: [0,1] \to \C\)</span> given by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/leibnizrule.html">
+\begin{equation*}
+I(s) \ := \ \int_{ \gg_s } f \,\text{,}
+\end{equation*}
+</div>
+<div class="para">so that <span class="process-math">\(I(0) = \int_{\gg_0} f\)</span> and <span class="process-math">\(I(1) = \int_{\gg_1} f\text{.}\)</span> We will show that <span class="process-math">\(I\)</span> is constant; in particular, <span class="process-math">\(I(0) = I(1)\text{,}\)</span> which proves the theorem. By Leibniz’s rule  (<a href="appendix-calculus.html#leibnizrule" class="xref" data-knowl="./knowl/xref/leibnizrule.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.9: Leibniz’s Rule">Theorem A.0.9</a>),</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/leibnizrule.html" id="sec_cauchythm-11-3-12">
+\begin{align*}
+\frac{d}{\diff{s}} I(s) \ \amp = \ \frac{d}{\diff{s}}
+\int_0^1 f \left(h(t,s) \right) \frac{ \partial h }{\partial t
+} \, \diff{t} \  = \ \int_0^1 \frac{\partial}{\partial s}
+\left( f \left( h(t,s) \right) \frac{\partial h }{\partial t }
+\right) \diff{t}\\
+\amp = \ \int_0^1 \left( f' \left( h(t,s) \right) \frac{
+\partial h }{ \partial s } \frac{ \partial h }{ \partial t } +
+f \left( h(t,s) \right) \frac{ \partial^2 h }{ \partial s \,
+\partial t } \right) \diff{t}\\
+\amp = \ \int_0^1 \left( f' \left( h(t,s) \right) \frac{
+\partial h }{ \partial t } \frac{ \partial h }{ \partial s } +
+f \left( h(t,s) \right) \frac{ \partial^2 h }{ \partial t \,
+\partial s } \right) \diff{t}\\
+\amp = \ \int_0^1
+\frac{\partial}{\partial t} \left( f \left( h(t,s) \right)
+\frac{\partial h}{\partial s} \right) \diff{t} \, \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-11-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_cauchythm-11-4">Note that we used <a href="appendix-calculus.html#thm_mixedpartialscommute" class="xref" data-knowl="./knowl/xref/thm_mixedpartialscommute.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.7">Theorem A.0.7</a> to switch the order of the second partials in the penultimate step—here is where we need our assumption that <span class="process-math">\(h\)</span> has continuous second partials. Also, we needed continuity of <span class="process-math">\(f'\)</span> in order to apply Leibniz’s rule. If <span class="process-math">\(h\)</span> is piecewise defined, we split up the integral accordingly.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-11-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_cauchythm-11-5">
+<div class="para">Finally, by the Fundamental Theorem of Calculus (<a href="appendix-calculus.html#fundthmcalc" class="xref" data-knowl="./knowl/xref/fundthmcalc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.3: Fundamental Theorem of Calculus">Theorem A.0.3</a>), applied separately to the real and imaginary parts of the above integrand,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fundthmcalc.html" id="sec_cauchythm-11-5-2">
+\begin{align*}
+\frac{d}{\diff{s}} I(s) \amp \ = \ \int_0^1
+\frac{\partial}{\partial t} \left( f \left( h(t,s) \right)
+\frac{\partial h}{\partial s} \right) \diff{t}\\
+\amp \ = \ f(h(1,s))
+\, \frac{\partial h}{\partial s} (1,s) - f(h(0,s)) \,
+\frac{\partial h}{\partial s} (0,s)\\
+\amp \ = \ 0 \,\text{,}
+\end{align*}
+</div>
+<div class="para">where the last step follows from <span class="process-math">\(h(0,s) = h(1,s)\)</span> for all <span class="process-math">\(s\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-11-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 4.3.1"><a href="#sec_cauchythm-11" title="Copy heading and permalink for Proof 4.3.1">🔗</a></div></article><article class="definition definition-like" id="sec_cauchythm-12"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.3.6</span><span class="period">.</span>
+</h3>
+<div class="para" id="sec_cauchythm-12-1-1">Let <span class="process-math">\(G \subseteq \C\)</span> be a region. If the closed path <span class="process-math">\(\gg\)</span> is <span class="process-math">\(G\)</span>-homotopic to a point (that is, a constant path) then <span class="process-math">\(\gg\)</span> is <em class="emphasis"><span class="process-math">\(G\)</span>-contractible</em>, and we write <span class="process-math">\(\gg\sim_G0\text{.}\)</span>  (See <a href="sec_cauchythm.html#contractiblefig" class="xref" data-knowl="./knowl/xref/contractiblefig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3.7">Figure 4.3.7</a> for an example.)<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-12-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 4.3.6"><a href="#sec_cauchythm-12" title="Copy heading and permalink for Definition 4.3.6">🔗</a></div></article><figure class="figure figure-like" id="contractiblefig"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="generated/prefigure/contractiblefig.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.7<span class="period">.</span></span><span class="space"> </span>This ellipse is <span class="process-math">\((\C \setminus
+\R)\)</span>-contractible.<div class="autopermalink" data-description="Figure 4.3.7"><a href="#contractiblefig" title="Copy heading and permalink for Figure 4.3.7">🔗</a></div></figcaption></figure><div class="para" id="sec_cauchythm-14">The fact that an integral over a point is zero has the following immediate consequence.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-14" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="corollary theorem-like" id="cauchycor"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">4.3.8</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="cauchycor-1-1">
+<div class="para">Suppose <span class="process-math">\(G \subseteq \C\)</span> is a region, <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(G\text{,}\)</span> <span class="process-math">\(\gg\)</span> is piecewise smooth, and <span class="process-math">\(\gg \sim_G 0\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_{\gg} f \ = \ 0 \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cauchycor-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 4.3.8"><a href="#cauchycor" title="Copy heading and permalink for Corollary 4.3.8">🔗</a></div></article><div class="para" id="sec_cauchythm-16">This corollary is worth meditating over. For example, you should compare it with <a href="sec_antiderivatives.html#antidercor" class="xref" data-knowl="./knowl/xref/antidercor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.2.7">Corollary 4.2.7</a>: both results give a zero integral, yet they make truly opposite assumptions (one about the existence of an antiderivative, the other about the existence of a derivative).<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec_cauchythm-17">Naturally, <a href="sec_cauchythm.html#cauchycor" class="xref" data-knowl="./knowl/xref/cauchycor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.3.8">Corollary 4.3.8</a> gives many evaluations of integrals, such as this:<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-17" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec_cauchythm-18"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.9</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="sec_cauchythm-18-1-1">
+<div class="para">Since <span class="process-math">\(\Log\)</span> is holomorphic in <span class="process-math">\(G = \C \setminus \R_{ \le 0 }\)</span> and the ellipse <span class="process-math">\(\gg\)</span> in <a href="sec_cauchythm.html#contractiblefig" class="xref" data-knowl="./knowl/xref/contractiblefig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3.7">Figure 4.3.7</a> is <span class="process-math">\(G\)</span>-contractible, <a href="sec_cauchythm.html#cauchycor" class="xref" data-knowl="./knowl/xref/cauchycor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.3.8">Corollary 4.3.8</a> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/contractiblefig.html ./knowl/xref/cauchycor.html">
+\begin{equation*}
+\int_\gg \Log(z) \, \diff{z} \ = \ 0 \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-18-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.3.9"><a href="#sec_cauchythm-18" title="Copy heading and permalink for Example 4.3.9">🔗</a></div></article><div class="para" id="sec_cauchythm-19">
+<a href="intchapter-7.html#C-contractible" class="xref" data-knowl="./knowl/xref/C-contractible.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.25">Exercise 4.5.25</a>(a) says that any closed path is <span class="process-math">\(\C\)</span>-contractible, which yields the following special case of <a href="sec_cauchythm.html#cauchycor" class="xref" data-knowl="./knowl/xref/cauchycor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.3.8">Corollary 4.3.8</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="corollary theorem-like" id="sec_cauchythm-20"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">4.3.10</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="sec_cauchythm-20-1-1">
+<div class="para">If <span class="process-math">\(f\)</span> is entire and <span class="process-math">\(\gg\)</span> is any piecewise smooth closed path, then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_{\gg} f \ = \ 0 \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-20-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 4.3.10"><a href="#sec_cauchythm-20" title="Copy heading and permalink for Corollary 4.3.10">🔗</a></div></article><div class="para" id="sec_cauchythm-21">The theorems and corollaries in this section are useful not just for showing that certain integrals are zero:<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-21" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="exam_partialfr"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.11</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="exam_partialfr-1-1">
+<div class="para">We’d like to compute</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_\gg \frac{ \diff{z} }{ z^2 - 2z }
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\gg\)</span> is the unit circle, oriented counter-clockwise. (Try computing it from first principles.) We use a partial fractions expansion to write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_\gg \frac{ \diff{z} }{ z^2 - 2z } \ = \ \frac 1 2 \int_\gg
+\frac{ \diff{z} }{ z-2 } \ - \ \frac 1 2 \int_\gg \frac{
+\diff{z} }{ z } \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exam_partialfr-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="exam_partialfr-1-2">
+<div class="para">The first integral on the right-hand side is zero by <a href="sec_cauchythm.html#cauchycor" class="xref" data-knowl="./knowl/xref/cauchycor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.3.8">Corollary 4.3.8</a> applied to the function <span class="process-math">\(f(z) = \frac{ 1 }{ z-2 }\)</span> (note that <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(\C \setminus \{ 2 \}\)</span> and <span class="process-math">\(\gg\)</span> is <span class="process-math">\((\C \setminus
+\{ 2 \})\)</span>-contractible). The second integral is <span class="process-math">\(2 \pi i\)</span> by <a href="intchapter-7.html#ex_circleint" class="xref" data-knowl="./knowl/xref/ex_circleint.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.4">Exercise 4.5.4</a>, and so</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchycor.html ./knowl/xref/ex_circleint.html">
+\begin{equation*}
+\int_\gg \frac{ \diff{z} }{ z^2 - 2z } \ = \ - \pi i \,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exam_partialfr-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.3.11"><a href="#exam_partialfr" title="Copy heading and permalink for Example 4.3.11">🔗</a></div></article><div class="para" id="sec_cauchythm-23">Sometimes <a href="sec_cauchythm.html#cauchycor" class="xref" data-knowl="./knowl/xref/cauchycor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.3.8">Corollary 4.3.8</a> itself is known as Cauchy’s Theorem. See <a href="intchapter-7.html#ex_cauchyfromgreen" class="xref" data-knowl="./knowl/xref/ex_cauchyfromgreen.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.26">Exercise 4.5.26</a> for a related formulation of <a href="sec_cauchythm.html#cauchycor" class="xref" data-knowl="./knowl/xref/cauchycor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.3.8">Corollary 4.3.8</a>, with a proof based on Green’s Theorem.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-23" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Section 4.3: Cauchy’s Theorem"><a href="#sec_cauchythm" title="Copy heading and permalink for Section 4.3: Cauchy’s Theorem">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec_antiderivatives.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_CIF.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

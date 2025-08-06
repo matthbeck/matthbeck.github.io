@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Fundamental Theorem of Algebra <details class="ptx-footnote" aria-live="polite" id="fundthmalg-1-1"><summary class="ptx-footnote__number" title="Footnote 5.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="fundthmalg-1-1">The Fundamental Theorem of Algebra was first proved by Gauß (in his doctoral dissertation in 1799, which had a flaw—later, he provided three rigorous proofs), although its statement had been assumed to be correct long before Gauß’s time. It is amusing that such an important algebraic result can be proved purely analytically.  There are proofs of the Fundamental Theorem of Algebra that do not use complex analysis.  On the other hand, all proofs use <em class="emphasis">some</em> analysis (such as the Intermediate Value Theorem).  The Fundamental Theorem of Algebra refers to <em class="emphasis">algebra</em> in the sense that it existed in 1799, not to modern algebra. Thus one might say that the Fundamental Theorem of Algebra is neither fundamental to algebra nor even a theorem of algebra. The proof we give here is due to Anton R. Schep and appeared in the <em class="emphasis">American Mathematical Monthly</em> (January 2009).</div></details>.</span>
+</h3>
+<div class="para">Every nonconstant polynomial has a root in <span class="process-math">\(\C\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#fundthmalg-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.3.2: Fundamental Theorem of Algebra "><a href="#fundthmalg" title="Copy heading and permalink for Theorem 5.3.2: Fundamental Theorem of Algebra ">🔗</a></div></article><article class="proof"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical">
+<div class="para">Suppose (by way of contradiction) that <span class="process-math">\(p\)</span> does not have any roots, that is, <span class="process-math">\(p(z) \not= 0\)</span> for all <span class="process-math">\(z \in \C\text{.}\)</span> Then <span class="process-math">\(\frac 1 {p(z)}\)</span> is entire, and so Cauchy’s Integral Formula (<a href="sec_CIF.html#cauchyformulacircle" class="xref" data-knowl="./knowl/xref/cauchyformulacircle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.1">Theorem 4.4.1</a>) gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformulacircle.html ./knowl/xref/intprop.html ./knowl/xref/int4.html ./knowl/xref/polynomialestimate.html">
+\begin{equation*}
+\frac1{p(0)} \ = \ \frac1{2\pi i}\int_{C[0,R]}\frac{\frac 1
+{p(z)}}{z}\,\diff{z} \, \text{,}
+\end{equation*}
+</div>
+<div class="para">for any <span class="process-math">\(R&gt;0\text{.}\)</span> Let <span class="process-math">\(d\)</span> be the degree of <span class="process-math">\(p(z)\)</span> and <span class="process-math">\(a_d\)</span> its leading coefficient. <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>) and <a href="sec_cauchytothelimit.html#polynomialestimate" class="xref" data-knowl="./knowl/xref/polynomialestimate.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 5.3.1">Proposition 5.3.1</a> allow us to estimate, for sufficiently large <span class="process-math">\(R\text{,}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformulacircle.html ./knowl/xref/intprop.html ./knowl/xref/int4.html ./knowl/xref/polynomialestimate.html">
+\begin{equation*}
+\left| \frac 1 {p(0)} \right| \ = \ \frac 1 {2 \pi} \left|
+\int_{C[0,R]} \frac{ \diff{z} }{ z \, p(z) } \right| \ \le \
+\frac 1 {2 \pi}  \max_{ z \in C[0,R] } \left| \frac{ 1 }{ z
+\, p(z) } \right| 2 \pi R \ \le \ \frac{ 2 }{ |a_d| R^d } \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#fundthmalg-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">The left-hand side is independent of <span class="process-math">\(R\text{,}\)</span> while the right-hand side can be made arbitrarily small (by choosing <span class="process-math">\(R\)</span> sufficiently large), and so we conclude that <span class="process-math">\(\frac 1 {p(0)} = 0\text{,}\)</span> which is impossible.<div class="autopermalink" data-description="Paragraph"><a href="#fundthmalg-3-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 5.3.2.1"><a href="#fundthmalg-3" title="Copy heading and permalink for Proof 5.3.2.1">🔗</a></div></article><span class="incontext"><a class="internal" href="sec_cauchytothelimit.html#fundthmalg">in-context</a></span>
+</body>
+</html>

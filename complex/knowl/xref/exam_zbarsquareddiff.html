@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette: ice-fire                     *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">The function <span class="process-math">\(f: \C \to \C\)</span> given by <span class="process-math">\(f(z) = (\conj z)^2\)</span> is differentiable at <span class="process-math">\(0\)</span> and nowhere else; in particular, <span class="process-math">\(f\)</span> is <em class="emphasis">not</em> holomorphic at <span class="process-math">\(0\text{.}\)</span>  To see why, let’s write <span class="process-math">\(z = z_0
++ r \, e^{ i \phi }\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{align*}
+\frac{ \conj{z}^2 - \conj{z_0}^2 }{ z - z_0 } \amp \ = \
+\frac{ \left( \conj{ z_0 + r \, e^{ i \phi } } \right)^2 -
+\conj{z_0}^2 }{ z_0 + r \, e^{ i \phi } - z_0 }\\
+\amp \ = \
+\frac{\left(\conj{ z_0 }+re^{-i\phi}\right)^2 -
+\conj{z_0}^2}{re^{i\phi}}\\
+\amp \ = \ \frac{ \conj{ z_0 }^2 + 2 \, \conj{z_0} \, r
+\, e^{- i \phi } + r^2 e^{- 2 i \phi } - \conj{z_0}^2 }{ r
+\, e^{ i \phi } }\\
+\amp \ = \ \frac{ 2 \, \conj{z_0} \, r \, e^{ -i
+\phi } + r^2 e^{ - 2 i \phi } }{ r \, e^{ i \phi } }\\
+\amp \ = \ 2 \, \conj{z_0} \, e^{ -2i \phi } + r \, e^{
+-3i \phi }\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exam_zbarsquareddiff-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para">If <span class="process-math">\(z_0 \ne 0\)</span> then taking the limit of <span class="process-math">\(f(z)\)</span> as <span class="process-math">\(z \to z_0\)</span> thus means taking the limit of <span class="process-math">\(2 \,
+\conj{z_0} \, e^{ -2i \phi } + r \, e^{ -3i \phi }\)</span> as <span class="process-math">\(r
+\to 0\text{,}\)</span> which gives <span class="process-math">\(2 \, \conj{z_0} \, e^{ -2i \phi }\text{,}\)</span> a number that depends on <span class="process-math">\(\phi\text{,}\)</span> i.e., on the direction that <span class="process-math">\(z\)</span> approaches <span class="process-math">\(z_0\text{.}\)</span> Hence this limit does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#exam_zbarsquareddiff-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">On the other hand, if <span class="process-math">\(z_0 = 0\)</span> then the right-hand side above equals <span class="process-math">\(r
+\, e^{ -3i \phi } = |z| \, e^{ -3i \phi }\text{.}\)</span> Hence</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_limiteq0.html">
+\begin{equation*}
+\lim_{ z \to 0 } \left| \frac{ \conj{z}^2 }{ z } \right| \ = \
+\lim_{ z \to 0 } \left| |z| \, e^{ -3i \phi } \right| \ = \
+\lim_{ z \to 0 } |z| \ = \ 0 \, \text{,}
+\end{equation*}
+</div>
+<div class="para">which implies, by <a href="chapter2-exercises.html#ex_limiteq0" class="xref" data-knowl="./knowl/xref/ex_limiteq0.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.5">Exercise 2.5.5</a>, that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_limiteq0.html">
+\begin{equation*}
+\lim_{ z \to z_0 } \frac{ \conj{z}^2 - \conj{z_0}^2 }{ z -
+z_0 } \ = \ \lim_{ z \to 0 } \frac{ \conj{z}^2 }{ z } \ = \ 0 \, \text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exam_zbarsquareddiff-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.2.3"><a href="#exam_zbarsquareddiff" title="Copy heading and permalink for Example 2.2.3">🔗</a></div></article><span class="incontext"><a class="internal" href="sec_diffholom.html#exam_zbarsquareddiff">in-context</a></span>
+</body>
+</html>
