@@ -11,6 +11,9 @@ sqrt(2)
 sage: arg(1+i)
 1/4*pi
 
+sage: pts = [e^(I*(theta)) for theta in srange(0, 2*pi, pi/8)]
+sage: list_plot([(real(p),imag(p)) for p in pts])
+
 sage: log(-i)
 -1/2*I*pi
 sage: log(-1)
@@ -19,4 +22,24 @@ sage: log(-1+0.001*I)
 4.99999750058881e-7 + 3.14059265392313*I
 sage: log(-1-0.001*I)
 4.99999750058881e-7 - 3.14059265392313*I
+
+sage: complex_plot(1/(1+z^2), (-5,5), (-5, 5))
+
+sage: f(z) = sin(z)/z
+sage: f.limit(z=0)
+z |--> 1
+
+sage: f(z)=z^2
+sage: diff(f)
+z |--> 2*z
+
+sage: f(z) = conjugate(z)
+sage: diff(f)
+z |--> diff(conjugate(z), z)
+
+sage: conj(x,y) = (x,-y)
+sage: diff(conj)
+[ (x, y) |--> 1  (x, y) |--> 0]
+[ (x, y) |--> 0 (x, y) |--> -1]
+
 
