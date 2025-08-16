@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,37 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +196,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +248,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -317,8 +348,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -333,7 +363,7 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_cauchytothelimit"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">5.3</span><span class="space"> </span><span class="title">Taking Cauchy’s Formulas to the Limit</span>
 </h2>
-<div class="para" id="sec_cauchytothelimit-2">Many beautiful applications of Cauchy’s Integral Formulas (such as <a href="sec_CIF.html#cauchyformula" class="xref" data-knowl="./knowl/xref/cauchyformula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.5: Cauchy’s Integral Formula">Theorem 4.4.5</a> and <a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a>) arise from considerations of the limiting behavior of the integral as the path gets arbitrarily large. The first and most famous application concerns the roots of polynomials. As a preparation we prove the following inequality, which is generally quite useful. It says that for <span class="process-math">\(|z|\)</span> large enough, a polynomial <span class="process-math">\(p(z)\)</span> of degree <span class="process-math">\(d\)</span> looks almost like a constant times <span class="process-math">\(z^d\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_cauchytothelimit-2">Several beautiful applications of Cauchy’s Integral Formulas (such as <a href="sec_CIF.html#cauchyformula" class="xref" data-knowl="./knowl/xref/cauchyformula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.5: Cauchy’s Integral Formula">Theorem 4.4.5</a> and <a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a>) arise from considerations of the limiting behavior of the integral as the path gets arbitrarily large. The first and most famous application concerns the roots of polynomials. As a preparation we prove the following inequality, which is generally quite useful. It says that for <span class="process-math">\(|z|\)</span> large enough, a polynomial <span class="process-math">\(p(z)\)</span> of degree <span class="process-math">\(d\)</span> looks almost like a constant times <span class="process-math">\(z^d\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="polynomialestimate"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="period">.</span>
@@ -369,11 +399,11 @@ a_{d-2}z^{d-2} + \dots + a_1z+a_0}\\
 <div class="para" id="polynomialestimate-2-2">Then the sum inside the last factor has limit <span class="process-math">\(1\)</span> as <span class="process-math">\(z\to\infty\)</span> (by <a href="chapter3-exercises.html#ex_polynomiallimitaszgrows" class="xref" data-knowl="./knowl/xref/ex_polynomiallimitaszgrows.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.12">Exercise 3.6.12</a>), and so its modulus is between <span class="process-math">\(\frac 1 2\)</span> and <span class="process-math">\(2\)</span> as long as <span class="process-math">\(|z|\)</span> is large enough.<div class="autopermalink" data-description="Paragraph"><a href="#polynomialestimate-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 5.3.1.1"><a href="#polynomialestimate-2" title="Copy heading and permalink for Proof 5.3.1.1">🔗</a></div></article><article class="theorem theorem-like" id="fundthmalg"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Fundamental Theorem of Algebra <details class="ptx-footnote" aria-live="polite" id="fundthmalg-1-1"><summary class="ptx-footnote__number" title="Footnote 5.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="fundthmalg-1-1">The Fundamental Theorem of Algebra was first proved by Gauß (in his doctoral dissertation in 1799, which had a flaw—later, he provided three rigorous proofs), although its statement had been assumed to be correct long before Gauß’s time. It is amusing that such an important algebraic result can be proved purely analytically.  There are proofs of the Fundamental Theorem of Algebra that do not use complex analysis.  On the other hand, all proofs use <em class="emphasis">some</em> analysis (such as the Intermediate Value Theorem).  The Fundamental Theorem of Algebra refers to <em class="emphasis">algebra</em> in the sense that it existed in 1799, not to modern algebra. Thus one might say that the Fundamental Theorem of Algebra is neither fundamental to algebra nor even a theorem of algebra. The proof we give here is due to Anton R. Schep and appeared in the <em class="emphasis">American Mathematical Monthly</em> (January 2009).</div></details>.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Fundamental Theorem of Algebra<details class="ptx-footnote" aria-live="polite" id="fundthmalg-1-1"><summary class="ptx-footnote__number" title="Footnote 5.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="fundthmalg-1-1">The Fundamental Theorem of Algebra was first proved by Gauß (in his doctoral dissertation in 1799, which had a flaw—later, he provided three rigorous proofs), although its statement had been assumed to be correct long before Gauß’s time. It is amusing that such an important algebraic result can be proved purely analytically.  There are proofs of the Fundamental Theorem of Algebra that do not use complex analysis.  On the other hand, all proofs use <em class="emphasis">some</em> analysis (such as the Intermediate Value Theorem).  The Fundamental Theorem of Algebra refers to <em class="emphasis">algebra</em> in the sense that it existed in 1799, not to modern algebra. Thus one might say that the Fundamental Theorem of Algebra is neither fundamental to algebra nor even a theorem of algebra. The proof we give here is due to Anton R. Schep and appeared in the <em class="emphasis">American Mathematical Monthly</em> (January 2009).</div></details>.</span>
 </h3>
 <div class="para" id="fundthmalg-2-1">Every nonconstant polynomial has a root in <span class="process-math">\(\C\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#fundthmalg-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 5.3.2: Fundamental Theorem of Algebra "><a href="#fundthmalg" title="Copy heading and permalink for Theorem 5.3.2: Fundamental Theorem of Algebra ">🔗</a></div></article><article class="proof" id="fundthmalg-3"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="autopermalink" data-description="Theorem 5.3.2: Fundamental Theorem of Algebra"><a href="#fundthmalg" title="Copy heading and permalink for Theorem 5.3.2: Fundamental Theorem of Algebra">🔗</a></div></article><article class="proof" id="fundthmalg-3"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
 <div class="para logical" id="fundthmalg-3-1">
 <div class="para">Suppose (by way of contradiction) that <span class="process-math">\(p\)</span> does not have any roots, that is, <span class="process-math">\(p(z) \not= 0\)</span> for all <span class="process-math">\(z \in \C\text{.}\)</span> Then <span class="process-math">\(\frac 1 {p(z)}\)</span> is entire, and so Cauchy’s Integral Formula (<a href="sec_CIF.html#cauchyformulacircle" class="xref" data-knowl="./knowl/xref/cauchyformulacircle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.1">Theorem 4.4.1</a>) gives</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformulacircle.html ./knowl/xref/intprop.html ./knowl/xref/int4.html ./knowl/xref/polynomialestimate.html">
@@ -392,20 +422,19 @@ a_{d-2}z^{d-2} + \dots + a_1z+a_0}\\
 \, p(z) } \right| 2 \pi R \ \le \ \frac{ 2 }{ |a_d| R^d } \, \text{.}
 \end{equation*}
 </div>
+<div class="para">The left-hand side is independent of <span class="process-math">\(R\text{,}\)</span> while the right-hand side can be made arbitrarily small (by choosing <span class="process-math">\(R\)</span> sufficiently large), and so we conclude that <span class="process-math">\(\frac 1 {p(0)} = 0\text{,}\)</span> which is impossible.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#fundthmalg-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="fundthmalg-3-2">The left-hand side is independent of <span class="process-math">\(R\text{,}\)</span> while the right-hand side can be made arbitrarily small (by choosing <span class="process-math">\(R\)</span> sufficiently large), and so we conclude that <span class="process-math">\(\frac 1 {p(0)} = 0\text{,}\)</span> which is impossible.<div class="autopermalink" data-description="Paragraph"><a href="#fundthmalg-3-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
 <div class="autopermalink" data-description="Proof 5.3.2.1"><a href="#fundthmalg-3" title="Copy heading and permalink for Proof 5.3.2.1">🔗</a></div></article><div class="para" id="sec_cauchytothelimit-5">
-<a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra ">Theorem 5.3.2</a> implies that any polynomial <span class="process-math">\(p\)</span> can be factored into linear terms of the form <span class="process-math">\(z-a\)</span> where <span class="process-math">\(a\)</span> is a root of <span class="process-math">\(p\text{,}\)</span> as we can apply the corollary, after getting a root <span class="process-math">\(a\text{,}\)</span> to <span class="process-math">\(\frac{ p(z) }{z-a}\)</span> (which is again a polynomial by the division algorithm), etc. (see also <a href="cachyconschapter-6.html#fta" class="xref" data-knowl="./knowl/xref/fta.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.4.11">Exercise 5.4.11</a>).<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra">Theorem 5.3.2</a> implies that any polynomial <span class="process-math">\(p\)</span> can be factored into linear terms of the form <span class="process-math">\(z-a\)</span> where <span class="process-math">\(a\)</span> is a root of <span class="process-math">\(p\text{,}\)</span> as we can apply the corollary, after getting a root <span class="process-math">\(a\text{,}\)</span> to <span class="process-math">\(\frac{ p(z) }{z-a}\)</span> (which is again a polynomial by the division algorithm), etc. (see also <a href="cachyconschapter-6.html#fta" class="xref" data-knowl="./knowl/xref/fta.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.4.11">Exercise 5.4.11</a>).<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_cauchytothelimit-6">A compact reformulation of the Fundamental Theorem of Algebra (<a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra ">Theorem 5.3.2</a>) is to say that <span class="process-math">\(\C\)</span> is <em class="emphasis">algebraically closed</em>.  In contrast, <span class="process-math">\(\R\)</span> is not algebraically closed.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_cauchytothelimit-6">A compact reformulation of the Fundamental Theorem of Algebra (<a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra">Theorem 5.3.2</a>) is to say that <span class="process-math">\(\C\)</span> is <em class="emphasis">algebraically closed</em>.  In contrast, <span class="process-math">\(\R\)</span> is not algebraically closed.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="sec_cauchytothelimit-7"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.3</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="sec_cauchytothelimit-7-1-1">
-<div class="para">The polynomial <span class="process-math">\(p(x) = 2x^4+5x^2+3\)</span> has no roots in <span class="process-math">\(\R\text{.}\)</span> The Fundamental Theorem of Algebra (<a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra ">Theorem 5.3.2</a>) states that <span class="process-math">\(p\)</span> must have a root (in fact, four roots) in <span class="process-math">\(\C\text{:}\)</span>
+<div class="para">The polynomial <span class="process-math">\(p(x) = 2x^4+5x^2+3\)</span> has no roots in <span class="process-math">\(\R\text{.}\)</span> The Fundamental Theorem of Algebra (<a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra">Theorem 5.3.2</a>) states that <span class="process-math">\(p\)</span> must have a root (in fact, four roots) in <span class="process-math">\(\C\text{:}\)</span>
 </div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fundthmalg.html" id="sec_cauchytothelimit-7-1-1-6">
 \begin{align*}
@@ -418,17 +447,21 @@ x+i \right) \left( x-i \right) \left( \sqrt{2} \, x +
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-7-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 5.3.3"><a href="#sec_cauchytothelimit-7" title="Copy heading and permalink for Example 5.3.3">🔗</a></div></article><div class="para" id="sec_cauchytothelimit-8">Another powerful consequence of <a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a> is the following result, which again has no counterpart in real analysis (consider, for example, the real sine function).<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 5.3.3"><a href="#sec_cauchytothelimit-7" title="Copy heading and permalink for Example 5.3.3">🔗</a></div></article><div id="sec_cauchytothelimit-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('x')
+p = 2*x^4 + 5*x^2 + 3
+p.roots(multiplicities=False)
+</script></div>
+<div class="para" id="sec_cauchytothelimit-9">Another powerful consequence of <a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a> is the following result, which again has no counterpart in real analysis (consider, for example, the real sine function).<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="corollary theorem-like" id="liouville"><h3 class="heading">
-<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Liouville’s <details class="ptx-footnote" aria-live="polite" id="liouville-1-1"><summary class="ptx-footnote__number" title="Footnote 5.3.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="liouville-1-1">This theorem is for historical reasons erroneously attributed to Joseph Liouville (1809–1882). It was published earlier by Cauchy; in fact, Gauß may well have known about it before Cauchy.</div></details> Theorem.</span>
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Liouville’s<details class="ptx-footnote" aria-live="polite" id="liouville-1-1"><summary class="ptx-footnote__number" title="Footnote 5.3.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="liouville-1-1">This theorem is for historical reasons erroneously attributed to Joseph Liouville (1809–1882). It was published earlier by Cauchy; in fact, Gauß may well have known about it before Cauchy.</div></details> Theorem.</span>
 </h3>
 <div class="para" id="liouville-2-1">Any bounded entire function is constant. <div class="autopermalink" data-description="Paragraph"><a href="#liouville-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Corollary 5.3.4: Liouville’s  Theorem"><a href="#liouville" title="Copy heading and permalink for Corollary 5.3.4: Liouville’s  Theorem">🔗</a></div></article><article class="proof" id="liouville-3"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="autopermalink" data-description="Corollary 5.3.4: Liouville’s Theorem"><a href="#liouville" title="Copy heading and permalink for Corollary 5.3.4: Liouville’s Theorem">🔗</a></div></article><article class="proof" id="liouville-3"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
 <div class="para logical" id="liouville-3-1">
 <div class="para">Suppose <span class="process-math">\(|f(z)| \leq M\)</span> for all <span class="process-math">\(z \in \C\text{.}\)</span> Given any <span class="process-math">\(w \in \C\text{,}\)</span> we apply <a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a> with the circle <span class="process-math">\(C[w,R]\text{;}\)</span> note that we can choose any <span class="process-math">\(R&gt;0\)</span> because <span class="process-math">\(f\)</span> is entire. By <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>),</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformula2.html ./knowl/xref/intprop.html ./knowl/xref/int4.html" id="liouville-3-1-10">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformula2.html ./knowl/xref/intprop.html ./knowl/xref/int4.html ./knowl/xref/derivative0.html" id="liouville-3-1-10">
 \begin{align*}
 \left| f'(w) \right| \ \amp = \ \left| \frac{1}{2 \pi i}
 \int_{C[w,R]} \frac{f(z)}{(z-w)^2} \, \diff{z} \right|\\
@@ -438,16 +471,15 @@ x+i \right) \left( x-i \right) \left( \sqrt{2} \, x +
 \ \amp \leq \ \frac{M}{R} \,\text{.}
 \end{align*}
 </div>
+<div class="para">The right-hand side can be made arbitrarily small, as we are allowed to choose <span class="process-math">\(R\)</span> as large as we want. This implies that <span class="process-math">\(f'=0\text{,}\)</span> and hence, by <a href="sec_constantfcts.html#derivative0" class="xref" data-knowl="./knowl/xref/derivative0.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.4.2">Theorem 2.4.2</a>, <span class="process-math">\(f\)</span> is constant.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#liouville-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="liouville-3-2">The right-hand side can be made arbitrarily small, as we are allowed to choose <span class="process-math">\(R\)</span> as large as we want. This implies that <span class="process-math">\(f'=0\text{,}\)</span> and hence, by <a href="sec_constantfcts.html#derivative0" class="xref" data-knowl="./knowl/xref/derivative0.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.4.2">Theorem 2.4.2</a>, <span class="process-math">\(f\)</span> is constant.<div class="autopermalink" data-description="Paragraph"><a href="#liouville-3-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 5.3.4.1"><a href="#liouville-3" title="Copy heading and permalink for Proof 5.3.4.1">🔗</a></div></article><div class="para" id="sec_cauchytothelimit-11">As an example of the usefulness of Liouville’s theorem (<a href="sec_cauchytothelimit.html#liouville" class="xref" data-knowl="./knowl/xref/liouville.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.3.4: Liouville’s Theorem">Corollary 5.3.4</a>), we give another proof of the Fundamental Theorem of Algebra, close to Gauß’s original proof.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 5.3.4.1"><a href="#liouville-3" title="Copy heading and permalink for Proof 5.3.4.1">🔗</a></div></article><div class="para" id="sec_cauchytothelimit-10">As an example of the usefulness of Liouville’s theorem (<a href="sec_cauchytothelimit.html#liouville" class="xref" data-knowl="./knowl/xref/liouville.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.3.4: Liouville’s  Theorem">Corollary 5.3.4</a>), we give another proof of the Fundamental Theorem of Algebra, close to Gauß’s original proof.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<article class="proof" id="sec_cauchytothelimit-12"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para" id="sec_cauchytothelimit-12-1">Suppose (by way of contradiction) that <span class="process-math">\(p\)</span> does not have any roots, that is, <span class="process-math">\(p(z) \not= 0\)</span> for all <span class="process-math">\(z \in \C\text{.}\)</span> Thus the function <span class="process-math">\(f(z) = \frac 1 {p(z)}\)</span> is entire. But <span class="process-math">\(f \to 0\)</span> as <span class="process-math">\(|z| \to \infty\text{,}\)</span> by <a href="sec_cauchytothelimit.html#polynomialestimate" class="xref" data-knowl="./knowl/xref/polynomialestimate.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 5.3.1">Proposition 5.3.1</a>; consequently, by <a href="cachyconschapter-6.html#bounded" class="xref" data-knowl="./knowl/xref/bounded.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.4.10">Exercise 5.4.10</a>, <span class="process-math">\(f\)</span> is bounded. Now we apply <a href="sec_cauchytothelimit.html#liouville" class="xref" data-knowl="./knowl/xref/liouville.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.3.4: Liouville’s Theorem">Corollary 5.3.4</a> to deduce that <span class="process-math">\(f\)</span> is constant. Hence <span class="process-math">\(p\)</span> is constant, which contradicts our assumptions.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-12-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="proof" id="sec_cauchytothelimit-11"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<div class="para" id="sec_cauchytothelimit-11-1">Suppose (by way of contradiction) that <span class="process-math">\(p\)</span> does not have any roots, that is, <span class="process-math">\(p(z) \not= 0\)</span> for all <span class="process-math">\(z \in \C\text{.}\)</span> Thus the function <span class="process-math">\(f(z) = \frac 1 {p(z)}\)</span> is entire. But <span class="process-math">\(f \to 0\)</span> as <span class="process-math">\(|z| \to \infty\text{,}\)</span> by <a href="sec_cauchytothelimit.html#polynomialestimate" class="xref" data-knowl="./knowl/xref/polynomialestimate.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 5.3.1">Proposition 5.3.1</a>; consequently, by <a href="cachyconschapter-6.html#bounded" class="xref" data-knowl="./knowl/xref/bounded.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.4.10">Exercise 5.4.10</a>, <span class="process-math">\(f\)</span> is bounded. Now we apply <a href="sec_cauchytothelimit.html#liouville" class="xref" data-knowl="./knowl/xref/liouville.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.3.4: Liouville’s  Theorem">Corollary 5.3.4</a> to deduce that <span class="process-math">\(f\)</span> is constant. Hence <span class="process-math">\(p\)</span> is constant, which contradicts our assumptions.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-11-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Proof 5.3.1"><a href="#sec_cauchytothelimit-11" title="Copy heading and permalink for Proof 5.3.1">🔗</a></div></article><div class="para" id="sec_cauchytothelimit-12">As one more example of the theme of getting results from Cauchy’s Integral Formulas by taking the limit as a path “goes to infinity,” we compute an improper integral. <div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-12" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 5.3.1"><a href="#sec_cauchytothelimit-12" title="Copy heading and permalink for Proof 5.3.1">🔗</a></div></article><div class="para" id="sec_cauchytothelimit-13">As one more example of the theme of getting results from Cauchy’s Integral Formulas by taking the limit as a path “goes to infinity,” we compute an improper integral. <div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchytothelimit-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="ex_eximpropint"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.5</span><span class="period">.</span>
@@ -464,15 +496,13 @@ x+i \right) \left( x-i \right) \left( \sqrt{2} \, x +
 </div> <figure class="figure figure-like" id="fig_eximpropint"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="generated/prefigure/ex_improper_int.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.3.6<span class="period">.</span></span><span class="space"> </span>The integration paths in <a href="sec_cauchytothelimit.html#ex_eximpropint" class="xref" data-knowl="./knowl/xref/ex_eximpropint.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.3.5">Example 5.3.5</a>.<div class="autopermalink" data-description="Figure 5.3.6"><a href="#fig_eximpropint" title="Copy heading and permalink for Figure 5.3.6">🔗</a></div></figcaption></figure> <div class="para logical" id="ex_eximpropint-1-4">
 <div class="para">We computed the integral over <span class="process-math">\(\sigma_R\)</span> already in <a href="sec_CIF.html#exam_cifz_2_1" class="xref" data-knowl="./knowl/xref/exam_cifz_2_1.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.4.7">Example 4.4.7</a>;</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_cifz_2_1.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_cifz_2_1.html ./knowl/xref/intprop.html ./knowl/xref/int4.html ./knowl/xref/cor_triangleineq.html ./knowl/xref/revtrianineq.html">
 \begin{equation*}
 \int_{\sigma_R} \frac{\diff{z}}{z^2+1} \ = \ \pi \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex_eximpropint-1-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="ex_eximpropint-1-5">
 <div class="para">This holds for any <span class="process-math">\(R&gt;1\text{,}\)</span> and so we can take the limit as <span class="process-math">\(R\to\infty\text{.}\)</span> By <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>) and the reverse triangle inequality (<a href="sec_geometricprops.html#cor_triangleineq" class="xref" data-knowl="./knowl/xref/cor_triangleineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 1.3.5">Corollary 1.3.5</a>(<a href="sec_geometricprops.html#revtrianineq" class="xref" data-knowl="./knowl/xref/revtrianineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">b</a>)),</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/intprop.html ./knowl/xref/int4.html ./knowl/xref/cor_triangleineq.html ./knowl/xref/revtrianineq.html" id="ex_eximpropint-1-5-7">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_cifz_2_1.html ./knowl/xref/intprop.html ./knowl/xref/int4.html ./knowl/xref/cor_triangleineq.html ./knowl/xref/revtrianineq.html" id="ex_eximpropint-1-4-10">
 \begin{align*}
 \abs{\int_{ \gg_R } \frac{\diff{z}}{z^2+1}} \ \amp \le \
 \max_{ z \in \gg_R } \abs{ \frac 1 {z^2+1} } \pi R\\
@@ -482,7 +512,7 @@ x+i \right) \left( x-i \right) \left( \sqrt{2} \, x +
 \end{align*}
 </div>
 <div class="para">which goes to <span class="process-math">\(0\)</span> as <span class="process-math">\(R\to\infty\text{.}\)</span> Thus</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/intprop.html ./knowl/xref/int4.html ./knowl/xref/cor_triangleineq.html ./knowl/xref/revtrianineq.html" id="ex_eximpropint-1-5-10">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_cifz_2_1.html ./knowl/xref/intprop.html ./knowl/xref/int4.html ./knowl/xref/cor_triangleineq.html ./knowl/xref/revtrianineq.html" id="ex_eximpropint-1-4-13">
 \begin{align*}
 \pi \amp \ = \ \lim_{ R \to \infty } \int_{\sigma_R}
 \frac{\diff{z}}{z^2+1}\\
@@ -493,8 +523,8 @@ x+i \right) \left( x-i \right) \left( \sqrt{2} \, x +
 \int_{-\infty}^\infty\frac{\diff{x}}{x^2+1} \,\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex_eximpropint-1-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="ex_eximpropint-1-6">Of course this integral can be evaluated almost as easily using standard formulas from calculus. However, just slight modifications of this example lead to improper integrals that are beyond the scope of basic calculus; see <a href="cachyconschapter-6.html#ex_1__1_x_4_" class="xref" data-knowl="./knowl/xref/ex_1__1_x_4_.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.4.18">Exercise 5.4.18</a> and <a href="cachyconschapter-6.html#ex_cos_x___1_x_2_" class="xref" data-knowl="./knowl/xref/ex_cos_x___1_x_2_.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.4.19">Exercise 5.4.19</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ex_eximpropint-1-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_eximpropint-1-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex_eximpropint-1-5">Of course this integral can be evaluated almost as easily using standard formulas from calculus. However, just slight modifications of this example lead to improper integrals that are beyond the scope of basic calculus; see <a href="cachyconschapter-6.html#ex_1__1_x_4_" class="xref" data-knowl="./knowl/xref/ex_1__1_x_4_.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.4.18">Exercise 5.4.18</a> and <a href="cachyconschapter-6.html#ex_cos_x___1_x_2_" class="xref" data-knowl="./knowl/xref/ex_cos_x___1_x_2_.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.4.19">Exercise 5.4.19</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ex_eximpropint-1-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Example 5.3.5"><a href="#ex_eximpropint" title="Copy heading and permalink for Example 5.3.5">🔗</a></div></article><div class="autopermalink" data-description="Section 5.3: Taking Cauchy’s Formulas to the Limit"><a href="#sec_cauchytothelimit" title="Copy heading and permalink for Section 5.3: Taking Cauchy’s Formulas to the Limit">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">

@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,37 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +196,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +248,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter contains-active">
@@ -317,8 +348,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -452,28 +482,41 @@ x+iy \, \text{.}
 </div>
 <div class="para" id="sec_defalg-14">We invite you to check that the definitions of our binary operations and <a href="sec_defalg.html#alg" class="xref" data-knowl="./knowl/xref/alg.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.1.2">Proposition 1.1.2</a> are coherent with the usual real arithmetic rules if we think of complex numbers as given in the form <span class="process-math">\(x+iy\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_defalg-14" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="sec_defalg-15"><h3 class="heading">
+<div class="para" id="sec_defalg-15">The open-source mathematics software <a class="external" href="https://www.sagemath.org" target="_blank">SageMath</a><details class="ptx-footnote" aria-live="polite" id="sec_defalg-15-2"><summary class="ptx-footnote__number" title="Footnote 1.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_defalg-15-2"><code class="code-inline tex2jax_ignore">www.sagemath.org</code></div></details> can handle complex numbers and functions; we will provide sample code throughout this book to get you started.<details class="ptx-footnote" aria-live="polite" id="sec_defalg-15-3"><summary class="ptx-footnote__number" title="Footnote 1.1.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="sec_defalg-15-3">In particular for readers of the print version of this book, you can execute sage commands, e.g., via the <a class="external" href="https://sagecell.sagemath.org/" target="_blank">SageMathCell</a>.</div></details> <div class="autopermalink" data-description="Paragraph"><a href="#sec_defalg-15" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="sec_defalg-16" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">3+2*i + 1-i
+</script></div>
+<div id="sec_defalg-17" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">(3+2*i) * (1-i)
+</script></div>
+<div class="para" id="sec_defalg-18">The second complex number in <a href="sec_defalg.html#alg-1-2" class="xref" data-knowl="./knowl/xref/eq-lastmult.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.14">(1.14)</a> is the (multiplicative) inverse of <span class="process-math">\(x+iy\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_defalg-18" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="sec_defalg-19" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">1/(3+2*i)
+</script></div>
+<article class="definition definition-like" id="sec_defalg-20"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.3</span><span class="period">.</span>
 </h3>
-<div class="para" id="sec_defalg-15-1-1">The number <span class="process-math">\(x\)</span> is called the <dfn class="terminology">real part</dfn> and <span class="process-math">\(y\)</span> the <dfn class="terminology">imaginary part</dfn> <details class="ptx-footnote" aria-live="polite" id="sec_defalg-15-1-1-5"><summary class="ptx-footnote__number" title="Footnote 1.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_defalg-15-1-1-5">These names have historical reasons: people thought of complex numbers as unreal, imagined.</div></details> of the complex number <span class="process-math">\(x+iy\)</span> and are often denoted as <span class="process-math">\(\Re(x+iy)=x\)</span> and <span class="process-math">\(\Im(x+iy)=y\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_defalg-15-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_defalg-20-1-1">The number <span class="process-math">\(x\)</span> is called the <dfn class="terminology">real part</dfn> and <span class="process-math">\(y\)</span> the <dfn class="terminology">imaginary part</dfn><details class="ptx-footnote" aria-live="polite" id="sec_defalg-20-1-1-5"><summary class="ptx-footnote__number" title="Footnote 1.1.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="sec_defalg-20-1-1-5">These names have historical reasons: people thought of complex numbers as unreal, imagined.</div></details> of the complex number <span class="process-math">\(x+iy\)</span> and are often denoted as <span class="process-math">\(\Re(x+iy)=x\)</span> and <span class="process-math">\(\Im(x+iy)=y\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_defalg-20-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.1.3"><a href="#sec_defalg-15" title="Copy heading and permalink for Definition 1.1.3">🔗</a></div></article><div class="para logical" id="sec_defalg-16">
-<div class="para">The identity <a href="sec_defalg.html#i_2_-1" class="xref" data-knowl="./knowl/xref/i_2_-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.15">(1.15)</a> then reads</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/i_2_-1.html">
+<div class="autopermalink" data-description="Definition 1.1.3"><a href="#sec_defalg-20" title="Copy heading and permalink for Definition 1.1.3">🔗</a></div></article><div id="sec_defalg-21" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">real((3+2*i)^5)
+</script></div>
+<div id="sec_defalg-22" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">imaginary((3+2*i)^5)
+</script></div>
+<div class="para logical" id="sec_defalg-23">
+<div class="para">The identity <a href="sec_defalg.html#i_2_-1" class="xref" data-knowl="./knowl/xref/i_2_-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.15">(1.15)</a> now reads</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/i_2_-1.html ./knowl/xref/MotivEq.html">
 \begin{equation*}
 i^2 = -1 \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_defalg-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">In fact, much more can now be said with the introduction of the square root of <span class="process-math">\(-1\text{.}\)</span> It is not just that <a href="complexnumberchapter.html#MotivEq" class="xref" data-knowl="./knowl/xref/MotivEq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.1">(1.1)</a> has a root, but <em class="emphasis">every</em> nonconstant polynomial has a root in <span class="process-math">\(\C\text{:}\)</span> </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_defalg-23" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_defalg-17">In fact, much more can now be said with the introduction of the square root of <span class="process-math">\(-1\text{.}\)</span> It is not just that <a href="complexnumberchapter.html#MotivEq" class="xref" data-knowl="./knowl/xref/MotivEq.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.1">(1.1)</a> has a root, but <em class="emphasis">every</em> nonconstant polynomial has a root in <span class="process-math">\(\C\text{:}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_defalg-17" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<article class="theorem theorem-like" id="sec_defalg-18"><h3 class="heading">
+<article class="theorem theorem-like" id="sec_defalg-24"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Fundamental Theorem of Algebra.</span>
 </h3>
-<div class="para" id="sec_defalg-18-3-1">Every nonconstant polynomial of degree <span class="process-math">\(d\)</span> has <span class="process-math">\(d\)</span> roots (counting multiplicity) in <span class="process-math">\(\C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_defalg-18-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_defalg-24-3-1">Every nonconstant polynomial of degree <span class="process-math">\(d\)</span> has <span class="process-math">\(d\)</span> roots (counting multiplicity) in <span class="process-math">\(\C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_defalg-24-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 1.1.4: Fundamental Theorem of Algebra"><a href="#sec_defalg-18" title="Copy heading and permalink for Theorem 1.1.4: Fundamental Theorem of Algebra">🔗</a></div></article><div class="para" id="sec_defalg-19">The proof of this theorem requires some (important) machinery, so we defer its proof and an extended discussion of it to <a href="cachyconschapter.html" class="internal" title="Chapter 5: Consequences of Cauchy’s Theorem">Chapter 5</a> (see <a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra ">Theorem 5.3.2</a>).<div class="autopermalink" data-description="Paragraph"><a href="#sec_defalg-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem 1.1.4: Fundamental Theorem of Algebra"><a href="#sec_defalg-24" title="Copy heading and permalink for Theorem 1.1.4: Fundamental Theorem of Algebra">🔗</a></div></article><div class="para" id="sec_defalg-25">The proof of this theorem requires some (important) machinery, so we defer its proof and an extended discussion of it to <a href="cachyconschapter.html" class="internal" title="Chapter 5: Consequences of Cauchy’s Theorem">Chapter 5</a> (see <a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra">Theorem 5.3.2</a>).<div class="autopermalink" data-description="Paragraph"><a href="#sec_defalg-25" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Section 1.1: Definitions and Algebraic Properties"><a href="#sec_defalg" title="Copy heading and permalink for Section 1.1: Definitions and Algebraic Properties">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">

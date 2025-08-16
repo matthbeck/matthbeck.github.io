@@ -37,15 +37,12 @@ F(z) \ := \ \int_{\gg_z} f\text{,}
 </div>
 <div class="para logical">
 <div class="para">Suppose <span class="process-math">\(G \subseteq \C\)</span> is a region, <span class="process-math">\(z_0 \in G\text{,}\)</span> and <span class="process-math">\(f: G \to \C\)</span> is a continuous function such that <span class="process-math">\(\int_\gg f = 0\)</span> for any closed piecewise smooth path <span class="process-math">\(\gg \subset G\text{.}\)</span> Then <span class="process-math">\(\int_\sigma f\)</span> evaluates to the same number for any piecewise smooth path <span class="process-math">\(\sigma \subset G\)</span> from <span class="process-math">\(z_0\)</span> to <span class="process-math">\(z \in G\text{,}\)</span> because any two such paths <span class="process-math">\(\sigma_1\)</span> and <span class="process-math">\(\sigma_2\)</span> can be concatenated to a closed path first tracing through <span class="process-math">\(\sigma_1\)</span> and then through <span class="process-math">\(\sigma_2\)</span> backwards, which by assumption yields a zero integral:</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antiderthm.html">
 \begin{equation*}
 \int_{ \sigma_1 } f \ - \ \int_{ \sigma_2 } f \ = \ \int_{
 \sigma_1 - \sigma_2 } f \ = \ 0 \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#thm_FTC1-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical">
 <div class="para">This means that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antiderthm.html">
 \begin{equation*}
@@ -67,11 +64,11 @@ F(z+h) - F(z) \ = \ \int_{\gg_{z+h}} f \ - \ \int_{\gg_z} f \ = \ \int_\gg f
 \amp \ = \ \frac 1 h \int_\gg (f(w)-f(z)) \, \diff{w} \, \text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#thm_FTC1-2-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm_FTC1-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical">
 <div class="para">If <span class="process-math">\(|h|\)</span> is sufficiently small then the line segment <span class="process-math">\(\lambda\)</span> from <span class="process-math">\(z\)</span> to <span class="process-math">\(z+h\)</span> will be contained in <span class="process-math">\(G\text{,}\)</span> and so, by applying the assumptions of our theorem for the third time,</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_makepathstraight.html ./knowl/xref/intprop.html ./knowl/xref/int4.html">
 \begin{align}
 \frac{ F(z+h) - F(z) }{ h } - f(z) \amp \ = \ \frac 1 h
 \int_\gg (f(w)-f(z)) \, \diff{w}
@@ -80,9 +77,6 @@ F(z+h) - F(z) \ = \ \int_{\gg_{z+h}} f \ - \ \int_{\gg_z} f \ = \ \int_\gg f
 (f(w)-f(z)) \, \diff{w} \,\text{.}\tag{4.2}
 \end{align}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#thm_FTC1-2-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical">
 <div class="para">We will show that the right-hand side goes to zero as <span class="process-math">\(h \to
 0\text{,}\)</span> which will conclude the theorem. Given <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> we can choose <span class="process-math">\(\delta &gt; 0\)</span> such that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_makepathstraight.html ./knowl/xref/intprop.html ./knowl/xref/int4.html">
@@ -91,7 +85,7 @@ F(z+h) - F(z) \ = \ \int_{\gg_{z+h}} f \ - \ \int_{\gg_z} f \ = \ \int_\gg f
 f(w) - f(z) } \lt  \epsilon 
 \end{equation*}
 </div>
-<div class="para">because <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(z\text{.}\)</span> (We also choose <span class="process-math">\(\delta\)</span> small enough so that <a href="sec_antiderivatives.html#thm_FTC1-2-4-6" class="xref" data-knowl="./knowl/xref/eq_makepathstraight.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2">(4.2)</a> holds.) Thus if <span class="process-math">\(|h| \lt  \delta\text{,}\)</span> we can estimate with <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>)</div>
+<div class="para">because <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(z\text{.}\)</span> (We also choose <span class="process-math">\(\delta\)</span> small enough so that <a href="sec_antiderivatives.html#thm_FTC1-2-3-6" class="xref" data-knowl="./knowl/xref/eq_makepathstraight.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2">(4.2)</a> holds.) Thus if <span class="process-math">\(|h| \lt  \delta\text{,}\)</span> we can estimate with <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>)</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_makepathstraight.html ./knowl/xref/intprop.html ./knowl/xref/int4.html">
 \begin{align*}
 \abs{ \frac 1 h \int_\lambda (f(w)-f(z)) \, \diff{w} }
@@ -102,7 +96,7 @@ f(w) - f(z) } \lt  \epsilon
 \amp \lt \epsilon \,\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#thm_FTC1-2-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm_FTC1-2-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 4.2.9.1"><a href="#thm_FTC1-2" title="Copy heading and permalink for Proof 4.2.9.1">🔗</a></div></article><span class="incontext"><a class="internal" href="sec_antiderivatives.html#thm_FTC1">in-context</a></span>
 </body>

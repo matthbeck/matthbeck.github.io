@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,37 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +196,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +248,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter contains-active">
@@ -317,8 +348,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -373,10 +403,12 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-5-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.3.1"><a href="#sec_geometricprops-5" title="Copy heading and permalink for Definition 1.3.1">🔗</a></div></article><div class="para" id="sec_geometricprops-6">Geometrically, conjugating <span class="process-math">\(z\)</span> means reflecting the vector corresponding to <span class="process-math">\(z\)</span> with respect to the real axis, as shown in <a href="sec_geometricprops.html#fig-conjugate" class="xref" data-knowl="./knowl/xref/fig-conjugate.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.3.2">Figure 1.3.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 1.3.1"><a href="#sec_geometricprops-5" title="Copy heading and permalink for Definition 1.3.1">🔗</a></div></article><div id="sec_geometricprops-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">conjugate(3+2*i)
+</script></div>
+<div class="para" id="sec_geometricprops-7">Geometrically, conjugating <span class="process-math">\(z\)</span> means reflecting the vector corresponding to <span class="process-math">\(z\)</span> with respect to the real axis, as shown in <a href="sec_geometricprops.html#fig-conjugate" class="xref" data-knowl="./knowl/xref/fig-conjugate.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.3.2">Figure 1.3.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig-conjugate"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/prefigure/conjugate-def.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.2<span class="period">.</span></span><span class="space"> </span>The complex conjugate <span class="process-math">\(\conj{z}\)</span> is obtained by reflecting <span class="process-math">\(z\)</span> across the real axis.<div class="autopermalink" data-description="Figure 1.3.2"><a href="#fig-conjugate" title="Copy heading and permalink for Figure 1.3.2">🔗</a></div></figcaption></figure><div class="para" id="sec_geometricprops-8">The following proposition collects some basic properties of the conjugate.<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.2<span class="period">.</span></span><span class="space"> </span>The complex conjugate <span class="process-math">\(\conj{z}\)</span> is obtained by reflecting <span class="process-math">\(z\)</span> across the real axis.<div class="autopermalink" data-description="Figure 1.3.2"><a href="#fig-conjugate" title="Copy heading and permalink for Figure 1.3.2">🔗</a></div></figcaption></figure><div class="para" id="sec_geometricprops-9">The following proposition collects some basic properties of the conjugate.<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="conjugation"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="period">.</span>
@@ -443,12 +475,12 @@ eBookConfig.enable_chatcodes =  false;
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#conjugation-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proposition 1.3.3"><a href="#conjugation" title="Copy heading and permalink for Proposition 1.3.3">🔗</a></div></article><div class="para" id="sec_geometricprops-10">The proofs of these properties are straightforward (see <a href="chapter1-exercises.html#ex_conjugation" class="xref" data-knowl="./knowl/xref/ex_conjugation.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 1.5.22">Exercise 1.5.22</a>); once more we give a sample (b).<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proposition 1.3.3"><a href="#conjugation" title="Copy heading and permalink for Proposition 1.3.3">🔗</a></div></article><div class="para" id="sec_geometricprops-11">The proofs of these properties are straightforward (see <a href="chapter1-exercises.html#ex_conjugation" class="xref" data-knowl="./knowl/xref/ex_conjugation.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 1.5.22">Exercise 1.5.22</a>); once more we give a sample (b).<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="proof" id="sec_geometricprops-11"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<div class="para logical" id="sec_geometricprops-11-1">
+<article class="proof" id="sec_geometricprops-12"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="sec_geometricprops-12-1">
 <div class="para">Let <span class="process-math">\(z_1 = x_1 + i y_1\)</span> and <span class="process-math">\(z_2 = x_2 + i y_2\text{.}\)</span> Then</div>
-<div class="displaymath process-math" id="sec_geometricprops-11-1-3">
+<div class="displaymath process-math" id="sec_geometricprops-12-1-3">
 \begin{align*}
 \conj{z_1 \cdot z_2} \amp \ = \ \conj{ (x_1 x_2 - y_1 y_2)
 + i ( x_1 y_2 + x_2 y_1 ) }\\
@@ -457,56 +489,56 @@ eBookConfig.enable_chatcodes =  false;
 \amp \ = \ \conj{z_1}\cdot\conj{z_2} \, .
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-11-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-12-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.3.1"><a href="#sec_geometricprops-11" title="Copy heading and permalink for Proof 1.3.1">🔗</a></div></article><div class="para logical" id="sec_geometricprops-12">
+<div class="autopermalink" data-description="Proof 1.3.1"><a href="#sec_geometricprops-12" title="Copy heading and permalink for Proof 1.3.1">🔗</a></div></article><div class="para logical" id="sec_geometricprops-13">
 <div class="para">We note that the property <span class="process-math">\(\abs{z}^2=z\conj z\)</span> yields a neat formula for the inverse of a nonzero complex number, which is implicit already in <a href="sec_defalg.html#alg-1-2" class="xref" data-knowl="./knowl/xref/eq-lastmult.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.14">(1.14)</a>:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-lastmult.html">
 \begin{equation*}
 z^{-1} \ = \ \frac1z \ = \ \frac{\conj z}{\abs{z}^2} \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-12" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_geometricprops-13">A famous geometric inequality (which holds, more generally, for vectors in <span class="process-math">\(\R^n\)</span>) goes as follows.<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_geometricprops-14">A famous geometric inequality (which holds, more generally, for vectors in <span class="process-math">\(\R^n\)</span>) goes as follows.<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-14" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="lem_triangleineq"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Triangle inequality.</span>
 </h3>
 <div class="para" id="lem_triangleineq-2-1"> For any <span class="process-math">\(z_1, z_2 \in \C\)</span> we have <span class="process-math">\(\ds \left| z_1 + z_2 \right| \leq \left| z_1 \right| + \left| z_2 \right| \text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#lem_triangleineq-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proposition 1.3.4: Triangle inequality"><a href="#lem_triangleineq" title="Copy heading and permalink for Proposition 1.3.4: Triangle inequality">🔗</a></div></article><div class="para" id="sec_geometricprops-15">By drawing a picture in the complex plane, you should be able to come up with a geometric proof of the triangle inequality. Here we proceed algebraically:<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-15" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proposition 1.3.4: Triangle inequality"><a href="#lem_triangleineq" title="Copy heading and permalink for Proposition 1.3.4: Triangle inequality">🔗</a></div></article><div class="para" id="sec_geometricprops-16">By drawing a picture in the complex plane, you should be able to come up with a geometric proof of the triangle inequality. Here we proceed algebraically:<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="proof" id="sec_geometricprops-16"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<div class="para logical" id="sec_geometricprops-16-1">
+<article class="proof" id="sec_geometricprops-17"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="sec_geometricprops-17-1">
 <div class="para">We make extensive use of <a href="sec_geometricprops.html#conjugation" class="xref" data-knowl="./knowl/xref/conjugation.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.3.3">Proposition 1.3.3</a>:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/conjugation.html ./knowl/xref/trianglegeom.html" id="sec_geometricprops-16-1-2">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/conjugation.html ./knowl/xref/trianglegeom.html" id="sec_geometricprops-17-1-2">
 \begin{align*}
-\left| z_1 + z_2 \right|^2 \amp = \ \left( z_1 + z_2
+\left| z_1 + z_2 \right|^2 \ \amp = \ \left( z_1 + z_2
 \right) \o{ \left( z_1 + z_2 \right) }\\
-\amp \ = \ \left( z_1 + z_2
+\amp = \ \left( z_1 + z_2
 \right) \left( \o{z_1} + \o{z_2} \right)\\
-\amp \ = \ z_1 \o{z_1} + z_1
+\amp = \ z_1 \o{z_1} + z_1
 \o{z_2} + z_2 \o{z_1} + z_2 \o{z_2}\\
 \amp = \ \left| z_1 \right|^2 + z_1 \o{z_2} + \o{ z_1 \o{z_2}
 } + \left| z_2 \right|^2\\
-\amp \ = \ \left| z_1 \right|^2 + 2 \Re
+\amp = \ \left| z_1 \right|^2 + 2 \Re
 \left( z_1 \o{z_2} \right) + \left| z_2 \right|^2\\
 \amp \leq \ \left| z_1 \right|^2 + 2 \left| z_1 \o{z_2}
 \right| + \left| z_2 \right|^2\\
-\amp \ = \ \left| z_1 \right|^2 + 2
+\amp = \ \left| z_1 \right|^2 + 2
 \left| z_1 \right| \left| \o{z_2} \right| + \left| z_2
 \right|^2\\
-\amp \ = \ \left| z_1 \right|^2 + 2 \left| z_1 \right|
+\amp = \ \left| z_1 \right|^2 + 2 \left| z_1 \right|
 \left| z_2 \right| + \left| z_2 \right|^2\\
 \amp = \ \left( \left| z_1 \right| + \left| z_2 \right|
 \right)^2\text{,}
 \end{align*}
 </div>
 <div class="para">where the inequality follows from <a href="sec_geometricprops.html#trianglegeom" class="xref" data-knowl="./knowl/xref/trianglegeom.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.16">(1.16)</a>. Taking square roots on the left- and right-hand sides proves our claim.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-16-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-17-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.3.2"><a href="#sec_geometricprops-16" title="Copy heading and permalink for Proof 1.3.2">🔗</a></div></article><div class="para" id="sec_geometricprops-17">For future reference we list several useful variants of the triangle inequality:<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-17" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 1.3.2"><a href="#sec_geometricprops-17" title="Copy heading and permalink for Proof 1.3.2">🔗</a></div></article><div class="para" id="sec_geometricprops-18">For future reference we list several useful variants of the triangle inequality:<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-18" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="corollary theorem-like" id="cor_triangleineq"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">1.3.5</span><span class="period">.</span>
@@ -520,7 +552,7 @@ z^{-1} \ = \ \frac1z \ = \ \frac{\conj z}{\abs{z}^2} \,\text{.}
 <div class="displaymath process-math">
 \begin{equation*}
 \abs{\pm z_1\pm z_2} \le
-\abs{z_1}+\abs{z_2}\text{.}
+\abs{z_1}+\abs{z_2} \,\text{.}
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#trianineqcor-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -533,7 +565,7 @@ z^{-1} \ = \ \frac1z \ = \ \frac{\conj z}{\abs{z}^2} \,\text{.}
 <div class="displaymath process-math">
 \begin{equation*}
 \abs{\pm z_1\pm z_2} \ge \bigl|
-\abs{z_1}-\abs{z_2} \bigr| \text{.}
+\abs{z_1}-\abs{z_2} \bigr| \,\text{.}
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#revtrianineq-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -555,7 +587,7 @@ z^{-1} \ = \ \frac1z \ = \ \frac{\conj z}{\abs{z}^2} \,\text{.}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#cor_triangleineq-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Corollary 1.3.5"><a href="#cor_triangleineq" title="Copy heading and permalink for Corollary 1.3.5">🔗</a></div></article><div class="para" id="sec_geometricprops-19">The first item (<a href="sec_geometricprops.html#trianineqcor" class="xref" data-knowl="./knowl/xref/trianineqcor.html" data-reveal-label="Reveal" data-close-label="Close" title="Item a">a</a>) is just a rewrite of the original triangle inequality, using the fact that <span class="process-math">\(\abs{\pm z}=\abs{z}\text{,}\)</span> and (<a href="sec_geometricprops.html#trianineqsum" class="xref" data-knowl="./knowl/xref/trianineqsum.html" data-reveal-label="Reveal" data-close-label="Close" title="Item c">c</a>) follows by induction. The proof of the reverse triangle inequality is left as <a href="chapter1-exercises.html#ex_reversetriangle" class="xref" data-knowl="./knowl/xref/ex_reversetriangle.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 1.5.25">Exercise 1.5.25</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Corollary 1.3.5"><a href="#cor_triangleineq" title="Copy heading and permalink for Corollary 1.3.5">🔗</a></div></article><div class="para" id="sec_geometricprops-20">The first item (<a href="sec_geometricprops.html#trianineqcor" class="xref" data-knowl="./knowl/xref/trianineqcor.html" data-reveal-label="Reveal" data-close-label="Close" title="Item a">a</a>) is just a rewrite of the original triangle inequality, using the fact that <span class="process-math">\(\abs{\pm z}=\abs{z}\text{,}\)</span> and (<a href="sec_geometricprops.html#trianineqsum" class="xref" data-knowl="./knowl/xref/trianineqsum.html" data-reveal-label="Reveal" data-close-label="Close" title="Item c">c</a>) follows by induction. The proof of the reverse triangle inequality is left as <a href="chapter1-exercises.html#ex_reversetriangle" class="xref" data-knowl="./knowl/xref/ex_reversetriangle.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 1.5.25">Exercise 1.5.25</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_geometricprops-20" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Section 1.3: Geometric Properties"><a href="#sec_geometricprops" title="Copy heading and permalink for Section 1.3: Geometric Properties">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">

@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,25 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +184,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +236,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -317,8 +336,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -344,7 +362,7 @@ eBookConfig.enable_chatcodes =  false;
 \fderiv fx(z_0) \amp := \lim_{ x \to x_0 } \frac{ f(x,y_0) -
 f(x_0,y_0) }{ x - x_0 }\\
 \fderiv fy(z_0) \amp := \lim_{ y \to y_0 } \frac{ f(x_0,y) -
-f(x_0,y_0) }{ y - y_0 } \, \text{.}
+f(x_0,y_0) }{ y - y_0 } \, 
 \end{align*}
 </div>
 <div class="para"> (so this definition is exactly as in the real-valued case).</div>
@@ -377,7 +395,7 @@ f'(z_0) \ = \ \fderiv fx(z_0) \,\text{.}
 <div class="autopermalink" data-description="Item a"><a href="#cre-1-1-1-1" title="Copy heading and permalink for Item a">🔗</a></div>
 </li>
 <li id="cre-1-1-1-2">
-<div class="para" id="cre-1-1-1-2-1">Suppose <span class="process-math">\(f\)</span> is a complex function such that the partial derivatives <span class="process-math">\(\fderiv fx\)</span> and <span class="process-math">\(\fderiv fy\)</span> exist in an open disk centered at <span class="process-math">\(z_0\)</span> and are continuous at <span class="process-math">\(z_0\text{.}\)</span> If these partial derivatives satisfy {<a href="sec_Cauchy-Riemann.html#complexcr" class="xref" data-knowl="./knowl/xref/complexcr.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.2">(2.2)</a>} then <span class="process-math">\(f\)</span> is differentiable at <span class="process-math">\(z_0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cre-1-1-1-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="cre-1-1-1-2-1">Suppose <span class="process-math">\(f\)</span> is a complex function such that the partial derivatives <span class="process-math">\(\fderiv fx\)</span> and <span class="process-math">\(\fderiv fy\)</span> exist in an open disk centered at <span class="process-math">\(z_0\)</span> and are continuous at <span class="process-math">\(z_0\text{.}\)</span> If these partial derivatives satisfy <a href="sec_Cauchy-Riemann.html#complexcr" class="xref" data-knowl="./knowl/xref/complexcr.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.2">(2.2)</a> then <span class="process-math">\(f\)</span> is differentiable at <span class="process-math">\(z_0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cre-1-1-1-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item b"><a href="#cre-1-1-1-2" title="Copy heading and permalink for Item b">🔗</a></div>
 </li>
@@ -386,18 +404,16 @@ f'(z_0) \ = \ \fderiv fx(z_0) \,\text{.}
 </div>
 <div class="autopermalink" data-description="Theorem 2.3.1"><a href="#cre" title="Copy heading and permalink for Theorem 2.3.1">🔗</a></div></article><div class="para logical" id="sec_Cauchy-Riemann-6">
 <div class="para">Before proving <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a>, we note several comments and give two applications.  It is traditional, and often convenient, to write the function <span class="process-math">\(f\)</span> in terms of its real and imaginary parts.  That is, we write <span class="process-math">\(f(z) = f(x,y) = u(x,y) + i \,
-v(x,y)\)</span> where <span class="process-math">\(u\)</span> is the real part of <span class="process-math">\(f\)</span> and <span class="process-math">\(v\)</span> is the imaginary part.  Then, using the usual shorthand <span class="process-math">\(f_x = \fderiv fx\)</span> and <span class="process-math">\(f_y = \fderiv fy\text{,}\)</span> we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html" id="sec_Cauchy-Riemann-6-9">
+v(x,y)\)</span> where <span class="process-math">\(u\)</span> is the real part of <span class="process-math">\(f\)</span> and <span class="process-math">\(v\)</span> is the imaginary part.  Then, using the usual shorthand <span class="process-math">\(f_x = \fderiv fx\)</span> and <span class="process-math">\(f_y = \fderiv fy\text{,}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/complexcr.html" id="sec_Cauchy-Riemann-6-9">
 \begin{align*}
 f_x \amp \ = \ u_x+i \, v_x\\
 -if_y \amp \ = \ -i(u_y+i \, v_y) \ = \ v_y-i \, u_y \,\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_Cauchy-Riemann-7">
 <div class="para">With this terminology we can rewrite <a href="sec_Cauchy-Riemann.html#complexcr" class="xref" data-knowl="./knowl/xref/complexcr.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.2">(2.2)</a> as the pair of equations</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/complexcr.html" id="crequations">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/complexcr.html" id="crequations">
 \begin{equation}
 \begin{array}{ccc}
 u_x(x_0,y_0) \amp  = \amp v_y(x_0,y_0) \\
@@ -405,64 +421,59 @@ u_y(x_0,y_0) \amp  = \amp -v_x(x_0,y_0) \, .
 \end{array}\tag{2.3}
 \end{equation}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_Cauchy-Riemann-8">As stated, parts (a) and (b) in <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a> are not quite converse statements. However, we will show in <a href="sec_variationstheme.html#infdiff" class="xref" data-knowl="./knowl/xref/infdiff.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.1.6">Corollary 5.1.6</a> that if <span class="process-math">\(f\)</span> is <em class="emphasis">holomorphic</em> at <span class="process-math">\(z_0 = x_0 + i y_0\)</span> then <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> have continuous partials (of any order) at <span class="process-math">\(z_0\text{.}\)</span> That is, in <a href="cachyconschapter.html" class="internal" title="Chapter 5: Consequences of Cauchy’s Theorem">Chapter 5</a> we will see that <span class="process-math">\(f = u + i v\)</span> is holomorphic in an open set <span class="process-math">\(G\)</span> if and only if <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> have continuous partials that satisfy <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a> in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_Cauchy-Riemann-7">As stated, parts (a) and (b) in <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a> are not quite converse statements. However, we will show in <a href="sec_variationstheme.html#infdiff" class="xref" data-knowl="./knowl/xref/infdiff.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.1.6">Corollary 5.1.6</a> that if <span class="process-math">\(f\)</span> is <em class="emphasis">holomorphic</em> at <span class="process-math">\(z_0 = x_0 + i y_0\)</span> then <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> have continuous partials (of any order) at <span class="process-math">\(z_0\text{.}\)</span> That is, in <a href="cachyconschapter.html" class="internal" title="Chapter 5: Consequences of Cauchy’s Theorem">Chapter 5</a> we will see that <span class="process-math">\(f = u + i v\)</span> is holomorphic in an open set <span class="process-math">\(G\)</span> if and only if <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> have continuous partials that satisfy <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a> in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_Cauchy-Riemann-9">
+<div class="para logical" id="sec_Cauchy-Riemann-8">
 <div class="para">If <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> satisfy <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a> and their second partials are also continuous, then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/crequations.html" id="eq_firstharmonicinstance">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/crequations.html ./knowl/xref/crequations.html ./knowl/xref/harmonicChapter.html" id="eq_firstharmonicinstance">
 \begin{equation}
 u_{xx}(x_0,y_0) \ = \ v_{yx}(x_0,y_0) \ = \ v_{xy}(x_0,y_0) \ = \ - u_{yy}(x_0,y_0) \,\text{,}\tag{2.4}
 \end{equation}
 </div>
 <div class="para">that is,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/crequations.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/crequations.html ./knowl/xref/crequations.html ./knowl/xref/harmonicChapter.html">
 \begin{equation*}
 u_{xx}(x_0,y_0) + u_{yy}(x_0,y_0) \ = \ 0
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">(and an analogous identity for <span class="process-math">\(v\)</span>). Functions with continuous second partials satisfying this partial differential equation on a region <span class="process-math">\(G \subset \C\)</span> (though not necessarily <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a>) are called <em class="emphasis">harmonic</em> on <span class="process-math">\(G\text{;}\)</span> we will study such functions in <a href="harmonicChapter.html" class="internal" title="Chapter 6: Harmonic Functions">Chapter 6</a>.  Again, as we will see later, if <span class="process-math">\(f\)</span> is holomorphic in an open set <span class="process-math">\(G\)</span> then the partials of any order of <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> exist; hence we will show that the real and imaginary parts of a function that is holomorphic in an open set are harmonic on that set.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_Cauchy-Riemann-10">(and an analogous identity for <span class="process-math">\(v\)</span>). Functions with continuous second partials satisfying this partial differential equation on a region <span class="process-math">\(G \subset \C\)</span> (though not necessarily <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a>) are called <em class="emphasis">harmonic</em> on <span class="process-math">\(G\text{;}\)</span> we will study such functions in <a href="harmonicChapter.html" class="internal" title="Chapter 6: Harmonic Functions">Chapter 6</a>.  Again, as we will see later, if <span class="process-math">\(f\)</span> is holomorphic in an open set <span class="process-math">\(G\)</span> then the partials of any order of <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> exist; hence we will show that the real and imaginary parts of a function that is holomorphic in an open set are harmonic on that set.<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<article class="example example-like" id="sec_Cauchy-Riemann-11"><h3 class="heading">
+<article class="example example-like" id="sec_Cauchy-Riemann-9"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_Cauchy-Riemann-11-1-1">
+<div class="para logical" id="sec_Cauchy-Riemann-9-1-1">
 <div class="para">We revisit <a href="sec_diffholom.html#exam_zcubedentire" class="xref" data-knowl="./knowl/xref/exam_zcubedentire.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.2.2">Example 2.2.2</a> and again consider <span class="process-math">\(f: \C \to \C\)</span> given by</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_zcubedentire.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_zcubedentire.html ./knowl/xref/cre.html">
 \begin{equation*}
 f(z) \ = \ z^3 \ = \ (x+iy)^3 \ = \ \left( x^3 - 3xy^2 \right) + i
 \left( 3 x^2 y - y^3 \right) \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-11-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="sec_Cauchy-Riemann-11-1-2">
-<div class="para">Thus</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html">
+<div class="para">So</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_zcubedentire.html ./knowl/xref/cre.html">
 \begin{equation*}
-f_x(z) \ = \ 3x^2 - 3y^2 + 6i xy \qquad \text{ and }  \qquad
+f_x(z) \ = \ 3x^2 - 3y^2 + 6i xy \quad \text{ and } \quad
 f_y(z) \ = \ -6 xy + 3i x^2 - 3i y^2 
 \end{equation*}
 </div>
 <div class="para">are continuous on <span class="process-math">\(\C\)</span> and satisfy <span class="process-math">\(f_x = -i f_y\text{.}\)</span> Thus by <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a>(b), <span class="process-math">\(f(z) = z^3\)</span> is entire.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-11-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-9-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 2.3.2"><a href="#sec_Cauchy-Riemann-11" title="Copy heading and permalink for Example 2.3.2">🔗</a></div></article><article class="example example-like" id="sec_Cauchy-Riemann-12"><h3 class="heading">
+<div class="autopermalink" data-description="Example 2.3.2"><a href="#sec_Cauchy-Riemann-9" title="Copy heading and permalink for Example 2.3.2">🔗</a></div></article><article class="example example-like" id="sec_Cauchy-Riemann-10"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.3</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_Cauchy-Riemann-12-1-1">
+<div class="para logical" id="sec_Cauchy-Riemann-10-1-1">
 <div class="para">Revisiting <a href="sec_diffholom.html#exam_zbarsquareddiff" class="xref" data-knowl="./knowl/xref/exam_zbarsquareddiff.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.2.3">Example 2.2.3</a> (you saw that coming, didn’t you?), we consider <span class="process-math">\(f: \C \to \C\)</span> given by</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_zbarsquareddiff.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_zbarsquareddiff.html ./knowl/xref/cre.html">
 \begin{equation*}
 f(z) \ = \ (\conj z)^2 \ = \ (x-iy)^2 \ = \ x^2 - y^2 - 2ixy \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-12-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="sec_Cauchy-Riemann-12-1-2">
 <div class="para">Now</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_zbarsquareddiff.html ./knowl/xref/cre.html">
 \begin{equation*}
 f_x(z) \ = \ 2x - 2iy \qquad \text{ and }  \qquad f_y(z) \ = \ -2y - 2ix \,\text{,}
 \end{equation*}
@@ -470,21 +481,18 @@ f_x(z) \ = \ 2x - 2iy \qquad \text{ and }  \qquad f_y(z) \ = \ -2y - 2ix \,\text
 <div class="para">which satisfy <span class="process-math">\(f_x = -i f_y\)</span> only when <span class="process-math">\(z=0\text{.}\)</span> (The contrapositive of) <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a>(a) thus implies that <span class="process-math">\(f(z) = (\conj z)^2\)</span> is not differentiable on <span class="process-math">\(\C
 \setminus \{ 0 \}\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-12-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-10-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 2.3.3"><a href="#sec_Cauchy-Riemann-12" title="Copy heading and permalink for Example 2.3.3">🔗</a></div></article><article class="proof" id="sec_Cauchy-Riemann-13"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<div class="para logical" id="sec_Cauchy-Riemann-13-1">
+<div class="autopermalink" data-description="Example 2.3.3"><a href="#sec_Cauchy-Riemann-10" title="Copy heading and permalink for Example 2.3.3">🔗</a></div></article><article class="proof" id="sec_Cauchy-Riemann-11"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="sec_Cauchy-Riemann-11-1">
 <div class="para">(a) If <span class="process-math">\(f\)</span> is differentiable at <span class="process-math">\(z_0 = (x_0, y_0)\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
 f'(z_0) \ = \ \lim_{\D z \to 0}\frac{f(z_0+\D z) - f(z_0)}{\D z} \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-13-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_Cauchy-Riemann-13-2">
 <div class="para">As we know by now, we must get the same result if we restrict <span class="process-math">\(\D z\)</span> to be on the real axis and if we restrict it to be on the imaginary axis. In the first case, <span class="process-math">\(\D z=\D x\)</span> and</div>
-<div class="displaymath process-math" id="sec_Cauchy-Riemann-13-2-3">
+<div class="displaymath process-math" id="sec_Cauchy-Riemann-11-1-6">
 \begin{align*}
 f'(z_0) \amp \ = \ \lim_{\D x \to 0}\frac{f(z_0+\D x) -
 f(z_0)}{\D x}\\
@@ -493,11 +501,8 @@ x,y_0)-f(x_0,y_0)}{\D x}\\
 \amp \ = \ \fderiv fx(x_0,y_0) \,\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-13-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_Cauchy-Riemann-13-3">
 <div class="para">In the second case, <span class="process-math">\(\D z = i \, \D y\)</span> and</div>
-<div class="displaymath process-math" id="sec_Cauchy-Riemann-13-3-2">
+<div class="displaymath process-math" id="sec_Cauchy-Riemann-11-1-8">
 \begin{align*}
 f'(z_0) \amp \ = \ \lim_{i \, \D y \to 0}\frac{f(z_0+i\D y) -
 f(z_0)}{i \, \D y}\\
@@ -507,13 +512,13 @@ f(z_0)}{i \, \D y}\\
 \fderiv fy(x_0,y_0) \,\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-13-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Thus we have shown that <span class="process-math">\(f'(z_0) = f_x(z_0) = -if_y(z_0)\text{.}\)</span>
 </div>
-<div class="para" id="sec_Cauchy-Riemann-13-4">Thus we have shown that <span class="process-math">\(f'(z_0) = f_x(z_0) = -if_y(z_0)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-13-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-11-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_Cauchy-Riemann-13-5">
+<div class="para logical" id="sec_Cauchy-Riemann-11-2">
 <div class="para">(b) Suppose the Cauchy–Riemann equation <a href="sec_Cauchy-Riemann.html#complexcr" class="xref" data-knowl="./knowl/xref/complexcr.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.2">(2.2)</a> holds and the partial derivatives <span class="process-math">\(f_x\)</span> and <span class="process-math">\(f_y\)</span> are continuous in an open disk centered at <span class="process-math">\(z_0\text{.}\)</span> Our goal is to prove that <span class="process-math">\(f'(z_0) = f_x(z_0)\text{.}\)</span> By <a href="sec_Cauchy-Riemann.html#complexcr" class="xref" data-knowl="./knowl/xref/complexcr.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.2">(2.2)</a>,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/complexcr.html ./knowl/xref/complexcr.html" id="sec_Cauchy-Riemann-13-5-8">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/complexcr.html ./knowl/xref/complexcr.html ./knowl/xref/cauchyriemlimit.html" id="sec_Cauchy-Riemann-11-2-8">
 \begin{align*}
 f_x(z_0) \amp \ = \ \frac{\D x + i \, \D y}{\D z}\, f_x(z_0)\\
 \amp \ = \ \frac{\D x}{\D z}\, f_x(z_0) + \frac{\D y}{\D z}\, i \,
@@ -522,11 +527,8 @@ f_x(z_0)\\
 f_y(z_0) \,\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-13-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_Cauchy-Riemann-13-6">
 <div class="para">On the other hand, we can rewrite the difference quotient for <span class="process-math">\(f'(z_0)\)</span> as</div>
-<div class="displaymath process-math" id="sec_Cauchy-Riemann-13-6-2">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/complexcr.html ./knowl/xref/complexcr.html ./knowl/xref/cauchyriemlimit.html" id="sec_Cauchy-Riemann-11-2-10">
 \begin{align*}
 \amp\frac{f(z_0+\D z)-f(z_0)}{\D z}\amp\\
 \amp \ = \ \frac{f(z_0+\D
@@ -535,11 +537,8 @@ z)-f(z_0+\D x) + f(z_0+\D x) - f(z_0)}{\D z}\\
 + \frac{f(z_0+\D x) - f(z_0)}{\D z} \,\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-13-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_Cauchy-Riemann-13-7">
 <div class="para">Thus</div>
-<div class="displaymath process-math" id="sec_Cauchy-Riemann-13-7-1">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/complexcr.html ./knowl/xref/complexcr.html ./knowl/xref/cauchyriemlimit.html" id="sec_Cauchy-Riemann-11-2-11">
 \begin{align}
 \amp\lim_{\D z\to0}\frac{f(z_0+\D z)-f(z_0)}{\D z} - f_x(z_0)\notag\\
 \amp = \lim_{\D z\to0} \frac{\D y}{\D
@@ -549,22 +548,19 @@ f_y(z_0)\right)\notag\\
 z}\left(\frac{f(z_0+\D x) - f(z_0)}{\D x} - f_x(z_0)\right)\text{.}\tag{2.5}
 \end{align}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-13-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_Cauchy-Riemann-13-8">
-<div class="para">We claim that both limits on the right-hand side are <span class="process-math">\(0\text{,}\)</span> so we have achieved our set goal. The fractions <span class="process-math">\(\frac{ \D x}{ \D z }\)</span> and <span class="process-math">\(\frac{ \D y }{ \D z }\)</span> are bounded in absolute value by <span class="process-math">\(1\text{,}\)</span> so we just need to see that the limits of the expressions in parentheses are <span class="process-math">\(0\text{.}\)</span> The second term on the right-hand side of <a href="sec_Cauchy-Riemann.html#sec_Cauchy-Riemann-13-7-1" class="xref" data-knowl="./knowl/xref/cauchyriemlimit.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5">(2.5)</a> has a limit of <span class="process-math">\(0\)</span> since, by definition,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyriemlimit.html">
+<div class="para">We claim that both limits on the right-hand side are <span class="process-math">\(0\text{,}\)</span> so we have achieved our set goal. The fractions <span class="process-math">\(\frac{ \D x}{ \D z }\)</span> and <span class="process-math">\(\frac{ \D y }{ \D z }\)</span> are bounded in absolute value by <span class="process-math">\(1\text{,}\)</span> so we just need to see that the limits of the expressions in parentheses are <span class="process-math">\(0\text{.}\)</span> The second term on the right-hand side of <a href="sec_Cauchy-Riemann.html#sec_Cauchy-Riemann-11-2-11" class="xref" data-knowl="./knowl/xref/cauchyriemlimit.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5">(2.5)</a> has a limit of <span class="process-math">\(0\)</span> since, by definition,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/complexcr.html ./knowl/xref/complexcr.html ./knowl/xref/cauchyriemlimit.html">
 \begin{equation*}
 f_x(z_0) \ = \ \lim_{\D x\to0}\frac{f(z_0+\D x) - f(z_0)}{\D x}
 \end{equation*}
 </div>
 <div class="para">and taking the limit here as <span class="process-math">\(\D z\to0\)</span> is the same as taking the limit as <span class="process-math">\(\D x\to0\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-13-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-11-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_Cauchy-Riemann-13-9">
-<div class="para">We cannot do something equivalent for the first term in <a href="sec_Cauchy-Riemann.html#sec_Cauchy-Riemann-13-7-1" class="xref" data-knowl="./knowl/xref/cauchyriemlimit.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5">(2.5)</a>, since now both <span class="process-math">\(\D x\)</span> and <span class="process-math">\(\D y\)</span> are involved, and both change as <span class="process-math">\(\D z\to0\text{.}\)</span> Instead we apply the Mean-Value <a href="appendix-calculus.html#realmeanvalue" class="xref" data-knowl="./knowl/xref/realmeanvalue.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.2: Mean-Value Theorem">Theorem A.0.2</a> for real functions,<details class="ptx-footnote" aria-live="polite" id="sec_Cauchy-Riemann-13-9-6"><summary class="ptx-footnote__number" title="Footnote 2.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_Cauchy-Riemann-13-9-6">We collect several theorems from calculus, such as the Mean-Value Theorem for real-valued functions, in the Appendix.</div></details> to the real and imaginary parts <span class="process-math">\(u(z)\)</span> and <span class="process-math">\(v(z)\)</span> of <span class="process-math">\(f(z)\text{.}\)</span> <a href="appendix-calculus.html#realmeanvalue" class="xref" data-knowl="./knowl/xref/realmeanvalue.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.2: Mean-Value Theorem">Theorem A.0.2</a> gives real numbers <span class="process-math">\(0\lt a,b\lt 1\)</span> such that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyriemlimit.html ./knowl/xref/realmeanvalue.html ./knowl/xref/realmeanvalue.html" id="sec_Cauchy-Riemann-13-9-12">
+<div class="para logical" id="sec_Cauchy-Riemann-11-3">
+<div class="para">We cannot do something equivalent for the first term in <a href="sec_Cauchy-Riemann.html#sec_Cauchy-Riemann-11-2-11" class="xref" data-knowl="./knowl/xref/cauchyriemlimit.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5">(2.5)</a>, since now both <span class="process-math">\(\D x\)</span> and <span class="process-math">\(\D y\)</span> are involved, and both change as <span class="process-math">\(\D z\to0\text{.}\)</span> Instead we apply the Mean-Value <a href="appendix-calculus.html#realmeanvalue" class="xref" data-knowl="./knowl/xref/realmeanvalue.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.2: Mean-Value Theorem">Theorem A.0.2</a> for real functions,<details class="ptx-footnote" aria-live="polite" id="sec_Cauchy-Riemann-11-3-6"><summary class="ptx-footnote__number" title="Footnote 2.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_Cauchy-Riemann-11-3-6">We collect several theorems from calculus, such as the Mean-Value Theorem for real-valued functions, in the <a href="appendix-calculus.html" class="internal" title="Appendix A: Theorems from Calculus">Appendix A</a>.</div></details> to the real and imaginary parts <span class="process-math">\(u(z)\)</span> and <span class="process-math">\(v(z)\)</span> of <span class="process-math">\(f(z)\text{.}\)</span> <a href="appendix-calculus.html#realmeanvalue" class="xref" data-knowl="./knowl/xref/realmeanvalue.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.2: Mean-Value Theorem">Theorem A.0.2</a> gives real numbers <span class="process-math">\(0\lt a,b\lt 1\)</span> such that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyriemlimit.html ./knowl/xref/realmeanvalue.html ./knowl/xref/appendix-calculus.html ./knowl/xref/realmeanvalue.html ./knowl/xref/eq_laststepcauchyr.html" id="sec_Cauchy-Riemann-11-3-12">
 \begin{align*}
 \frac{u(x_0+\D x, \, y_0+\D y)-u(x_0+\D x, \, y_0)}{\D y} \amp
 \ = \ u_y(x_0+\D x, \, y_0+a \, \D y)\\
@@ -572,11 +568,8 @@ f_x(z_0) \ = \ \lim_{\D x\to0}\frac{f(z_0+\D x) - f(z_0)}{\D x}
 \ = \ v_y(x_0+\D x, \, y_0+b \, \D y) \,\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-13-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_Cauchy-Riemann-13-10">
 <div class="para">Thus</div>
-<div class="displaymath process-math" id="sec_Cauchy-Riemann-13-10-1">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyriemlimit.html ./knowl/xref/realmeanvalue.html ./knowl/xref/appendix-calculus.html ./knowl/xref/realmeanvalue.html ./knowl/xref/eq_laststepcauchyr.html" id="sec_Cauchy-Riemann-11-3-13">
 \begin{align}
 \amp \frac{f(z_0+\D x+ i \D y)-f(z_0+\D x)}{\D y} -
 f_y(z_0)\notag\\
@@ -591,12 +584,9 @@ y_0)\right)\tag{2.6}\\
 y_0)\right) \text{.}\notag
 \end{align}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-13-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_Cauchy-Riemann-13-11">
 <div class="para">Because <span class="process-math">\(u_y\)</span> and <span class="process-math">\(v_y\)</span> are continuous at <span class="process-math">\((x_0,y_0)\text{,}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_laststepcauchyr.html" id="sec_Cauchy-Riemann-13-11-4">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyriemlimit.html ./knowl/xref/realmeanvalue.html ./knowl/xref/appendix-calculus.html ./knowl/xref/realmeanvalue.html ./knowl/xref/eq_laststepcauchyr.html" id="sec_Cauchy-Riemann-11-3-17">
 \begin{align*}
 \lim_{ \D z \to 0 } u_y(x_0+\D x, \, y_0+a \, \D y) \amp \ = \
 u_y(x_0, \, y_0)\\
@@ -604,10 +594,10 @@ u_y(x_0, \, y_0)\\
 v_y(x_0, \, y_0) \, \text{,}
 \end{align*}
 </div>
-<div class="para">and so <a href="sec_Cauchy-Riemann.html#sec_Cauchy-Riemann-13-10-1" class="xref" data-knowl="./knowl/xref/eq_laststepcauchyr.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6">(2.6)</a> goes to 0 as <span class="process-math">\(\D z \to 0\text{,}\)</span> which we set out to prove.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-13-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">and so <a href="sec_Cauchy-Riemann.html#sec_Cauchy-Riemann-11-3-13" class="xref" data-knowl="./knowl/xref/eq_laststepcauchyr.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6">(2.6)</a> goes to 0 as <span class="process-math">\(\D z \to 0\text{,}\)</span> which we set out to prove.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_Cauchy-Riemann-11-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 2.3.1"><a href="#sec_Cauchy-Riemann-13" title="Copy heading and permalink for Proof 2.3.1">🔗</a></div></article><div class="autopermalink" data-description="Section 2.3: The Cauchy–Riemann Equations"><a href="#sec_Cauchy-Riemann" title="Copy heading and permalink for Section 2.3: The Cauchy–Riemann Equations">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Proof 2.3.1"><a href="#sec_Cauchy-Riemann-11" title="Copy heading and permalink for Proof 2.3.1">🔗</a></div></article><div class="autopermalink" data-description="Section 2.3: The Cauchy–Riemann Equations"><a href="#sec_Cauchy-Riemann" title="Copy heading and permalink for Section 2.3: The Cauchy–Riemann Equations">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec_diffholom.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_constantfcts.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

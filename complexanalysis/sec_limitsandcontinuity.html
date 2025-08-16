@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,37 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +196,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +248,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -317,8 +348,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -397,10 +427,14 @@ z-i \right| + \left| 2i \right| \ \lt  \ 3 \,
 \ \epsilon \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#exam_limitexists-1-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="exam_limitexists-1-6">This proves <span class="process-math">\(\lim_{ z \to i } z^2 = -1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exam_limitexists-1-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">This proves <span class="process-math">\(\lim_{ z \to i } z^2 = -1\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Example 2.1.3"><a href="#exam_limitexists" title="Copy heading and permalink for Example 2.1.3">🔗</a></div></article><div class="para" id="sec_limitsandcontinuity-8">Just as in the real case, the limit <span class="process-math">\(w_0\)</span> is unique if it exists (see <a href="chapter2-exercises.html#ex_limitunique" class="xref" data-knowl="./knowl/xref/ex_limitunique.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.3">Exercise 2.5.3</a>).  It is often useful to investigate limits by restricting the way the point <span class="process-math">\(z\)</span> approaches <span class="process-math">\(z_0\text{.}\)</span>  The following result is a direct consequence of the definition.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exam_limitexists-1-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.1.3"><a href="#exam_limitexists" title="Copy heading and permalink for Example 2.1.3">🔗</a></div></article><div id="sec_limitsandcontinuity-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">f(z) = sin(z)/z
+f.limit(z=0)
+</script></div>
+<div class="para" id="sec_limitsandcontinuity-9">Just as in the real case, the limit <span class="process-math">\(w_0\)</span> is unique if it exists (see <a href="chapter2-exercises.html#ex_limitunique" class="xref" data-knowl="./knowl/xref/ex_limitunique.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.3">Exercise 2.5.3</a>).  It is often useful to investigate limits by restricting the way the point <span class="process-math">\(z\)</span> approaches <span class="process-math">\(z_0\text{.}\)</span>  The following result is a direct consequence of the definition.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="restrictedlimit"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span>
@@ -409,7 +443,7 @@ z-i \right| + \left| 2i \right| \ \lt  \ 3 \,
 w_0\text{.}\)</span>  Suppose <span class="process-math">\(\widetilde G \subseteq G\)</span> and <span class="process-math">\(z_0\)</span> is an accumulation point of <span class="process-math">\(\widetilde G\text{.}\)</span> If <span class="process-math">\(\widetilde f\)</span> is the restriction of <span class="process-math">\(f\)</span> to <span class="process-math">\(\widetilde G\text{,}\)</span> then <span class="process-math">\(\lim_{z\to z_0} \widetilde
 f(z)\)</span> exists and has the value <span class="process-math">\(w_0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#restrictedlimit-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proposition 2.1.4"><a href="#restrictedlimit" title="Copy heading and permalink for Proposition 2.1.4">🔗</a></div></article><div class="para" id="sec_limitsandcontinuity-10">The definition of <em class="emphasis">limit</em> in the complex domain has to be treated with a little more care than its real companion; this is illustrated by the following example.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proposition 2.1.4"><a href="#restrictedlimit" title="Copy heading and permalink for Proposition 2.1.4">🔗</a></div></article><div class="para" id="sec_limitsandcontinuity-11">The definition of <em class="emphasis">limit</em> in the complex domain has to be treated with a little more care than its real companion; this is illustrated by the following example.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="exam_limitdoesnotexist"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="period">.</span>
@@ -438,7 +472,7 @@ f(z)\)</span> exists and has the value <span class="process-math">\(w_0\text{.}\
 <div class="autopermalink" data-description="Paragraph"><a href="#exam_limitdoesnotexist-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="exam_limitdoesnotexist-1-4">So we get a different “limit” depending on the direction from which we approach 0. <a href="sec_limitsandcontinuity.html#restrictedlimit" class="xref" data-knowl="./knowl/xref/restrictedlimit.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.1.4">Proposition 2.1.4</a> then implies that the limit of <span class="process-math">\(\frac{\, \overline z \, } z\)</span> as <span class="process-math">\(z \to 0\)</span> does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#exam_limitdoesnotexist-1-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 2.1.5"><a href="#exam_limitdoesnotexist" title="Copy heading and permalink for Example 2.1.5">🔗</a></div></article><div class="para" id="sec_limitsandcontinuity-12">On the other hand, the following usual limit rules are valid for complex functions; the proofs of these rules are everything but trivial and make for nice practice (see <a href="chapter2-exercises.html#ex_limits" class="xref" data-knowl="./knowl/xref/ex_limits.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.4">Exercise 2.5.4</a>); as usual, we give a sample proof.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-12" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 2.1.5"><a href="#exam_limitdoesnotexist" title="Copy heading and permalink for Example 2.1.5">🔗</a></div></article><div class="para" id="sec_limitsandcontinuity-13">On the other hand, the following usual limit rules are valid for complex functions; the proofs of these rules are everything but trivial and make for nice practice (see <a href="chapter2-exercises.html#ex_limits" class="xref" data-knowl="./knowl/xref/ex_limits.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.4">Exercise 2.5.4</a>); as usual, we give a sample proof.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="limits"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.6</span><span class="period">.</span>
@@ -511,12 +545,12 @@ f(z) - L \right| + |c| \left| g(z) - M \right| \ \lt  \
 <div class="para" id="limits-2-3">Here we used the triangle inequality (<a href="sec_geometricprops.html#lem_triangleineq" class="xref" data-knowl="./knowl/xref/lem_triangleineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.3.4: Triangle inequality">Proposition 1.3.4</a>). This proves that <span class="process-math">\(\lim_{ z \to z_0 } (f(z) + c \, g(z)) = L+c
 \, M\text{,}\)</span> which was our claim.<div class="autopermalink" data-description="Paragraph"><a href="#limits-2-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 2.1.6.1"><a href="#limits-2" title="Copy heading and permalink for Proof 2.1.6.1">🔗</a></div></article><div class="para" id="sec_limitsandcontinuity-14">Because the definition of the limit is somewhat elaborate, the following fundamental definition looks almost trivial. <div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-14" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 2.1.6.1"><a href="#limits-2" title="Copy heading and permalink for Proof 2.1.6.1">🔗</a></div></article><div class="para" id="sec_limitsandcontinuity-15">Because the definition of the limit is somewhat elaborate, the following fundamental definition looks almost trivial. <div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-15" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="sec_limitsandcontinuity-15"><h3 class="heading">
+<article class="definition definition-like" id="sec_limitsandcontinuity-16"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.7</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_limitsandcontinuity-15-1-1">
+<div class="para logical" id="sec_limitsandcontinuity-16-1-1">
 <div class="para">Suppose <span class="process-math">\(f: G \to \C\text{.}\)</span> If <span class="process-math">\(z_0 \in G\)</span> and either <span class="process-math">\(z_0\)</span> is an isolated point of <span class="process-math">\(G\)</span> or</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -525,14 +559,14 @@ f(z) - L \right| + |c| \left| g(z) - M \right| \ \lt  \
 </div>
 <div class="para">then <span class="process-math">\(f\)</span> is <em class="emphasis">continuous</em> at <span class="process-math">\(z_0\text{.}\)</span>  More generally, <span class="process-math">\(f\)</span> is <em class="emphasis">continuous</em> on <span class="process-math">\(E \subseteq G\)</span> if <span class="process-math">\(f\)</span> is continuous at every <span class="process-math">\(z \in E\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-15-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-16-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 2.1.7"><a href="#sec_limitsandcontinuity-15" title="Copy heading and permalink for Definition 2.1.7">🔗</a></div></article><div class="para" id="sec_limitsandcontinuity-16">However, in almost all proofs using continuity it is necessary to interpret this in terms of <span class="process-math">\(\epsilon\)</span>’s and <span class="process-math">\(\delta\)</span>’s. So here is an alternate definition:<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 2.1.7"><a href="#sec_limitsandcontinuity-16" title="Copy heading and permalink for Definition 2.1.7">🔗</a></div></article><div class="para" id="sec_limitsandcontinuity-17">However, in almost all proofs using continuity it is necessary to interpret this in terms of <span class="process-math">\(\epsilon\)</span>’s and <span class="process-math">\(\delta\)</span>’s. So here is an alternate definition:<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-17" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="sec_limitsandcontinuity-17"><h3 class="heading">
+<article class="definition definition-like" id="sec_limitsandcontinuity-18"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.8</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_limitsandcontinuity-17-1-1">
+<div class="para logical" id="sec_limitsandcontinuity-18-1-1">
 <div class="para">Suppose <span class="process-math">\(f: G \to \C\)</span> and <span class="process-math">\(z_0 \in G\text{.}\)</span> Then <span class="process-math">\(f\)</span> is <em class="emphasis">continuous</em> at <span class="process-math">\(z_0\)</span> if, for every positive real number <span class="process-math">\(\epsilon\text{,}\)</span> there is a positive real number <span class="process-math">\(\delta\)</span> so that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -540,32 +574,32 @@ f(z) - L \right| + |c| \left| g(z) - M \right| \ \lt  \
 \; \text{ satisfying } \; |\,z-z_0\,| \lt  \delta\, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-17-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-18-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 2.1.8"><a href="#sec_limitsandcontinuity-17" title="Copy heading and permalink for Definition 2.1.8">🔗</a></div></article><div class="para" id="sec_limitsandcontinuity-18">See <a href="chapter2-exercises.html#ex_continuitydefs" class="xref" data-knowl="./knowl/xref/ex_continuitydefs.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.11">Exercise 2.5.11</a> for a proof that these definitions are equivalent.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-18" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 2.1.8"><a href="#sec_limitsandcontinuity-18" title="Copy heading and permalink for Definition 2.1.8">🔗</a></div></article><div class="para" id="sec_limitsandcontinuity-19">See <a href="chapter2-exercises.html#ex_continuitydefs" class="xref" data-knowl="./knowl/xref/ex_continuitydefs.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.11">Exercise 2.5.11</a> for a proof that these definitions are equivalent.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="example example-like" id="sec_limitsandcontinuity-19"><h3 class="heading">
+<article class="example example-like" id="sec_limitsandcontinuity-20"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.9</span><span class="period">.</span>
 </h3>
-<div class="para" id="sec_limitsandcontinuity-19-1-1">We already proved (in <a href="sec_limitsandcontinuity.html#exam_limitexists" class="xref" data-knowl="./knowl/xref/exam_limitexists.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.1.3">Example 2.1.3</a>) that the function <span class="process-math">\(f: \C \to \C\)</span> given by <span class="process-math">\(f(z) = z^2\)</span> is continuous at <span class="process-math">\(z = i\text{.}\)</span> You’re invited (see <a href="chapter2-exercises.html#ex_zsquaredcontinuous" class="xref" data-knowl="./knowl/xref/ex_zsquaredcontinuous.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.8">Exercise 2.5.8</a>) to extend our proof to show that, in fact, this function is continuous on <span class="process-math">\(\C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-19-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="sec_limitsandcontinuity-19-1-2">
+<div class="para" id="sec_limitsandcontinuity-20-1-1">We already proved (in <a href="sec_limitsandcontinuity.html#exam_limitexists" class="xref" data-knowl="./knowl/xref/exam_limitexists.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.1.3">Example 2.1.3</a>) that the function <span class="process-math">\(f: \C \to \C\)</span> given by <span class="process-math">\(f(z) = z^2\)</span> is continuous at <span class="process-math">\(z = i\text{.}\)</span> You’re invited (see <a href="chapter2-exercises.html#ex_zsquaredcontinuous" class="xref" data-knowl="./knowl/xref/ex_zsquaredcontinuous.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.8">Exercise 2.5.8</a>) to extend our proof to show that, in fact, this function is continuous on <span class="process-math">\(\C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-20-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="sec_limitsandcontinuity-20-1-2">
 <div class="para">On the other hand, let <span class="process-math">\(g: \C \to \C\)</span> be given by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_limitdoesnotexist.html ./knowl/xref/ex_zbaroverzcont.html">
 \begin{equation*}
 g(z) := \begin{cases}\frac{\, \overline z \, } z \amp
 \text{ if }  z \ne 0 \, , \\ 1 \amp  \text{ if }  z = 0 \,
 . \end{cases} 
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-19-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="sec_limitsandcontinuity-19-1-3">In <a href="sec_limitsandcontinuity.html#exam_limitdoesnotexist" class="xref" data-knowl="./knowl/xref/exam_limitdoesnotexist.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.1.5">Example 2.1.5</a> we proved that <span class="process-math">\(g\)</span> is not continuous at <span class="process-math">\(z = 0\text{.}\)</span> However, this is its only point of discontinuity (see <a href="chapter2-exercises.html#ex_zbaroverzcont" class="xref" data-knowl="./knowl/xref/ex_zbaroverzcont.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.9">Exercise 2.5.9</a>).<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-19-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">In <a href="sec_limitsandcontinuity.html#exam_limitdoesnotexist" class="xref" data-knowl="./knowl/xref/exam_limitdoesnotexist.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.1.5">Example 2.1.5</a> we proved that <span class="process-math">\(g\)</span> is not continuous at <span class="process-math">\(z = 0\text{.}\)</span> However, this is its only point of discontinuity (see <a href="chapter2-exercises.html#ex_zbaroverzcont" class="xref" data-knowl="./knowl/xref/ex_zbaroverzcont.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.9">Exercise 2.5.9</a>).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-20-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 2.1.9"><a href="#sec_limitsandcontinuity-19" title="Copy heading and permalink for Example 2.1.9">🔗</a></div></article><div class="para" id="sec_limitsandcontinuity-20">Just as in the real case, we can “take the limit inside” a continuous function, by considering composition of functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-20" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 2.1.9"><a href="#sec_limitsandcontinuity-20" title="Copy heading and permalink for Example 2.1.9">🔗</a></div></article><div class="para" id="sec_limitsandcontinuity-21">Just as in the real case, we can “take the limit inside” a continuous function, by considering composition of functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-21" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="sec_limitsandcontinuity-21"><h3 class="heading">
+<article class="definition definition-like" id="sec_limitsandcontinuity-22"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.10</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_limitsandcontinuity-21-1-1">
+<div class="para logical" id="sec_limitsandcontinuity-22-1-1">
 <div class="para">The <em class="emphasis">image</em> of the function <span class="process-math">\(g: G \to \C\)</span> is the set <span class="process-math">\(\left\{ g(z) : \, z \in G \right\}
 \text{.}\)</span>  If the image of <span class="process-math">\(g\)</span> is contained in the domain of another function <span class="process-math">\(f : H \to \C\text{,}\)</span> we define the <em class="emphasis">composition</em> <span class="process-math">\(f \circ g : G \to \C\)</span> through</div>
 <div class="displaymath process-math">
@@ -573,9 +607,9 @@ g(z) := \begin{cases}\frac{\, \overline z \, } z \amp
 (f \circ g) (z) \ := \ f(g(z)) \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-21-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_limitsandcontinuity-22-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 2.1.10"><a href="#sec_limitsandcontinuity-21" title="Copy heading and permalink for Definition 2.1.10">🔗</a></div></article><article class="proposition theorem-like" id="funoflimit"><h3 class="heading">
+<div class="autopermalink" data-description="Definition 2.1.10"><a href="#sec_limitsandcontinuity-22" title="Copy heading and permalink for Definition 2.1.10">🔗</a></div></article><article class="proposition theorem-like" id="funoflimit"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.11</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="funoflimit-1-1">
@@ -596,9 +630,6 @@ g(z) := \begin{cases}\frac{\, \overline z \, } z \amp
 \right| \lt  \epsilon \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#funoflimit-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="funoflimit-2-2">
 <div class="para">For this <span class="process-math">\(\eta\text{,}\)</span> we also know there is a <span class="process-math">\(\delta &gt; 0\)</span> such that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -606,9 +637,6 @@ g(z) := \begin{cases}\frac{\, \overline z \, } z \amp
 w_0 \right| \lt  \eta \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#funoflimit-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="funoflimit-2-3">
 <div class="para">Stringing these two implications together gives that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -616,9 +644,9 @@ w_0 \right| \lt  \eta \, \text{.}
 f(w_0) \right| \lt  \epsilon \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#funoflimit-2-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">We have thus proved that <span class="process-math">\(\lim_{z\to z_0}f(g(z))=f(w_0)\text{.}\)</span>
 </div>
-<div class="para" id="funoflimit-2-4">We have thus proved that <span class="process-math">\(\lim_{z\to z_0}f(g(z))=f(w_0)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#funoflimit-2-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#funoflimit-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 2.1.11.1"><a href="#funoflimit-2" title="Copy heading and permalink for Proof 2.1.11.1">🔗</a></div></article><div class="autopermalink" data-description="Section 2.1: Limits and Continuity"><a href="#sec_limitsandcontinuity" title="Copy heading and permalink for Section 2.1: Limits and Continuity">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">

@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,37 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +196,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +248,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -317,8 +348,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -335,21 +365,20 @@ eBookConfig.enable_chatcodes =  false;
 </h2>
 <div class="para logical" id="sec_logexp-2">
 <div class="para">The complex logarithm is the first function we’ll encounter that is of a somewhat tricky nature.  It is motivated as an inverse to the exponential function, that is, we’re looking for a function <span class="process-math">\(\fLog\)</span> such that</div>
-<div class="displaymath process-math" id="eq_expinv">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_expinv.html" id="eq_expinv">
 \begin{equation}
 \exp ( \fLog(z) ) \ = \ z \ = \ \fLog ( \exp z ) \,\text{.}\tag{3.3}
 \end{equation}
 </div>
+<div class="para"> But because <span class="process-math">\(\exp\)</span> is not one-to-one, this is too much to hope for. In fact, given a function <span class="process-math">\(\fLog\)</span> that satisfies the first equation in <a href="sec_logexp.html#eq_expinv" class="xref" data-knowl="./knowl/xref/eq_expinv.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.3">(3.3)</a>, the function <span class="process-math">\(f(z) = \fLog(z) + 2 \pi i\)</span> does as well, and so there cannot be an inverse of <span class="process-math">\(\exp\)</span> (which would have to be unique). On the other hand, <span class="process-math">\(\exp\)</span> becomes one-to-one if we restrict its domain, so there is hope for a logarithm if we are careful about its construction and about its domain.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_logexp-3">But because <span class="process-math">\(\exp\)</span> is not one-to-one, this is too much to hope for. In fact, given a function <span class="process-math">\(\fLog\)</span> that satisfies the first equation in <a href="sec_logexp.html#eq_expinv" class="xref" data-knowl="./knowl/xref/eq_expinv.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.3">(3.3)</a>, the function <span class="process-math">\(f(z) = \fLog(z) + 2 \pi i\)</span> does as well, and so there cannot be an inverse of <span class="process-math">\(\exp\)</span> (which would have to be unique). On the other hand, <span class="process-math">\(\exp\)</span> becomes one-to-one if we restrict its domain, so there is hope for a logarithm if we are careful about its construction and about its domain.<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<article class="definition definition-like" id="sec_logexp-4"><h3 class="heading">
+<article class="definition definition-like" id="sec_logexp-3"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span>
 </h3>
-<div class="para" id="sec_logexp-4-1-1">Given a region <span class="process-math">\(G\text{,}\)</span> any continuous function <span class="process-math">\(\fLog : G \to \C\)</span> that satisfies <span class="process-math">\(\exp(\fLog z) = z\)</span> is <em class="emphasis">a branch of the logarithm (on <span class="process-math">\(G\)</span>)</em>. <div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-4-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_logexp-3-1-1">Given a region <span class="process-math">\(G\text{,}\)</span> any continuous function <span class="process-math">\(\fLog : G \to \C\)</span> that satisfies <span class="process-math">\(\exp(\fLog z) = z\)</span> is <em class="emphasis">a branch of the logarithm (on <span class="process-math">\(G\)</span>)</em>. <div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 3.5.1"><a href="#sec_logexp-4" title="Copy heading and permalink for Definition 3.5.1">🔗</a></div></article><div class="para logical" id="sec_logexp-5">
+<div class="autopermalink" data-description="Definition 3.5.1"><a href="#sec_logexp-3" title="Copy heading and permalink for Definition 3.5.1">🔗</a></div></article><div class="para logical" id="sec_logexp-4">
 <div class="para">To make sure this definition is not vacuous, let’s write, as usual, <span class="process-math">\(z = r \, e^{i \phi}\text{,}\)</span> and suppose that <span class="process-math">\(\fLog z = u(z) + i \, v(z)\text{.}\)</span> Then for the first equation in <a href="sec_logexp.html#eq_expinv" class="xref" data-knowl="./knowl/xref/eq_expinv.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.3">(3.3)</a> to hold, we need</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_expinv.html">
 \begin{equation*}
@@ -357,26 +386,26 @@ eBookConfig.enable_chatcodes =  false;
 \end{equation*}
 </div>
 <div class="para">that is, <span class="process-math">\(e^{u} = r\)</span> and <span class="process-math">\(e^{i v} = e^{i \phi}\text{.}\)</span> The latter equation is equivalent to <span class="process-math">\(v = \phi + 2 \pi k\)</span> for some <span class="process-math">\(k \in \Z\text{,}\)</span> and denoting the natural logarithm of the positive real number <span class="process-math">\(x\)</span> by <span class="process-math">\(\ln(x)\text{,}\)</span> the former equation is equivalent to <span class="process-math">\(u = \ln |z|\text{.}\)</span> A reasonable definition of a logarithm function <span class="process-math">\(\fLog\)</span> would hence be <span class="process-math">\(\fLog z = \ln |z| + i \fArg z\)</span> where <span class="process-math">\(\fArg z\)</span> gives the argument for the complex number <span class="process-math">\(z\)</span> according to some convention—here is an example.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="sec_logexp-6"><h3 class="heading">
+<article class="definition definition-like" id="sec_logexp-5"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.5.2</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_logexp-6-1-1">
+<div class="para logical" id="sec_logexp-5-1-1">
 <div class="para">Let <span class="process-math">\(\Arg z\)</span> denote the unique argument of <span class="process-math">\(z \ne 0\)</span> that lies in <span class="process-math">\((-\pi, \pi]\)</span> (the <em class="emphasis">principal argument of <span class="process-math">\(z\)</span></em>).  Then the <em class="emphasis">principal logarithm</em> is the function <span class="process-math">\(\Log: \C \setminus \{ 0 \} \to \C\)</span> defined through</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \Log(z) := \ln |z| + i \Arg(z) \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-6-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-5-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 3.5.2"><a href="#sec_logexp-6" title="Copy heading and permalink for Definition 3.5.2">🔗</a></div></article><article class="example example-like" id="sec_logexp-7"><h3 class="heading">
+<div class="autopermalink" data-description="Definition 3.5.2"><a href="#sec_logexp-5" title="Copy heading and permalink for Definition 3.5.2">🔗</a></div></article><article class="example example-like" id="sec_logexp-6"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.3</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_logexp-7-1-1">
+<div class="para logical" id="sec_logexp-6-1-1">
 <div class="para">Here are a few evaluations of <span class="process-math">\(\Log\)</span> to illustrate this function:</div>
-<div class="displaymath process-math" id="sec_logexp-7-1-1-2">
+<div class="displaymath process-math" id="sec_logexp-6-1-1-2">
 \begin{align*}
 \Log(2) \amp \ = \ \ln(2) + i \Arg(2) \ = \ \ln(2)\\
 \Log(i) \amp \ = \ \ln(1) + i \Arg(i) \ = \ \frac{ \pi i }{
@@ -387,15 +416,22 @@ i\\
 \frac 1 2 \ln(2) - \frac{ \pi i }{ 4 } \, \text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-7-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-6-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 3.5.3"><a href="#sec_logexp-7" title="Copy heading and permalink for Example 3.5.3">🔗</a></div></article><div class="para" id="sec_logexp-8">The principal logarithm is not continuous on the negative part of the real line, and so <span class="process-math">\(\Log\)</span> is a branch of the logarithm on <span class="process-math">\(\C \setminus
+<div class="autopermalink" data-description="Example 3.5.3"><a href="#sec_logexp-6" title="Copy heading and permalink for Example 3.5.3">🔗</a></div></article><div class="para" id="sec_logexp-7">
+<code class="code-inline tex2jax_ignore">SageMath</code> computes “our” principal logarithm.<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="sec_logexp-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">real(log(1-i))
+</script></div>
+<div id="sec_logexp-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">imaginary(log(1-i))
+</script></div>
+<div class="para" id="sec_logexp-10">The principal logarithm is not continuous on the negative part of the real line, and so <span class="process-math">\(\Log\)</span> is a branch of the logarithm on <span class="process-math">\(\C \setminus
 \R_{ \le 0 }\text{.}\)</span> Any branch of the logarithm on a region <span class="process-math">\(G\)</span> can be similarly extended to a function defined on <span class="process-math">\(\overline G \setminus \{ 0
-\}\text{.}\)</span> Furthermore, the evaluation of any branch of the logarithm at a specific <span class="process-math">\(z_0\)</span> can differ from <span class="process-math">\(\Log(z_0)\)</span> only by a multiple of <span class="process-math">\(2 \pi i\text{;}\)</span> the reason for this is once more the periodicity of the exponential function.<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
+\}\text{.}\)</span> Furthermore, the evaluation of any branch of the logarithm at a specific <span class="process-math">\(z_0\)</span> can differ from <span class="process-math">\(\Log(z_0)\)</span> only by a multiple of <span class="process-math">\(2 \pi i\text{;}\)</span> the reason for this is once more the periodicity of the exponential function.<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_logexp-9">
+<div class="para logical" id="sec_logexp-11">
 <div class="para">So what about the second equation in <a href="sec_logexp.html#eq_expinv" class="xref" data-knowl="./knowl/xref/eq_expinv.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.3">(3.3)</a>, namely, <span class="process-math">\(\fLog (\exp z) = z\text{?}\)</span> Let’s try the principal logarithm: if <span class="process-math">\(z=x+iy\)</span> then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_expinv.html" id="sec_logexp-9-4">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_expinv.html" id="sec_logexp-11-4">
 \begin{align*}
 \Log ( \exp z ) \amp \ = \ \ln | e^x e^{iy} | + i \Arg ( e^x
 e^{iy} )\\
@@ -403,12 +439,12 @@ e^{iy} )\\
 \amp \ = \ x + i \Arg ( e^{iy} )\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">The right-hand side is equal to <span class="process-math">\(z=x+iy\)</span> if and only if <span class="process-math">\(y
+\in (-\pi, \pi]\text{.}\)</span> Something similar will happen with any other branch <span class="process-math">\(\fLog\)</span> of the logarithm—there will always be many <span class="process-math">\(z\)</span>’s for which <span class="process-math">\(\fLog ( \exp z ) \ne z\text{.}\)</span>
 </div>
-<div class="para" id="sec_logexp-10">The right-hand side is equal to <span class="process-math">\(z=x+iy\)</span> if and only if <span class="process-math">\(y
-\in (-\pi, \pi]\text{.}\)</span> Something similar will happen with any other branch <span class="process-math">\(\fLog\)</span> of the logarithm—there will always be many <span class="process-math">\(z\)</span>’s for which <span class="process-math">\(\fLog ( \exp z ) \ne z\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_logexp-11">
+<div class="para logical" id="sec_logexp-12">
 <div class="para">A warning sign pointing in a similar direction concerns the much-cherished real logarithm rule <span class="process-math">\(\ln(xy) = \ln(x) +
 \ln(y)\text{;}\)</span> it has no analogue in <span class="process-math">\(\C\text{.}\)</span> For example,</div>
 <div class="displaymath process-math">
@@ -424,9 +460,9 @@ e^{iy} )\\
 i} 4 \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-12" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_logexp-12">
+<div class="para logical" id="sec_logexp-13">
 <div class="para">The problem is that we need to come up with an argument convention to define a logarithm and then stick to this convention. There is quite a bit of subtlety here; e.g., the multi-valued map</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -439,9 +475,9 @@ i} 4 \, \text{.}
 \log z \ := \ \ln |z| + i \arg z \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-12" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para"> Neither <span class="process-math">\(\arg\)</span> nor <span class="process-math">\(\log\)</span> is a function, yet <span class="process-math">\(\exp ( \log z ) = z\text{.}\)</span> We invite you to check this thoroughly; in particular, you should note how the periodicity of the exponential function takes care of the multi-valuedness of <span class="process-math">\(\log\text{.}\)</span>
 </div>
-<div class="para" id="sec_logexp-13">Neither <span class="process-math">\(\arg\)</span> nor <span class="process-math">\(\log\)</span> is a function, yet <span class="process-math">\(\exp ( \log z ) = z\text{.}\)</span> We invite you to check this thoroughly; in particular, you should note how the periodicity of the exponential function takes care of the multi-valuedness of <span class="process-math">\(\log\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sec_logexp-14">To end our discussion of complex logarithms on a happy note, we prove that <em class="emphasis">any</em> branch of the logarithm has the <em class="emphasis">same</em> derivative; one just has to be cautious with regions of holomorphicity.<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-14" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -459,7 +495,7 @@ i} 4 \, \text{.}
 </div>
 <div class="autopermalink" data-description="Proposition 3.5.4"><a href="#sec_logexp-15" title="Copy heading and permalink for Proposition 3.5.4">🔗</a></div></article><article class="proof" id="sec_logexp-16"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
 <div class="para logical" id="sec_logexp-16-1">
-<div class="para">The idea is to apply <a href="sec_diffholom.html#inversederivative" class="xref" data-knowl="./knowl/xref/inversederivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.2.8">Proposition 2.2.8</a> to <span class="process-math">\(\exp\)</span> and <span class="process-math">\(\fLog\text{,}\)</span> but we need to be careful about the domains of these functions. Let <span class="process-math">\(H := \{ \fLog(z) : \, z \in G \}\text{,}\)</span> the image of <span class="process-math">\(\fLog\text{.}\)</span> We apply <a href="sec_diffholom.html#inversederivative" class="xref" data-knowl="./knowl/xref/inversederivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.2.8">Proposition 2.2.8</a> with <span class="process-math">\(f: H \to G\)</span> given by <span class="process-math">\(f(z) = \exp(z)\)</span> and <span class="process-math">\(g: G \to H\)</span> given by <span class="process-math">\(g(z) = \fLog(z)\text{;}\)</span> note that <span class="process-math">\(g\)</span> is continuous, and <a href="chapter3-exercises.html#ex_logexpinv" class="xref" data-knowl="./knowl/xref/ex_logexpinv.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.48">Exercise 3.6.48</a> checks that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are inverses of each other. Thus <a href="sec_diffholom.html#inversederivative" class="xref" data-knowl="./knowl/xref/inversederivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.2.8">Proposition 2.2.8</a> gives</div>
+<div class="para">The idea is to apply <a href="sec_diffholom.html#inversederivative" class="xref" data-knowl="./knowl/xref/inversederivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.2.8">Proposition 2.2.8</a> to <span class="process-math">\(\exp\)</span> and <span class="process-math">\(\fLog\text{,}\)</span> but we need to be careful about the domains of these functions. Let <span class="process-math">\(H := \{ \fLog(z) : \, z \in G \}\text{,}\)</span> the image of <span class="process-math">\(\fLog\text{.}\)</span> We apply <a href="sec_diffholom.html#inversederivative" class="xref" data-knowl="./knowl/xref/inversederivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.2.8">Proposition 2.2.8</a> with <span class="process-math">\(f: H \to G\)</span> given by <span class="process-math">\(f(z) = \exp(z)\)</span> and <span class="process-math">\(g: G \to H\)</span> given by <span class="process-math">\(g(z) = \fLog(z)\text{;}\)</span> note that <span class="process-math">\(g\)</span> is continuous, and <a href="chapter3-exercises.html#ex_logexpinv" class="xref" data-knowl="./knowl/xref/ex_logexpinv.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.47">Exercise 3.6.47</a> checks that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are inverses of each other. Thus <a href="sec_diffholom.html#inversederivative" class="xref" data-knowl="./knowl/xref/inversederivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.2.8">Proposition 2.2.8</a> gives</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/inversederivative.html ./knowl/xref/inversederivative.html ./knowl/xref/ex_logexpinv.html ./knowl/xref/inversederivative.html">
 \begin{equation*}
 \fLog'(z) \ = \ \frac 1 { \exp' ( \fLog z ) } \ = \ \frac 1 { \exp (
@@ -482,13 +518,17 @@ a^b \ := \ \exp ( b \Log(a)) \,\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-18-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 3.5.5"><a href="#sec_logexp-18" title="Copy heading and permalink for Definition 3.5.5">🔗</a></div></article><div class="para" id="sec_logexp-19">Naturally, we can just as well define <span class="process-math">\(a^b\)</span> through a different branch of the logarithm; our convention is that we use the principal value unless otherwise stated. <a href="chapter3-exercises.html#singlevaluedexp" class="xref" data-knowl="./knowl/xref/singlevaluedexp.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.51">Exercise 3.6.51</a> explores what happens when we use the multi-valued <span class="process-math">\(\log\)</span> in the definition of <span class="process-math">\(a^b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 3.5.5"><a href="#sec_logexp-18" title="Copy heading and permalink for Definition 3.5.5">🔗</a></div></article><div class="para" id="sec_logexp-19">Naturally, we can just as well define <span class="process-math">\(a^b\)</span> through a different branch of the logarithm; our convention is that we use the principal value unless otherwise stated. <a href="chapter3-exercises.html#singlevaluedexp" class="xref" data-knowl="./knowl/xref/singlevaluedexp.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.50">Exercise 3.6.50</a> explores what happens when we use the multi-valued <span class="process-math">\(\log\)</span> in the definition of <span class="process-math">\(a^b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_logexp-20">
-<div class="para">One last remark: it now makes sense to talk about the function <span class="process-math">\(f(z) = e^z\text{,}\)</span> where <span class="process-math">\(e\)</span> is <em class="emphasis">Euler’s <details class="ptx-footnote" aria-live="polite" id="sec_logexp-20-3-1"><summary class="ptx-footnote__number" title="Footnote 3.5.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_logexp-20-3-1">Named after Leonard Euler (1707–1783). Continuing our footnote on p. <a href="geomprop.html#fn_eulerformula" class="xref" data-knowl="./knowl/xref/fn_eulerformula.html" data-reveal-label="Reveal" data-close-label="Close" title="Footnote 1.2.3">Footnote 1.2.3</a> we have now honestly established <em class="emphasis">Euler’s formula</em> <span class="process-math">\(e^{ 2 \pi i } = 1\text{.}\)</span>
+<div id="sec_logexp-20" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">real(i^i)
+</script></div>
+<div id="sec_logexp-21" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">imaginary(i^i)
+</script></div>
+<div class="para logical" id="sec_logexp-22">
+<div class="para">One last remark: it now makes sense to talk about the function <span class="process-math">\(f(z) = e^z\text{,}\)</span> where <span class="process-math">\(e\)</span> is <em class="emphasis">Euler’s<details class="ptx-footnote" aria-live="polite" id="sec_logexp-22-3-1"><summary class="ptx-footnote__number" title="Footnote 3.5.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_logexp-22-3-1">Named after Leonard Euler (1707–1783). Continuing our footnote on p. <a href="geomprop.html#fn_eulerformula" class="xref" data-knowl="./knowl/xref/fn_eulerformula.html" data-reveal-label="Reveal" data-close-label="Close" title="Footnote 1.2.2">Footnote 1.2.2</a> we have now honestly established <em class="emphasis">Euler’s formula</em> <span class="process-math">\(e^{ 2 \pi i } = 1\text{.}\)</span>
 </div></details> number</em> and can be defined, for example, as <span class="process-math">\(e = \lim_{n \to \infty} \left( 1 + \frac 1 n \right)^n\text{.}\)</span>  In calculus we can prove the equivalence of the real exponential function (as given, for example, through a power series) and the function <span class="process-math">\(f(x) = e^x\text{.}\)</span> With our definition of <span class="process-math">\(a^z\text{,}\)</span> we can now make a similar remark about the complex exponential function. Because <span class="process-math">\(e\)</span> is a positive real number and hence <span class="process-math">\(\Arg e = 0\text{,}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fn_eulerformula.html" id="sec_logexp-20-10">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fn_eulerformula.html" id="sec_logexp-22-10">
 \begin{align*}
 e^z \amp \ = \ \exp ( z \Log(e))\\
 \amp \ = \ \exp \left( z \left( \ln |e| + i
@@ -498,9 +538,9 @@ e^z \amp \ = \ \exp ( z \Log(e))\\
 \left( z \right)\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-20" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-22" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_logexp-21">A word of caution: this only works out this nicely because we have carefully defined <span class="process-math">\(a^b\)</span> for complex numbers. Using a different branch of logarithm in the definition of <span class="process-math">\(a^b\)</span> can easily lead to <span class="process-math">\(e^z \ne \exp(z)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-21" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_logexp-23">A word of caution: this only works out this nicely because we have carefully defined <span class="process-math">\(a^b\)</span> for complex numbers. Using a different branch of logarithm in the definition of <span class="process-math">\(a^b\)</span> can easily lead to <span class="process-math">\(e^z \ne \exp(z)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-23" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Section 3.5: Logarithms and Complex Exponentials"><a href="#sec_logexp" title="Copy heading and permalink for Section 3.5: Logarithms and Complex Exponentials">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">

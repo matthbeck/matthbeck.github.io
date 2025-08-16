@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,37 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +196,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +248,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -317,8 +348,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -333,7 +363,7 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_sequencescomplete"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">7.1</span><span class="space"> </span><span class="title">Sequences and Completeness</span>
 </h2>
-<div class="para" id="sec_sequencescomplete-2">As in the real case, <details class="ptx-footnote" aria-live="polite" id="sec_sequencescomplete-2-1"><summary class="ptx-footnote__number" title="Footnote 7.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_sequencescomplete-2-1">There will be no surprises in this chapter of the nature <em class="emphasis">real versus complex</em>.</div></details> a <em class="emphasis">(complex) sequence</em> is a function from the positive (sometimes the nonnegative) integers to the complex numbers.  Its values are usually written as <span class="process-math">\(a_n\)</span> (as opposed to <span class="process-math">\(a(n)\)</span>) and we commonly denote the sequence by <span class="process-math">\(\left( a_n
+<div class="para" id="sec_sequencescomplete-2">As in the real case,<details class="ptx-footnote" aria-live="polite" id="sec_sequencescomplete-2-1"><summary class="ptx-footnote__number" title="Footnote 7.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_sequencescomplete-2-1">There will be no surprises in this chapter of the nature <em class="emphasis">real versus complex</em>.</div></details> a <em class="emphasis">(complex) sequence</em> is a function from the positive (sometimes the nonnegative) integers to the complex numbers.  Its values are usually written as <span class="process-math">\(a_n\)</span> (as opposed to <span class="process-math">\(a(n)\)</span>) and we commonly denote the sequence by <span class="process-math">\(\left( a_n
 \right)_{n=1}^\infty\text{,}\)</span> <span class="process-math">\(\left( a_n \right)_{n \geq 1}\text{,}\)</span> or simply <span class="process-math">\((a_n)\text{.}\)</span> Considering such a sequence as a function of <span class="process-math">\(n\text{,}\)</span> the notion of convergence is merely a repeat of the definition we gave in <a href="sec_riemannspere.html" class="internal" title="Section 3.2: Infinity and the Cross Ratio">Section 3.2</a>, adjusted to the fact that <span class="process-math">\(n\)</span> is an integer. <div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="sec_sequencescomplete-3"><h3 class="heading">
@@ -347,9 +377,9 @@ eBookConfig.enable_chatcodes =  false;
 \lim_{n \to \infty} a_n \ = \ L \,\text{.}
 \end{equation*}
 </div>
+<div class="para"> If no such <span class="process-math">\(L\)</span> exists then the sequence <span class="process-math">\(\left( a_n
+\right)\)</span> is <em class="emphasis">divergent</em>. </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="sec_sequencescomplete-3-1-2">If no such <span class="process-math">\(L\)</span> exists then the sequence <span class="process-math">\(\left( a_n
-\right)\)</span> is <em class="emphasis">divergent</em>. <div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-3-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Definition 7.1.1"><a href="#sec_sequencescomplete-3" title="Copy heading and permalink for Definition 7.1.1">🔗</a></div></article><div class="para" id="sec_sequencescomplete-4">As in our previous definitions of limit, the limit of a sequence is unique if it exists. See <a href="powerchapter-7.html#ex_sequenceLimitUnique" class="xref" data-knowl="./knowl/xref/ex_sequenceLimitUnique.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.7">Exercise 7.5.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -369,12 +399,15 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_1_n_converges-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 7.1.2"><a href="#ex_1_n_converges" title="Copy heading and permalink for Example 7.1.2">🔗</a></div></article><div class="para" id="sec_sequencescomplete-6">To prove that a sequence <span class="process-math">\((a_n)\)</span> is divergent, we have to show the negation of the statement that defines convergence, that is: given any <span class="process-math">\(L \in \C\text{,}\)</span> there exists <span class="process-math">\(\epsilon &gt; 0\)</span> such that, given any integer <span class="process-math">\(N\text{,}\)</span> there exists an integer <span class="process-math">\(n\)</span> such that <span class="process-math">\(|a_n - L| \ge \epsilon\text{.}\)</span> (If you have not negated many mathematical statements, this is worth meditating about.)<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 7.1.2"><a href="#ex_1_n_converges" title="Copy heading and permalink for Example 7.1.2">🔗</a></div></article><div id="sec_sequencescomplete-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('n')
+limit(i^n/n, n=oo)
+</script></div>
+<div class="para" id="sec_sequencescomplete-7">To prove that a sequence <span class="process-math">\((a_n)\)</span> is divergent, we have to show the negation of the statement that defines convergence, that is: given any <span class="process-math">\(L \in \C\text{,}\)</span> there exists <span class="process-math">\(\epsilon &gt; 0\)</span> such that, given any integer <span class="process-math">\(N\text{,}\)</span> there exists an integer <span class="process-math">\(n\)</span> such that <span class="process-math">\(|a_n - L| \ge \epsilon\text{.}\)</span> (If you have not negated many mathematical statements, this is worth meditating about.)<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="example example-like" id="sec_sequencescomplete-7"><h3 class="heading">
+<article class="example example-like" id="sec_sequencescomplete-8"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.1.3</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_sequencescomplete-7-1-1">
+<div class="para logical" id="sec_sequencescomplete-8-1-1">
 <div class="para">The sequence <span class="process-math">\(\left( a_n = i^n \right)\)</span> diverges: Given <span class="process-math">\(L \in \C\text{,}\)</span> choose <span class="process-math">\(\epsilon = \frac 1 2\text{.}\)</span> We consider two cases: If <span class="process-math">\(\Re(L) \geq 0\text{,}\)</span> then for any <span class="process-math">\(N\text{,}\)</span> choose <span class="process-math">\(n \geq N\)</span> such that <span class="process-math">\(a_n = -1\text{.}\)</span> (This is always possible since <span class="process-math">\(a_{4k+2} = i^{4k+2} = -1\)</span> for any <span class="process-math">\(k \geq 0\text{.}\)</span>) Then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -382,8 +415,8 @@ eBookConfig.enable_chatcodes =  false;
 &gt; \ \frac 1 2 \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-7-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="sec_sequencescomplete-7-1-2">
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-8-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="sec_sequencescomplete-8-1-2">
 <div class="para">If <span class="process-math">\(\Re(L) \lt  0\text{,}\)</span> then for any <span class="process-math">\(N\text{,}\)</span> choose <span class="process-math">\(n \geq N\)</span> such that <span class="process-math">\(a_n = 1\text{.}\)</span> (This is always possible since <span class="process-math">\(a_{4k} = i^{4k} = 1\)</span> for any <span class="process-math">\(k &gt; 0\text{.}\)</span>) Then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -391,10 +424,13 @@ eBookConfig.enable_chatcodes =  false;
 \frac 1 2 \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-7-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="sec_sequencescomplete-7-1-3">This proves that <span class="process-math">\(\left( a_n = i^n \right)\)</span> diverges.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-7-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-8-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="sec_sequencescomplete-8-1-3">This proves that <span class="process-math">\(\left( a_n = i^n \right)\)</span> diverges.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-8-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 7.1.3"><a href="#sec_sequencescomplete-7" title="Copy heading and permalink for Example 7.1.3">🔗</a></div></article><div class="para" id="sec_sequencescomplete-8">The following limit laws are the cousins of the identities in <a href="sec_limitsandcontinuity.html#limits" class="xref" data-knowl="./knowl/xref/limits.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.1.6">Proposition 2.1.6</a> and <a href="sec_limitsandcontinuity.html#funoflimit" class="xref" data-knowl="./knowl/xref/funoflimit.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.1.11">Proposition 2.1.11</a>, with one little twist.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 7.1.3"><a href="#sec_sequencescomplete-8" title="Copy heading and permalink for Example 7.1.3">🔗</a></div></article><div id="sec_sequencescomplete-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('n')
+limit(i^n, n=oo)
+</script></div>
+<div class="para" id="sec_sequencescomplete-10">The following limit laws are the cousins of the identities in <a href="sec_limitsandcontinuity.html#limits" class="xref" data-knowl="./knowl/xref/limits.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.1.6">Proposition 2.1.6</a> and <a href="sec_limitsandcontinuity.html#funoflimit" class="xref" data-knowl="./knowl/xref/funoflimit.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.1.11">Proposition 2.1.11</a>, with one little twist.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="limitrules"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">7.1.4</span><span class="period">.</span>
@@ -405,7 +441,7 @@ eBookConfig.enable_chatcodes =  false;
 <li id="limitrules-1-1-4-1">
 <div class="para" id="limitrules-1-1-4-1-1">
 <span class="process-math">\(\displaystyle \displaystyle \lim_{ n \to \infty } a_n + c \lim_{ n
-\to \infty } b_n \ = \ \lim_{ n \to \infty } \left( a_n + c
+\to \infty } b_n \, = \, \lim_{ n \to \infty } \left( a_n + c
 \, b_n \right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitrules-1-1-4-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item a"><a href="#limitrules-1-1-4-1" title="Copy heading and permalink for Item a">🔗</a></div>
@@ -413,7 +449,7 @@ eBookConfig.enable_chatcodes =  false;
 <li id="limitrules-1-1-4-2">
 <div class="para" id="limitrules-1-1-4-2-1">
 <span class="process-math">\(\displaystyle \displaystyle \lim_{ n \to \infty } a_n \cdot \lim_{
-n \to \infty } b_n \ = \ \lim_{ n \to \infty } \left( a_n
+n \to \infty } b_n \, = \, \lim_{ n \to \infty } \left( a_n
 \cdot b_n \right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitrules-1-1-4-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item b"><a href="#limitrules-1-1-4-2" title="Copy heading and permalink for Item b">🔗</a></div>
@@ -421,14 +457,14 @@ n \to \infty } b_n \ = \ \lim_{ n \to \infty } \left( a_n
 <li id="limitrules-1-1-4-3">
 <div class="para" id="limitrules-1-1-4-3-1">
 <span class="process-math">\(\displaystyle \frac{ \lim_{ n \to \infty } a_n }{
-\lim_{ n \to \infty } b_n } \ = \ \lim_{ n \to \infty }
-\left( \frac{ a_n }{ b_n } \right)\)</span> provided <span class="process-math">\(\lim_{ n \to \infty } b_n \neq 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitrules-1-1-4-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+\lim_{ n \to \infty } b_n } \, = \, \lim_{ n \to \infty }
+\left( \frac{ a_n }{ b_n } \right)\ \)</span> provided <span class="process-math">\(\lim_{ n \to \infty } b_n \neq 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitrules-1-1-4-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item c"><a href="#limitrules-1-1-4-3" title="Copy heading and permalink for Item c">🔗</a></div>
 </li>
 <li id="limitrules-1-1-4-4">
 <div class="para" id="limitrules-1-1-4-4-1">
-<span class="process-math">\(\displaystyle \lim_{ n \to \infty } a_n \ = \ \lim_{ n
+<span class="process-math">\(\displaystyle \lim_{ n \to \infty } a_n \, = \, \lim_{ n
 \to \infty } a_{ n+1 }\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#limitrules-1-1-4-4-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item d"><a href="#limitrules-1-1-4-4" title="Copy heading and permalink for Item d">🔗</a></div>
@@ -445,23 +481,23 @@ G\text{,}\)</span> then</div>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#limitrules-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proposition 7.1.4"><a href="#limitrules" title="Copy heading and permalink for Proposition 7.1.4">🔗</a></div></article><div class="para" id="sec_sequencescomplete-10">Again, the proof of this proposition is essentially a repeat from arguments we have given in <a href="functionchapter.html" class="internal" title="Chapter 2: Differentiation">Chapter 2</a> and <a href="exampleschapter.html" class="internal" title="Chapter 3: Examples of Functions">Chapter 3</a>, as you should convince yourself in <a href="powerchapter-7.html#ex_limitrulesseq" class="xref" data-knowl="./knowl/xref/ex_limitrulesseq.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.4">Exercise 7.5.4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proposition 7.1.4"><a href="#limitrules" title="Copy heading and permalink for Proposition 7.1.4">🔗</a></div></article><div class="para" id="sec_sequencescomplete-12">Again, the proof of this proposition is essentially a repeat from arguments we have given in <a href="functionchapter.html" class="internal" title="Chapter 2: Differentiation">Chapter 2</a> and <a href="exampleschapter.html" class="internal" title="Chapter 3: Examples of Functions">Chapter 3</a>, as you should convince yourself in <a href="powerchapter-7.html#ex_limitrulesseq" class="xref" data-knowl="./knowl/xref/ex_limitrulesseq.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.4">Exercise 7.5.4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-12" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_sequencescomplete-11">We will assume, as an axiom, that <span class="process-math">\(\R\)</span> is <em class="emphasis">complete</em>.  To phrase this precisely, we need the following.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_sequencescomplete-13">We will assume, as an axiom, that <span class="process-math">\(\R\)</span> is <em class="emphasis">complete</em>.  To phrase this precisely, we need the following.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="sec_sequencescomplete-12"><h3 class="heading">
+<article class="definition definition-like" id="sec_sequencescomplete-14"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.1.5</span><span class="period">.</span>
 </h3>
-<div class="para" id="sec_sequencescomplete-12-1-1">The sequence <span class="process-math">\((a_n)\)</span> is <em class="emphasis">monotone</em> if it is either nondecreasing (<span class="process-math">\(a_{n+1}\ge a_n\)</span> for all <span class="process-math">\(n\)</span>) or nonincreasing (<span class="process-math">\(a_{n+1}\le a_n\)</span> for all <span class="process-math">\(n\)</span>). <div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-12-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_sequencescomplete-14-1-1">The sequence <span class="process-math">\((a_n)\)</span> is <em class="emphasis">monotone</em> if it is either nondecreasing (<span class="process-math">\(a_{n+1}\ge a_n\)</span> for all <span class="process-math">\(n\)</span>) or nonincreasing (<span class="process-math">\(a_{n+1}\le a_n\)</span> for all <span class="process-math">\(n\)</span>). <div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-14-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 7.1.5"><a href="#sec_sequencescomplete-12" title="Copy heading and permalink for Definition 7.1.5">🔗</a></div></article><div class="para" id="sec_sequencescomplete-13">There are many equivalent ways of formulating the completeness property for the reals. Here is what we’ll go by:<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 7.1.5"><a href="#sec_sequencescomplete-14" title="Copy heading and permalink for Definition 7.1.5">🔗</a></div></article><div class="para" id="sec_sequencescomplete-15">There are many equivalent ways of formulating the completeness property for the reals. Here is what we’ll go by:<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-15" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="axiom theorem-like" id="sec_sequencescomplete-14"><h3 class="heading">
+<article class="axiom theorem-like" id="sec_sequencescomplete-16"><h3 class="heading">
 <span class="type">Axiom</span><span class="space"> </span><span class="codenumber">7.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Monotone Sequence Property.</span>
 </h3>
-<div class="para" id="sec_sequencescomplete-14-2-1">Any bounded monotone sequence converges. <div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-14-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_sequencescomplete-16-2-1">Any bounded monotone sequence converges. <div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-16-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Axiom 7.1.6: Monotone Sequence Property"><a href="#sec_sequencescomplete-14" title="Copy heading and permalink for Axiom 7.1.6: Monotone Sequence Property">🔗</a></div></article><div class="para" id="sec_sequencescomplete-15">This axiom (or one of its many equivalent statements) gives arguably the most important property of the real number system; namely, that we can, in many cases, determine that a given sequence converges <em class="emphasis">without knowing the value of the limit</em>. In this sense we can use the sequence to define a real number.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-15" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Axiom 7.1.6: Monotone Sequence Property"><a href="#sec_sequencescomplete-16" title="Copy heading and permalink for Axiom 7.1.6: Monotone Sequence Property">🔗</a></div></article><div class="para" id="sec_sequencescomplete-17">This axiom (or one of its many equivalent statements) gives arguably the most important property of the real number system; namely, that we can, in many cases, determine that a given sequence converges <em class="emphasis">without knowing the value of the limit</em>. In this sense we can use the sequence to define a real number.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-17" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="ex_e-1series"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.1.7</span><span class="period">.</span>
@@ -497,17 +533,17 @@ L \ = \ \lim_{n\to\infty}r^n \ = \ \lim_{n\to\infty} r^{n+1} \ = \ r
 <div class="autopermalink" data-description="Paragraph"><a href="#r_n-_0-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="r_n-_0-1-2">Thus <span class="process-math">\((1-r)L=0\text{,}\)</span> and so (since <span class="process-math">\(1-r \ne 0\)</span>) we conclude that <span class="process-math">\(L=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#r_n-_0-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 7.1.8"><a href="#r_n-_0" title="Copy heading and permalink for Example 7.1.8">🔗</a></div></article><div class="para" id="sec_sequencescomplete-18">We remark that the Monotone Sequence Property implies the <em class="emphasis">Least Upper Bound Property</em>: every nonempty set of real numbers with an upper bound has a <em class="emphasis">least</em> upper bound.  The Least Upper Bound Property, in turn, implies the following theorem, which is often listed as a separate axiom. <details class="ptx-footnote" aria-live="polite" id="sec_sequencescomplete-18-4"><summary class="ptx-footnote__number" title="Footnote 7.1.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="sec_sequencescomplete-18-4">Both the Archimedean Property and the Least Upper Bound Property can be used in (different) axiomatic developments of <span class="process-math">\(\R\text{.}\)</span>
-</div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-18" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 7.1.8"><a href="#r_n-_0" title="Copy heading and permalink for Example 7.1.8">🔗</a></div></article><div class="para" id="sec_sequencescomplete-20">We remark that the Monotone Sequence Property implies the <em class="emphasis">Least Upper Bound Property</em>: every nonempty set of real numbers with an upper bound has a <em class="emphasis">least</em> upper bound.  The Least Upper Bound Property, in turn, implies the following theorem, which is often listed as a separate axiom. <details class="ptx-footnote" aria-live="polite" id="sec_sequencescomplete-20-4"><summary class="ptx-footnote__number" title="Footnote 7.1.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="sec_sequencescomplete-20-4">Both the Archimedean Property and the Least Upper Bound Property can be used in (different) axiomatic developments of <span class="process-math">\(\R\text{.}\)</span>
+</div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-20" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm_archimedean"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">Archimedean<details class="ptx-footnote" aria-live="polite" id="thm_archimedean-1-1"><summary class="ptx-footnote__number" title="Footnote 7.1.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="thm_archimedean-1-1">Archimedes of Syracuse (287–212 BCE) attributes this property to Eudoxus of Cnidus (408–355 BCE).</div></details> Property.</span>
 </h3>
 <div class="para" id="thm_archimedean-2-1">If <span class="process-math">\(x\)</span> is any real number then there is an integer <span class="process-math">\(N\)</span> that is greater than <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_archimedean-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 7.1.9: Archimedean Property"><a href="#thm_archimedean" title="Copy heading and permalink for Theorem 7.1.9: Archimedean Property">🔗</a></div></article><div class="para" id="sec_sequencescomplete-20">For a proof, see <a href="powerchapter-7.html#ex_archimedean" class="xref" data-knowl="./knowl/xref/ex_archimedean.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.10">Exercise 7.5.10</a>. <a href="sec_sequencescomplete.html#thm_archimedean" class="xref" data-knowl="./knowl/xref/thm_archimedean.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.1.9: Archimedean Property">Theorem 7.1.9</a> essentially says that infinity is not part of the real numbers. Note that we already used <a href="sec_sequencescomplete.html#thm_archimedean" class="xref" data-knowl="./knowl/xref/thm_archimedean.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.1.9: Archimedean Property">Theorem 7.1.9</a> in <a href="sec_sequencescomplete.html#ex_1_n_converges" class="xref" data-knowl="./knowl/xref/ex_1_n_converges.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.1.2">Example 7.1.2</a>. The Archimedean Property underlies the construction of an infinite decimal expansion for any real number, while the Monotone Sequence Property shows that any such infinite decimal expansion actually converges to a real number.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-20" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem 7.1.9: Archimedean Property"><a href="#thm_archimedean" title="Copy heading and permalink for Theorem 7.1.9: Archimedean Property">🔗</a></div></article><div class="para" id="sec_sequencescomplete-22">For a proof, see <a href="powerchapter-7.html#ex_archimedean" class="xref" data-knowl="./knowl/xref/ex_archimedean.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.10">Exercise 7.5.10</a>. <a href="sec_sequencescomplete.html#thm_archimedean" class="xref" data-knowl="./knowl/xref/thm_archimedean.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.1.9: Archimedean Property">Theorem 7.1.9</a> essentially says that infinity is not part of the real numbers. Note that we already used <a href="sec_sequencescomplete.html#thm_archimedean" class="xref" data-knowl="./knowl/xref/thm_archimedean.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.1.9: Archimedean Property">Theorem 7.1.9</a> in <a href="sec_sequencescomplete.html#ex_1_n_converges" class="xref" data-knowl="./knowl/xref/ex_1_n_converges.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.1.2">Example 7.1.2</a>. The Archimedean Property underlies the construction of an infinite decimal expansion for any real number, while the Monotone Sequence Property shows that any such infinite decimal expansion actually converges to a real number.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-22" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_sequencescomplete-21">We close this discussion of limits with a pair of standard limits. The first of these can be established by calculus methods (such as L’Hôpital’s rule (<a href="appendix-calculus.html#lhospital" class="xref" data-knowl="./knowl/xref/lhospital.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.11: L’Hôspital’s Rule">Theorem A.0.11</a>), by treating <span class="process-math">\(n\)</span> as the variable); both of them can be proved by more elementary considerations. Either way, we leave the proof of the following to <a href="powerchapter-7.html#ex_pairoflimits" class="xref" data-knowl="./knowl/xref/ex_pairoflimits.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.11">Exercise 7.5.11</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-21" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_sequencescomplete-23">We close this discussion of limits with a pair of standard limits. The first of these can be established by calculus methods (such as L’Hôpital’s rule (<a href="appendix-calculus.html#lhospital" class="xref" data-knowl="./knowl/xref/lhospital.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.11: L’Hôspital’s Rule">Theorem A.0.11</a>), by treating <span class="process-math">\(n\)</span> as the variable); both of them can be proved by more elementary considerations. Either way, we leave the proof of the following to <a href="powerchapter-7.html#ex_pairoflimits" class="xref" data-knowl="./knowl/xref/ex_pairoflimits.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.11">Exercise 7.5.11</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-23" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="prop_pairoflimits"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">7.1.10</span><span class="period">.</span>

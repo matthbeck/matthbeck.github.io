@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,25 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +184,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +236,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter contains-active">
@@ -317,8 +336,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -352,7 +370,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="solutions"><details id="ex_1_0-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
 <div class="para" id="ex_1_0-3-2-1">
-<span class="process-math">\(1 - i\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_1_0-3-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(1 - 3i\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_1_0-3-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 1.5.1.b.1"><a href="#ex_1_0-3-2" title="Copy heading and permalink for Answer 1.5.1.b.1">🔗</a></div>
 </div></details></div>
@@ -382,7 +400,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="solutions"><details id="ex_1_0-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
 <div class="para" id="ex_1_0-6-2-1">
-<span class="process-math">\(-2 + 3i\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_1_0-6-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(-2 + 7i\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_1_0-6-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 1.5.1.e.1"><a href="#ex_1_0-6-2" title="Copy heading and permalink for Answer 1.5.1.e.1">🔗</a></div>
 </div></details></div>
@@ -409,7 +427,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="solutions"><details id="ex_1_1-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
 <div class="para" id="ex_1_1-4-2-1">
-<span class="process-math">\(1\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_1_1-4-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(-1\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_1_1-4-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 1.5.2.c.1"><a href="#ex_1_1-4-2" title="Copy heading and permalink for Answer 1.5.2.c.1">🔗</a></div>
 </div></details></div>
@@ -446,7 +464,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="solutions"><details id="ex_1_2-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
 <div class="para" id="ex_1_2-4-2-1">
-<span class="process-math">\(\sqrt{\frac{10}{11}}\text{,}\)</span>  <span class="process-math">\(\frac{3}{11}( \sqrt{2} - 1 ) + \frac{i}{11}( \sqrt{2} + 9 )\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_1_2-4-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\sqrt{\frac{10}{11}}\text{,}\)</span>  <span class="process-math">\(\frac{3 + i}{\sqrt{2} - 3i}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_1_2-4-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 1.5.3.c.1"><a href="#ex_1_2-4-2" title="Copy heading and permalink for Answer 1.5.3.c.1">🔗</a></div>
 </div></details></div>
@@ -489,7 +507,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="solutions"><details id="ex_1_3-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
 <div class="para" id="ex_1_3-4-2-1">
-<span class="process-math">\(2 \sqrt 3 i\, e^{i \frac {5 \pi} 6}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_1_3-4-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(2 \sqrt 3 \, e^{i \frac {5 \pi} 6}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_1_3-4-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 1.5.4.c.1"><a href="#ex_1_3-4-2" title="Copy heading and permalink for Answer 1.5.4.c.1">🔗</a></div>
 </div></details></div>
@@ -783,7 +801,7 @@ M(x,y) \, M(a,b) \ = \ M(xa-yb, \, xb+ya)\text{.}
 <div class="para" id="realpolynomialb-3-1-1">Prove that <span class="process-math">\(p(z) = 0\)</span> if and only if <span class="process-math">\(p \left( \o z \right) = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#realpolynomialb-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Task 1.5.24.b"><a href="#realpolynomialb-3" title="Copy heading and permalink for Task 1.5.24.b">🔗</a></div></article><div class="autopermalink" data-description="Exercise 1.5.24"><a href="#realpolynomialb" title="Copy heading and permalink for Exercise 1.5.24">🔗</a></div></article><article class="exercise exercise-like" id="ex_reversetriangle"><h3 class="heading"><span class="codenumber">25<span class="period">.</span></span></h3>
-<div class="para" id="ex_reversetriangle-1-1">Prove the reverse triangle inequality (<a href="sec_geometricprops.html#revtrianineq" class="xref" data-knowl="./knowl/xref/revtrianineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">Item b</a> of <a href="sec_geometricprops.html#cor_triangleineq" class="xref" data-knowl="./knowl/xref/cor_triangleineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 1.3.5">Corollary 1.3.5</a>) <span class="process-math">\(\left| z_1 - z_2 \right| \geq \left| z_1 \right| - \left|
+<div class="para" id="ex_reversetriangle-1-1">Prove the reverse triangle inequality (<a href="sec_geometricprops.html#cor_triangleineq" class="xref" data-knowl="./knowl/xref/cor_triangleineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 1.3.5">Corollary 1.3.5</a>(<a href="sec_geometricprops.html#revtrianineq" class="xref" data-knowl="./knowl/xref/revtrianineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">b</a>)) <span class="process-math">\(\left| z_1 - z_2 \right| \geq \left| z_1 \right| - \left|
 z_2 \right| \text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#ex_reversetriangle-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Exercise 1.5.25"><a href="#ex_reversetriangle" title="Copy heading and permalink for Exercise 1.5.25">🔗</a></div></article><article class="exercise exercise-like" id="chapter1-exercises-26"><h3 class="heading"><span class="codenumber">26<span class="period">.</span></span></h3>

@@ -38,9 +38,9 @@
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_exptaylor.html ./knowl/xref/ex_1_sinlaurent.html ./knowl/xref/cor_firstresidue.html">
 \begin{align*}
 \frac{ \exp(z) }{ \sin(z) } \amp \ = \ \left( 1 + z +
-\frac 1 2 \, z^2 + \frac 1 6 \, z^3 + \cdots \right) \left(
+\frac 1 2 \, z^2 + \cdots \right) \left(
 z^{ -1 } + \frac 1 6 \, z + \frac{ 7 }{ 360 } \, z^3 +
-\frac{ 31 }{ 15120 } \, z^5 + \cdots \right)\\
+\cdots \right)\\
 \amp \ = \ z^{ -1 } + 1 + \frac 2 3 \, z + \cdots
 \end{align*}
 </div>
@@ -51,11 +51,11 @@ z^{ -1 } + \frac 1 6 \, z + \frac{ 7 }{ 360 } \, z^3 +
 </div> <div class="para logical">
 <div class="para">For the integral around <span class="process-math">\(\pi\text{,}\)</span> we use the fact that <span class="process-math">\(\sin(z) = \sin(\pi - z)\text{,}\)</span> and so we can compute the Laurent expansion of <span class="process-math">\(\frac 1 { \sin(z) }\)</span> at <span class="process-math">\(\pi\)</span> also via <a href="sec_LaurentSeries.html#ex_1_sinlaurent" class="xref" data-knowl="./knowl/xref/ex_1_sinlaurent.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.3.4">Example 8.3.4</a>:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_1_sinlaurent.html">
-\begin{equation*}
-\frac 1 { \sin(z) } \ = \ - \frac 1 { \sin(z-\pi) } \ = \
--(z-\pi)^{ -1 } - \frac 1 6 \, (z-\pi) - \frac{ 7 }{ 360 }
+\begin{align*}
+\frac 1 { \sin(z) } \ \amp= \ - \frac 1 { \sin(z-\pi) } \\
+\amp = \ -(z-\pi)^{ -1 } - \frac 1 6 \, (z-\pi) - \frac{ 7 }{ 360 }
 \, (z-\pi)^3 - \cdots 
-\end{equation*}
+\end{align*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_expoversin-1-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical">
@@ -63,7 +63,7 @@ z^{ -1 } + \frac 1 6 \, z + \frac{ 7 }{ 360 } \, z^3 +
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_expatpi.html ./knowl/xref/cor_firstresidue.html">
 \begin{align*}
 \frac{ \exp(z) }{ \sin(z) } \amp \ = \ \left( e^\pi +
-e^\pi (z-\pi) + \frac { e^\pi } 2 \, (z-\pi)^2 + \cdots
+e^\pi (z-\pi) + \cdots
 \right) \left( -(z-\pi)^{ -1 } - \frac 1 6 \, (z-\pi) -
 \cdots \right)\\
 \amp \ = \ {} -e^\pi (z-\pi)^{ -1 } - e^\pi - \frac 2 3
@@ -75,7 +75,7 @@ e^\pi (z-\pi) + \frac { e^\pi } 2 \, (z-\pi)^2 + \cdots
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_expatpi.html ./knowl/xref/cor_firstresidue.html">
 \begin{equation*}
 \int_{ C[2,3] } \frac{ \exp(z) }{ \sin(z) } \, \diff{z} \ = \ 2
-\pi i \left( 1 - e^\pi \right) \text{.}
+\pi i \left( 1 - e^\pi \right) \,\text{.}
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_expoversin-1-5" title="Copy heading and permalink for Paragraph">🔗</a></div>

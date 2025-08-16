@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,25 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="indexnav">
 <span class="mininav">Jump to:</span><span class="indexjump"><a href="#indexletter-a">A </a><a href="#indexletter-b">B </a><a href="#indexletter-c">C </a><a href="#indexletter-d">D </a><a href="#indexletter-e">E </a><a href="#indexletter-f">F </a><a href="#indexletter-g">G </a><a href="#indexletter-h">H </a><a href="#indexletter-i">I </a><a href="#indexletter-j">J </a><a href="#indexletter-k">K </a><a href="#indexletter-l">L </a><a href="#indexletter-m">M </a><br><a href="#indexletter-n">N </a><a href="#indexletter-o">O </a><a href="#indexletter-p">P </a><a href="#indexletter-q">Q </a><a href="#indexletter-r">R </a><a href="#indexletter-s">S </a><a href="#indexletter-t">T </a><a href="#indexletter-u">U </a><a href="#indexletter-v">V </a><a href="#indexletter-w">W </a><a href="#indexletter-x">X </a><a href="#indexletter-y">Y </a><a href="#indexletter-z">Z </a></span>
 </div>
@@ -168,7 +187,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -220,11 +239,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -320,8 +339,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter contains-active">
@@ -336,15 +354,12 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="index" id="backmatter-3"><h2 class="heading hide-type">
 <span class="type">Index</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Index</span>
 </h2>
-<div class="indexletter" id="indexletter-\"><div class="indexitem">
-<span class="process-math">\(i\)</span><span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-13" class="xref" data-knowl="./knowl/index/sec_defalg-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
-</div></div>
 <div class="indexletter" id="indexletter-a">
-<div class="indexitem">absolute convergence<span class="indexknowl"> <a href="sec_series.html#sec_series-26" class="xref" data-knowl="./knowl/index/sec_series-26.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 7.2.15">Definition</a></span>
+<div class="indexitem">absolute convergence<span class="indexknowl"> <a href="sec_series.html#sec_series-28" class="xref" data-knowl="./knowl/index/sec_series-28.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 7.2.15">Definition</a></span>
 </div>
 <div class="indexitem">absolute value<span class="indexknowl"> <a href="geomprop.html#geomprop-5" class="xref" data-knowl="./knowl/index/geomprop-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.2.2">Definition</a></span>
 </div>
-<div class="indexitem">accumulation point<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-8-1-1-3-3" class="xref" data-knowl="./knowl/index/sec_topologyintro-8-1-1-3-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Item c">Item</a> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-5" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.2">Definition</a></span>
+<div class="indexitem">accumulation point<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-8-1-1-4-3" class="xref" data-knowl="./knowl/index/sec_topologyintro-8-1-1-4-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Item c">Item</a> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-5" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.2">Definition</a></span>
 </div>
 <div class="indexitem">addition<span class="indexknowl"> <a href="sec_defalg.html#def-complex-number" class="xref" data-knowl="./knowl/index/def-complex-number.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.1.1">Definition</a></span>
 </div>
@@ -354,13 +369,13 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">alternating zeta function<span class="indexknowl"> <a href="sec_infsums.html#sec_infsums-4" class="xref" data-knowl="./knowl/index/sec_infsums-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">analytic<span class="indexknowl"> <a href="sec_powerseriesholom.html#sec_powerseriesholom-29" class="xref" data-knowl="./knowl/index/sec_powerseriesholom-29.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 8.1.14">Definition</a></span>
+<div class="indexitem">analytic<span class="indexknowl"> <a href="sec_powerseriesholom.html#sec_powerseriesholom-31" class="xref" data-knowl="./knowl/index/sec_powerseriesholom-31.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 8.1.14">Definition</a></span>
 </div>
 <div class="indexitem">antiderivative<span class="indexknowl"> <a href="sec_antiderivatives.html#sec_antiderivatives-2" class="xref" data-knowl="./knowl/index/sec_antiderivatives-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_antiderivatives.html#sec_antiderivatives-4" class="xref" data-knowl="./knowl/index/sec_antiderivatives-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 4.2.1">Definition</a> <a href="sec_antiderivagain.html" class="internal" title="Section 5.2: Antiderivatives Again">Section</a></span>
 </div>
-<div class="indexitem">Arg<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-6" class="xref" data-knowl="./knowl/index/sec_logexp-6.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.5.2">Definition</a></span>
+<div class="indexitem">Arg<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-5" class="xref" data-knowl="./knowl/index/sec_logexp-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.5.2">Definition</a></span>
 </div>
-<div class="indexitem">arg<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-12" class="xref" data-knowl="./knowl/index/sec_logexp-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">arg<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-13" class="xref" data-knowl="./knowl/index/sec_logexp-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">argument<span class="indexknowl"> <a href="geomprop.html#geomprop-5" class="xref" data-knowl="./knowl/index/geomprop-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.2.2">Definition</a></span>
 </div>
@@ -371,7 +386,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 </div>
 <div class="indexletter" id="indexletter-b">
-<div class="indexitem">bijection<span class="indexknowl"> <a href="sec_diffholom.html#sec_diffholom-16" class="xref" data-knowl="./knowl/index/sec_diffholom-16.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_mobius.html#sec_mobius-5" class="xref" data-knowl="./knowl/index/sec_mobius-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">bijection<span class="indexknowl"> <a href="sec_diffholom.html#sec_diffholom-18" class="xref" data-knowl="./knowl/index/sec_diffholom-18.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_mobius.html#sec_mobius-5" class="xref" data-knowl="./knowl/index/sec_mobius-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">binary operation<span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-4" class="xref" data-knowl="./knowl/index/sec_defalg-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
@@ -379,11 +394,11 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">boundary<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-13" class="xref" data-knowl="./knowl/index/sec_topologyintro-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.5">Definition</a> <a href="sec_harmonicmeanvalue.html#sec_harmonicmeanvalue-9" class="xref" data-knowl="./knowl/index/sec_harmonicmeanvalue-9.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">boundary point<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-8-1-1-3-2" class="xref" data-knowl="./knowl/index/sec_topologyintro-8-1-1-3-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">Item</a></span>
+<div class="indexitem">boundary point<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-8-1-1-4-2" class="xref" data-knowl="./knowl/index/sec_topologyintro-8-1-1-4-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">Item</a></span>
 </div>
 <div class="indexitem">bounded<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-15" class="xref" data-knowl="./knowl/index/sec_topologyintro-15.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.7">Definition</a></span>
 </div>
-<div class="indexitem">branch of the logarithm<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-4" class="xref" data-knowl="./knowl/index/sec_logexp-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.5.1">Definition</a></span>
+<div class="indexitem">branch of the logarithm<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-3" class="xref" data-knowl="./knowl/index/sec_logexp-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.5.1">Definition</a></span>
 </div>
 </div>
 <div class="indexletter" id="indexletter-c">
@@ -391,11 +406,11 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">Casorati–Weierstraß theorem<span class="indexknowl"> <a href="sec_classificationsingul.html#casoratiweierstrass" class="xref" data-knowl="./knowl/index/casoratiweierstrass.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.1.9: Casorati–Weierstraß">Theorem</a></span>
 </div>
-<div class="indexitem">Cauchy–Goursat theorem<span class="indexknowl"> <a href="sec_cauchythm.html#sec_cauchythm-8" class="xref" data-knowl="./knowl/index/sec_cauchythm-8.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">Cauchy–Goursat theorem<span class="indexknowl"> <a href="sec_cauchythm.html#sec_cauchythm-9" class="xref" data-knowl="./knowl/index/sec_cauchythm-9.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">Cauchy–Riemann equations<span class="indexknowl"> <a href="sec_Cauchy-Riemann.html#sec_Cauchy-Riemann-4" class="xref" data-knowl="./knowl/index/sec_Cauchy-Riemann-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">Cauchy’s estimate<span class="indexknowl"> <a href="sec_powerseriesholom.html#sec_powerseriesholom-25" class="xref" data-knowl="./knowl/index/sec_powerseriesholom-25.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">Cauchy’s estimate<span class="indexknowl"> <a href="sec_powerseriesholom.html#sec_powerseriesholom-27" class="xref" data-knowl="./knowl/index/sec_powerseriesholom-27.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">Cauchy’s integral formula<span class="indexknowl"> <a href="sec_CIF.html#cauchyformulacircle" class="xref" data-knowl="./knowl/index/cauchyformulacircle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.1">Theorem</a></span>
 </div>
@@ -418,9 +433,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">coffee<span class="indexknowl"> <a href="sec_CIF.html#sec_CIF-10" class="xref" data-knowl="./knowl/index/sec_CIF-10.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_sequseriesfunctions.html#sec_sequseriesfunctions-9" class="xref" data-knowl="./knowl/index/sec_sequseriesfunctions-9.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_classificationsingul.html#sec_classificationsingul-16" class="xref" data-knowl="./knowl/index/sec_classificationsingul-16.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">comparison test<span class="indexknowl"> <a href="sec_series.html#sec_series-11" class="xref" data-knowl="./knowl/index/sec_series-11.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">comparison test<span class="indexknowl"> <a href="sec_series.html#sec_series-13" class="xref" data-knowl="./knowl/index/sec_series-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">complete<span class="indexknowl"> <a href="sec_sequencescomplete.html#sec_sequencescomplete-11" class="xref" data-knowl="./knowl/index/sec_sequencescomplete-11.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">complete<span class="indexknowl"> <a href="sec_sequencescomplete.html#sec_sequencescomplete-13" class="xref" data-knowl="./knowl/index/sec_sequencescomplete-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">complex number<span class="indexknowl"> <a href="sec_defalg.html#def-complex-number" class="xref" data-knowl="./knowl/index/def-complex-number.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.1.1">Definition</a></span>
 </div>
@@ -430,19 +445,19 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">complex projective line<span class="indexknowl"> <a href="sec_riemannspere.html#sec_riemannspere-8" class="xref" data-knowl="./knowl/index/sec_riemannspere-8.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.2.4">Definition</a></span>
 </div>
-<div class="indexitem">composition<span class="indexknowl"> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-21" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-21.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.10">Definition</a></span>
+<div class="indexitem">composition<span class="indexknowl"> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-22" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-22.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.10">Definition</a></span>
 </div>
-<div class="indexitem">concatenation<span class="indexknowl"> <a href="sec_intdef.html#sec_intdef-14" class="xref" data-knowl="./knowl/index/sec_intdef-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">concatenation<span class="indexknowl"> <a href="sec_intdef.html#sec_intdef-16" class="xref" data-knowl="./knowl/index/sec_intdef-16.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">conformal<span class="indexknowl"> <a href="sec_diffholom.html#sec_diffholom-14" class="xref" data-knowl="./knowl/index/sec_diffholom-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_mobius.html#sec_mobius-12" class="xref" data-knowl="./knowl/index/sec_mobius-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_harmonicmeanvalue.html#sec_harmonicmeanvalue-12" class="xref" data-knowl="./knowl/index/sec_harmonicmeanvalue-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">conformal<span class="indexknowl"> <a href="sec_diffholom.html#sec_diffholom-14" class="xref" data-knowl="./knowl/index/sec_diffholom-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_mobius.html#sec_mobius-13" class="xref" data-knowl="./knowl/index/sec_mobius-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_harmonicmeanvalue.html#sec_harmonicmeanvalue-12" class="xref" data-knowl="./knowl/index/sec_harmonicmeanvalue-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">conjugate<span class="indexknowl"> <a href="sec_geometricprops.html#sec_geometricprops-5" class="xref" data-knowl="./knowl/index/sec_geometricprops-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.3.1">Definition</a></span>
 </div>
 <div class="indexitem">connected<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-17" class="xref" data-knowl="./knowl/index/sec_topologyintro-17.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.8">Definition</a></span>
 </div>
-<div class="indexitem">continuous<span class="indexknowl"> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-15" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-15.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.7">Definition</a> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-17" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-17.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.8">Definition</a></span>
+<div class="indexitem">continuous<span class="indexknowl"> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-16" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-16.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.7">Definition</a> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-18" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-18.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.8">Definition</a></span>
 </div>
-<div class="indexitem">contractible<span class="indexknowl"> <a href="sec_cauchythm.html#sec_cauchythm-12" class="xref" data-knowl="./knowl/index/sec_cauchythm-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 4.3.6">Definition</a></span>
+<div class="indexitem">contractible<span class="indexknowl"> <a href="sec_cauchythm.html#sec_cauchythm-13" class="xref" data-knowl="./knowl/index/sec_cauchythm-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 4.3.6">Definition</a></span>
 </div>
 <div class="indexitem">convergence<span class="indexknowl"> <a href="sec_sequencescomplete.html#sec_sequencescomplete-2" class="xref" data-knowl="./knowl/index/sec_sequencescomplete-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
@@ -479,7 +494,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">differentiable<span class="indexknowl"> <a href="sec_diffholom.html#sec_diffholom-3" class="xref" data-knowl="./knowl/index/sec_diffholom-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.2.1">Definition</a></span>
 </div>
-<div class="indexitem">dilation<span class="indexknowl"> <a href="sec_mobius.html#sec_mobius-13" class="xref" data-knowl="./knowl/index/sec_mobius-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">dilation<span class="indexknowl"> <a href="sec_mobius.html#sec_mobius-14" class="xref" data-knowl="./knowl/index/sec_mobius-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">discriminant<span class="indexknowl"> <a href="chapter1-exercises.html#chapter1-exercises-7" class="xref" data-knowl="./knowl/index/chapter1-exercises-7.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 1.5.7">Exercise</a></span>
 </div>
@@ -502,13 +517,14 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 </div>
 <div class="indexletter" id="indexletter-e">
-<div class="indexitem">e@<span class="process-math">\(e\)</span><span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-20" class="xref" data-knowl="./knowl/index/sec_logexp-20.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_sequencescomplete.html#ex_e-1series" class="xref" data-knowl="./knowl/index/ex_e-1series.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.1.7">Example</a></span>
+<div class="indexitem">
+<span class="process-math">\(e\)</span><span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-22" class="xref" data-knowl="./knowl/index/sec_logexp-22.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_sequencescomplete.html#ex_e-1series" class="xref" data-knowl="./knowl/index/ex_e-1series.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.1.7">Example</a></span>
 </div>
 <div class="indexitem">embedding of <span class="process-math">\(\R\)</span> into <span class="process-math">\(\C\)</span><span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-5" class="xref" data-knowl="./knowl/index/sec_defalg-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">empty set<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-12" class="xref" data-knowl="./knowl/index/sec_topologyintro-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">entire<span class="indexknowl"> <a href="sec_diffholom.html#sec_diffholom-3" class="xref" data-knowl="./knowl/index/sec_diffholom-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.2.1">Definition</a> <a href="sec_cauchytothelimit.html#liouville" class="xref" data-knowl="./knowl/index/liouville.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.3.4: Liouville’s  Theorem">Corollary</a></span>
+<div class="indexitem">entire<span class="indexknowl"> <a href="sec_diffholom.html#sec_diffholom-3" class="xref" data-knowl="./knowl/index/sec_diffholom-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.2.1">Definition</a> <a href="sec_cauchytothelimit.html#liouville" class="xref" data-knowl="./knowl/index/liouville.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.3.4: Liouville’s Theorem">Corollary</a></span>
 </div>
 <div class="indexitem">essential singularity<span class="indexknowl"> <a href="sec_classificationsingul.html#sec_classificationsingul-4-1-1-9-3" class="xref" data-knowl="./knowl/index/sec_classificationsingul-4-1-1-9-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Item c">Item</a></span>
 </div>
@@ -530,11 +546,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">fixed point<span class="indexknowl"> <a href="chapter3-exercises.html#chapter3-exercises-5" class="xref" data-knowl="./knowl/index/chapter3-exercises-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.5">Exercise</a></span>
 </div>
-<div class="indexitem">Frobenius problem<span class="indexknowl"> <a href="sec_coinexchange.html#sec_coinexchange-2" class="xref" data-knowl="./knowl/index/sec_coinexchange-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
-</div>
 <div class="indexitem">function<span class="indexknowl"> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-2" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.1">Definition</a></span>
 </div>
-<div class="subindexitem">conformal<span class="indexknowl"> <a href="sec_diffholom.html#sec_diffholom-14" class="xref" data-knowl="./knowl/index/sec_diffholom-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_mobius.html#sec_mobius-12" class="xref" data-knowl="./knowl/index/sec_mobius-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="subindexitem">conformal<span class="indexknowl"> <a href="sec_diffholom.html#sec_diffholom-14" class="xref" data-knowl="./knowl/index/sec_diffholom-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_mobius.html#sec_mobius-13" class="xref" data-knowl="./knowl/index/sec_mobius-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="subindexitem">even<span class="indexknowl"> <a href="taylorchapter-6.html#ex_evenoddfunctions" class="xref" data-knowl="./knowl/index/ex_evenoddfunctions.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 8.4.34">Exercise</a></span>
 </div>
@@ -547,7 +561,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="subindexitem">trigonometric<span class="indexknowl"> <a href="sec_exptrigfcts.html#sec_exptrigfcts-12" class="xref" data-knowl="./knowl/index/sec_exptrigfcts-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">fundamental theorem</div>
-<div class="subindexitem">of algebra<span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-18" class="xref" data-knowl="./knowl/index/sec_defalg-18.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.1.4: Fundamental Theorem of Algebra">Theorem</a> <a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/index/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra ">Theorem</a> <a href="taylorchapter-6.html#taylorchapter-6-15" class="xref" data-knowl="./knowl/index/taylorchapter-6-15.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 8.4.15">Exercise</a> <a href="sec_argprinc.html#roucheexample" class="xref" data-knowl="./knowl/index/roucheexample.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.3.4">Example</a> <a href="residuechapter-6.html#residuechapter-6-21" class="xref" data-knowl="./knowl/index/residuechapter-6-21.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 9.4.21">Exercise</a></span>
+<div class="subindexitem">of algebra<span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-24" class="xref" data-knowl="./knowl/index/sec_defalg-24.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.1.4: Fundamental Theorem of Algebra">Theorem</a> <a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/index/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra">Theorem</a> <a href="taylorchapter-6.html#taylorchapter-6-15" class="xref" data-knowl="./knowl/index/taylorchapter-6-15.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 8.4.15">Exercise</a> <a href="sec_argprinc.html#roucheexample" class="xref" data-knowl="./knowl/index/roucheexample.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.3.4">Example</a> <a href="residuechapter-6.html#residuechapter-6-21" class="xref" data-knowl="./knowl/index/residuechapter-6-21.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 9.4.21">Exercise</a></span>
 </div>
 <div class="subindexitem">of calculus<span class="indexknowl"> <a href="sec_antiderivatives.html#sec_antiderivatives-2" class="xref" data-knowl="./knowl/index/sec_antiderivatives-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_antiderivagain.html" class="internal" title="Section 5.2: Antiderivatives Again">Section</a> <a href="appendix-calculus.html#fundthmcalc" class="xref" data-knowl="./knowl/index/fundthmcalc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.3: Fundamental Theorem of Calculus">Theorem</a></span>
 </div>
@@ -565,7 +579,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 </div>
 <div class="indexletter" id="indexletter-h">
-<div class="indexitem">harmonic<span class="indexknowl"> <a href="sec_Cauchy-Riemann.html#sec_Cauchy-Riemann-10" class="xref" data-knowl="./knowl/index/sec_Cauchy-Riemann-10.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_defharmonic.html#sec_defharmonic-3" class="xref" data-knowl="./knowl/index/sec_defharmonic-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 6.1.1">Definition</a></span>
+<div class="indexitem">harmonic<span class="indexknowl"> <a href="sec_Cauchy-Riemann.html#sec_Cauchy-Riemann-8" class="xref" data-knowl="./knowl/index/sec_Cauchy-Riemann-8.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_defharmonic.html#sec_defharmonic-3" class="xref" data-knowl="./knowl/index/sec_defharmonic-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 6.1.1">Definition</a></span>
 </div>
 <div class="indexitem">harmonic conjugate<span class="indexknowl"> <a href="sec_defharmonic.html#sec_defharmonic-13" class="xref" data-knowl="./knowl/index/sec_defharmonic-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
@@ -579,6 +593,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 </div>
 <div class="indexletter" id="indexletter-i">
+<div class="indexitem">
+<span class="process-math">\(i\)</span><span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-13" class="xref" data-knowl="./knowl/index/sec_defalg-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+</div>
 <div class="indexitem">identity<span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-8" class="xref" data-knowl="./knowl/index/sec_defalg-8.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">identity map<span class="indexknowl"> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-3" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
@@ -586,15 +603,15 @@ eBookConfig.enable_chatcodes =  false;
 <div class="indexitem">identity principle<span class="indexknowl"> <a href="sec_classifzeros.html#sec_classifzeros-4" class="xref" data-knowl="./knowl/index/sec_classifzeros-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">image</div>
-<div class="subindexitem">of a function<span class="indexknowl"> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-21" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-21.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.10">Definition</a></span>
+<div class="subindexitem">of a function<span class="indexknowl"> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-22" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-22.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.10">Definition</a></span>
 </div>
 <div class="subindexitem">of a point<span class="indexknowl"> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-2" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.1">Definition</a></span>
 </div>
 <div class="indexitem">imaginary axis<span class="indexknowl"> <a href="geomprop.html#geomprop-2" class="xref" data-knowl="./knowl/index/geomprop-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">imaginary part<span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-15" class="xref" data-knowl="./knowl/index/sec_defalg-15.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.1.3">Definition</a></span>
+<div class="indexitem">imaginary part<span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-20" class="xref" data-knowl="./knowl/index/sec_defalg-20.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.1.3">Definition</a></span>
 </div>
-<div class="indexitem">improper integral<span class="indexknowl"> <a href="sec_cauchytothelimit.html#sec_cauchytothelimit-12" class="xref" data-knowl="./knowl/index/sec_cauchytothelimit-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="residuechapter-6.html#ex_improperintrationalfct" class="xref" data-knowl="./knowl/index/ex_improperintrationalfct.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 9.4.13">Exercise</a></span>
+<div class="indexitem">improper integral<span class="indexknowl"> <a href="sec_cauchytothelimit.html#sec_cauchytothelimit-13" class="xref" data-knowl="./knowl/index/sec_cauchytothelimit-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="residuechapter-6.html#ex_improperintrationalfct" class="xref" data-knowl="./knowl/index/ex_improperintrationalfct.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 9.4.13">Exercise</a></span>
 </div>
 <div class="indexitem">infinity<span class="indexknowl"> <a href="sec_riemannspere.html#sec_riemannspere-2" class="xref" data-knowl="./knowl/index/sec_riemannspere-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
@@ -608,23 +625,23 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">integration by parts<span class="indexknowl"> <a href="intchapter-7.html#intchapter-7-10" class="xref" data-knowl="./knowl/index/intchapter-7-10.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.10">Exercise</a></span>
 </div>
-<div class="indexitem">interior point<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-8-1-1-3-1" class="xref" data-knowl="./knowl/index/sec_topologyintro-8-1-1-3-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Item a">Item</a></span>
+<div class="indexitem">interior point<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-8-1-1-4-1" class="xref" data-knowl="./knowl/index/sec_topologyintro-8-1-1-4-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Item a">Item</a></span>
 </div>
 <div class="indexitem">inverse function<span class="indexknowl"> <a href="sec_diffholom.html#inversederivative" class="xref" data-knowl="./knowl/index/inversederivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.2.8">Proposition</a></span>
 </div>
 <div class="subindexitem">of a Möbius transformation<span class="indexknowl"> <a href="sec_mobius.html#sec_mobius-6" class="xref" data-knowl="./knowl/index/sec_mobius-6.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">inverse parametrization<span class="indexknowl"> <a href="sec_intdef.html#sec_intdef-14" class="xref" data-knowl="./knowl/index/sec_intdef-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">inverse parametrization<span class="indexknowl"> <a href="sec_intdef.html#sec_intdef-16" class="xref" data-knowl="./knowl/index/sec_intdef-16.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">inversion<span class="indexknowl"> <a href="sec_mobius.html#sec_mobius-13" class="xref" data-knowl="./knowl/index/sec_mobius-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">inversion<span class="indexknowl"> <a href="sec_mobius.html#sec_mobius-14" class="xref" data-knowl="./knowl/index/sec_mobius-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">isolated point<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-8-1-1-3-4" class="xref" data-knowl="./knowl/index/sec_topologyintro-8-1-1-3-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">Item</a></span>
+<div class="indexitem">isolated point<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-8-1-1-4-4" class="xref" data-knowl="./knowl/index/sec_topologyintro-8-1-1-4-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">Item</a></span>
 </div>
 <div class="indexitem">isolated singularity<span class="indexknowl"> <a href="sec_classificationsingul.html#sec_classificationsingul-4" class="xref" data-knowl="./knowl/index/sec_classificationsingul-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 9.1.1">Definition</a></span>
 </div>
 </div>
 <div class="indexletter" id="indexletter-j">
-<div class="indexitem">Jacobian<span class="indexknowl"> <a href="chapter3-exercises.html#chapter3-exercises-19" class="xref" data-knowl="./knowl/index/chapter3-exercises-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.19">Exercise</a></span>
+<div class="indexitem">Jacobian<span class="indexknowl"> <a href="chapter2-exercises.html#chapter2-exercises-19" class="xref" data-knowl="./knowl/index/chapter2-exercises-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.19">Exercise</a></span>
 </div>
 <div class="indexitem">Jordan curve theorem<span class="indexknowl"> <a href="sec_CIF.html#sec_CIF-11" class="xref" data-knowl="./knowl/index/sec_CIF-11.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
@@ -634,11 +651,11 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">Laurent series<span class="indexknowl"> <a href="sec_LaurentSeries.html#sec_LaurentSeries-4" class="xref" data-knowl="./knowl/index/sec_LaurentSeries-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 8.3.1">Definition</a></span>
 </div>
-<div class="indexitem">least upper bound<span class="indexknowl"> <a href="sec_sequencescomplete.html#sec_sequencescomplete-18" class="xref" data-knowl="./knowl/index/sec_sequencescomplete-18.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_regionsconvergence.html" class="internal" title="Section 7.4: Regions of Convergence">Section</a></span>
+<div class="indexitem">least upper bound<span class="indexknowl"> <a href="sec_sequencescomplete.html#sec_sequencescomplete-20" class="xref" data-knowl="./knowl/index/sec_sequencescomplete-20.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_regionsconvergence.html" class="internal" title="Section 7.4: Regions of Convergence">Section</a></span>
 </div>
 <div class="indexitem">Leibniz’s rule<span class="indexknowl"> <a href="sec_cauchythm.html" class="internal" title="Section 4.3: Cauchy’s Theorem">Section</a> <a href="appendix-calculus.html#leibnizrule" class="xref" data-knowl="./knowl/index/leibnizrule.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.9: Leibniz’s Rule">Theorem</a></span>
 </div>
-<div class="indexitem">length<span class="indexknowl"> <a href="sec_intdef.html#sec_intdef-11" class="xref" data-knowl="./knowl/index/sec_intdef-11.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 4.1.5">Definition</a></span>
+<div class="indexitem">length<span class="indexknowl"> <a href="sec_intdef.html#sec_intdef-12" class="xref" data-knowl="./knowl/index/sec_intdef-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 4.1.5">Definition</a></span>
 </div>
 <div class="indexitem">limit</div>
 <div class="subindexitem">infinity<span class="indexknowl"> <a href="sec_riemannspere.html#sec_riemannspere-2" class="xref" data-knowl="./knowl/index/sec_riemannspere-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
@@ -651,11 +668,11 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">linear fractional transformation<span class="indexknowl"> <a href="sec_mobius.html#sec_mobius-4" class="xref" data-knowl="./knowl/index/sec_mobius-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.1.1">Definition</a></span>
 </div>
-<div class="indexitem">Liouville’s theorem<span class="indexknowl"> <a href="sec_cauchytothelimit.html#liouville" class="xref" data-knowl="./knowl/index/liouville.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.3.4: Liouville’s  Theorem">Corollary</a></span>
+<div class="indexitem">Liouville’s theorem<span class="indexknowl"> <a href="sec_cauchytothelimit.html#liouville" class="xref" data-knowl="./knowl/index/liouville.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.3.4: Liouville’s Theorem">Corollary</a></span>
 </div>
-<div class="indexitem">Log<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-6" class="xref" data-knowl="./knowl/index/sec_logexp-6.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.5.2">Definition</a></span>
+<div class="indexitem">Log<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-5" class="xref" data-knowl="./knowl/index/sec_logexp-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.5.2">Definition</a></span>
 </div>
-<div class="indexitem">log<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-12" class="xref" data-knowl="./knowl/index/sec_logexp-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">log<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-13" class="xref" data-knowl="./knowl/index/sec_logexp-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">logarithm<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-2" class="xref" data-knowl="./knowl/index/sec_logexp-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
@@ -688,27 +705,27 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">minimum-modulus theorem<span class="indexknowl"> <a href="sec_classifzeros.html#minmodthm" class="xref" data-knowl="./knowl/index/minmodthm.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.2.6: Minimum-Modulus Theorem">Corollary</a></span>
 </div>
-<div class="indexitem">Mobius transformation@Möbius transformation<span class="indexknowl"> <a href="sec_mobius.html#sec_mobius-2" class="xref" data-knowl="./knowl/index/sec_mobius-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">Möbius transformation<span class="indexknowl"> <a href="sec_mobius.html#sec_mobius-2" class="xref" data-knowl="./knowl/index/sec_mobius-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">modulus<span class="indexknowl"> <a href="geomprop.html#geomprop-5" class="xref" data-knowl="./knowl/index/geomprop-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.2.2">Definition</a></span>
 </div>
-<div class="indexitem">monotone<span class="indexknowl"> <a href="sec_sequencescomplete.html#sec_sequencescomplete-12" class="xref" data-knowl="./knowl/index/sec_sequencescomplete-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 7.1.5">Definition</a></span>
+<div class="indexitem">monotone<span class="indexknowl"> <a href="sec_sequencescomplete.html#sec_sequencescomplete-14" class="xref" data-knowl="./knowl/index/sec_sequencescomplete-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 7.1.5">Definition</a></span>
 </div>
-<div class="indexitem">monotone sequence property<span class="indexknowl"> <a href="sec_sequencescomplete.html#sec_sequencescomplete-14" class="xref" data-knowl="./knowl/index/sec_sequencescomplete-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Axiom 7.1.6: Monotone Sequence Property">Axiom</a></span>
+<div class="indexitem">monotone sequence property<span class="indexknowl"> <a href="sec_sequencescomplete.html#sec_sequencescomplete-16" class="xref" data-knowl="./knowl/index/sec_sequencescomplete-16.html" data-reveal-label="Reveal" data-close-label="Close" title="Axiom 7.1.6: Monotone Sequence Property">Axiom</a></span>
 </div>
 <div class="indexitem">Morera’s theorem<span class="indexknowl"> <a href="sec_antiderivagain.html#morera" class="xref" data-knowl="./knowl/index/morera.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.2.1: Morera’s Theorem">Corollary</a></span>
 </div>
 <div class="indexitem">multiplication<span class="indexknowl"> <a href="sec_defalg.html#def-complex-number" class="xref" data-knowl="./knowl/index/def-complex-number.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.1.1">Definition</a></span>
 </div>
 </div>
-<div class="indexletter" id="indexletter-n"><div class="indexitem">north pole<span class="indexknowl"> <a href="sec_stereoproj.html#sec_stereoproj-4" class="xref" data-knowl="./knowl/index/sec_stereoproj-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexletter" id="indexletter-n"><div class="indexitem">north pole<span class="indexknowl"> <a href="sec_stereoproj.html#sec_stereoproj-3" class="xref" data-knowl="./knowl/index/sec_stereoproj-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div></div>
 <div class="indexletter" id="indexletter-o">
 <div class="indexitem">odd<span class="indexknowl"> <a href="taylorchapter-6.html#ex_evenoddfunctions" class="xref" data-knowl="./knowl/index/ex_evenoddfunctions.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 8.4.34">Exercise</a></span>
 </div>
-<div class="indexitem">one-to-one<span class="indexknowl"> <a href="sec_diffholom.html#sec_diffholom-17" class="xref" data-knowl="./knowl/index/sec_diffholom-17.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.2.7">Definition</a></span>
+<div class="indexitem">one-to-one<span class="indexknowl"> <a href="sec_diffholom.html#sec_diffholom-19" class="xref" data-knowl="./knowl/index/sec_diffholom-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.2.7">Definition</a></span>
 </div>
-<div class="indexitem">onto<span class="indexknowl"> <a href="sec_diffholom.html#sec_diffholom-17" class="xref" data-knowl="./knowl/index/sec_diffholom-17.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.2.7">Definition</a></span>
+<div class="indexitem">onto<span class="indexknowl"> <a href="sec_diffholom.html#sec_diffholom-19" class="xref" data-knowl="./knowl/index/sec_diffholom-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.2.7">Definition</a></span>
 </div>
 <div class="indexitem">open</div>
 <div class="subindexitem">disk<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-5" class="xref" data-knowl="./knowl/index/sec_topologyintro-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
@@ -751,11 +768,11 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">Poisson kernel<span class="indexknowl"> <a href="intchapter-7.html#ex_poissonkernel" class="xref" data-knowl="./knowl/index/ex_poissonkernel.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.31">Exercise</a> <a href="sec_harmonicmeanvalue.html#sec_harmonicmeanvalue-12" class="xref" data-knowl="./knowl/index/sec_harmonicmeanvalue-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">polar form<span class="indexknowl"> <a href="geomprop.html#geomprop-26" class="xref" data-knowl="./knowl/index/geomprop-26.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">polar form<span class="indexknowl"> <a href="geomprop.html#geomprop-33" class="xref" data-knowl="./knowl/index/geomprop-33.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">pole<span class="indexknowl"> <a href="sec_classificationsingul.html#sec_classificationsingul-4-1-1-9-2" class="xref" data-knowl="./knowl/index/sec_classificationsingul-4-1-1-9-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">Item</a></span>
 </div>
-<div class="indexitem">polynomial<span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-17" class="xref" data-knowl="./knowl/index/sec_defalg-17.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="chapter1-exercises.html#realpolynomialb" class="xref" data-knowl="./knowl/index/realpolynomialb.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 1.5.24">Exercise</a> <a href="chapter2-exercises.html#polynomialsholomorphic" class="xref" data-knowl="./knowl/index/polynomialsholomorphic.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.16">Exercise</a> <a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/index/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra ">Theorem</a></span>
+<div class="indexitem">polynomial<span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-23" class="xref" data-knowl="./knowl/index/sec_defalg-23.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="chapter1-exercises.html#realpolynomialb" class="xref" data-knowl="./knowl/index/realpolynomialb.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 1.5.24">Exercise</a> <a href="chapter2-exercises.html#polynomialsholomorphic" class="xref" data-knowl="./knowl/index/polynomialsholomorphic.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.16">Exercise</a> <a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/index/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra">Theorem</a></span>
 </div>
 <div class="indexitem">positive orientation<span class="indexknowl"> <a href="sec_CIF.html#sec_CIF-13" class="xref" data-knowl="./knowl/index/sec_CIF-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 4.4.4">Definition</a></span>
 </div>
@@ -767,11 +784,11 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">primitive<span class="indexknowl"> <a href="sec_antiderivatives.html#sec_antiderivatives-4" class="xref" data-knowl="./knowl/index/sec_antiderivatives-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 4.2.1">Definition</a></span>
 </div>
-<div class="indexitem">primitive root of unity<span class="indexknowl"> <a href="geomprop.html#geomprop-23" class="xref" data-knowl="./knowl/index/geomprop-23.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.2.8">Definition</a></span>
+<div class="indexitem">primitive root of unity<span class="indexknowl"> <a href="geomprop.html#geomprop-28" class="xref" data-knowl="./knowl/index/geomprop-28.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.2.8">Definition</a></span>
 </div>
-<div class="indexitem">principal argument<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-6" class="xref" data-knowl="./knowl/index/sec_logexp-6.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.5.2">Definition</a></span>
+<div class="indexitem">principal argument<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-5" class="xref" data-knowl="./knowl/index/sec_logexp-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.5.2">Definition</a></span>
 </div>
-<div class="indexitem">principal logarithm<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-6" class="xref" data-knowl="./knowl/index/sec_logexp-6.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.5.2">Definition</a></span>
+<div class="indexitem">principal logarithm<span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-5" class="xref" data-knowl="./knowl/index/sec_logexp-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.5.2">Definition</a></span>
 </div>
 <div class="indexitem">principal value of <span class="process-math">\(a^b\)</span><span class="indexknowl"> <a href="sec_logexp.html#sec_logexp-18" class="xref" data-knowl="./knowl/index/sec_logexp-18.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.5.5">Definition</a></span>
 </div>
@@ -783,9 +800,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">real number<span class="indexknowl"> <a href="sec_defalg.html#def-complex-number" class="xref" data-knowl="./knowl/index/def-complex-number.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.1.1">Definition</a></span>
 </div>
-<div class="indexitem">real part<span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-15" class="xref" data-knowl="./knowl/index/sec_defalg-15.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.1.3">Definition</a></span>
+<div class="indexitem">real part<span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-20" class="xref" data-knowl="./knowl/index/sec_defalg-20.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.1.3">Definition</a></span>
 </div>
-<div class="indexitem">rectangular form<span class="indexknowl"> <a href="geomprop.html#geomprop-26" class="xref" data-knowl="./knowl/index/geomprop-26.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">rectangular form<span class="indexknowl"> <a href="geomprop.html#geomprop-33" class="xref" data-knowl="./knowl/index/geomprop-33.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">region<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-17" class="xref" data-knowl="./knowl/index/sec_topologyintro-17.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.8">Definition</a></span>
 </div>
@@ -795,7 +812,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">removable singularity<span class="indexknowl"> <a href="sec_classificationsingul.html#sec_classificationsingul-4-1-1-9-1" class="xref" data-knowl="./knowl/index/sec_classificationsingul-4-1-1-9-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Item a">Item</a></span>
 </div>
-<div class="indexitem">reparametrization<span class="indexknowl"> <a href="sec_intdef.html#sec_intdef-7" class="xref" data-knowl="./knowl/index/sec_intdef-7.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">reparametrization<span class="indexknowl"> <a href="sec_intdef.html#sec_intdef-8" class="xref" data-knowl="./knowl/index/sec_intdef-8.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">residue<span class="indexknowl"> <a href="sec_residues.html#sec_residues-3" class="xref" data-knowl="./knowl/index/sec_residues-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 9.2.1">Definition</a></span>
 </div>
@@ -807,18 +824,20 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">Riemann zeta function<span class="indexknowl"> <a href="sec_series.html#exam_riemannzet" class="xref" data-knowl="./knowl/index/exam_riemannzet.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.2.17">Example</a></span>
 </div>
-<div class="indexitem">root<span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-17" class="xref" data-knowl="./knowl/index/sec_defalg-17.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">root<span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-23" class="xref" data-knowl="./knowl/index/sec_defalg-23.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">root of unity<span class="indexknowl"> <a href="geomprop.html#geomprop-23" class="xref" data-knowl="./knowl/index/geomprop-23.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.2.8">Definition</a></span>
+<div class="indexitem">root of unity<span class="indexknowl"> <a href="geomprop.html#geomprop-28" class="xref" data-knowl="./knowl/index/geomprop-28.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.2.8">Definition</a></span>
 </div>
-<div class="subindexitem">primitive<span class="indexknowl"> <a href="geomprop.html#geomprop-23" class="xref" data-knowl="./knowl/index/geomprop-23.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.2.8">Definition</a></span>
+<div class="subindexitem">primitive<span class="indexknowl"> <a href="geomprop.html#geomprop-28" class="xref" data-knowl="./knowl/index/geomprop-28.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.2.8">Definition</a></span>
 </div>
-<div class="indexitem">root test<span class="indexknowl"> <a href="sec_regionsconvergence.html#sec_regionsconvergence-13" class="xref" data-knowl="./knowl/index/sec_regionsconvergence-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">root test<span class="indexknowl"> <a href="sec_regionsconvergence.html#sec_regionsconvergence-15" class="xref" data-knowl="./knowl/index/sec_regionsconvergence-15.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">Rouché’s theorem<span class="indexknowl"> <a href="sec_argprinc.html#sec_argprinc-10" class="xref" data-knowl="./knowl/index/sec_argprinc-10.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 </div>
 <div class="indexletter" id="indexletter-s">
+<div class="indexitem">SageMath<span class="indexknowl"> <a href="sec_defalg.html#sec_defalg-15" class="xref" data-knowl="./knowl/index/sec_defalg-15.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+</div>
 <div class="indexitem">separated<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-17" class="xref" data-knowl="./knowl/index/sec_topologyintro-17.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.8">Definition</a></span>
 </div>
 <div class="indexitem">sequence<span class="indexknowl"> <a href="sec_sequencescomplete.html#sec_sequencescomplete-2" class="xref" data-knowl="./knowl/index/sec_sequencescomplete-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_sequencescomplete.html#sec_sequencescomplete-2" class="xref" data-knowl="./knowl/index/sec_sequencescomplete-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
@@ -829,7 +848,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="subindexitem">limit<span class="indexknowl"> <a href="sec_sequencescomplete.html#sec_sequencescomplete-3" class="xref" data-knowl="./knowl/index/sec_sequencescomplete-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 7.1.1">Definition</a></span>
 </div>
-<div class="subindexitem">monotone<span class="indexknowl"> <a href="sec_sequencescomplete.html#sec_sequencescomplete-12" class="xref" data-knowl="./knowl/index/sec_sequencescomplete-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 7.1.5">Definition</a></span>
+<div class="subindexitem">monotone<span class="indexknowl"> <a href="sec_sequencescomplete.html#sec_sequencescomplete-14" class="xref" data-knowl="./knowl/index/sec_sequencescomplete-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 7.1.5">Definition</a></span>
 </div>
 <div class="indexitem">series<span class="indexknowl"> <a href="sec_series.html#sec_series-2" class="xref" data-knowl="./knowl/index/sec_series-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 7.2.1">Definition</a></span>
 </div>
@@ -843,31 +862,31 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="subindexitem">piecewise<span class="indexknowl"> <a href="sec_intdef.html#sec_intdef-4" class="xref" data-knowl="./knowl/index/sec_intdef-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 4.1.1">Definition</a></span>
 </div>
-<div class="indexitem">south pole<span class="indexknowl"> <a href="sec_stereoproj.html#sec_stereoproj-4" class="xref" data-knowl="./knowl/index/sec_stereoproj-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">south pole<span class="indexknowl"> <a href="sec_stereoproj.html#sec_stereoproj-3" class="xref" data-knowl="./knowl/index/sec_stereoproj-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">stereographic projection<span class="indexknowl"> <a href="sec_stereoproj.html#sec_stereoproj-5" class="xref" data-knowl="./knowl/index/sec_stereoproj-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.3.1">Definition</a></span>
+<div class="indexitem">stereographic projection<span class="indexknowl"> <a href="sec_stereoproj.html#sec_stereoproj-4" class="xref" data-knowl="./knowl/index/sec_stereoproj-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.3.1">Definition</a></span>
 </div>
 </div>
 <div class="indexletter" id="indexletter-t">
 <div class="indexitem">tangent<span class="indexknowl"> <a href="sec_exptrigfcts.html#sec_exptrigfcts-12" class="xref" data-knowl="./knowl/index/sec_exptrigfcts-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">Taylor series expansion<span class="indexknowl"> <a href="sec_powerseriesholom.html#sec_powerseriesholom-9" class="xref" data-knowl="./knowl/index/sec_powerseriesholom-9.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">Taylor series expansion<span class="indexknowl"> <a href="sec_powerseriesholom.html#sec_powerseriesholom-11" class="xref" data-knowl="./knowl/index/sec_powerseriesholom-11.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">topology<span class="indexknowl"> <a href="sec_topologyintro.html#sec_topologyintro-2" class="xref" data-knowl="./knowl/index/sec_topologyintro-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="sec_CIF.html#sec_CIF-11" class="xref" data-knowl="./knowl/index/sec_CIF-11.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">translation<span class="indexknowl"> <a href="sec_mobius.html#sec_mobius-13" class="xref" data-knowl="./knowl/index/sec_mobius-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">translation<span class="indexknowl"> <a href="sec_mobius.html#sec_mobius-14" class="xref" data-knowl="./knowl/index/sec_mobius-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem">triangle inequality<span class="indexknowl"> <a href="sec_geometricprops.html#lem_triangleineq" class="xref" data-knowl="./knowl/index/lem_triangleineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.3.4: Triangle inequality">Proposition</a></span>
 </div>
 <div class="subindexitem">reverse<span class="indexknowl"> <a href="sec_geometricprops.html#revtrianineq" class="xref" data-knowl="./knowl/index/revtrianineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">Item</a></span>
 </div>
-<div class="indexitem">Tribonacci numbers<span class="indexknowl"> <a href="sec_fibonacci.html#sec_fibonacci-3-2-5" class="xref" data-knowl="./knowl/index/sec_fibonacci-3-2-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 5">Item</a></span>
+<div class="indexitem">Tribonacci numbers<span class="indexknowl"> <a href="sec_fibonacci.html#sec_fibonacci-3-2-6" class="xref" data-knowl="./knowl/index/sec_fibonacci-3-2-6.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 6">Item</a></span>
 </div>
 <div class="indexitem">trigonometric functions<span class="indexknowl"> <a href="sec_exptrigfcts.html#sec_exptrigfcts-12" class="xref" data-knowl="./knowl/index/sec_exptrigfcts-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">trigonometric identities<span class="indexknowl"> <a href="geomprop.html#geomprop-13" class="xref" data-knowl="./knowl/index/geomprop-13.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">trigonometric identities<span class="indexknowl"> <a href="geomprop.html#geomprop-17" class="xref" data-knowl="./knowl/index/geomprop-17.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="indexitem">trivial<span class="indexknowl"> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-14" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">trivial<span class="indexknowl"> <a href="sec_limitsandcontinuity.html#sec_limitsandcontinuity-15" class="xref" data-knowl="./knowl/index/sec_limitsandcontinuity-15.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 </div>
 <div class="indexletter" id="indexletter-u">

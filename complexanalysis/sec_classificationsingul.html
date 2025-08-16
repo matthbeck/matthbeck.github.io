@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,25 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +184,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +236,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -317,8 +336,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -405,7 +423,7 @@ g(z) \ := \ \sum_{ k \ge 0 } \frac 1 {(k+1)!} \, z^k\text{,}
 \begin{equation*}
 g(z) = \begin{cases}\frac 1 { \sin(z) } - \frac 1 z \amp
 \text{ if }  z \ne 0 \, , \\ 0
-\amp  \text{ if }  z=0 \, . \end{cases} 
+\amp  \text{ if }  z=0 \end{cases} 
 \end{equation*}
 </div>
 <div class="para">is holomorphic in <span class="process-math">\(D[0,\pi]\)</span> and agrees with <span class="process-math">\(f\)</span> on <span class="process-math">\(\Dp[0,\pi]\text{.}\)</span>
@@ -519,8 +537,8 @@ g(z) \ = \ (z-z_0)^2 \sum_{k\ge0}c_{k+2} \, (z-z_0)^k
 <div class="para">and so</div>
 <div class="displaymath process-math">
 \begin{equation*}
-f(z) \ = \ \sum_{k\ge0}c_{k+2} \, (z-z_0)^k \qquad \text{
-for all }  z \in \Dp[z_0,R] \, \text{.}
+f(z) \ = \ \sum_{k\ge0}c_{k+2} \, (z-z_0)^k \quad \text{
+for all } \quad z \in \Dp[z_0,R] \, \text{.}
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#singbasics-2-1-1-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -564,7 +582,7 @@ z_0}(z-z_0)\\
 <div class="displaymath process-math">
 \begin{equation*}
 f(z) = \frac1{g(z)} = \frac1{(z-z_0)^n} \cdot \frac1{h(z)}
-\text{ for all } \ z\in\Dp[z_0,R]\, \text{.}
+\quad \text{ for all } \quad z\in\Dp[z_0,R]\, \text{.}
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#singbasics-2-1-1-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -574,7 +592,7 @@ f(z) = \frac1{g(z)} = \frac1{(z-z_0)^n} \cdot \frac1{h(z)}
 \ne 0\text{.}\)</span> Summarizing, <span class="process-math">\(g\)</span> is holomorphic on <span class="process-math">\(D[z_0,R]\)</span> and non-zero at <span class="process-math">\(z_0\text{,}\)</span> <span class="process-math">\(n&gt;0\text{,}\)</span> and</div>
 <div class="displaymath process-math">
 \begin{equation*}
-f(z) = \frac{g(z)}{(z-z_0)^n} \text{ for all } \
+f(z) = \frac{g(z)}{(z-z_0)^n} \quad \text{ for all } \quad
 z\in\Dp[z_0,R]\, \text{.}
 \end{equation*}
 </div>
@@ -609,7 +627,7 @@ z_0 } \frac{ 1 }{ |z-z_0|^n }\\
 <div class="para">Suppose <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(\Dp[z_0,R]\text{.}\)</span> Then <span class="process-math">\(f\)</span> has a pole at <span class="process-math">\(z_0\)</span> if and only if there exist a positive integer <span class="process-math">\(m\)</span> and a holomorphic function <span class="process-math">\(g: D[z_0,R] \to \C\text{,}\)</span> such that <span class="process-math">\(g(z_0) \ne 0\)</span> and</div>
 <div class="displaymath process-math">
 \begin{equation*}
-f(z) \ = \ \frac{ g(z) }{ (z-z_0)^m } \qquad \text{ for all }
+f(z) \ = \ \frac{ g(z) }{ (z-z_0)^m } \qquad \text{ for all } \quad
 z \in \Dp[z_0,R] \, \text{.}
 \end{equation*}
 </div>
@@ -660,14 +678,14 @@ z_0} (z - z_0) \, g(z) \ = \ 0 \, \text{.}
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_classificationsingul-20-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="sec_classificationsingul-20-3">
-<div class="para">(<a href="sec_classificationsingul.html#singbasics" class="xref" data-knowl="./knowl/xref/singbasics.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 9.1.6">Proposition 9.1.6</a> a) tells us that <span class="process-math">\(g\)</span> has a removable singularity at <span class="process-math">\(z_0\text{.}\)</span>) Hence</div>
+<div class="para">(<a href="sec_classificationsingul.html#singbasics" class="xref" data-knowl="./knowl/xref/singbasics.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 9.1.6">Proposition 9.1.6</a>(a) tells us that <span class="process-math">\(g\)</span> has a removable singularity at <span class="process-math">\(z_0\text{.}\)</span>) Hence</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/singbasics.html ./knowl/xref/singbasics.html">
 \begin{equation*}
 \lim_{z \to z_0} \left| \frac{ f(z) - w }{ z - z_0} \right| \ = \
 \infty 
 \end{equation*}
 </div>
-<div class="para">and so the function <span class="process-math">\(\frac{ f(z) - w }{ z - z_0}\)</span> has a pole at <span class="process-math">\(z_0\text{.}\)</span> By <a href="sec_classificationsingul.html#singbasics" class="xref" data-knowl="./knowl/xref/singbasics.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 9.1.6">Proposition 9.1.6</a> b), there is a positive integer <span class="process-math">\(n\)</span> so that</div>
+<div class="para">and so the function <span class="process-math">\(\frac{ f(z) - w }{ z - z_0}\)</span> has a pole at <span class="process-math">\(z_0\text{.}\)</span> By <a href="sec_classificationsingul.html#singbasics" class="xref" data-knowl="./knowl/xref/singbasics.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 9.1.6">Proposition 9.1.6</a>(b), there is a positive integer <span class="process-math">\(n\)</span> so that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/singbasics.html ./knowl/xref/singbasics.html">
 \begin{equation*}
 \lim_{ z \to z_0 } (z-z_0)^{ n+1 } \frac{ f(z) - w }{ z - z_0}
@@ -769,8 +787,8 @@ c_{-n}\ne0\)</span> so, by <a href="sec_classificationsingul.html#cor_orderofpol
 <div class="para">The order of the pole at <span class="process-math">\(0\)</span> of <span class="process-math">\(f(z)=\frac{\sin(z)}{z^3}\)</span> is 2 because (by <a href="sec_powerseriesholom.html#ex_sinpowerser" class="xref" data-knowl="./knowl/xref/ex_sinpowerser.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.1.4">Example 8.1.4</a>)</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_sinpowerser.html">
 \begin{equation*}
-f(z)\ = \\frac{\sin(z)}{z^3}\ = \\frac{z-\frac{z^3}{3!}+
-\frac{z^5}{5!}-\cdots}{z^3}\ = \\frac{1}{z^2}-\frac{1}{3!}+
+f(z)\ = \ \frac{\sin(z)}{z^3}\ = \ \frac{z-\frac{z^3}{3!}+
+\frac{z^5}{5!}-\cdots}{z^3}\ = \ \frac{1}{z^2}-\frac{1}{3!}+
 \frac{z^2}{5!}-\cdots 
 \end{equation*}
 </div>

@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,25 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +184,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +236,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -317,8 +336,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -346,8 +364,6 @@ f'(w) \ = \ \frac 1 {2 \pi i} \int_\gg \frac{ f(z) }{ (z-w)^2 }
 \, \diff{z}\, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#cauchyformula2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="cauchyformula2-1-2">
 <div class="para">Moreover, <span class="process-math">\(f''(w)\)</span> exists, and</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -355,7 +371,7 @@ f''(w) \ = \ \frac 1 {\pi i} \int_\gg \frac{ f(z) }{ (z-w)^3 }
 \ \diff{z} \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#cauchyformula2-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cauchyformula2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Theorem 5.1.1"><a href="#cauchyformula2" title="Copy heading and permalink for Theorem 5.1.1">🔗</a></div></article><article class="proof" id="sec_variationstheme-5"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
 <div class="para logical" id="sec_variationstheme-5-1">
@@ -377,7 +393,7 @@ w) (z-w)} \, \diff{z} \, \text{.}
 <div class="para">
 <a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a> will follow if we can show that the following expression gets arbitrarily small as <span class="process-math">\(\D w \to 0\text{:}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformula2.html" id="sec_variationstheme-5-2-3">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformula2.html ./knowl/xref/intprop.html ./knowl/xref/int4.html" id="sec_variationstheme-5-2-3">
 \begin{align}
 \amp \frac{ f(w+\D w) - f(w) }{ \D w } - \frac 1 {2 \pi i}
 \int_\gg \frac{ f(z) }{ (z-w)^2 } \, \diff{z}\notag\\
@@ -389,16 +405,15 @@ w) (z-w)} \, \diff{z} \, \text{.}
 (z-w)^2 } \, \diff{z} \, \text{.}\tag{5.1}
 \end{align}
 </div>
+<div class="para">This can be made arbitrarily small if we can show that the integral on the right-hand side stays bounded as <span class="process-math">\(\D w \to
+0\text{.}\)</span> In fact, by <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>), it suffices to show that the <em class="emphasis">integrand</em> stays bounded as <span class="process-math">\(\D w \to 0\)</span> (because <span class="process-math">\(\gg\)</span> and hence <span class="process-math">\(\length (\gg)\)</span> are fixed).</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_variationstheme-5-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_variationstheme-5-3">This can be made arbitrarily small if we can show that the integral on the right-hand side stays bounded as <span class="process-math">\(\D w \to
-0\text{.}\)</span> In fact, by <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>), it suffices to show that the <em class="emphasis">integrand</em> stays bounded as <span class="process-math">\(\D w \to 0\)</span> (because <span class="process-math">\(\gg\)</span> and hence <span class="process-math">\(\length (\gg)\)</span> are fixed).<div class="autopermalink" data-description="Paragraph"><a href="#sec_variationstheme-5-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_variationstheme-5-4">
+<div class="para logical" id="sec_variationstheme-5-3">
 <div class="para">Let <span class="process-math">\(M := \max_{ z \in \gg } \left| f(z) \right|\)</span> (whose existence is guaranteed by <a href="appendix-calculus.html#realEVT" class="xref" data-knowl="./knowl/xref/realEVT.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.1: Extreme-Value Theorem">Theorem A.0.1</a>). Choose <span class="process-math">\(\delta &gt; 0\)</span> such that <span class="process-math">\(D[w,\delta] \cap \gg =
 \emptyset\text{;}\)</span> that is, <span class="process-math">\(\abs{z-w}\ge \delta\)</span> for all <span class="process-math">\(z\)</span> on <span class="process-math">\(\gamma\text{.}\)</span> By the reverse triangle inequality (<a href="sec_geometricprops.html#cor_triangleineq" class="xref" data-knowl="./knowl/xref/cor_triangleineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 1.3.5">Corollary 1.3.5</a>(<a href="sec_geometricprops.html#revtrianineq" class="xref" data-knowl="./knowl/xref/revtrianineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">b</a>)), for all <span class="process-math">\(z \in \gg\text{,}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/realEVT.html ./knowl/xref/cor_triangleineq.html ./knowl/xref/revtrianineq.html ./knowl/xref/eq_needstostaybounded.html" id="sec_variationstheme-5-4-11">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/realEVT.html ./knowl/xref/cor_triangleineq.html ./knowl/xref/revtrianineq.html ./knowl/xref/eq_needstostaybounded.html" id="sec_variationstheme-5-3-11">
 \begin{align*}
 \left| \frac{ f(z) }{ (z-w-\D w) (z-w)^2 } \right| \ \amp \leq \
 \frac{ \left| f(z) \right| }{ (|z-w|-|\D w|) |z-w|^2 } \\\
@@ -408,9 +423,9 @@ w) (z-w)} \, \diff{z} \, \text{.}
 </div>
 <div class="para">which certainly stays bounded as <span class="process-math">\(\D w \to 0\text{.}\)</span> This proves <a href="sec_variationstheme.html#sec_variationstheme-5-2-3" class="xref" data-knowl="./knowl/xref/eq_needstostaybounded.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a> and thus the Cauchy Integral Formula for <span class="process-math">\(f'\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_variationstheme-5-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_variationstheme-5-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_variationstheme-5-5">The proof of the formula for <span class="process-math">\(f''\)</span> is very similar and will be left to <a href="cachyconschapter-6.html#cauchyformula2ex" class="xref" data-knowl="./knowl/xref/cauchyformula2ex.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.4.2">Exercise 5.4.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_variationstheme-5-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_variationstheme-5-4">The proof of the formula for <span class="process-math">\(f''\)</span> is very similar and will be left to <a href="cachyconschapter-6.html#cauchyformula2ex" class="xref" data-knowl="./knowl/xref/cauchyformula2ex.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.4.2">Exercise 5.4.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_variationstheme-5-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 5.1.1"><a href="#sec_variationstheme-5" title="Copy heading and permalink for Proof 5.1.1">🔗</a></div></article><div class="para" id="sec_variationstheme-6">
 <a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a> suggests that there are similar formulas for the higher derivatives of <span class="process-math">\(f\text{.}\)</span> This is in fact true, and theoretically we could obtain them one by one with the methods of the proof of <a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a>. However, once we start studying power series for holomorphic functions, we will obtain such a result much more easily; so we save the derivation of integral formulas for higher derivatives of <span class="process-math">\(f\)</span> for later (<a href="sec_powerseriesholom.html#cauchyformula3" class="xref" data-knowl="./knowl/xref/cauchyformula3.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.12">Corollary 8.1.12</a>).<div class="autopermalink" data-description="Paragraph"><a href="#sec_variationstheme-6" title="Copy heading and permalink for Paragraph">🔗</a></div>

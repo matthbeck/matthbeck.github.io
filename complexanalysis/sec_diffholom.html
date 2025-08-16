@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,37 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +196,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +248,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -317,8 +348,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -347,7 +377,7 @@ f'(z_0) \ := \ \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0} \,\text{,}\tag{2.1
 </div>
 <div class="para">provided this limit exists.  In this case, <span class="process-math">\(f\)</span> is called <em class="emphasis">differentiable</em> at <span class="process-math">\(z_0\text{.}\)</span> </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="sec_diffholom-3-1-2">If <span class="process-math">\(f\)</span> is differentiable for all points in an open disk centered at <span class="process-math">\(z_0\)</span> then <span class="process-math">\(f\)</span> is called <em class="emphasis">holomorphic</em> <details class="ptx-footnote" aria-live="polite" id="sec_diffholom-3-1-2-5"><summary class="ptx-footnote__number" title="Footnote 2.2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_diffholom-3-1-2-5">Some sources use the term <em class="emphasis">analytic</em> instead of <em class="emphasis">holomorphic</em>. As we will see in Chapter 8, in our context, these two terms are synonymous. Technically, though, these two terms have different definitions. Since we will be using the above definition, we will stick with using the term <em class="emphasis">holomorphic</em> instead of the term <em class="emphasis">analytic</em>.</div></details> at <span class="process-math">\(z_0\text{.}\)</span>  The function <span class="process-math">\(f\)</span> is <em class="emphasis">holomorphic</em> on the open set <span class="process-math">\(E \subseteq G\)</span> if it is differentiable (and hence holomorphic) at every point in <span class="process-math">\(E\text{.}\)</span> Functions that are differentiable (and hence holomorphic) in the whole complex plane <span class="process-math">\(\C\)</span> are called <em class="emphasis">entire</em>. <div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-3-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="sec_diffholom-3-1-2">If <span class="process-math">\(f\)</span> is differentiable for all points in an open disk centered at <span class="process-math">\(z_0\)</span> then <span class="process-math">\(f\)</span> is called <em class="emphasis">holomorphic</em><details class="ptx-footnote" aria-live="polite" id="sec_diffholom-3-1-2-5"><summary class="ptx-footnote__number" title="Footnote 2.2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_diffholom-3-1-2-5">Some sources use the term <em class="emphasis">analytic</em> instead of <em class="emphasis">holomorphic</em>. As we will see in Chapter 8, in our context, these two terms are synonymous. Technically, though, these two terms have different definitions. Since we will be using the above definition, we will stick with using the term <em class="emphasis">holomorphic</em> instead of the term <em class="emphasis">analytic</em>.</div></details> at <span class="process-math">\(z_0\text{.}\)</span>  The function <span class="process-math">\(f\)</span> is <em class="emphasis">holomorphic</em> on the open set <span class="process-math">\(E \subseteq G\)</span> if it is differentiable (and hence holomorphic) at every point in <span class="process-math">\(E\text{.}\)</span> Functions that are differentiable (and hence holomorphic) in the whole complex plane <span class="process-math">\(\C\)</span> are called <em class="emphasis">entire</em>. <div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-3-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Definition 2.2.1"><a href="#sec_diffholom-3" title="Copy heading and permalink for Definition 2.2.1">🔗</a></div></article><article class="example example-like" id="exam_zcubedentire"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span>
@@ -373,11 +403,10 @@ f'(z_0) \ := \ \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0} \,\text{,}\tag{2.1
 f'(z_0) \ = \ \lim_{ h \to 0 } \frac{ f(z_0+h) - f(z_0) }{ h } \,\text{.}
 \end{equation*}
 </div>
+<div class="para"> This equivalent definition is sometimes easier to handle. Note that <span class="process-math">\(h\)</span> need not be a real number but can rather approach zero from anywhere in the complex plane.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_diffholom-6">This equivalent definition is sometimes easier to handle. Note that <span class="process-math">\(h\)</span> need not be a real number but can rather approach zero from anywhere in the complex plane.<div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="sec_diffholom-7">The notions of differentiability and holomorphicity are not interchangeable:<div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_diffholom-6">The notions of differentiability and holomorphicity are not interchangeable:<div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="exam_zbarsquareddiff"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span>
@@ -425,10 +454,10 @@ z_0 } \ = \ \lim_{ z \to 0 } \frac{ \conj{z}^2 }{ z } \ = \ 0 \, \text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#exam_zbarsquareddiff-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 2.2.3"><a href="#exam_zbarsquareddiff" title="Copy heading and permalink for Example 2.2.3">🔗</a></div></article><article class="example example-like" id="sec_diffholom-9"><h3 class="heading">
+<div class="autopermalink" data-description="Example 2.2.3"><a href="#exam_zbarsquareddiff" title="Copy heading and permalink for Example 2.2.3">🔗</a></div></article><article class="example example-like" id="sec_diffholom-8"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_diffholom-9-1-1">
+<div class="para logical" id="sec_diffholom-8-1-1">
 <div class="para">The function <span class="process-math">\(f: \C \to \C\)</span> given by <span class="process-math">\(f(z) = \overline z\)</span> is nowhere differentiable:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_limitdoesnotexist.html">
 \begin{equation*}
@@ -436,9 +465,12 @@ z_0 } \ = \ \lim_{ z \to 0 } \frac{ \conj{z}^2 }{ z } \ = \ 0 \, \text{.}
 \end{equation*}
 </div>
 <div class="para">which does not exist, as discussed in <a href="sec_limitsandcontinuity.html#exam_limitdoesnotexist" class="xref" data-knowl="./knowl/xref/exam_limitdoesnotexist.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.1.5">Example 2.1.5</a>.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-9-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-8-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 2.2.4"><a href="#sec_diffholom-9" title="Copy heading and permalink for Example 2.2.4">🔗</a></div></article><div class="para" id="sec_diffholom-10">The basic properties for derivatives are similar to those we know from real calculus. In fact, the following rules follow mostly from properties of the limit.<div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 2.2.4"><a href="#sec_diffholom-8" title="Copy heading and permalink for Example 2.2.4">🔗</a></div></article><div id="sec_diffholom-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">f(z)=z^2
+diff(f)
+</script></div>
+<div class="para" id="sec_diffholom-10">The basic properties for derivatives are similar to those we know from real calculus. In fact, the following rules follow mostly from properties of the limit.<div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="derivativerules"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span>
@@ -528,15 +560,21 @@ g(z) }{ h }\\
 \gamma_2'(0)\text{.}\)</span> This means that the action of <span class="process-math">\(f\)</span> multiplies the two tangent vectors <span class="process-math">\(\gamma_1'(0)\)</span> and <span class="process-math">\(\gamma_2'(0)\)</span> by the same nonzero complex number <span class="process-math">\(f'(a)\text{,}\)</span> and so the two tangent vectors got dilated by <span class="process-math">\(|f'(a)|\)</span> (which does not affect their direction) and rotated by the same angle (an argument of <span class="process-math">\(f'(a)\)</span>).</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-15-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 2.2.1"><a href="#sec_diffholom-15" title="Copy heading and permalink for Proof 2.2.1">🔗</a></div></article><div class="para" id="sec_diffholom-16">We end this section with yet another differentiation rule, that for inverse functions. As in the real case, this rule is only defined for functions that are bijections. <div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 2.2.1"><a href="#sec_diffholom-15" title="Copy heading and permalink for Proof 2.2.1">🔗</a></div></article><div class="para" id="sec_diffholom-16">
+<code class="code-inline tex2jax_ignore">SageMath</code> allows you to draw images behind complex functions. Try to explain what’s behind this picture:<div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="sec_diffholom-17"><h3 class="heading">
+<div id="sec_diffholom-17" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">f(z) = 1/(1+z^2)
+complex_plot(f, (-5,5), (-5, 5))
+</script></div>
+<div class="para" id="sec_diffholom-18">We end this section with yet another differentiation rule, that for inverse functions. As in the real case, this rule is only defined for functions that are bijections. <div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-18" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="sec_diffholom-19"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.7</span><span class="period">.</span>
 </h3>
-<div class="para" id="sec_diffholom-17-1-1">A function <span class="process-math">\(f: G \to H\)</span> is <em class="emphasis">one-to-one</em> if, for every image <span class="process-math">\(w \in H\text{,}\)</span> there is a unique <span class="process-math">\(z \in
-G\)</span> such that <span class="process-math">\(f(z)=w\text{.}\)</span>  The function is <em class="emphasis">onto</em>  if every <span class="process-math">\(w \in H\)</span> has a preimage <span class="process-math">\(z \in G\)</span> (that is, there exists <span class="process-math">\(z \in G\)</span> such that <span class="process-math">\(f(z) = w\)</span>). A <em class="emphasis">bijection</em> is a function that is both one-to-one and onto. If <span class="process-math">\(f: G \to H\)</span> is a bijection, then <span class="process-math">\(g: H \to G\)</span> is the <em class="emphasis">inverse of <span class="process-math">\(f\)</span></em> if <span class="process-math">\(f(g(w)) = w\)</span> for all <span class="process-math">\(w \in H\)</span> and <span class="process-math">\(g(f(z)) = z\)</span> for all <span class="process-math">\(z \in G\text{;}\)</span> in other words, the composition <span class="process-math">\(f \circ g\)</span> is the identity function on <span class="process-math">\(H\text{,}\)</span> and <span class="process-math">\(g \circ f\)</span> is the identity function on <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-17-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_diffholom-19-1-1">A function <span class="process-math">\(f: G \to H\)</span> is <em class="emphasis">one-to-one</em> if, for every image <span class="process-math">\(w \in H\text{,}\)</span> there is a unique <span class="process-math">\(z \in
+G\)</span> such that <span class="process-math">\(f(z)=w\text{.}\)</span>  The function is <em class="emphasis">onto</em>  if every <span class="process-math">\(w \in H\)</span> has a preimage <span class="process-math">\(z \in G\)</span> (that is, there exists <span class="process-math">\(z \in G\)</span> such that <span class="process-math">\(f(z) = w\)</span>). A <em class="emphasis">bijection</em> is a function that is both one-to-one and onto. If <span class="process-math">\(f: G \to H\)</span> is a bijection, then <span class="process-math">\(g: H \to G\)</span> is the <em class="emphasis">inverse of <span class="process-math">\(f\)</span></em> if <span class="process-math">\(f(g(w)) = w\)</span> for all <span class="process-math">\(w \in H\)</span> and <span class="process-math">\(g(f(z)) = z\)</span> for all <span class="process-math">\(z \in G\text{;}\)</span> in other words, the composition <span class="process-math">\(f \circ g\)</span> is the identity function on <span class="process-math">\(H\text{,}\)</span> and <span class="process-math">\(g \circ f\)</span> is the identity function on <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_diffholom-19-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 2.2.7"><a href="#sec_diffholom-17" title="Copy heading and permalink for Definition 2.2.7">🔗</a></div></article><article class="proposition theorem-like" id="inversederivative"><h3 class="heading">
+<div class="autopermalink" data-description="Definition 2.2.7"><a href="#sec_diffholom-19" title="Copy heading and permalink for Definition 2.2.7">🔗</a></div></article><article class="proposition theorem-like" id="inversederivative"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.2.8</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="inversederivative-1-1">
@@ -566,16 +604,13 @@ f(g(w_0)) }{g(w) - g(w_0) } } \,\text{.}
 </div>
 <div class="para logical" id="inversederivative-2-2">
 <div class="para">Now define <span class="process-math">\(z_0:=g(w_0)\)</span> and set</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/funoflimit.html">
 \begin{equation*}
 \phi(z) \, := \, \begin{cases}\dfrac{f(z)-f(z_0)}{z-z_0}
 \amp \text{ if }  z\ne z_0\\ f'(z_0)
 \amp \text{ if }  z=z_0\,. \end{cases} 
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#inversederivative-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="inversederivative-2-3">
 <div class="para">This is continuous at <span class="process-math">\(z_0\)</span> and <span class="process-math">\(\lim_{w\to w_0}g(w) = z_0\)</span> by continuity of <span class="process-math">\(g\text{,}\)</span> so we can apply <a href="sec_limitsandcontinuity.html#funoflimit" class="xref" data-knowl="./knowl/xref/funoflimit.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.1.11">Proposition 2.1.11</a>:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/funoflimit.html">
 \begin{equation*}
@@ -585,7 +620,7 @@ w_0}g(w)\right) } = \frac {1} {f'(z_0)} = \frac {1}
 {f'(g(w_0))} \, .
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#inversederivative-2-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#inversederivative-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 2.2.8.1"><a href="#inversederivative-2" title="Copy heading and permalink for Proof 2.2.8.1">🔗</a></div></article><div class="autopermalink" data-description="Section 2.2: Differentiability and Holomorphicity"><a href="#sec_diffholom" title="Copy heading and permalink for Section 2.2: Differentiability and Holomorphicity">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">

@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,37 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +196,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +248,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -317,8 +348,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -384,7 +414,12 @@ z^{n+1} }{ 1 - z } \, \text{,}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_geomseries-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 7.2.2"><a href="#ex_geomseries" title="Copy heading and permalink for Example 7.2.2">🔗</a></div></article><article class="example example-like" id="ex_telescope"><h3 class="heading">
+<div class="autopermalink" data-description="Example 7.2.2"><a href="#ex_geomseries" title="Copy heading and permalink for Example 7.2.2">🔗</a></div></article><div id="sec_series-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('k')
+var('z')
+assume(abs(z) < 1)
+sum(z^k,k,1, +oo)
+</script></div>
+<article class="example example-like" id="ex_telescope"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.2.3</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="ex_telescope-1-1">
@@ -395,8 +430,8 @@ z^{n+1} }{ 1 - z } \, \text{,}
 \lim_{n\to\infty}\sum_{k=1}^n
 \left(\frac1k-\frac1{k+1}\right)\\
 \amp \ = \
-\lim_{n\to\infty}\left(1-\frac12+\frac12 -\frac13 +\frac13
--\frac14 + \dots + \frac1n-\frac1{n+1}\right)\\
+\lim_{n\to\infty}\left(1-\frac12+\frac12 -\frac13 
++ \dots + \frac1n-\frac1{n+1}\right)\\
 \amp \ = \ \lim_{n\to\infty}\left(1-\frac1{n+1}\right) \ = \
 1 \, \text{.}
 \end{align*}
@@ -404,17 +439,20 @@ z^{n+1} }{ 1 - z } \, \text{,}
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_telescope-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="ex_telescope-1-2">A series where most of the terms cancel like this is called <em class="emphasis">telescoping</em>.<div class="autopermalink" data-description="Paragraph"><a href="#ex_telescope-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 7.2.3"><a href="#ex_telescope" title="Copy heading and permalink for Example 7.2.3">🔗</a></div></article><div class="para" id="sec_series-8">Most of the time we can use the completeness property to check convergence of a series, and it is fortunate that the Monotone Sequence Property has a convenient translation into the language of series of real numbers. The partial sums of a series form a nondecreasing sequence if the terms of the series are nonnegative, and this observation immediately yields the following:<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 7.2.3"><a href="#ex_telescope" title="Copy heading and permalink for Example 7.2.3">🔗</a></div></article><div id="sec_series-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('k')
+sum(1/(k^2+k),k,1, +oo)
+</script></div>
+<div class="para" id="sec_series-10">Most of the time we can use the completeness property to check convergence of a series, and it is fortunate that the Monotone Sequence Property has a convenient translation into the language of series of real numbers. The partial sums of a series form a nondecreasing sequence if the terms of the series are nonnegative, and this observation immediately yields the following:<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="corollary theorem-like" id="positiveseries"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">7.2.4</span><span class="period">.</span>
 </h3>
 <div class="para" id="positiveseries-1-1">If <span class="process-math">\(b_k \in \R_{ \ge 0 }\)</span> then <span class="process-math">\(\ds \sum_{k \ge 1} b_k\)</span> converges if and only if the partial sums are bounded.<div class="autopermalink" data-description="Paragraph"><a href="#positiveseries-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Corollary 7.2.4"><a href="#positiveseries" title="Copy heading and permalink for Corollary 7.2.4">🔗</a></div></article><article class="example example-like" id="sec_series-10"><h3 class="heading">
+<div class="autopermalink" data-description="Corollary 7.2.4"><a href="#positiveseries" title="Copy heading and permalink for Corollary 7.2.4">🔗</a></div></article><article class="example example-like" id="sec_series-12"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.2.5</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_series-10-1-1">
+<div class="para logical" id="sec_series-12-1-1">
 <div class="para">With this new terminology, we can revisit <a href="sec_sequencescomplete.html#ex_e-1series" class="xref" data-knowl="./knowl/xref/ex_e-1series.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.1.7">Example 7.1.7</a>: Let <span class="process-math">\(b_k = \frac
 1 {k!}\text{.}\)</span> In <a href="sec_sequencescomplete.html#ex_e-1series" class="xref" data-knowl="./knowl/xref/ex_e-1series.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.1.7">Example 7.1.7</a> we showed that the partial sums</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_e-1series.html ./knowl/xref/ex_e-1series.html">
@@ -424,9 +462,9 @@ z^{n+1} }{ 1 - z } \, \text{,}
 </div>
 <div class="para">are bounded, and <span class="process-math">\(\ds \sum_{ k \ge 1 } \frac 1 {k!} = e-1\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-10-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-12-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 7.2.5"><a href="#sec_series-10" title="Copy heading and permalink for Example 7.2.5">🔗</a></div></article><div class="para" id="sec_series-11">Although <a href="sec_series.html#positiveseries" class="xref" data-knowl="./knowl/xref/positiveseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.4">Corollary 7.2.4</a> is a mere direct consequence of the completeness property of <span class="process-math">\(\R\text{,}\)</span> it is surprisingly useful. Here is one application, sometimes called the <em class="emphasis">Comparison Test</em>: <div class="autopermalink" data-description="Paragraph"><a href="#sec_series-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 7.2.5"><a href="#sec_series-12" title="Copy heading and permalink for Example 7.2.5">🔗</a></div></article><div class="para" id="sec_series-13">Although <a href="sec_series.html#positiveseries" class="xref" data-knowl="./knowl/xref/positiveseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.4">Corollary 7.2.4</a> is a mere direct consequence of the completeness property of <span class="process-math">\(\R\text{,}\)</span> it is surprisingly useful. Here is one application, sometimes called the <em class="emphasis">Comparison Test</em>: <div class="autopermalink" data-description="Paragraph"><a href="#sec_series-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="corollary theorem-like" id="cor_comparisonseries"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">7.2.6</span><span class="period">.</span>
@@ -452,7 +490,7 @@ z^{n+1} }{ 1 - z } \, \text{,}
 <div class="para" id="generaltermto0-1-1">If <span class="process-math">\(\ds \sum_{k \geq 1} b_k\)</span> converges then <span class="process-math">\(\ds \lim_{
 n \to \infty } b_n = 0 \text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#generaltermto0-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proposition 7.2.7"><a href="#generaltermto0" title="Copy heading and permalink for Proposition 7.2.7">🔗</a></div></article><div class="para" id="sec_series-14">The contrapositive of this proposition is often used, sometimes called the <em class="emphasis">Test for Divergence</em>:<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-14" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proposition 7.2.7"><a href="#generaltermto0" title="Copy heading and permalink for Proposition 7.2.7">🔗</a></div></article><div class="para" id="sec_series-16">The contrapositive of this proposition is often used, sometimes called the <em class="emphasis">Test for Divergence</em>:<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="corollary theorem-like" id="cor_divtest"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">7.2.8</span><span class="period">.</span>
@@ -465,7 +503,7 @@ n \to \infty } b_n = 0 \text{.}\)</span><div class="autopermalink" data-descript
 </h3>
 <div class="para" id="ex_geomseriesdiv-1-1">Continuing <a href="sec_series.html#ex_geomseries" class="xref" data-knowl="./knowl/xref/ex_geomseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.2.2">Example 7.2.2</a>, for <span class="process-math">\(|z| \ge 1\)</span> the geometric series <span class="process-math">\(\sum_{ k \ge 1 } z^k\)</span> diverges since in this case <span class="process-math">\(\lim_{ n \to \infty } z^n\)</span> either does not exist or is not 0.<div class="autopermalink" data-description="Paragraph"><a href="#ex_geomseriesdiv-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 7.2.9"><a href="#ex_geomseriesdiv" title="Copy heading and permalink for Example 7.2.9">🔗</a></div></article><div class="para" id="sec_series-17">A common mistake is to try to use the converse of <a href="sec_series.html#generaltermto0" class="xref" data-knowl="./knowl/xref/generaltermto0.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.2.7">Proposition 7.2.7</a>, but the converse is false:<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-17" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 7.2.9"><a href="#ex_geomseriesdiv" title="Copy heading and permalink for Example 7.2.9">🔗</a></div></article><div class="para" id="sec_series-19">A common mistake is to try to use the converse of <a href="sec_series.html#generaltermto0" class="xref" data-knowl="./knowl/xref/generaltermto0.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.2.7">Proposition 7.2.7</a>, but the converse is false:<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="ex_harmonic"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.2.10</span><span class="period">.</span>
@@ -498,7 +536,7 @@ L \ \amp = \ 1+\frac12 + \frac13 + \frac 14 + \frac 15
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#prop_integraltest-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proposition 7.2.11: Integral Test"><a href="#prop_integraltest" title="Copy heading and permalink for Proposition 7.2.11: Integral Test">🔗</a></div></article><div class="para" id="sec_series-20">The Integral Test literally comes with a proof by picture—see <a href="sec_series.html#fig_integraltest" class="xref" data-knowl="./knowl/xref/fig_integraltest.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.2.12">Figure 7.2.12</a>: the integral of <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([k,k+1]\)</span> is bounded between <span class="process-math">\(f(k)\)</span> and <span class="process-math">\(f(k+1)\text{.}\)</span> Adding the pieces gives the inequalities above for the <span class="process-math">\(n\)</span>th partial sum versus the integrals from <span class="process-math">\(1\)</span> to <span class="process-math">\(n\)</span> and from <span class="process-math">\(1\)</span> to <span class="process-math">\(n+1\text{,}\)</span> and the inequality persists in the limit.<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-20" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proposition 7.2.11: Integral Test"><a href="#prop_integraltest" title="Copy heading and permalink for Proposition 7.2.11: Integral Test">🔗</a></div></article><div class="para" id="sec_series-22">The Integral Test literally comes with a proof by picture—see <a href="sec_series.html#fig_integraltest" class="xref" data-knowl="./knowl/xref/fig_integraltest.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.2.12">Figure 7.2.12</a>: the integral of <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([k,k+1]\)</span> is bounded between <span class="process-math">\(f(k)\)</span> and <span class="process-math">\(f(k+1)\text{.}\)</span> Adding the pieces gives the inequalities above for the <span class="process-math">\(n\)</span>th partial sum versus the integrals from <span class="process-math">\(1\)</span> to <span class="process-math">\(n\)</span> and from <span class="process-math">\(1\)</span> to <span class="process-math">\(n+1\text{,}\)</span> and the inequality persists in the limit.<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-22" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig_integraltest"><div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
 <div class="sbspanel top" style="width:47.3684210526316%;"><img src="generated/prefigure/integral-test-a.svg" role="img" class="contained"></div>
@@ -509,12 +547,12 @@ L \ \amp = \ 1+\frac12 + \frac13 + \frac 14 + \frac 15
 </h3>
 <div class="para" id="cor_integraltest-1-1">If <span class="process-math">\(f: [1,\infty) \to \R_{ \ge 0 }\)</span> is continuous and nonincreasing, then <span class="process-math">\(\sum_{k \ge 1} f(k)\)</span> converges if and only if <span class="process-math">\(\int_1^\infty f(t)\,\diff{t}\)</span> is finite.<div class="autopermalink" data-description="Paragraph"><a href="#cor_integraltest-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Corollary 7.2.13"><a href="#cor_integraltest" title="Copy heading and permalink for Corollary 7.2.13">🔗</a></div></article><article class="proof" id="sec_series-23"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<div class="para" id="sec_series-23-1">Suppose <span class="process-math">\(\int_1^\infty f(t)\,\diff{t} = \infty\text{.}\)</span> Then the first inequality in <a href="sec_series.html#prop_integraltest" class="xref" data-knowl="./knowl/xref/prop_integraltest.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.2.11: Integral Test">Proposition 7.2.11</a> implies that the partial sums <span class="process-math">\(\sum_{k=1}^n f(k)\)</span> are unbounded, and so <a href="sec_series.html#positiveseries" class="xref" data-knowl="./knowl/xref/positiveseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.4">Corollary 7.2.4</a> says that <span class="process-math">\(\sum_{k \ge 1} f(k)\)</span> cannot converge.<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-23-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Corollary 7.2.13"><a href="#cor_integraltest" title="Copy heading and permalink for Corollary 7.2.13">🔗</a></div></article><article class="proof" id="sec_series-25"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para" id="sec_series-25-1">Suppose <span class="process-math">\(\int_1^\infty f(t)\,\diff{t} = \infty\text{.}\)</span> Then the first inequality in <a href="sec_series.html#prop_integraltest" class="xref" data-knowl="./knowl/xref/prop_integraltest.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.2.11: Integral Test">Proposition 7.2.11</a> implies that the partial sums <span class="process-math">\(\sum_{k=1}^n f(k)\)</span> are unbounded, and so <a href="sec_series.html#positiveseries" class="xref" data-knowl="./knowl/xref/positiveseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.4">Corollary 7.2.4</a> says that <span class="process-math">\(\sum_{k \ge 1} f(k)\)</span> cannot converge.<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-25-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_series-23-2">Conversely, if <span class="process-math">\(\int_1^\infty f(t)\,\diff{t}\)</span> is finite then the second inequality in <a href="sec_series.html#prop_integraltest" class="xref" data-knowl="./knowl/xref/prop_integraltest.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.2.11: Integral Test">Proposition 7.2.11</a> says that the partial sums <span class="process-math">\(\sum_{k=1}^n f(k)\)</span> are bounded; thus, again with <a href="sec_series.html#positiveseries" class="xref" data-knowl="./knowl/xref/positiveseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.4">Corollary 7.2.4</a>, we conclude that <span class="process-math">\(\sum_{k \ge 1} f(k)\)</span> converges.<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-23-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_series-25-2">Conversely, if <span class="process-math">\(\int_1^\infty f(t)\,\diff{t}\)</span> is finite then the second inequality in <a href="sec_series.html#prop_integraltest" class="xref" data-knowl="./knowl/xref/prop_integraltest.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.2.11: Integral Test">Proposition 7.2.11</a> says that the partial sums <span class="process-math">\(\sum_{k=1}^n f(k)\)</span> are bounded; thus, again with <a href="sec_series.html#positiveseries" class="xref" data-knowl="./knowl/xref/positiveseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.4">Corollary 7.2.4</a>, we conclude that <span class="process-math">\(\sum_{k \ge 1} f(k)\)</span> converges.<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-25-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 7.2.1"><a href="#sec_series-23" title="Copy heading and permalink for Proof 7.2.1">🔗</a></div></article><article class="example example-like" id="exam_riemannzetaprep"><h3 class="heading">
+<div class="autopermalink" data-description="Proof 7.2.1"><a href="#sec_series-25" title="Copy heading and permalink for Proof 7.2.1">🔗</a></div></article><article class="example example-like" id="exam_riemannzetaprep"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.2.14</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="exam_riemannzetaprep-1-1">
@@ -529,22 +567,22 @@ L \ \amp = \ 1+\frac12 + \frac13 + \frac 14 + \frac 15
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#exam_riemannzetaprep-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 7.2.14"><a href="#exam_riemannzetaprep" title="Copy heading and permalink for Example 7.2.14">🔗</a></div></article><div class="para" id="sec_series-25">By now you might be amused that we have collected several results on series whose terms are nonnegative real numbers. One reason is that such series are a bit easier to handle, another one is that there is a notion of convergence special to series that relates any series to one with only nonnegative terms:<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-25" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 7.2.14"><a href="#exam_riemannzetaprep" title="Copy heading and permalink for Example 7.2.14">🔗</a></div></article><div class="para" id="sec_series-27">By now you might be amused that we have collected several results on series whose terms are nonnegative real numbers. One reason is that such series are a bit easier to handle, another one is that there is a notion of convergence special to series that relates any series to one with only nonnegative terms:<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-27" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="sec_series-26"><h3 class="heading">
+<article class="definition definition-like" id="sec_series-28"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.2.15</span><span class="period">.</span>
 </h3>
-<div class="para" id="sec_series-26-1-1">The series <span class="process-math">\(\ds \sum_{k \geq 1} b_k\)</span> <em class="emphasis">converges absolutely</em> if <span class="process-math">\(\ds \sum_{k \geq 1} \left| b_k \right|\)</span> converges. <div class="autopermalink" data-description="Paragraph"><a href="#sec_series-26-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_series-28-1-1">The series <span class="process-math">\(\ds \sum_{k \geq 1} b_k\)</span> <em class="emphasis">converges absolutely</em> if <span class="process-math">\(\ds \sum_{k \geq 1} \left| b_k \right|\)</span> converges. <div class="autopermalink" data-description="Paragraph"><a href="#sec_series-28-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 7.2.15"><a href="#sec_series-26" title="Copy heading and permalink for Definition 7.2.15">🔗</a></div></article><article class="theorem theorem-like" id="absconvthm"><h3 class="heading">
+<div class="autopermalink" data-description="Definition 7.2.15"><a href="#sec_series-28" title="Copy heading and permalink for Definition 7.2.15">🔗</a></div></article><article class="theorem theorem-like" id="absconvthm"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.2.16</span><span class="period">.</span>
 </h3>
 <div class="para" id="absconvthm-1-1">If a series converges absolutely then it converges.<div class="autopermalink" data-description="Paragraph"><a href="#absconvthm-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 7.2.16"><a href="#absconvthm" title="Copy heading and permalink for Theorem 7.2.16">🔗</a></div></article><div class="para" id="sec_series-28">This seems like an obvious statement, but its proof is, nevertheless, nontrivial.<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-28" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem 7.2.16"><a href="#absconvthm" title="Copy heading and permalink for Theorem 7.2.16">🔗</a></div></article><div class="para" id="sec_series-30">This seems like an obvious statement, but its proof is, nevertheless, nontrivial.<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-30" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="proof" id="sec_series-29"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<div class="para logical" id="sec_series-29-1">
+<article class="proof" id="sec_series-31"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="sec_series-31-1">
 <div class="para">Suppose <span class="process-math">\(\sum_{k \geq 1} \left| b_k \right|\)</span> converges. We first consider the case that each <span class="process-math">\(b_k\)</span> is real. Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -554,9 +592,9 @@ b_k^+ := \begin{cases}b_k \amp  \text{ if }  b_k \ge 0, \\ 0
 0, \\ 0   \amp  \text{ otherwise. } \end{cases} 
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-29-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-31-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_series-29-2">
+<div class="para logical" id="sec_series-31-2">
 <div class="para">Then <span class="process-math">\(0 \le b_k^+ \le |b_k|\)</span> and <span class="process-math">\(0 \le - b_k^- \le |b_k|\)</span> for all <span class="process-math">\(k \ge 1\text{,}\)</span> and so by <a href="sec_series.html#cor_comparisonseries" class="xref" data-knowl="./knowl/xref/cor_comparisonseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.6">Corollary 7.2.6</a>, both</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html">
 \begin{equation*}
@@ -571,9 +609,9 @@ b_k^+ := \begin{cases}b_k \amp  \text{ if }  b_k \ge 0, \\ 0
 1 } b_k^- \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-29-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-31-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_series-29-3">
+<div class="para logical" id="sec_series-31-3">
 <div class="para">For the general case <span class="process-math">\(b_k \in \C\text{,}\)</span> we write each term as <span class="process-math">\(b_k = c_k + i \, d_k\text{.}\)</span> Since <span class="process-math">\(0 \le |c_k| \le |b_k|\)</span> for all <span class="process-math">\(k \ge 1\text{,}\)</span> <a href="sec_series.html#cor_comparisonseries" class="xref" data-knowl="./knowl/xref/cor_comparisonseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.6">Corollary 7.2.6</a> implies that <span class="process-math">\(\sum_{ k \ge 1 } c_k\)</span> converges absolutely, and by an analogous argument, so does <span class="process-math">\(\sum_{ k \ge 1 } d_k\text{.}\)</span> But now we can use the first case to deduce that both <span class="process-math">\(\sum_{
 k \ge 1 } c_k\)</span> and <span class="process-math">\(\sum_{ k \ge 1 } d_k\)</span> converge, and thus so does</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html">
@@ -582,9 +620,9 @@ k \ge 1 } c_k\)</span> and <span class="process-math">\(\sum_{ k \ge 1 } d_k\)</
 1 } d_k \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-29-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-31-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 7.2.2"><a href="#sec_series-29" title="Copy heading and permalink for Proof 7.2.2">🔗</a></div></article><article class="example example-like" id="exam_riemannzet"><h3 class="heading">
+<div class="autopermalink" data-description="Proof 7.2.2"><a href="#sec_series-31" title="Copy heading and permalink for Proof 7.2.2">🔗</a></div></article><article class="example example-like" id="exam_riemannzet"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.2.17</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="exam_riemannzet-1-1">
@@ -594,18 +632,18 @@ k \ge 1 } c_k\)</span> and <span class="process-math">\(\sum_{ k \ge 1 } d_k\)</
 \zeta(z) \ := \ \sum_{k\ge1} \frac 1 {k^z}
 \end{equation*}
 </div>
-<div class="para">converges for <span class="process-math">\(\Re(z)&gt;1\text{,}\)</span> because then (using <a href="chapter3-exercises.html#ex_absolutepowers" class="xref" data-knowl="./knowl/xref/ex_absolutepowers.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.49">Exercise 3.6.49</a>)</div>
+<div class="para">converges for <span class="process-math">\(\Re(z)&gt;1\text{,}\)</span> because then (using <a href="chapter3-exercises.html#ex_absolutepowers" class="xref" data-knowl="./knowl/xref/ex_absolutepowers.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.48">Exercise 3.6.48</a>)</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_riemannzetaprep.html ./knowl/xref/ex_absolutepowers.html">
 \begin{equation*}
 \sum_{k\ge1} \left| k^{ -z } \right| \ = \ \sum_{k\ge1} k^{ - \Re(z) }
 \end{equation*}
 </div>
-<div class="para">converges. Viewed as a function in <span class="process-math">\(z\text{,}\)</span> the series <span class="process-math">\(\zeta(z)\)</span> is the <em class="emphasis">Riemann zeta function</em>, an indispensable tool in number theory and many other areas in mathematics and physics.  <details class="ptx-footnote" aria-live="polite" id="riemannzeta"><summary class="ptx-footnote__number" title="Footnote 7.2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="riemannzeta">The Riemann zeta function is the subject of the arguably most famous open problem in mathematics, the <em class="emphasis">\ix{Riemann hypothesis}</em>. It turns out that <span class="process-math">\(\zeta(z)\)</span> can be extended to a function that is holomorphic on <span class="process-math">\(\C \setminus \{ 1 \}\text{,}\)</span> and the Riemann hypothesis asserts that the roots of this extended function in the strip <span class="process-math">\(0 \lt  \Re(z) \lt  1\)</span> are all on the <em class="emphasis">critical line</em> <span class="process-math">\(\Re(z) = \frac 1 2\text{.}\)</span>
+<div class="para">converges. Viewed as a function in <span class="process-math">\(z\text{,}\)</span> the series <span class="process-math">\(\zeta(z)\)</span> is the <em class="emphasis">Riemann zeta function</em>, an indispensable tool in number theory and many other areas in mathematics and physics.  <details class="ptx-footnote" aria-live="polite" id="riemannzeta"><summary class="ptx-footnote__number" title="Footnote 7.2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="riemannzeta">The Riemann zeta function is the subject of the arguably most famous open problem in mathematics, the <em class="emphasis">Riemann hypothesis</em>. It turns out that <span class="process-math">\(\zeta(z)\)</span> can be extended to a function that is holomorphic on <span class="process-math">\(\C \setminus \{ 1 \}\text{,}\)</span> and the Riemann hypothesis asserts that the roots of this extended function in the strip <span class="process-math">\(0 \lt  \Re(z) \lt  1\)</span> are all on the <em class="emphasis">critical line</em> <span class="process-math">\(\Re(z) = \frac 1 2\text{.}\)</span>
 </div></details>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#exam_riemannzet-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 7.2.17"><a href="#exam_riemannzet" title="Copy heading and permalink for Example 7.2.17">🔗</a></div></article><div class="para" id="sec_series-31">Another common mistake is to try to use the converse of <a href="sec_series.html#absconvthm" class="xref" data-knowl="./knowl/xref/absconvthm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.2.16">Theorem 7.2.16</a>, which is also false:<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-31" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 7.2.17"><a href="#exam_riemannzet" title="Copy heading and permalink for Example 7.2.17">🔗</a></div></article><div class="para" id="sec_series-33">Another common mistake is to try to use the converse of <a href="sec_series.html#absconvthm" class="xref" data-knowl="./knowl/xref/absconvthm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.2.16">Theorem 7.2.16</a>, which is also false:<div class="autopermalink" data-description="Paragraph"><a href="#sec_series-33" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="ex_altharmonic"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.2.18</span><span class="period">.</span>
@@ -635,7 +673,10 @@ k \ge 1 } c_k\)</span> and <span class="process-math">\(\sum_{ k \ge 1 } d_k\)</
 <span class="process-math">\(\sum_{k\ge1}\frac{(-1)^{k+1}}k\)</span> converges by <a href="sec_series.html#cor_comparisonseries" class="xref" data-knowl="./knowl/xref/cor_comparisonseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.6">Corollary 7.2.6</a> and <a href="sec_series.html#exam_riemannzetaprep" class="xref" data-knowl="./knowl/xref/exam_riemannzetaprep.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.2.14">Example 7.2.14</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ex_altharmonic-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="ex_altharmonic-1-4">However, according to <a href="sec_series.html#ex_harmonic" class="xref" data-knowl="./knowl/xref/ex_harmonic.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.2.10">Example 7.2.10</a>, <span class="process-math">\(\sum_{k\ge1}\frac{(-1)^{k+1}}k\)</span> does <em class="emphasis">not</em> converge absolutely.<div class="autopermalink" data-description="Paragraph"><a href="#ex_altharmonic-1-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 7.2.18"><a href="#ex_altharmonic" title="Copy heading and permalink for Example 7.2.18">🔗</a></div></article><div class="autopermalink" data-description="Section 7.2: Series"><a href="#sec_series" title="Copy heading and permalink for Section 7.2: Series">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Example 7.2.18"><a href="#ex_altharmonic" title="Copy heading and permalink for Example 7.2.18">🔗</a></div></article><div id="sec_series-35" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('k')
+sum((-1)^k/k,k,1, +oo)
+</script></div>
+<div class="autopermalink" data-description="Section 7.2: Series"><a href="#sec_series" title="Copy heading and permalink for Section 7.2: Series">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec_sequencescomplete.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_sequseriesfunctions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

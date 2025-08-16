@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,25 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +184,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +236,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -317,8 +336,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -397,7 +415,7 @@ z^{2k+1}\)</span><div class="autopermalink" data-description="Paragraph"><a href
 </div>
 <div class="autopermalink" data-description="Task 8.4.5.d"><a href="#taylorchapter-6-5-5" title="Copy heading and permalink for Task 8.4.5.d">🔗</a></div></article><div class="autopermalink" data-description="Exercise 8.4.5"><a href="#taylorchapter-6-5" title="Copy heading and permalink for Exercise 8.4.5">🔗</a></div></article><article class="exercise exercise-like" id="prob_powerseriesboundaryreal"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
 <div class="para" id="prob_powerseriesboundaryreal-1-1">Consider <span class="process-math">\(f: \R \to \R\)</span> given by <span class="process-math">\(f(x) := \frac 1 { x^2
-+ 1 }\text{,}\)</span> the real version of our function in <a href="sec_powerseriesholom.html#ex_powerseriesboundary" class="xref" data-knowl="./knowl/xref/ex_powerseriesboundary.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.1.11">Example 8.1.11</a>, to show that <a href="sec_powerseriesholom.html#cor_powerseriesboundary" class="xref" data-knowl="./knowl/xref/cor_powerseriesboundary.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.10">Corollary 8.1.10</a> has no analogue in <span class="process-math">\(\R\text{.}\)</span> <details class="ptx-footnote" aria-live="polite" id="prob_powerseriesboundaryreal-1-1-7"><summary class="ptx-footnote__number" title="Footnote 8.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="prob_powerseriesboundaryreal-1-1-7">Incidentally, the same example shows, once more, that Liouville’s theorem (<a href="sec_cauchytothelimit.html#liouville" class="xref" data-knowl="./knowl/xref/liouville.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.3.4: Liouville’s  Theorem">Corollary 5.3.4</a>) has no analogue in <span class="process-math">\(\R\text{.}\)</span>
++ 1 }\text{,}\)</span> the real version of our function in <a href="sec_powerseriesholom.html#ex_powerseriesboundary" class="xref" data-knowl="./knowl/xref/ex_powerseriesboundary.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.1.11">Example 8.1.11</a>, to show that <a href="sec_powerseriesholom.html#cor_powerseriesboundary" class="xref" data-knowl="./knowl/xref/cor_powerseriesboundary.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.10">Corollary 8.1.10</a> has no analogue in <span class="process-math">\(\R\text{.}\)</span> <details class="ptx-footnote" aria-live="polite" id="prob_powerseriesboundaryreal-1-1-7"><summary class="ptx-footnote__number" title="Footnote 8.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="prob_powerseriesboundaryreal-1-1-7">Incidentally, the same example shows, once more, that Liouville’s theorem (<a href="sec_cauchytothelimit.html#liouville" class="xref" data-knowl="./knowl/xref/liouville.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.3.4: Liouville’s Theorem">Corollary 5.3.4</a>) has no analogue in <span class="process-math">\(\R\text{.}\)</span>
 </div></details><div class="autopermalink" data-description="Paragraph"><a href="#prob_powerseriesboundaryreal-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Exercise 8.4.6"><a href="#prob_powerseriesboundaryreal" title="Copy heading and permalink for Exercise 8.4.6">🔗</a></div></article><article class="exercise exercise-like" id="taylorchapter-6-7"><h3 class="heading"><span class="codenumber">7<span class="period">.</span></span></h3>
@@ -439,7 +457,7 @@ X \amp \ = \ \left\{ a \in G : \text{ there exists }  r
 \right\}\\
 Y \amp \ = \ \left\{ a \in G : \text{ there exists }  r
 \text{ such that }  f(z) \ne 0 \text{ for all }  z \in
-D[a,r] \setminus \{ a \} \right\} \text{.}
+D[a,r] \setminus \{ a \} \right\} 
 \end{align*}
 </div>
 <div class="para">in our proof of <a href="sec_classifzeros.html#uniquenessfunction" class="xref" data-knowl="./knowl/xref/uniquenessfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.2.2">Theorem 8.2.2</a> are open.</div>
@@ -466,7 +484,7 @@ D[a,r] \setminus \{ a \} \right\} \text{.}
 <div class="autopermalink" data-description="Answer 8.4.14.1"><a href="#ex_8_3-2" title="Copy heading and permalink for Answer 8.4.14.1">🔗</a></div>
 </div></details></div>
 <div class="autopermalink" data-description="Exercise 8.4.14"><a href="#ex_8_3" title="Copy heading and permalink for Exercise 8.4.14">🔗</a></div></article><article class="exercise exercise-like" id="taylorchapter-6-15"><h3 class="heading"><span class="codenumber">15<span class="period">.</span></span></h3>
-<div class="para" id="taylorchapter-6-15-1-1">Give another proof of the Fundamental Theorem of Algebra  (<a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra ">Theorem 5.3.2</a>), using the Minimum-Modulus Theorem (<a href="sec_classifzeros.html#minmodthm" class="xref" data-knowl="./knowl/xref/minmodthm.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.2.6: Minimum-Modulus Theorem">Corollary 8.2.6</a>).<div class="autopermalink" data-description="Paragraph"><a href="#taylorchapter-6-15-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="taylorchapter-6-15-1-1">Give another proof of the Fundamental Theorem of Algebra  (<a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra">Theorem 5.3.2</a>), using the Minimum-Modulus Theorem (<a href="sec_classifzeros.html#minmodthm" class="xref" data-knowl="./knowl/xref/minmodthm.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.2.6: Minimum-Modulus Theorem">Corollary 8.2.6</a>).<div class="autopermalink" data-description="Paragraph"><a href="#taylorchapter-6-15-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions"><details id="taylorchapter-6-15-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">
 <div class="para" id="taylorchapter-6-15-2-1">Use <a href="sec_cauchytothelimit.html#polynomialestimate" class="xref" data-knowl="./knowl/xref/polynomialestimate.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 5.3.1">Proposition 5.3.1</a> to show that a polynomial does not achieve its minimum modulus on a large circle; then use the Minimum-Modulus Theorem to deduce that the polynomial has a zero.<div class="autopermalink" data-description="Paragraph"><a href="#taylorchapter-6-15-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -518,7 +536,7 @@ D[a,r] \setminus \{ a \} \right\} \text{.}
 <div class="autopermalink" data-description="Answer 8.4.18.1"><a href="#ex_8_5-2" title="Copy heading and permalink for Answer 8.4.18.1">🔗</a></div>
 </div></details></div>
 <div class="autopermalink" data-description="Exercise 8.4.18"><a href="#ex_8_5" title="Copy heading and permalink for Exercise 8.4.18">🔗</a></div></article><article class="exercise exercise-like" id="ex_8_7"><h3 class="heading"><span class="codenumber">19<span class="period">.</span></span></h3>
-<div class="para" id="ex_8_7-1-1">Find a Laurent series for <span class="process-math">\(\ds \frac{z-2 }{ z+1 }\)</span> centered at <span class="process-math">\(z=-1\)</span> and the region in which it converges.<div class="autopermalink" data-description="Paragraph"><a href="#ex_8_7-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ex_8_7-1-1">Find a Laurent series for <span class="process-math">\(\frac{z-2 }{ z+1 }\)</span> centered at <span class="process-math">\(z=-1\)</span> and the region in which it converges.<div class="autopermalink" data-description="Paragraph"><a href="#ex_8_7-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions"><details id="ex_8_7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
 <div class="para" id="ex_8_7-2-1">One Laurent series is <span class="process-math">\(-3 \, (z+1)^{-1} + 1\text{,}\)</span> converging for <span class="process-math">\(z \not= -1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_8_7-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -526,7 +544,7 @@ D[a,r] \setminus \{ a \} \right\} \text{.}
 <div class="autopermalink" data-description="Answer 8.4.19.1"><a href="#ex_8_7-2" title="Copy heading and permalink for Answer 8.4.19.1">🔗</a></div>
 </div></details></div>
 <div class="autopermalink" data-description="Exercise 8.4.19"><a href="#ex_8_7" title="Copy heading and permalink for Exercise 8.4.19">🔗</a></div></article><article class="exercise exercise-like" id="taylorchapter-6-20"><h3 class="heading"><span class="codenumber">20<span class="period">.</span></span></h3>
-<div class="para" id="taylorchapter-6-20-1-1">Find the terms <span class="process-math">\(c_nz^n\)</span> in the Laurent series for <span class="process-math">\(\ds \frac{ 1 }{ \sin^2(z) }\)</span> centered at <span class="process-math">\(z=0\text{,}\)</span> for <span class="process-math">\(-4\le n\le 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#taylorchapter-6-20-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="taylorchapter-6-20-1-1">Find the terms <span class="process-math">\(c_nz^n\)</span> in the Laurent series for <span class="process-math">\(\frac{ 1 }{ \sin^2(z) }\)</span> centered at <span class="process-math">\(z=0\text{,}\)</span> for <span class="process-math">\(-4\le n\le 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#taylorchapter-6-20-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Exercise 8.4.20"><a href="#taylorchapter-6-20" title="Copy heading and permalink for Exercise 8.4.20">🔗</a></div></article><article class="exercise exercise-like" id="taylorchapter-6-21"><h3 class="heading"><span class="codenumber">21<span class="period">.</span></span></h3>
 <div class="para" id="taylorchapter-6-21-1-1">Find the first four nonzero terms in the power series expansion of <span class="process-math">\(\tan(z)\)</span> centered at the origin. What is the radius of convergence?<div class="autopermalink" data-description="Paragraph"><a href="#taylorchapter-6-21-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -541,7 +559,7 @@ D[a,r] \setminus \{ a \} \right\} \text{.}
 <div class="displaymath process-math">
 \begin{equation*}
 \exp(z)\cos(z) \ = \
-\frac12\left(\exp((1+i)z)+\exp((1-i)z)\right) \text{.}
+\frac12\left(\exp((1+i)z)+\exp((1-i)z)\right) \,\text{.}
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#taylorchapter-6-22-2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -582,7 +600,7 @@ D[a,r] \setminus \{ a \} \right\} \text{.}
 \begin{equation*}
 f(z) = \left\{ \begin{array}{cl} \tfrac{ \cos z - 1 }{
 z^2 } \amp  \mbox{ if }  z \not= 0 \, , \\ -
-\tfrac{1}{2} \amp  \mbox{ if }  z = 0 \end{array}
+\tfrac{1}{2} \amp  \mbox{ if }  z = 0 \, . \end{array}
 \right. 
 \end{equation*}
 </div>
@@ -687,7 +705,7 @@ f(z) \ = \ \frac{3}{(1-z)(z+2)}\,\text{,}
 <div class="para">Suppose that <span class="process-math">\(f(z)\)</span> has exactly one zero, at <span class="process-math">\(a\text{,}\)</span> inside the circle <span class="process-math">\(\gamma\text{,}\)</span> and that it has multiplicity <span class="process-math">\(1\text{.}\)</span> Show that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-a\ = \\frac1{2\pi i}\int_\gamma\frac{z \, f'(z)}{f(z)}\,\diff{z}\,\text{.}
+a\ = \ \frac1{2\pi i}\int_\gamma\frac{z \, f'(z)}{f(z)}\,\diff{z}\,\text{.}
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#taylorchapter-6-33-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>

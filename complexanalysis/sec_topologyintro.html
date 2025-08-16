@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,25 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +184,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +236,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter contains-active">
@@ -317,8 +336,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -357,34 +375,34 @@ D[a,r] \ := \ \left\{z \in \C: \, \abs{z-a}\lt r \right\} \, \text{.}
 </div>
 <div class="para" id="sec_topologyintro-6">Note that <span class="process-math">\(D[a,r]\)</span> does not include the points on <span class="process-math">\(C[a,r]\text{.}\)</span> <a href="sec_topologyintro.html#fig_circles" class="xref" data-knowl="./knowl/xref/fig_circles.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.1">Figure 1.4.1</a> illustrates these definitions.<div class="autopermalink" data-description="Paragraph"><a href="#sec_topologyintro-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_topologyintro-7">Next we need some terminology for talking about subsets of <span class="process-math">\(\C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_topologyintro-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_topologyintro-7">Next we need some terminology for talking about subsets of <span class="process-math">\(\C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_topologyintro-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="sec_topologyintro-8"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.2</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="sec_topologyintro-8-1-1">
-<div class="para">Suppose <span class="process-math">\(G\)</span> is a subset of <span class="process-math">\(\C\text{.}\)</span>
+<div class="para">Suppose <span class="process-math">\(G\)</span> is a subset of <span class="process-math">\(\C\text{.}\)</span>
 </div>
-<ol class="lower-alpha ol-marker-1" id="sec_topologyintro-8-1-1-3">
-<li id="sec_topologyintro-8-1-1-3-1">
-<div class="para" id="sec_topologyintro-8-1-1-3-1-1">A point <span class="process-math">\(a \in G\)</span> is an <em class="emphasis">interior point</em> of <span class="process-math">\(G\)</span> if some open disk with center <span class="process-math">\(a\)</span> is a subset of <span class="process-math">\(G\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_topologyintro-8-1-1-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<ol class="lower-alpha ol-marker-1" id="sec_topologyintro-8-1-1-4">
+<li id="sec_topologyintro-8-1-1-4-1">
+<div class="para" id="sec_topologyintro-8-1-1-4-1-1">A point <span class="process-math">\(a \in G\)</span> is an <em class="emphasis">interior point</em> of <span class="process-math">\(G\)</span> if some open disk with center <span class="process-math">\(a\)</span> is a subset of <span class="process-math">\(G\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_topologyintro-8-1-1-4-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item a"><a href="#sec_topologyintro-8-1-1-3-1" title="Copy heading and permalink for Item a">🔗</a></div>
+<div class="autopermalink" data-description="Item a"><a href="#sec_topologyintro-8-1-1-4-1" title="Copy heading and permalink for Item a">🔗</a></div>
 </li>
-<li id="sec_topologyintro-8-1-1-3-2">
-<div class="para" id="sec_topologyintro-8-1-1-3-2-1">A point <span class="process-math">\(b \in \C\)</span> is a <em class="emphasis">boundary point</em> of <span class="process-math">\(G\)</span> if every open disk centered at <span class="process-math">\(b\)</span> contains a point in <span class="process-math">\(G\)</span> and also a point that is not in <span class="process-math">\(G\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_topologyintro-8-1-1-3-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec_topologyintro-8-1-1-4-2">
+<div class="para" id="sec_topologyintro-8-1-1-4-2-1">A point <span class="process-math">\(b \in \C\)</span> is a <em class="emphasis">boundary point</em> of <span class="process-math">\(G\)</span> if every open disk centered at <span class="process-math">\(b\)</span> contains a point in <span class="process-math">\(G\)</span> and also a point that is not in <span class="process-math">\(G\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_topologyintro-8-1-1-4-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item b"><a href="#sec_topologyintro-8-1-1-3-2" title="Copy heading and permalink for Item b">🔗</a></div>
+<div class="autopermalink" data-description="Item b"><a href="#sec_topologyintro-8-1-1-4-2" title="Copy heading and permalink for Item b">🔗</a></div>
 </li>
-<li id="sec_topologyintro-8-1-1-3-3">
-<div class="para" id="sec_topologyintro-8-1-1-3-3-1">A point <span class="process-math">\(c \in \C\)</span> is an <em class="emphasis">accumulation point</em> of <span class="process-math">\(G\)</span> if every open disk centered at <span class="process-math">\(c\)</span> contains a point of <span class="process-math">\(G\)</span> different from <span class="process-math">\(c\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_topologyintro-8-1-1-3-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec_topologyintro-8-1-1-4-3">
+<div class="para" id="sec_topologyintro-8-1-1-4-3-1">A point <span class="process-math">\(c \in \C\)</span> is an <em class="emphasis">accumulation point</em> of <span class="process-math">\(G\)</span> if every open disk centered at <span class="process-math">\(c\)</span> contains a point of <span class="process-math">\(G\)</span> different from <span class="process-math">\(c\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_topologyintro-8-1-1-4-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item c"><a href="#sec_topologyintro-8-1-1-3-3" title="Copy heading and permalink for Item c">🔗</a></div>
+<div class="autopermalink" data-description="Item c"><a href="#sec_topologyintro-8-1-1-4-3" title="Copy heading and permalink for Item c">🔗</a></div>
 </li>
-<li id="sec_topologyintro-8-1-1-3-4">
-<div class="para" id="sec_topologyintro-8-1-1-3-4-1">A point <span class="process-math">\(d \in G\)</span> is an <em class="emphasis">isolated point</em> of <span class="process-math">\(G\)</span> if some open disk centered at <span class="process-math">\(d\)</span> contains no point of <span class="process-math">\(G\)</span> other than <span class="process-math">\(d\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_topologyintro-8-1-1-3-4-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec_topologyintro-8-1-1-4-4">
+<div class="para" id="sec_topologyintro-8-1-1-4-4-1">A point <span class="process-math">\(d \in G\)</span> is an <em class="emphasis">isolated point</em> of <span class="process-math">\(G\)</span> if some open disk centered at <span class="process-math">\(d\)</span> contains no point of <span class="process-math">\(G\)</span> other than <span class="process-math">\(d\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_topologyintro-8-1-1-4-4-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item d"><a href="#sec_topologyintro-8-1-1-3-4" title="Copy heading and permalink for Item d">🔗</a></div>
+<div class="autopermalink" data-description="Item d"><a href="#sec_topologyintro-8-1-1-4-4" title="Copy heading and permalink for Item d">🔗</a></div>
 </li>
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_topologyintro-8-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -449,7 +467,7 @@ D[a,r]\text{.}\)</span>  The boundary of <span class="process-math">\(D[a,r]\)</
 <article class="definition definition-like" id="def_smooth"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.11</span><span class="period">.</span>
 </h3>
-<div class="para" id="def_smooth-1-1">A <em class="emphasis">path</em> (or <em class="emphasis">curve</em>) in <span class="process-math">\(\C\)</span> is a continuous function <span class="process-math">\(\gg \colon [a,b] \to \C\text{,}\)</span> where <span class="process-math">\([a,b]\)</span> is a closed interval in <span class="process-math">\(\R\text{.}\)</span>  We may think of <span class="process-math">\(\gg\)</span> as a parametrization of the image that is painted by the path and will often write this parametrization as <span class="process-math">\(\gamma(t), \ a \le t \le b\text{.}\)</span> The path is <em class="emphasis">smooth</em> if <span class="process-math">\(\gg\)</span> is differentiable and the derivative <span class="process-math">\(\gg'\)</span> is continuous and nonzero.  <details class="ptx-footnote" aria-live="polite" id="def_smooth-1-1-15"><summary class="ptx-footnote__number" title="Footnote 1.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="def_smooth-1-1-15">There is a subtlety here, because <span class="process-math">\(\gg\)</span> is defined on a closed interval. For <span class="process-math">\(\gg: [a,b] \to \C\)</span> to be smooth, we demand both that <span class="process-math">\(\gg'(t)\)</span> exists for all <span class="process-math">\(a \lt t
+<div class="para" id="def_smooth-1-1">A <em class="emphasis">path</em> (or <em class="emphasis">curve</em>) in <span class="process-math">\(\C\)</span> is a continuous function <span class="process-math">\(\gg \colon [a,b] \to \C\text{,}\)</span> where <span class="process-math">\([a,b]\)</span> is a closed interval in <span class="process-math">\(\R\text{.}\)</span>  We may think of <span class="process-math">\(\gg\)</span> as a parametrization of the image that is painted by the path and will often write this parametrization as <span class="process-math">\(\gamma(t), \ a \le t \le b\text{.}\)</span> The path is <em class="emphasis">smooth</em>  if <span class="process-math">\(\gg\)</span> is differentiable and the derivative <span class="process-math">\(\gg'\)</span> is continuous and nonzero.<details class="ptx-footnote" aria-live="polite" id="def_smooth-1-1-15"><summary class="ptx-footnote__number" title="Footnote 1.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="def_smooth-1-1-15">There is a subtlety here, because <span class="process-math">\(\gg\)</span> is defined on a closed interval. For <span class="process-math">\(\gg: [a,b] \to \C\)</span> to be smooth, we demand both that <span class="process-math">\(\gg'(t)\)</span> exists for all <span class="process-math">\(a \lt t
 \lt b\text{,}\)</span> and that <span class="process-math">\(\lim_{ t \to a^+ } \gg'(t)\)</span> and <span class="process-math">\(\lim_{ t \to b^- } \gg'(t)\)</span> exist.</div></details><div class="autopermalink" data-description="Paragraph"><a href="#def_smooth-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Definition 1.4.11"><a href="#def_smooth" title="Copy heading and permalink for Definition 1.4.11">🔗</a></div></article><div class="para logical" id="sec_topologyintro-22">
@@ -490,11 +508,11 @@ D[a,r]\text{.}\)</span>  The boundary of <span class="process-math">\(D[a,r]\)</
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#example-paths-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <figure class="figure figure-like" id="fig_curves"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/prefigure/fig-paths.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.13<span class="period">.</span></span><span class="space"> </span>Two paths and their parametrizations; <span class="process-math">\(\gg_1\)</span> is smooth and <span class="process-math">\(\gg_2\)</span> is continuous and piecewise smooth.<div class="autopermalink" data-description="Figure 1.4.13"><a href="#fig_curves" title="Copy heading and permalink for Figure 1.4.13">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 1.4.12"><a href="#example-paths" title="Copy heading and permalink for Example 1.4.12">🔗</a></div></article><div class="para logical" id="sec_topologyintro-24">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.13<span class="period">.</span></span><span class="space"> </span>Two paths and their parametrizations; <span class="process-math">\(\gg_1\)</span> is smooth and <span class="process-math">\(\gg_2\)</span> is continuous and piecewise smooth (a term which we will define in <a href="sec_intdef.html" class="internal" title="Section 4.1: Definition and Basic Properties">Section 4.1</a>).<div class="autopermalink" data-description="Figure 1.4.13"><a href="#fig_curves" title="Copy heading and permalink for Figure 1.4.13">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 1.4.12"><a href="#example-paths" title="Copy heading and permalink for Example 1.4.12">🔗</a></div></article><div class="para logical" id="sec_topologyintro-24">
 <div class="para">We remark that each path comes with an <em class="emphasis">orientation</em>, i.e., a sense of direction.  For example, the path <span class="process-math">\(\gg_1\)</span> in <a href="sec_topologyintro.html#fig_curves" class="xref" data-knowl="./knowl/xref/fig_curves.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.13">Figure 1.4.13</a> is different from</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_curves.html">
 \begin{equation*}
-\gg_3(t) = -2 + 2 \, e^{ -it } , \ 0 \le t \le \tfrac{ 3 \pi }{ 2 } \,\text{,}
+\gg_3(t) = -2 + 2 \, e^{ -it } , \qquad 0 \le t \le \tfrac{ 3 \pi }{ 2 } \,\text{,}
 \end{equation*}
 </div>
 <div class="para">even though both <span class="process-math">\(\gg_1\)</span> and <span class="process-math">\(\gg_3\)</span> yield the same picture: <span class="process-math">\(\gg_1\)</span> features a counter-clockwise orientation, where as that of <span class="process-math">\(\gg_3\)</span> is clockwise.</div>

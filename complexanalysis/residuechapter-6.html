@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,25 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +184,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +236,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -317,8 +336,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -469,28 +487,28 @@ eBookConfig.enable_chatcodes =  false;
 </div></div>
 <article class="task exercise-like" id="residuechapter-6-7-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para" id="residuechapter-6-7-2-1-1">
-<span class="process-math">\(\int_{ C[i-1,1] }\frac{\diff{z}}{z^4+4}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-7-2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\ds \int_{ C[i-1,1] }\frac{\diff{z}}{z^4+4}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-7-2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Task 9.4.7.a"><a href="#residuechapter-6-7-2" title="Copy heading and permalink for Task 9.4.7.a">🔗</a></div></article><article class="task exercise-like" id="residuechapter-6-7-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="para" id="residuechapter-6-7-3-1-1">
-<span class="process-math">\(\int_{ C[i,2] }\frac{\diff{z}}{z(z^2+z-2)}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-7-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\ds \int_{ C[i,2] }\frac{\diff{z}}{z(z^2+z-2)}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-7-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Task 9.4.7.b"><a href="#residuechapter-6-7-3" title="Copy heading and permalink for Task 9.4.7.b">🔗</a></div></article><article class="task exercise-like" id="residuechapter-6-7-4"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <div class="para" id="residuechapter-6-7-4-1-1">
-<span class="process-math">\(\int_{ C[0,2] }\frac{\exp(z)}{z^3+z}\diff{z}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-7-4-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\ds \int_{ C[0,2] }\frac{\exp(z)}{z^3+z}\diff{z}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-7-4-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Task 9.4.7.c"><a href="#residuechapter-6-7-4" title="Copy heading and permalink for Task 9.4.7.c">🔗</a></div></article><article class="task exercise-like" id="residuechapter-6-7-5"><h4 class="heading"><span class="codenumber">(d)</span></h4>
 <div class="para" id="residuechapter-6-7-5-1-1">
-<span class="process-math">\(\int_{ C[0,1] }\frac{\diff{z}}{z^2\sin z}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-7-5-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\ds \int_{ C[0,1] }\frac{\diff{z}}{z^2\sin z}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-7-5-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Task 9.4.7.d"><a href="#residuechapter-6-7-5" title="Copy heading and permalink for Task 9.4.7.d">🔗</a></div></article><article class="task exercise-like" id="residuechapter-6-7-6"><h4 class="heading"><span class="codenumber">(e)</span></h4>
 <div class="para" id="residuechapter-6-7-6-1-1">
-<span class="process-math">\(\int_{ C[0,3] }\frac{\exp(z)}{(z+2)^2 \sin z} 
+<span class="process-math">\(\ds \int_{ C[0,3] }\frac{\exp(z)}{(z+2)^2 \sin z} 
 \diff{z}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-7-6-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Task 9.4.7.e"><a href="#residuechapter-6-7-6" title="Copy heading and permalink for Task 9.4.7.e">🔗</a></div></article><article class="task exercise-like" id="residuechapter-6-7-7"><h4 class="heading"><span class="codenumber">(f)</span></h4>
 <div class="para" id="residuechapter-6-7-7-1-1">
-<span class="process-math">\(\int_{ C[\pi,1] } \frac{ \exp(z) }{ \sin(z) \cos(z) }
+<span class="process-math">\(\ds \int_{ C[\pi,1] } \frac{ \exp(z) }{ \sin(z) \cos(z) }
 \diff{z}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-7-7-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Task 9.4.7.f"><a href="#residuechapter-6-7-7" title="Copy heading and permalink for Task 9.4.7.f">🔗</a></div></article><div class="autopermalink" data-description="Exercise 9.4.7"><a href="#residuechapter-6-7" title="Copy heading and permalink for Exercise 9.4.7">🔗</a></div></article><article class="exercise exercise-like" id="residuechapter-6-8"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
@@ -544,7 +562,7 @@ g''(z_0)^2 } \, \text{.}
 \diff{x}\)</span> for polynomials <span class="process-math">\(p(x)\)</span> and <span class="process-math">\(q(x)\text{,}\)</span> and give a formula for this integral along the lines of <a href="residuechapter-6.html#ex_improperintrationalfct" class="xref" data-knowl="./knowl/xref/ex_improperintrationalfct.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 9.4.13">Exercise 9.4.13</a>.<div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-15-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Exercise 9.4.15"><a href="#residuechapter-6-15" title="Copy heading and permalink for Exercise 9.4.15">🔗</a></div></article><article class="exercise exercise-like" id="residuechapter-6-16"><h3 class="heading"><span class="codenumber">16<span class="period">.</span></span></h3>
-<div class="para" id="residuechapter-6-16-1-1">Compute <span class="process-math">\(\ds \int_{-\infty}^\infty \frac{ \cos(x) }{ 1+x^4 }
+<div class="para" id="residuechapter-6-16-1-1">Compute <span class="process-math">\(\ds \int_{-\infty}^\infty \frac{ \sin(x) }{ 1+x^4 }
 \, \diff{x} \text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-16-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Exercise 9.4.16"><a href="#residuechapter-6-16" title="Copy heading and permalink for Exercise 9.4.16">🔗</a></div></article><article class="exercise exercise-like" id="residuechapter-6-17"><h3 class="heading"><span class="codenumber">17<span class="period">.</span></span></h3>
@@ -556,7 +574,7 @@ b \in \C\)</span> with <span class="process-math">\(a \ne b\)</span> and <span c
 \int_{ C[0,R] } \frac{ f(z) }{ (z-a)(z-b) } \, \diff{z}
 \end{equation*}
 </div>
-<div class="para">and use this to give an alternate proof of Liouville’s <a href="sec_cauchytothelimit.html#liouville" class="xref" data-knowl="./knowl/xref/liouville.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.3.4: Liouville’s  Theorem">Corollary 5.3.4</a>.</div>
+<div class="para">and use this to give an alternate proof of Liouville’s <a href="sec_cauchytothelimit.html#liouville" class="xref" data-knowl="./knowl/xref/liouville.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.3.4: Liouville’s Theorem">Corollary 5.3.4</a>.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-17-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions"><details id="residuechapter-6-17-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">
@@ -614,7 +632,7 @@ g(z_m) - \sum_{n=1}^k g(p_n) \, \text{.}
 <div class="autopermalink" data-description="Answer 9.4.20.c.1"><a href="#ex_9_1-4-2" title="Copy heading and permalink for Answer 9.4.20.c.1">🔗</a></div>
 </div></details></div>
 <div class="autopermalink" data-description="Task 9.4.20.c"><a href="#ex_9_1-4" title="Copy heading and permalink for Task 9.4.20.c">🔗</a></div></article><div class="autopermalink" data-description="Exercise 9.4.20"><a href="#ex_9_1" title="Copy heading and permalink for Exercise 9.4.20">🔗</a></div></article><article class="exercise exercise-like" id="residuechapter-6-21"><h3 class="heading"><span class="codenumber">21<span class="period">.</span></span></h3>
-<div class="para" id="residuechapter-6-21-1-1">Give another proof of the Fundamental Theorem of Algebra (<a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra ">Theorem 5.3.2</a>), using Rouché’s <a href="sec_argprinc.html#rouche" class="xref" data-knowl="./knowl/xref/rouche.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.3.3: Rouché’s Theorem">Theorem 9.3.3</a>. <div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-21-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="residuechapter-6-21-1-1">Give another proof of the Fundamental Theorem of Algebra (<a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra">Theorem 5.3.2</a>), using Rouché’s <a href="sec_argprinc.html#rouche" class="xref" data-knowl="./knowl/xref/rouche.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.3.3: Rouché’s Theorem">Theorem 9.3.3</a>. <div class="autopermalink" data-description="Paragraph"><a href="#residuechapter-6-21-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions"><details id="residuechapter-6-21-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">
 <div class="para" id="residuechapter-6-21-2-1">If <span class="process-math">\(p(z) = a_n

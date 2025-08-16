@@ -42,11 +42,12 @@ f'(z) \ = \ \frac{d}{\diff{z}} \sum_{k \geq 0} \frac{z^k}{k!}
 </div> <div class="para logical">
 <div class="para">Thus</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/derivative0.html">
-\begin{equation*}
-\frac{ d }{ \diff{z} } \frac{ f(z) }{ \exp(z) } \ = \ \frac{ d
-}{ \diff{z} } \left( f(z) \exp(-z) \right) \ = \ f'(z) \exp(-z)
-- f(z) \exp(-z) \ = \ 0 \, \text{,}
-\end{equation*}
+\begin{align*}
+\frac{ d }{ \diff{z} } \frac{ f(z) }{ \exp(z) }
+\ \amp= \ \frac{ d }{ \diff{z} } \left( f(z) \exp(-z) \right)
+\ = \ f'(z) \exp(-z) - f(z) \exp(-z)\\
+\amp = \ 0 \, \text{,}
+\end{align*}
 </div>
 <div class="para">and so, by <a href="sec_constantfcts.html#derivative0" class="xref" data-knowl="./knowl/xref/derivative0.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.4.2">Theorem 2.4.2</a>, <span class="process-math">\(\frac{ f(z) }{ \exp(z) }\)</span> is constant. Evaluating at <span class="process-math">\(z=0\)</span> gives that this constant is 1, and so <span class="process-math">\(f(z) = \exp(z)\text{.}\)</span>
 </div>

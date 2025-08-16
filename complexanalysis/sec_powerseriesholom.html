@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,37 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +196,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +248,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -317,8 +348,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -406,18 +436,23 @@ f'(z) \ = \ \frac{d}{\diff{z}} \sum_{k \geq 0} \frac{z^k}{k!}
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_exptaylor-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="ex_exptaylor-1-3">
 <div class="para">Thus</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/derivative0.html">
-\begin{equation*}
-\frac{ d }{ \diff{z} } \frac{ f(z) }{ \exp(z) } \ = \ \frac{ d
-}{ \diff{z} } \left( f(z) \exp(-z) \right) \ = \ f'(z) \exp(-z)
-- f(z) \exp(-z) \ = \ 0 \, \text{,}
-\end{equation*}
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/derivative0.html" id="ex_exptaylor-1-3-1">
+\begin{align*}
+\frac{ d }{ \diff{z} } \frac{ f(z) }{ \exp(z) }
+\ \amp= \ \frac{ d }{ \diff{z} } \left( f(z) \exp(-z) \right)
+\ = \ f'(z) \exp(-z) - f(z) \exp(-z)\\
+\amp = \ 0 \, \text{,}
+\end{align*}
 </div>
 <div class="para">and so, by <a href="sec_constantfcts.html#derivative0" class="xref" data-knowl="./knowl/xref/derivative0.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.4.2">Theorem 2.4.2</a>, <span class="process-math">\(\frac{ f(z) }{ \exp(z) }\)</span> is constant. Evaluating at <span class="process-math">\(z=0\)</span> gives that this constant is 1, and so <span class="process-math">\(f(z) = \exp(z)\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_exptaylor-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 8.1.3"><a href="#ex_exptaylor" title="Copy heading and permalink for Example 8.1.3">🔗</a></div></article><article class="example example-like" id="ex_sinpowerser"><h3 class="heading">
+<div class="autopermalink" data-description="Example 8.1.3"><a href="#ex_exptaylor" title="Copy heading and permalink for Example 8.1.3">🔗</a></div></article><div id="sec_powerseriesholom-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('k')
+var('z')
+sum(z^k/factorial(k),k,0, +oo)
+</script></div>
+<article class="example example-like" id="ex_sinpowerser"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.1.4</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="ex_sinpowerser-1-1">
@@ -442,7 +477,10 @@ f'(z) \ = \ \frac{d}{\diff{z}} \sum_{k \geq 0} \frac{z^k}{k!}
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_sinpowerser-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="ex_sinpowerser-1-2">Note that we are allowed to rearrange the terms of the two added sums because the corresponding series have infinite radii of convergence.<div class="autopermalink" data-description="Paragraph"><a href="#ex_sinpowerser-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 8.1.4"><a href="#ex_sinpowerser" title="Copy heading and permalink for Example 8.1.4">🔗</a></div></article><div class="para" id="sec_powerseriesholom-9">Naturally, <a href="sec_powerseriesholom.html#powerderivative" class="xref" data-knowl="./knowl/xref/powerderivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.1.2">Theorem 8.1.2</a> can be repeatedly applied to <span class="process-math">\(f'\text{,}\)</span> then to <span class="process-math">\(f''\text{,}\)</span> and so on. The various derivatives of a power series can also be seen as ingredients of the series itself—this is the statement of the following <em class="emphasis">Taylor series expansion</em>.  <details class="ptx-footnote" aria-live="polite" id="sec_powerseriesholom-9-7"><summary class="ptx-footnote__number" title="Footnote 8.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_powerseriesholom-9-7">Named after Brook Taylor (1685–1731).</div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 8.1.4"><a href="#ex_sinpowerser" title="Copy heading and permalink for Example 8.1.4">🔗</a></div></article><div id="sec_powerseriesholom-10" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('z')
+taylor(sin(z),z,0,10)
+</script></div>
+<div class="para" id="sec_powerseriesholom-11">Naturally, <a href="sec_powerseriesholom.html#powerderivative" class="xref" data-knowl="./knowl/xref/powerderivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.1.2">Theorem 8.1.2</a> can be repeatedly applied to <span class="process-math">\(f'\text{,}\)</span> then to <span class="process-math">\(f''\text{,}\)</span> and so on. The various derivatives of a power series can also be seen as ingredients of the series itself—this is the statement of the following <em class="emphasis">Taylor series expansion</em>.  <details class="ptx-footnote" aria-live="polite" id="sec_powerseriesholom-11-7"><summary class="ptx-footnote__number" title="Footnote 8.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_powerseriesholom-11-7">Named after Brook Taylor (1685–1731).</div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="corollary theorem-like" id="taylor"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">8.1.5</span><span class="period">.</span>
@@ -456,8 +494,8 @@ c_k \ = \ \frac{ f^{(k)} (z_0) }{ k! } \,\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#taylor-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Corollary 8.1.5"><a href="#taylor" title="Copy heading and permalink for Corollary 8.1.5">🔗</a></div></article><article class="proof" id="sec_powerseriesholom-11"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<div class="para logical" id="sec_powerseriesholom-11-1">
+<div class="autopermalink" data-description="Corollary 8.1.5"><a href="#taylor" title="Copy heading and permalink for Corollary 8.1.5">🔗</a></div></article><article class="proof" id="sec_powerseriesholom-13"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="sec_powerseriesholom-13-1">
 <div class="para">For starters, <span class="process-math">\(f(z_0)=c_0\text{.}\)</span> <a href="sec_powerseriesholom.html#powerderivative" class="xref" data-knowl="./knowl/xref/powerderivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.1.2">Theorem 8.1.2</a> gives <span class="process-math">\(f'(z_0)=c_1\text{.}\)</span> Applying the same theorem to <span class="process-math">\(f'\)</span> gives</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/powerderivative.html">
 \begin{equation*}
@@ -466,9 +504,9 @@ f''(z) \ = \ \sum_{ k \geq 2 } k (k-1) \, c_k \left( z - z_0
 \end{equation*}
 </div>
 <div class="para">and so <span class="process-math">\(f''(z_0) = 2 \, c_2\text{.}\)</span> A quick induction game establishes <span class="process-math">\(f'''(z_0) = 6 \, c_3\text{,}\)</span> <span class="process-math">\(f''''(z_0) = 24 \, c_4\text{,}\)</span> etc.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-11-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-13-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 8.1.1"><a href="#sec_powerseriesholom-11" title="Copy heading and permalink for Proof 8.1.1">🔗</a></div></article><div class="para" id="sec_powerseriesholom-12">Taylor’s formula shows that the coefficients of any power series converging to <span class="process-math">\(f\)</span> on some open disk <span class="process-math">\(D\)</span> can be determined from the function <span class="process-math">\(f\)</span> restricted to <span class="process-math">\(D\text{.}\)</span> It follows immediately that the coefficients of a power series are unique:<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-12" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 8.1.1"><a href="#sec_powerseriesholom-13" title="Copy heading and permalink for Proof 8.1.1">🔗</a></div></article><div class="para" id="sec_powerseriesholom-14">Taylor’s formula shows that the coefficients of any power series converging to <span class="process-math">\(f\)</span> on some open disk <span class="process-math">\(D\)</span> can be determined from the function <span class="process-math">\(f\)</span> restricted to <span class="process-math">\(D\text{.}\)</span> It follows immediately that the coefficients of a power series are unique:<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-14" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="corollary theorem-like" id="uniqueness"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">8.1.6</span><span class="period">.</span>
@@ -497,7 +535,7 @@ f^{ (k) } (z_0) \ = \ \biggl. \exp(z) \biggr|_{ z=\pi } \ = \ e^\pi\text{,}
 <div class="para">which converges for all <span class="process-math">\(z \in \C\)</span> (essentially by <a href="sec_regionsconvergence.html#exponentialfunctionradius" class="xref" data-knowl="./knowl/xref/exponentialfunctionradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.4.8">Example 7.4.8</a>).</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_expatpi-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 8.1.7"><a href="#ex_expatpi" title="Copy heading and permalink for Example 8.1.7">🔗</a></div></article><div class="para" id="sec_powerseriesholom-15">We now turn to the second cornerstone result of this section, that a holomorphic function can be locally represented by a power series.<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-15" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 8.1.7"><a href="#ex_expatpi" title="Copy heading and permalink for Example 8.1.7">🔗</a></div></article><div class="para" id="sec_powerseriesholom-17">We now turn to the second cornerstone result of this section, that a holomorphic function can be locally represented by a power series.<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-17" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm_holomorphicpower"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.1.8</span><span class="period">.</span>
@@ -569,15 +607,15 @@ f(w) }{ (w-z_0)^{k+1} } \, \diff{w} \right) (z-z_0)^k \text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#thm_holomorphicpower-2-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 8.1.8.1"><a href="#thm_holomorphicpower-2" title="Copy heading and permalink for Proof 8.1.8.1">🔗</a></div></article><div class="para" id="sec_powerseriesholom-17">We note a remarkable feature of our proof: namely, if we are given a holomorphic function <span class="process-math">\(f: G \to \C\)</span> and are interested in expanding <span class="process-math">\(f\)</span> into a power series centered at <span class="process-math">\(z_0 \in G\text{,}\)</span> then we may maximize the radius of convergence <span class="process-math">\(R\)</span> of this power series, in the sense that its region of convergence reaches to the boundary of <span class="process-math">\(G\text{.}\)</span> Let’s make this precise.<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-17" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 8.1.8.1"><a href="#thm_holomorphicpower-2" title="Copy heading and permalink for Proof 8.1.8.1">🔗</a></div></article><div class="para" id="sec_powerseriesholom-19">We note a remarkable feature of our proof: namely, if we are given a holomorphic function <span class="process-math">\(f: G \to \C\)</span> and are interested in expanding <span class="process-math">\(f\)</span> into a power series centered at <span class="process-math">\(z_0 \in G\text{,}\)</span> then we may maximize the radius of convergence <span class="process-math">\(R\)</span> of this power series, in the sense that its region of convergence reaches to the boundary of <span class="process-math">\(G\text{.}\)</span> Let’s make this precise.<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="sec_powerseriesholom-18"><h3 class="heading">
+<article class="definition definition-like" id="sec_powerseriesholom-20"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.1.9</span><span class="period">.</span>
 </h3>
-<div class="para" id="sec_powerseriesholom-18-1-1">For a region <span class="process-math">\(G \subseteq \C\)</span> and a point <span class="process-math">\(z_0 \in G\text{,}\)</span> we define the <em class="emphasis">distance of <span class="process-math">\(z_0\)</span> to <span class="process-math">\(\partial G\)</span></em>, the boundary of <span class="process-math">\(G\text{,}\)</span> as the greatest lower bound of <span class="process-math">\(\{ |z-z_0| : \, z \in
-\partial G \}\text{;}\)</span> if this set is empty, we define the distance of <span class="process-math">\(z_0\)</span> to <span class="process-math">\(\partial G\)</span> to be <span class="process-math">\(\infty\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-18-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_powerseriesholom-20-1-1">For a region <span class="process-math">\(G \subseteq \C\)</span> and a point <span class="process-math">\(z_0 \in G\text{,}\)</span> we define the <em class="emphasis">distance of <span class="process-math">\(z_0\)</span> to <span class="process-math">\(\partial G\)</span></em>, the boundary of <span class="process-math">\(G\text{,}\)</span> as the greatest lower bound of <span class="process-math">\(\{ |z-z_0| : \, z \in
+\partial G \}\text{;}\)</span> if this set is empty, we define the distance of <span class="process-math">\(z_0\)</span> to <span class="process-math">\(\partial G\)</span> to be <span class="process-math">\(\infty\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-20-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 8.1.9"><a href="#sec_powerseriesholom-18" title="Copy heading and permalink for Definition 8.1.9">🔗</a></div></article><div class="para" id="sec_powerseriesholom-19">What we have proved above, on the side, is the following.<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 8.1.9"><a href="#sec_powerseriesholom-20" title="Copy heading and permalink for Definition 8.1.9">🔗</a></div></article><div class="para" id="sec_powerseriesholom-21">What we have proved above, on the side, is the following.<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-21" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="corollary theorem-like" id="cor_powerseriesboundary"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">8.1.10</span><span class="period">.</span>
@@ -598,10 +636,10 @@ f(z) \ = \ \frac 1 { z^2 + 1 } \ = \ \s \left( -z^2 \right)^k \ = \
 <div class="para">with radius of convergence 1.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_powerseriesboundary-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 8.1.11"><a href="#ex_powerseriesboundary" title="Copy heading and permalink for Example 8.1.11">🔗</a></div></article><div class="para" id="sec_powerseriesholom-22">
-<a href="sec_powerseriesholom.html#cor_powerseriesboundary" class="xref" data-knowl="./knowl/xref/cor_powerseriesboundary.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.10">Corollary 8.1.10</a> is yet another example of a result that is plainly false when translated into <span class="process-math">\(\R\text{;}\)</span> see <a href="taylorchapter-6.html#prob_powerseriesboundaryreal" class="xref" data-knowl="./knowl/xref/prob_powerseriesboundaryreal.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 8.4.6">Exercise 8.4.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-22" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 8.1.11"><a href="#ex_powerseriesboundary" title="Copy heading and permalink for Example 8.1.11">🔗</a></div></article><div class="para" id="sec_powerseriesholom-24">
+<a href="sec_powerseriesholom.html#cor_powerseriesboundary" class="xref" data-knowl="./knowl/xref/cor_powerseriesboundary.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.10">Corollary 8.1.10</a> is yet another example of a result that is plainly false when translated into <span class="process-math">\(\R\text{;}\)</span> see <a href="taylorchapter-6.html#prob_powerseriesboundaryreal" class="xref" data-knowl="./knowl/xref/prob_powerseriesboundaryreal.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 8.4.6">Exercise 8.4.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-24" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_powerseriesholom-23">Comparing the coefficients of the power series obtained in <a href="sec_powerseriesholom.html#thm_holomorphicpower" class="xref" data-knowl="./knowl/xref/thm_holomorphicpower.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.1.8">Theorem 8.1.8</a> with those in <a href="sec_powerseriesholom.html#taylor" class="xref" data-knowl="./knowl/xref/taylor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.5">Corollary 8.1.5</a>, we arrive at the long-promised extension of <a href="sec_CIF.html#cauchyformula" class="xref" data-knowl="./knowl/xref/cauchyformula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.5: Cauchy’s Integral Formula">Theorem 4.4.5</a> and <a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-23" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_powerseriesholom-25">Comparing the coefficients of the power series obtained in <a href="sec_powerseriesholom.html#thm_holomorphicpower" class="xref" data-knowl="./knowl/xref/thm_holomorphicpower.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.1.8">Theorem 8.1.8</a> with those in <a href="sec_powerseriesholom.html#taylor" class="xref" data-knowl="./knowl/xref/taylor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.5">Corollary 8.1.5</a>, we arrive at the long-promised extension of <a href="sec_CIF.html#cauchyformula" class="xref" data-knowl="./knowl/xref/cauchyformula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.5: Cauchy’s Integral Formula">Theorem 4.4.5</a> and <a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-25" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="corollary theorem-like" id="cauchyformula3"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">8.1.12</span><span class="period">.</span>
@@ -616,8 +654,8 @@ f^{(k)} (w) \ = \ \frac{k!}{2 \pi i} \int_\gg \frac{ f(z) }{
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#cauchyformula3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Corollary 8.1.12"><a href="#cauchyformula3" title="Copy heading and permalink for Corollary 8.1.12">🔗</a></div></article><div class="para" id="sec_powerseriesholom-25">
-<a href="sec_powerseriesholom.html#cauchyformula3" class="xref" data-knowl="./knowl/xref/cauchyformula3.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.12">Corollary 8.1.12</a> combined with our often-used <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>) gives an inequality which is often called <em class="emphasis">Cauchy’s Estimate</em>: <div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-25" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Corollary 8.1.12"><a href="#cauchyformula3" title="Copy heading and permalink for Corollary 8.1.12">🔗</a></div></article><div class="para" id="sec_powerseriesholom-27">
+<a href="sec_powerseriesholom.html#cauchyformula3" class="xref" data-knowl="./knowl/xref/cauchyformula3.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.12">Corollary 8.1.12</a> combined with our often-used <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>) gives an inequality which is often called <em class="emphasis">Cauchy’s Estimate</em>: <div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-27" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="corollary theorem-like" id="cauchyestimate"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">8.1.13</span><span class="period">.</span>
@@ -631,10 +669,10 @@ f^{(k)} (w) \ = \ \frac{k!}{2 \pi i} \int_\gg \frac{ f(z) }{
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#cauchyestimate-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Corollary 8.1.13"><a href="#cauchyestimate" title="Copy heading and permalink for Corollary 8.1.13">🔗</a></div></article><article class="proof" id="sec_powerseriesholom-27"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<div class="para logical" id="sec_powerseriesholom-27-1">
+<div class="autopermalink" data-description="Corollary 8.1.13"><a href="#cauchyestimate" title="Copy heading and permalink for Corollary 8.1.13">🔗</a></div></article><article class="proof" id="sec_powerseriesholom-29"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="sec_powerseriesholom-29-1">
 <div class="para">Let <span class="process-math">\(r\lt R\text{.}\)</span> By <a href="sec_powerseriesholom.html#cauchyformula3" class="xref" data-knowl="./knowl/xref/cauchyformula3.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.12">Corollary 8.1.12</a> and <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>),</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformula3.html ./knowl/xref/intprop.html ./knowl/xref/int4.html" id="sec_powerseriesholom-27-1-5">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformula3.html ./knowl/xref/intprop.html ./knowl/xref/int4.html" id="sec_powerseriesholom-29-1-5">
 \begin{align*}
 \left| f^{(k)} (w) \right| \ \amp = \ \left| \frac{k!}{2
 \pi i} \int_{ C[w,r] } \frac{ f(z) }{ (z-w)^{k+1} } \,
@@ -647,16 +685,16 @@ f^{(k)} (w) \ = \ \frac{k!}{2 \pi i} \int_\gg \frac{ f(z) }{
 \amp \ = \ \frac{ k! \, M }{ r^k } \, \text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-27-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-29-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_powerseriesholom-27-2">The statement now follows since <span class="process-math">\(r\)</span> can be chosen arbitrarily close to <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-27-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_powerseriesholom-29-2">The statement now follows since <span class="process-math">\(r\)</span> can be chosen arbitrarily close to <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-29-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 8.1.2"><a href="#sec_powerseriesholom-27" title="Copy heading and permalink for Proof 8.1.2">🔗</a></div></article><div class="para" id="sec_powerseriesholom-28">A key aspect of this section is worth emphasizing: namely, we have developed an alternative characterization of what it means for a function to be holomorphic. In <a href="functionchapter.html" class="internal" title="Chapter 2: Differentiation">Chapter 2</a>, we defined a function to be <em class="emphasis">holomorphic</em> in a region <span class="process-math">\(G\)</span> if it is differentiable at each point <span class="process-math">\(z_0 \in G\text{.}\)</span> We now define what it means for a function to be <em class="emphasis">analytic</em> in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-28" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 8.1.2"><a href="#sec_powerseriesholom-29" title="Copy heading and permalink for Proof 8.1.2">🔗</a></div></article><div class="para" id="sec_powerseriesholom-30">A key aspect of this section is worth emphasizing: namely, we have developed an alternative characterization of what it means for a function to be holomorphic. In <a href="functionchapter.html" class="internal" title="Chapter 2: Differentiation">Chapter 2</a>, we defined a function to be <em class="emphasis">holomorphic</em> in a region <span class="process-math">\(G\)</span> if it is differentiable at each point <span class="process-math">\(z_0 \in G\text{.}\)</span> We now define what it means for a function to be <em class="emphasis">analytic</em> in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-30" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="sec_powerseriesholom-29"><h3 class="heading">
+<article class="definition definition-like" id="sec_powerseriesholom-31"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.1.14</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_powerseriesholom-29-1-1">
+<div class="para logical" id="sec_powerseriesholom-31-1-1">
 <div class="para">Let <span class="process-math">\(f: G \to \C\)</span> and <span class="process-math">\(z_0 \in G\text{.}\)</span> If there exist <span class="process-math">\(R&gt;0\)</span> and <span class="process-math">\(c_0, c_1, c_2, \ldots \in \C\)</span> such that the power series</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -665,16 +703,16 @@ f^{(k)} (w) \ = \ \frac{k!}{2 \pi i} \int_\gg \frac{ f(z) }{
 </div>
 <div class="para">converges in <span class="process-math">\(D[z_0, R]\)</span> and agrees with <span class="process-math">\(f(z)\)</span> in <span class="process-math">\(D[z_0, R]\text{,}\)</span> then <span class="process-math">\(f\)</span> is <em class="emphasis">analytic at</em> <span class="process-math">\(z_0\text{.}\)</span>  We call <span class="process-math">\(f\)</span> <em class="emphasis">analytic in</em> <span class="process-math">\(G\)</span> if <span class="process-math">\(f\)</span> is analytic at each point in <span class="process-math">\(G\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-29-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-31-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 8.1.14"><a href="#sec_powerseriesholom-29" title="Copy heading and permalink for Definition 8.1.14">🔗</a></div></article><div class="para" id="sec_powerseriesholom-30">What we have proved in this section can be summed up as follows:<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-30" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 8.1.14"><a href="#sec_powerseriesholom-31" title="Copy heading and permalink for Definition 8.1.14">🔗</a></div></article><div class="para" id="sec_powerseriesholom-32">What we have proved in this section can be summed up as follows:<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-32" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="sec_powerseriesholom-31"><h3 class="heading">
+<article class="theorem theorem-like" id="sec_powerseriesholom-33"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.1.15</span><span class="period">.</span>
 </h3>
-<div class="para" id="sec_powerseriesholom-31-1-1">For any region <span class="process-math">\(G\text{,}\)</span> the class of all analytic functions in <span class="process-math">\(G\)</span> coincides with the class of all holomorphic functions in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-31-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_powerseriesholom-33-1-1">For any region <span class="process-math">\(G\text{,}\)</span> the class of all analytic functions in <span class="process-math">\(G\)</span> coincides with the class of all holomorphic functions in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-33-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 8.1.15"><a href="#sec_powerseriesholom-31" title="Copy heading and permalink for Theorem 8.1.15">🔗</a></div></article><div class="para" id="sec_powerseriesholom-32">While the terms <em class="emphasis">holomorphic</em> and <em class="emphasis">analytic</em> do not always mean the same thing, in the study of complex analysis they do and are frequently used interchangeably.<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-32" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem 8.1.15"><a href="#sec_powerseriesholom-33" title="Copy heading and permalink for Theorem 8.1.15">🔗</a></div></article><div class="para" id="sec_powerseriesholom-34">While the terms <em class="emphasis">holomorphic</em> and <em class="emphasis">analytic</em> do not always mean the same thing, in the study of complex analysis they do and are frequently used interchangeably.<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-34" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Section 8.1: Power Series and Holomorphic Functions"><a href="#sec_powerseriesholom" title="Copy heading and permalink for Section 8.1: Power Series and Holomorphic Functions">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">

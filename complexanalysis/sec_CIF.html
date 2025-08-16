@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,25 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +184,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +236,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -317,8 +336,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -386,13 +404,13 @@ v(w) \amp \ = \
 <div class="para">By assumption, <span class="process-math">\(f\)</span> is holomorphic in an open set <span class="process-math">\(G\)</span> that contains <span class="process-math">\(\overline D[w,R]\text{,}\)</span> and so <span class="process-math">\(\frac{ f(z) }{ z-w }\)</span> is holomorphic in <span class="process-math">\(H := G
 \setminus \{ w \}\text{.}\)</span> For any <span class="process-math">\(0 \lt  r \lt  R\text{,}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html ./knowl/xref/intprop.html ./knowl/xref/int4.html">
 \begin{equation*}
 C[w,r] \sim_H C[w,R] \,\text{,}
 \end{equation*}
 </div>
 <div class="para">and so Cauchy’s <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a> and <a href="intchapter-7.html#ex_circleint" class="xref" data-knowl="./knowl/xref/ex_circleint.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.4">Exercise 4.5.4</a> give</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html" id="sec_CIF-6-1-10">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html ./knowl/xref/intprop.html ./knowl/xref/int4.html" id="sec_CIF-6-1-10">
 \begin{align}
 \amp \left| \int_{C[w,R]} \frac{ f(z) }{ z-w } \, \diff{z} -
 2 \pi i \, f(w) \right| \notag\\
@@ -410,34 +428,29 @@ f(w) \right| }{ r } \ 2 \pi r \nonumber\notag\\
 \right| \, . \nonumber\notag
 \end{align}
 </div>
+<div class="para">Here the inequality comes from <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>).</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-6-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_CIF-6-2">Here the inequality comes from <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>).<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-6-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_CIF-6-3">
+<div class="para logical" id="sec_CIF-6-2">
 <div class="para">Now let <span class="process-math">\(\epsilon &gt; 0\text{.}\)</span> Because <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(w\text{,}\)</span> there exists <span class="process-math">\(\delta &gt; 0\)</span> such that <span class="process-math">\(|z-w| \lt
 \delta\)</span> implies</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cifestimate.html ./knowl/xref/cauchyformulacircle.html">
 \begin{equation*}
 \left| f(z) - f(w) \right| \ \lt  \ \frac \epsilon {2 \pi} \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-6-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_CIF-6-4">
 <div class="para">In particular, this will hold for <span class="process-math">\(z \in C[w, \frac \delta 2]\text{,}\)</span> and so <a href="sec_CIF.html#sec_CIF-6-1-10" class="xref" data-knowl="./knowl/xref/eq_cifestimate.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.6">(4.6)</a> implies, with <span class="process-math">\(r = \frac \delta 2\text{,}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cifestimate.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_cifestimate.html ./knowl/xref/cauchyformulacircle.html">
 \begin{equation*}
 \left| \int_{C[w,R]} \frac{ f(z) }{ z-w } \, \diff{z} - 2 \pi
 i \, f(w) \right| \ \lt  \ \epsilon \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-6-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Since we can choose <span class="process-math">\(\epsilon\)</span> as small as we’d like, the left-hand side must be zero, which proves <a href="sec_CIF.html#cauchyformulacircle" class="xref" data-knowl="./knowl/xref/cauchyformulacircle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.1">Theorem 4.4.1</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-6-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_CIF-6-5">Since we can choose <span class="process-math">\(\epsilon\)</span> as small as we’d like, the left-hand side must be zero, which proves <a href="sec_CIF.html#cauchyformulacircle" class="xref" data-knowl="./knowl/xref/cauchyformulacircle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.1">Theorem 4.4.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-6-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_CIF-6-6">
+<div class="para logical" id="sec_CIF-6-3">
 <div class="para">
 <a href="sec_CIF.html#meanvalue" class="xref" data-knowl="./knowl/xref/meanvalue.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.4.2">Corollary 4.4.2</a> now follows by definition of the complex integral:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/meanvalue.html">
@@ -457,7 +470,7 @@ w + R \, e^{it}\right) \diff{t} \ + \ i \, \frac 1 {2 \pi}
 . 
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-6-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-6-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 4.4.1"><a href="#sec_CIF-6" title="Copy heading and permalink for Proof 4.4.1">🔗</a></div></article><div class="para" id="sec_CIF-7">
 <a href="sec_CIF.html#cauchyformulacircle" class="xref" data-knowl="./knowl/xref/cauchyformulacircle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.1">Theorem 4.4.1</a> can be used to compute integrals of a certain nature.<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -495,9 +508,9 @@ f(w) \ = \ \frac 1 {2 \pi i} \int_\gg \frac{ f(z) }{ z-w } \,
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_CIF-10">This all smells like good coffee, except ... we might be just dreaming.  The argument may be intuitively clear, but intuition doesn’t prove anything. We’ll look at it carefully, fill in the gaps, and then we’ll see what we have proved.<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_CIF-10">This all smells like good coffee, except ...  intuition doesn’t prove anything. We’ll look at it carefully, fill in the gaps, and then we’ll see what we have proved.<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_CIF-11">First, we need a notion of the <em class="emphasis">inside</em> of a simple closed path. The fact that any such path <span class="process-math">\(\gg\)</span> divides the complex plane into two connected open sets of <span class="process-math">\(\gg\)</span> (the bounded one of which we call the <em class="emphasis">inside</em> or <em class="emphasis">interior</em> of <span class="process-math">\(\gg\)</span>) is one of the first substantial theorems ever proved in topology, the <em class="emphasis">Jordan Curve Theorem</em>, due to Camille Jordan (1838–1922).  <details class="ptx-footnote" aria-live="polite" id="sec_CIF-11-14"><summary class="ptx-footnote__number" title="Footnote 4.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_CIF-11-14">This is the Jordan of <em class="emphasis">Jordan normal form</em> fame, but not the one of <em class="emphasis">Gauß–Jordan elimination</em>.</div></details> In this book we shall assume the validity of the Jordan Curve Theorem.<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_CIF-11">First, we need a notion of the <em class="emphasis">inside</em> of a simple closed path. The fact that any such path <span class="process-math">\(\gg\)</span> divides the complex plane into two connected open sets of <span class="process-math">\(\gg\)</span> (the bounded one of which we call the <em class="emphasis">inside</em> or <em class="emphasis">interior</em> of <span class="process-math">\(\gg\)</span>) is one of the first substantial theorems ever proved in topology, the <em class="emphasis">Jordan Curve Theorem</em>,  due to Camille Jordan (1838–1922).<details class="ptx-footnote" aria-live="polite" id="sec_CIF-11-14"><summary class="ptx-footnote__number" title="Footnote 4.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_CIF-11-14">This is the Jordan of <em class="emphasis">Jordan normal form</em> fame, but not the one of <em class="emphasis">Gauß–Jordan elimination</em>.</div></details> In this book we shall assume the validity of the Jordan Curve Theorem.<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sec_CIF-12">Second, we need to specify the orientation of <span class="process-math">\(\gg\text{,}\)</span> since if the formula gives <span class="process-math">\(f(w)\)</span> for one orientation then it will give <span class="process-math">\(-f(w)\)</span> for the other orientation.<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-12" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -561,13 +574,13 @@ f(w) \ = \ \frac 1 {2 \pi i} \int_\gg \frac{ f(z) }{ z-w } \,
 </h3>
 <div class="para logical" id="sec_CIF-23-1-1">
 <div class="para">To compute</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_partialfr.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_partialfr.html ./knowl/xref/cauchyformulacircle.html">
 \begin{equation*}
 \int_{ C[0,3] } \frac{ \exp(z) }{ z^2 - 2z } \, \diff{z}
 \end{equation*}
 </div>
 <div class="para">we use the partial fractions expansion from <a href="sec_cauchythm.html#exam_partialfr" class="xref" data-knowl="./knowl/xref/exam_partialfr.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.3.11">Example 4.3.11</a>:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_partialfr.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_partialfr.html ./knowl/xref/cauchyformulacircle.html">
 \begin{equation*}
 \int_{ C[0,3] } \frac{ \exp(z) }{ z^2 - 2z } \, \diff{z} \ = \
 \frac 1 2 \int_{ C[0,3] } \frac{ \exp(z) }{ z - 2 } \,
@@ -575,17 +588,15 @@ f(w) \ = \ \frac 1 {2 \pi i} \int_\gg \frac{ f(z) }{ z-w } \,
 } \, \diff{z} \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-23-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="sec_CIF-23-1-2">
 <div class="para">For the two integrals on the right-hand side, we can use <a href="sec_CIF.html#cauchyformulacircle" class="xref" data-knowl="./knowl/xref/cauchyformulacircle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.1">Theorem 4.4.1</a> with the function <span class="process-math">\(f(z) = \exp(z)\text{,}\)</span> which is entire, and so (note that both 2 and 0 are inside <span class="process-math">\(\gg\)</span>)</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformulacircle.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_partialfr.html ./knowl/xref/cauchyformulacircle.html">
 \begin{equation*}
 \int_{ C[0,3] } \frac{ \exp(z) }{ z^2 - 2z } \, \diff{z} \ = \
 \frac 1 2 \, 2 \pi i \cdot \exp(2) - \frac 1 2 \, 2 \pi i
 \cdot \exp(0) \ = \ \pi i \left( e^2 - 1 \right) \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-23-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_CIF-23-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Example 4.4.8"><a href="#sec_CIF-23" title="Copy heading and permalink for Example 4.4.8">🔗</a></div></article><div class="autopermalink" data-description="Section 4.4: Cauchy’s Integral Formula"><a href="#sec_CIF" title="Copy heading and permalink for Section 4.4: Cauchy’s Integral Formula">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">

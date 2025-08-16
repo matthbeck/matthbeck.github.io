@@ -48,7 +48,24 @@ window.MathJax = {
   },
   "options": {
     "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
   },
   "chtml": {
     "scale": 0.98,
@@ -106,23 +123,37 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.4';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.879b99e54406967d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
 </script>
 </head>
 <body id="fcca" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="https://matthbeck.github.io/complex.html"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="fcca.html"><span class="title">A First Course in Complex Analysis</span></a></h1>
 <p class="byline">Matthias Beck, Gerald Marchesi, Dennis Pixton, Lucas Sabalka</p>
-</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-3.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -165,7 +196,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Dp}{\check{D}}
 \DeclareMathOperator{\length}{length}
 \DeclareMathOperator{\dist}{dist}
-\DeclareMathOperator{\fLog}{\mathcal{Log}}
+\DeclareMathOperator{\fLog}{\mathcal{L}\!og}
 \DeclareMathOperator{\fArg}{\mathcal{A}rg}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Arg}{Arg}
@@ -217,11 +248,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-3.html" class="internal"><span class="title">About This Book</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About the Authors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
-<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-4.html" class="internal"><span class="title">About This Book</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-5.html" class="internal"><span class="title">About the Authors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-6.html" class="internal"><span class="title">A Note to Instructors</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="frontmatter-7.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -317,8 +348,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_infsums.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Infinite Sums</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_binomialcoeff.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_fibonacci.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_coinexchange.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Coin-Exchange Problem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Dedekind Sums</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dedekindsums.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Dedekind Sums</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -361,7 +391,7 @@ f(\gg(t)) \gg'(t) \, \diff{t} \, \text{.}
 </div> <div class="para logical" id="sec_intdef-4-1-2">
 <div class="para">This definition immediately extends to paths that are <em class="emphasis">piecewise smooth</em>:  Suppose <span class="process-math">\(\gg\)</span> is parametrized by <span class="process-math">\(\gg (t) , \ a \leq t
 \leq b\text{,}\)</span> which is smooth on the intervals <span class="process-math">\([a,c_1], [c_1,c_2], \dots,
-[c_{n-1},c_n], [c_n,b]\text{.}\)</span> <details class="ptx-footnote" aria-live="polite" id="sec_intdef-4-1-2-7"><summary class="ptx-footnote__number" title="Footnote 4.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_intdef-4-1-2-7">Our footnote on <a href="sec_topologyintro.html#def_smooth" class="xref" data-knowl="./knowl/xref/def_smooth.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.11">Definition 1.4.11</a> about the subtlety of the definition of a smooth path applies also here, at the subdivision points <span class="process-math">\(c_i\text{.}\)</span> Note that we do <em class="emphasis">not</em> require that the left and right derivatives match at these points.</div></details> Then, assuming again that <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\(\gg\text{,}\)</span> we define</div>
+[c_{n-1},c_n], [c_n,b]\text{.}\)</span><details class="ptx-footnote" aria-live="polite" id="sec_intdef-4-1-2-7"><summary class="ptx-footnote__number" title="Footnote 4.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_intdef-4-1-2-7">Our footnote on <a href="sec_topologyintro.html#def_smooth" class="xref" data-knowl="./knowl/xref/def_smooth.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.11">Definition 1.4.11</a> about the subtlety of the definition of a smooth path applies also here, at the subdivision points <span class="process-math">\(c_i\text{.}\)</span> Note that we do <em class="emphasis">not</em> require that the left and right derivatives match at these points.</div></details> Then, assuming again that <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\(\gg\text{,}\)</span> we define</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def_smooth.html" id="sec_intdef-4-1-2-10">
 \begin{align*}
 \int_\gg f \ := \ \int_a^{c_1} f(\gg(t)) \gg'(t) \, \diff{t}
@@ -443,9 +473,14 @@ f(\gg(t)) \ = \ \left( t - it^2 \right)^2 = t^2 - t^4 -
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#firstintexample-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 4.1.2"><a href="#firstintexample" title="Copy heading and permalink for Example 4.1.2">🔗</a></div></article><div class="para" id="sec_intdef-6">It is apparent but nevertheless noteworthy that these integrals evaluate to different results; in particular—unlike in calculus—a complex integral does not simply depend on the endpoints of the path of integration.<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 4.1.2"><a href="#firstintexample" title="Copy heading and permalink for Example 4.1.2">🔗</a></div></article><div id="sec_intdef-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('t')
+gamma = t + i*t
+f(z) = conjugate(z)^2
+integral(f.subs(z=gamma) * diff(gamma, t), t, 0, 1)
+</script></div>
+<div class="para" id="sec_intdef-7">It is apparent but nevertheless noteworthy that these integrals evaluate to different results; in particular—unlike in calculus—a complex integral does not simply depend on the endpoints of the path of integration.<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_intdef-7">On the other hand, the complex integral has some standard properties, most of which follow from their real siblings in a straightforward way. Our first observation is that the actual choice of parametrization of <span class="process-math">\(\gamma\)</span> does not matter. More precisely, if <span class="process-math">\(\gg (t) , \ a \leq t \leq b\)</span> and <span class="process-math">\(\sigma (t) , \ c \leq t \leq d\)</span> are parametrizations of a curve then we say that <span class="process-math">\(\sigma\)</span> is a <em class="emphasis">reparametrization</em> of <span class="process-math">\(\gamma\)</span> if there is an increasing piecewise smooth map of <span class="process-math">\([c,d]\)</span> onto <span class="process-math">\([a,b]\)</span> that takes <span class="process-math">\(\gg\)</span> to <span class="process-math">\(\sigma\text{,}\)</span> in the sense that <span class="process-math">\(\sigma = \gg \circ \tau\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_intdef-8">On the other hand, the complex integral has some standard properties, most of which follow from their real siblings in a straightforward way. Our first observation is that the actual choice of parametrization of <span class="process-math">\(\gamma\)</span> does not matter. More precisely, if <span class="process-math">\(\gg (t) , \ a \leq t \leq b\)</span> and <span class="process-math">\(\sigma (t) , \ c \leq t \leq d\)</span> are parametrizations of a curve then we say that <span class="process-math">\(\sigma\)</span> is a <em class="emphasis">reparametrization</em> of <span class="process-math">\(\gamma\)</span> if there is an increasing piecewise smooth map of <span class="process-math">\([c,d]\)</span> onto <span class="process-math">\([a,b]\)</span> that takes <span class="process-math">\(\gg\)</span> to <span class="process-math">\(\sigma\text{,}\)</span> in the sense that <span class="process-math">\(\sigma = \gg \circ \tau\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="prop_integrationIsIndependentOfParametrization"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.1.3</span><span class="period">.</span>
@@ -460,10 +495,10 @@ f(\gg(t)) \, \gg'(t) \, \diff{t} \, \text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#prop_integrationIsIndependentOfParametrization-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proposition 4.1.3"><a href="#prop_integrationIsIndependentOfParametrization" title="Copy heading and permalink for Proposition 4.1.3">🔗</a></div></article><article class="example example-like" id="sec_intdef-9"><h3 class="heading">
+<div class="autopermalink" data-description="Proposition 4.1.3"><a href="#prop_integrationIsIndependentOfParametrization" title="Copy heading and permalink for Proposition 4.1.3">🔗</a></div></article><article class="example example-like" id="sec_intdef-10"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.4</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_intdef-9-1-1">
+<div class="para logical" id="sec_intdef-10-1-1">
 <div class="para">To appreciate this statement, consider the two parametrizations</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -488,16 +523,16 @@ e^{ i t } \, \diff{t}
 \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-9-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="sec_intdef-9-1-2">A quick substitution shows that the two integrals on the respective right-hand sides are indeed equal.<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-9-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">A quick substitution shows that the two integrals on the respective right-hand sides are indeed equal.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-10-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 4.1.4"><a href="#sec_intdef-9" title="Copy heading and permalink for Example 4.1.4">🔗</a></div></article><div class="para" id="sec_intdef-10">
-<a href="sec_intdef.html#prop_integrationIsIndependentOfParametrization" class="xref" data-knowl="./knowl/xref/prop_integrationIsIndependentOfParametrization.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.3">Proposition 4.1.3</a> says that a similar equality will hold for any integral and any parametrization. Its proof is left as <a href="intchapter-7.html#ex_IntegrationIsIndependentOfParametrization" class="xref" data-knowl="./knowl/xref/ex_IntegrationIsIndependentOfParametrization.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.9">Exercise 4.5.9</a>, which also shows that the following definition is unchanged under reparametrization.<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 4.1.4"><a href="#sec_intdef-10" title="Copy heading and permalink for Example 4.1.4">🔗</a></div></article><div class="para" id="sec_intdef-11">
+<a href="sec_intdef.html#prop_integrationIsIndependentOfParametrization" class="xref" data-knowl="./knowl/xref/prop_integrationIsIndependentOfParametrization.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.3">Proposition 4.1.3</a> says that a similar equality will hold for any integral and any parametrization. Its proof is left as <a href="intchapter-7.html#ex_IntegrationIsIndependentOfParametrization" class="xref" data-knowl="./knowl/xref/ex_IntegrationIsIndependentOfParametrization.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.9">Exercise 4.5.9</a>, which also shows that the following definition is unchanged under reparametrization.<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="sec_intdef-11"><h3 class="heading">
+<article class="definition definition-like" id="sec_intdef-12"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.5</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_intdef-11-1-1">
+<div class="para logical" id="sec_intdef-12-1-1">
 <div class="para">The <em class="emphasis">length </em> of a smooth path <span class="process-math">\(\gg\)</span> is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -505,12 +540,12 @@ e^{ i t } \, \diff{t}
 \end{equation*}
 </div>
 <div class="para">for any parametrization <span class="process-math">\(\gg (t)\text{,}\)</span> <span class="process-math">\(a \leq t \leq b\text{.}\)</span> Naturally, the length of a piecewise smooth path is the sum of the lengths of its smooth components.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-11-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-12-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 4.1.5"><a href="#sec_intdef-11" title="Copy heading and permalink for Definition 4.1.5">🔗</a></div></article><article class="example example-like" id="sec_intdef-12"><h3 class="heading">
+<div class="autopermalink" data-description="Definition 4.1.5"><a href="#sec_intdef-12" title="Copy heading and permalink for Definition 4.1.5">🔗</a></div></article><article class="example example-like" id="sec_intdef-13"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.6</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_intdef-12-1-1">
+<div class="para logical" id="sec_intdef-13-1-1">
 <div class="para">Let <span class="process-math">\(\gamma\)</span> be the line segment from <span class="process-math">\(0\)</span> to <span class="process-math">\(1+i\text{,}\)</span> which can be parametrized by <span class="process-math">\(\gamma(t) = t + it\)</span> for <span class="process-math">\(0 \le t \le 1\text{.}\)</span> Then <span class="process-math">\(\gamma'(t) = 1+i\)</span> and so</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -518,9 +553,9 @@ e^{ i t } \, \diff{t}
 \sqrt 2 \, \diff{t} \ = \ \sqrt 2 \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-12-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-13-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 4.1.6"><a href="#sec_intdef-12" title="Copy heading and permalink for Example 4.1.6">🔗</a></div></article><article class="example example-like" id="example_circlelength"><h3 class="heading">
+<div class="autopermalink" data-description="Example 4.1.6"><a href="#sec_intdef-13" title="Copy heading and permalink for Example 4.1.6">🔗</a></div></article><article class="example example-like" id="example_circlelength"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.7</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="example_circlelength-1-1">
@@ -533,7 +568,11 @@ e^{ i t } \, \diff{t}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#example_circlelength-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 4.1.7"><a href="#example_circlelength" title="Copy heading and permalink for Example 4.1.7">🔗</a></div></article><div class="para" id="sec_intdef-14">Now we observe some basic facts about how the line integral behaves with respect to function addition, scalar multiplication, inverse parametrization, and path concatenation; we also give an upper bound for the absolute value of an integral, which we will make use of time and again. <div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-14" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 4.1.7"><a href="#example_circlelength" title="Copy heading and permalink for Example 4.1.7">🔗</a></div></article><div id="sec_intdef-15" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('t')
+gamma = e^(i*t)
+integral(abs(diff(gamma,t)), t, 0, 2*pi)
+</script></div>
+<div class="para" id="sec_intdef-16">Now we observe some basic facts about how the line integral behaves with respect to function addition, scalar multiplication, inverse parametrization, and path concatenation; we also give an upper bound for the absolute value of an integral, which we will make use of time and again. <div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="intprop"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.1.8</span><span class="period">.</span>
@@ -585,15 +624,15 @@ e^{ i t } \, \diff{t}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#intprop-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proposition 4.1.8"><a href="#intprop" title="Copy heading and permalink for Proposition 4.1.8">🔗</a></div></article><div class="para" id="sec_intdef-16">The path <span class="process-math">\(-\gg\)</span> defined in (<a href="sec_intdef.html#int2" class="xref" data-knowl="./knowl/xref/int2.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">b</a>) is the path that we obtain by traveling through <span class="process-math">\(\gg\)</span> in the opposite direction.<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proposition 4.1.8"><a href="#intprop" title="Copy heading and permalink for Proposition 4.1.8">🔗</a></div></article><div class="para" id="sec_intdef-18">The path <span class="process-math">\(-\gg\)</span> defined in (<a href="sec_intdef.html#int2" class="xref" data-knowl="./knowl/xref/int2.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">b</a>) is the path that we obtain by traveling through <span class="process-math">\(\gg\)</span> in the opposite direction.<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-18" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="proof" id="sec_intdef-17"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<div class="para" id="sec_intdef-17-1">(<a href="sec_intdef.html#int1" class="xref" data-knowl="./knowl/xref/int1.html" data-reveal-label="Reveal" data-close-label="Close" title="Item a">a</a>) follows directly from the definition of the integral and <a href="appendix-calculus.html#thm_realintegralproperties" class="xref" data-knowl="./knowl/xref/thm_realintegralproperties.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.4">Theorem A.0.4</a>, the analogous theorem from calculus.<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-17-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<article class="proof" id="sec_intdef-19"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para" id="sec_intdef-19-1">(<a href="sec_intdef.html#int1" class="xref" data-knowl="./knowl/xref/int1.html" data-reveal-label="Reveal" data-close-label="Close" title="Item a">a</a>) follows directly from the definition of the integral and <a href="appendix-calculus.html#thm_realintegralproperties" class="xref" data-knowl="./knowl/xref/thm_realintegralproperties.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.4">Theorem A.0.4</a>, the analogous theorem from calculus.<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-19-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_intdef-17-2">
+<div class="para logical" id="sec_intdef-19-2">
 <div class="para">(<a href="sec_intdef.html#int2" class="xref" data-knowl="./knowl/xref/int2.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">b</a>) follows with the real change of variables <span class="process-math">\(s = a+b-t\text{:}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/int2.html" id="sec_intdef-17-2-3">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/int2.html" id="sec_intdef-19-2-3">
 \begin{align*}
 \int_{-\gg} f \amp \ = \ \int_a^b f \left( \gg (a+b-t)
 \right) \left( \gg (a+b-t) \right)' \, \diff{t}\\
@@ -607,9 +646,9 @@ e^{ i t } \, \diff{t}
 \,\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-17-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-19-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_intdef-17-3">
+<div class="para logical" id="sec_intdef-19-3">
 <div class="para">For (<a href="sec_intdef.html#int3" class="xref" data-knowl="./knowl/xref/int3.html" data-reveal-label="Reveal" data-close-label="Close" title="Item c">c</a>), we need a suitable parametrization <span class="process-math">\(\gg(t)\)</span> for <span class="process-math">\(\gamma_1\gamma_2\text{.}\)</span> If <span class="process-math">\(\gamma_1\)</span> has domain <span class="process-math">\([a_1,b_1]\)</span> and <span class="process-math">\(\gamma_2\)</span> has domain <span class="process-math">\([a_2,b_2]\)</span> then we can use</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/int3.html">
 \begin{equation*}
@@ -620,7 +659,7 @@ b_1+b_2-a_2 \, , \end{cases}
 </div>
 <div class="para">with domain <span class="process-math">\([a_1, b_1+b_2-a_2]\text{.}\)</span> Now we break the integral over <span class="process-math">\(\gg_1\gg_2\)</span> into two pieces and apply the change of variables <span class="process-math">\(s=t-b_1+a_2\text{:}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/int3.html" id="sec_intdef-17-3-12">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/int3.html" id="sec_intdef-19-3-12">
 \begin{align*}
 \int_{\gg_1\gg_2} f \ \amp = \int_{a_1}^{b_1+b_2-a_2}
 f(\gg(t))\gg'(t)\,\diff{t}\\
@@ -629,15 +668,15 @@ f(\gg(t))\gg'(t)\,\diff{t}\\
 \amp = \int_{\gg_1}f+\int_{\gg_2}f \, \text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-17-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-19-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_intdef-17-4">The last step follows since <span class="process-math">\(\gg\)</span> restricted to <span class="process-math">\([a_1,b_1]\)</span> is <span class="process-math">\(\gg_1\)</span> and <span class="process-math">\(\gg\)</span> restricted to <span class="process-math">\([b_1,b_1+b_2-a_2]\)</span> is a reparametrization of <span class="process-math">\(\gg_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-17-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_intdef-19-4">The last step follows since <span class="process-math">\(\gg\)</span> restricted to <span class="process-math">\([a_1,b_1]\)</span> is <span class="process-math">\(\gg_1\)</span> and <span class="process-math">\(\gg\)</span> restricted to <span class="process-math">\([b_1,b_1+b_2-a_2]\)</span> is a reparametrization of <span class="process-math">\(\gg_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-19-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_intdef-17-5">
+<div class="para logical" id="sec_intdef-19-5">
 <div class="para">For (<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>), let <span class="process-math">\(\phi = \left( \Arg \int_\gg f
 \right)\text{.}\)</span> Then <span class="process-math">\(\int_\gg f = \left| \int_\gg f \right| e^{ i \phi }\)</span> and thus, since <span class="process-math">\(\left| \int_\gg f \right| \in \R\text{,}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/int4.html" id="sec_intdef-17-5-5">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/int4.html" id="sec_intdef-19-5-5">
 \begin{align*}
 \left| \int_\gg f \right| \ \amp = \ e^{ -i\phi }
 \int_\gg f \ = \ \Re \left( e^{ -i \phi } \int_a^b f(\gg(t))
@@ -652,14 +691,14 @@ f(\gg(t))\gg'(t)\,\diff{t}\\
 \max_{z \in \gg} \left| f(z) \right| \cdot \length (\gg) \,\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-17-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-19-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_intdef-17-6">Here we have used <a href="appendix-calculus.html#thm_realintegralupperbound" class="xref" data-knowl="./knowl/xref/thm_realintegralupperbound.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.5">Theorem A.0.5</a> for both inequalities.<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-17-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_intdef-19-6">Here we have used <a href="appendix-calculus.html#thm_realintegralupperbound" class="xref" data-knowl="./knowl/xref/thm_realintegralupperbound.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.5">Theorem A.0.5</a> for both inequalities.<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-19-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 4.1.1"><a href="#sec_intdef-17" title="Copy heading and permalink for Proof 4.1.1">🔗</a></div></article><article class="example example-like" id="sec_intdef-18"><h3 class="heading">
+<div class="autopermalink" data-description="Proof 4.1.1"><a href="#sec_intdef-19" title="Copy heading and permalink for Proof 4.1.1">🔗</a></div></article><article class="example example-like" id="sec_intdef-20"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.9</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_intdef-18-1-1">
+<div class="para logical" id="sec_intdef-20-1-1">
 <div class="para">In <a href="intchapter-7.html#ex_circleint" class="xref" data-knowl="./knowl/xref/ex_circleint.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.4">Exercise 4.5.4</a>, you are invited to show</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_circleint.html ./knowl/xref/intprop.html ./knowl/xref/int2.html ./knowl/xref/intprop.html ./knowl/xref/int4.html">
 \begin{equation*}
@@ -674,9 +713,9 @@ f(\gg(t))\gg'(t)\,\diff{t}\\
 \length(\gg) \ = \ \frac 1 r \cdot 2 \pi r \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-18-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_intdef-20-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 4.1.9"><a href="#sec_intdef-18" title="Copy heading and permalink for Example 4.1.9">🔗</a></div></article><div class="autopermalink" data-description="Section 4.1: Definition and Basic Properties"><a href="#sec_intdef" title="Copy heading and permalink for Section 4.1: Definition and Basic Properties">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Example 4.1.9"><a href="#sec_intdef-20" title="Copy heading and permalink for Example 4.1.9">🔗</a></div></article><div class="autopermalink" data-description="Section 4.1: Definition and Basic Properties"><a href="#sec_intdef" title="Copy heading and permalink for Section 4.1: Definition and Basic Properties">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="intchapter.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_antiderivatives.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
