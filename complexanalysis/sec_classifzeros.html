@@ -123,7 +123,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.6';
+eBookConfig.runestone_version = '7.9.8';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -388,8 +388,9 @@ f(z) \ = \ (z-a)^m \, g(z) \qquad \text{ for all }  z \in G \,\text{.}
 <div class="autopermalink" data-description="Item b"><a href="#classificationzeros_isolated" title="Copy heading and permalink for Item b">🔗</a></div>
 </li>
 </ol>
+<div class="para">The integer <span class="process-math">\(m\)</span> in the second case is uniquely determined by <span class="process-math">\(f\)</span> and <span class="process-math">\(a\)</span> and is called the <em class="emphasis">multiplicity</em> of the zero at <span class="process-math">\(a\text{.}\)</span>
+</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="classificationzeros-2-2">The integer <span class="process-math">\(m\)</span> in the second case is uniquely determined by <span class="process-math">\(f\)</span> and <span class="process-math">\(a\)</span> and is called the <em class="emphasis">multiplicity</em> of the zero at <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Theorem 8.2.1: Classification of Zeros"><a href="#classificationzeros" title="Copy heading and permalink for Theorem 8.2.1: Classification of Zeros">🔗</a></div></article><article class="proof" id="classificationzeros-3"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
 <div class="para logical" id="classificationzeros-3-1">
@@ -414,41 +415,32 @@ D[a,R] \, \text{,}
 <div class="autopermalink" data-description="Item b"><a href="#classificationzeros-3-1-5-2" title="Copy heading and permalink for Item b">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="classificationzeros-3-2">
 <div class="para">The first case gives <span class="process-math">\(f(z) =0\)</span> for all <span class="process-math">\(z \in D[a,R]\text{.}\)</span> So now consider the second case. We note that for <span class="process-math">\(z \in D[a,R]\text{,}\)</span>
 </div>
-<div class="displaymath process-math" id="classificationzeros-3-2-4">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_holomorphicpower.html" id="classificationzeros-3-1-9">
 \begin{align*}
 f(z) \amp \ = \ c_m(z-a)^m + c_{m+1}(z-a)^{m+1} + \cdots \ = \
 (z-a)^m\left( c_m+c_{m+1}(z-a) + \cdots\right)\\
 \amp \ = \ (z-a)^m\sum_{k\ge0}c_{k+m} \, (z-a)^k\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-3-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="classificationzeros-3-3">
 <div class="para">Thus we can define a function <span class="process-math">\(g: G \to \C\)</span> through</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_holomorphicpower.html">
 \begin{equation*}
 g(z) := \begin{cases}\ds \sum_{k\ge0}c_{k+m}(z-a)^k \amp
 \text{ if }  z \in D[a,R] \, , \\ \dfrac{f(z)}{(z-a)^m} \amp
 \text{ if } z\in G\setminus \listset a . \end{cases} 
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-3-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="classificationzeros-3-4">
 <div class="para">(According to our calculations above, the two definitions give the same value when <span class="process-math">\(z \in D[a,R] \setminus \listset a\text{.}\)</span>) The function <span class="process-math">\(g\)</span> is holomorphic in <span class="process-math">\(D[a,R]\)</span> by the first definition, and <span class="process-math">\(g\)</span> is holomorphic in <span class="process-math">\(G \setminus \listset a\)</span> by the second definition. Note that <span class="process-math">\(g(a)=c_m\ne0\)</span> and, by construction,</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_holomorphicpower.html">
 \begin{equation*}
 f(z) \ = \ (z-a)^m \, g(z) \qquad \text{ for all }  z \in G \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-3-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="classificationzeros-3-5">Since <span class="process-math">\(g(a)\ne0\)</span> there is, by continuity, <span class="process-math">\(r&gt;0\)</span> so that <span class="process-math">\(g(z)\ne0\)</span> for all <span class="process-math">\(z\in D[a,r]\text{,}\)</span> so <span class="process-math">\(D[a,r]\)</span> contains no other zero of <span class="process-math">\(f\text{.}\)</span> The integer <span class="process-math">\(m\)</span> is unique, since it is defined in terms of the power series expansion of <span class="process-math">\(f\)</span> at <span class="process-math">\(a\text{,}\)</span> which is unique by <a href="sec_powerseriesholom.html#uniqueness" class="xref" data-knowl="./knowl/xref/uniqueness.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.6">Corollary 8.1.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-3-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="classificationzeros-3-2">Since <span class="process-math">\(g(a)\ne0\)</span> there is, by continuity, <span class="process-math">\(r&gt;0\)</span> so that <span class="process-math">\(g(z)\ne0\)</span> for all <span class="process-math">\(z\in D[a,r]\text{,}\)</span> so <span class="process-math">\(D[a,r]\)</span> contains no other zero of <span class="process-math">\(f\text{.}\)</span> The integer <span class="process-math">\(m\)</span> is unique, since it is defined in terms of the power series expansion of <span class="process-math">\(f\)</span> at <span class="process-math">\(a\text{,}\)</span> which is unique by <a href="sec_powerseriesholom.html#uniqueness" class="xref" data-knowl="./knowl/xref/uniqueness.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.6">Corollary 8.1.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-3-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 8.2.1.1"><a href="#classificationzeros-3" title="Copy heading and permalink for Proof 8.2.1.1">🔗</a></div></article><div class="para" id="sec_classifzeros-4">
 <a href="sec_classifzeros.html#classificationzeros" class="xref" data-knowl="./knowl/xref/classificationzeros.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.2.1: Classification of Zeros">Theorem 8.2.1</a> gives rise to the following result, which is sometimes called the <em class="emphasis">identity principle</em> or the <em class="emphasis">uniqueness theorem</em>. <div class="autopermalink" data-description="Paragraph"><a href="#sec_classifzeros-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -535,32 +527,29 @@ D[a,r] \setminus \{ a \} \right\} \text{.}
 </div>
 <div class="para logical" id="sec_classifzeros-16-3">
 <div class="para">Now assume <span class="process-math">\(f(a)\ne0\text{,}\)</span> which allows us to define the holomorphic function <span class="process-math">\(g: G \to \C\)</span> via <span class="process-math">\(g(z) := \frac{ f(z) }{ f(a) }\text{.}\)</span> This function satisfies</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_realmax0.html ./knowl/xref/cor_uniquenessfunction.html">
 \begin{equation*}
 \abs{g(z)} \ \le  \ \abs{g(a)} \ = \ 1 \qquad \text{ for all }
 z \in D[a,R] \, \text{,}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_classifzeros-16-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_classifzeros-16-4">
 <div class="para">Also <span class="process-math">\(g(a)=1\text{,}\)</span> so, by continuity of <span class="process-math">\(g\text{,}\)</span> we can find <span class="process-math">\(r \le R\)</span> such that <span class="process-math">\(\Re(g(z)) &gt; 0\)</span> for <span class="process-math">\(z \in D[a,r]\text{.}\)</span> This allows us, in turn, to define the holomorphic function <span class="process-math">\(h: D[a,r] \to \C\)</span> through <span class="process-math">\(h(z) := \Log(g(z))\text{,}\)</span> which satisfies</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_realmax0.html ./knowl/xref/cor_uniquenessfunction.html">
 \begin{equation*}
 h(a) \ = \ \Log(g(a)) \ = \ \Log(1) \ = \ 0
 \end{equation*}
 </div>
 <div class="para">and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_realmax0.html ./knowl/xref/cor_uniquenessfunction.html">
 \begin{equation*}
 \Re(h(z)) \ = \ \Re(\Log(g(z))) \ = \ \ln(\abs{g(z)}) \ \le \ \ln(1)
 \ = \ 0 \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_classifzeros-16-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">
+<a href="taylorchapter-6.html#ex_realmax0" class="xref" data-knowl="./knowl/xref/ex_realmax0.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 8.4.35">Exercise 8.4.35</a> now implies that <span class="process-math">\(h\)</span> must be identically zero in <span class="process-math">\(D[a,r]\text{.}\)</span> Hence <span class="process-math">\(g(z)=\exp(h(z))\)</span> must be equal to <span class="process-math">\(\exp(0)=1\)</span> for all <span class="process-math">\(z \in D[a,r]\text{,}\)</span> and so <span class="process-math">\(f(z)=f(a) \, g(z)\)</span> must have the constant value <span class="process-math">\(f(a)\)</span> for all <span class="process-math">\(z \in D[a,r]\text{.}\)</span> <a href="sec_classifzeros.html#cor_uniquenessfunction" class="xref" data-knowl="./knowl/xref/cor_uniquenessfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.2.3">Corollary 8.2.3</a> then implies that <span class="process-math">\(f\)</span> is constant in <span class="process-math">\(G\text{.}\)</span>
 </div>
-<div class="para" id="sec_classifzeros-16-5">
-<a href="taylorchapter-6.html#ex_realmax0" class="xref" data-knowl="./knowl/xref/ex_realmax0.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 8.4.35">Exercise 8.4.35</a> now implies that <span class="process-math">\(h\)</span> must be identically zero in <span class="process-math">\(D[a,r]\text{.}\)</span> Hence <span class="process-math">\(g(z)=\exp(h(z))\)</span> must be equal to <span class="process-math">\(\exp(0)=1\)</span> for all <span class="process-math">\(z \in D[a,r]\text{,}\)</span> and so <span class="process-math">\(f(z)=f(a) \, g(z)\)</span> must have the constant value <span class="process-math">\(f(a)\)</span> for all <span class="process-math">\(z \in D[a,r]\text{.}\)</span> <a href="sec_classifzeros.html#cor_uniquenessfunction" class="xref" data-knowl="./knowl/xref/cor_uniquenessfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.2.3">Corollary 8.2.3</a> then implies that <span class="process-math">\(f\)</span> is constant in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_classifzeros-16-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_classifzeros-16-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 8.2.1"><a href="#sec_classifzeros-16" title="Copy heading and permalink for Proof 8.2.1">🔗</a></div></article><div class="autopermalink" data-description="Section 8.2: Classification of Zeros and the Identity Principle"><a href="#sec_classifzeros" title="Copy heading and permalink for Section 8.2: Classification of Zeros and the Identity Principle">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">

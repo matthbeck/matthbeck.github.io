@@ -123,7 +123,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.6';
+eBookConfig.runestone_version = '7.9.8';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -431,24 +431,24 @@ h(t,s) \ := \ (1-s) e^{ 2 \pi i t } + 3s \times
 \pi i\)</span> and so Cauchy’s <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a> implies <a href="sec_cauchythm.html#eq_cauchyexample" class="xref" data-knowl="./knowl/xref/eq_cauchyexample.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.5">(4.5)</a>.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-11-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 4.3.5"><a href="#sec_cauchythm-11" title="Copy heading and permalink for Example 4.3.5">🔗</a></div></article><article class="proof" id="sec_cauchythm-12"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<div class="para logical" id="sec_cauchythm-12-1">
+<div class="autopermalink" data-description="Example 4.3.5"><a href="#sec_cauchythm-11" title="Copy heading and permalink for Example 4.3.5">🔗</a></div></article><article class="proof" id="sec_cauchythm-12"><h3 class="heading"><span class="title">Proof of Theorem 4.3.4.</span></h3>
+<div class="para logical" id="sec_cauchythm-12-2">
 <div class="para">The full proof of Cauchy’s Theorem is beyond the scope of this book. However, there are several easier proofs under more restrictive hypotheses than <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a>. We shall present a proof under the following extra assumptions:</div>
-<ul class="disc" id="sec_cauchythm-12-1-2">
-<li id="sec_cauchythm-12-1-2-1">
-<div class="para" id="sec_cauchythm-12-1-2-1-1">The derivative <span class="process-math">\(f'\)</span> is continuous in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-12-1-2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<ul class="disc" id="sec_cauchythm-12-2-2">
+<li id="sec_cauchythm-12-2-2-1">
+<div class="para" id="sec_cauchythm-12-2-2-1-1">The derivative <span class="process-math">\(f'\)</span> is continuous in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-12-2-2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec_cauchythm-12-1-2-1" title="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec_cauchythm-12-2-2-1" title="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="sec_cauchythm-12-1-2-2">
-<div class="para" id="sec_cauchythm-12-1-2-2-1">The homotopy <span class="process-math">\(h\)</span> from <span class="process-math">\(\gg_0\)</span> to <span class="process-math">\(\gg_1\)</span> has piecewise, continuous second derivatives.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-12-1-2-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec_cauchythm-12-2-2-2">
+<div class="para" id="sec_cauchythm-12-2-2-2-1">The homotopy <span class="process-math">\(h\)</span> from <span class="process-math">\(\gg_0\)</span> to <span class="process-math">\(\gg_1\)</span> has piecewise, continuous second derivatives.<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-12-2-2-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec_cauchythm-12-1-2-2" title="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec_cauchythm-12-2-2-2" title="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-12-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-12-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_cauchythm-12-2">
+<div class="para logical" id="sec_cauchythm-12-3">
 <div class="para">Technically, this is the assumption on <span class="process-math">\(h\text{:}\)</span>
 </div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_homotopy.html">
@@ -459,10 +459,10 @@ t_1 \, , \\ h_2(t,s) \amp  \text{ if }  t_1 \le t \le t_2 \, ,
 \, , \end{cases} 
 \end{equation*}
 </div>
-<div class="para">where each <span class="process-math">\(h_j(t,s)\)</span> has continuous second partials.<details class="ptx-footnote" aria-live="polite" id="sec_cauchythm-12-2-4"><summary class="ptx-footnote__number" title="Footnote 4.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_cauchythm-12-2-4">As we have seen with other “piecewise” definitions, the behavior of <span class="process-math">\(h\)</span> at the subdivision lines <span class="process-math">\(t=t_i\)</span> needs to be understood in terms of limits.</div></details> (<a href="sec_cauchythm.html#exam_homotopy" class="xref" data-knowl="./knowl/xref/exam_homotopy.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.3.2">Example 4.3.2</a> gives one instance.) Now we turn to the proof under these extra assumptions.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-12-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">where each <span class="process-math">\(h_j(t,s)\)</span> has continuous second partials.<details class="ptx-footnote" aria-live="polite" id="sec_cauchythm-12-3-4"><summary class="ptx-footnote__number" title="Footnote 4.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_cauchythm-12-3-4">As we have seen with other “piecewise” definitions, the behavior of <span class="process-math">\(h\)</span> at the subdivision lines <span class="process-math">\(t=t_i\)</span> needs to be understood in terms of limits.</div></details> (<a href="sec_cauchythm.html#exam_homotopy" class="xref" data-knowl="./knowl/xref/exam_homotopy.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.3.2">Example 4.3.2</a> gives one instance.) Now we turn to the proof under these extra assumptions.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-12-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_cauchythm-12-3">
+<div class="para logical" id="sec_cauchythm-12-4">
 <div class="para">For <span class="process-math">\(0 \leq s \leq 1\text{,}\)</span> let <span class="process-math">\(\gg_s\)</span> be the path parametrized by <span class="process-math">\(h(t,s), \ 0 \leq
 t \leq 1\text{.}\)</span> Consider the function <span class="process-math">\(I: [0,1] \to \C\)</span> given by</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/leibnizrule.html ./knowl/xref/thm_mixedpartialscommute.html">
@@ -471,7 +471,7 @@ I(s) \ := \ \int_{ \gg_s } f \,\text{,}
 \end{equation*}
 </div>
 <div class="para">so that <span class="process-math">\(I(0) = \int_{\gg_0} f\)</span> and <span class="process-math">\(I(1) = \int_{\gg_1} f\text{.}\)</span> We will show that <span class="process-math">\(I\)</span> is constant; in particular, <span class="process-math">\(I(0) = I(1)\text{,}\)</span> which proves the theorem. By Leibniz’s rule  (<a href="appendix-calculus.html#leibnizrule" class="xref" data-knowl="./knowl/xref/leibnizrule.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.9: Leibniz’s Rule">Theorem A.0.9</a>),</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/leibnizrule.html ./knowl/xref/thm_mixedpartialscommute.html" id="sec_cauchythm-12-3-12">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/leibnizrule.html ./knowl/xref/thm_mixedpartialscommute.html" id="sec_cauchythm-12-4-12">
 \begin{align*}
 \frac{d}{\diff{s}} I(s) \ \amp = \ \frac{d}{\diff{s}}
 \int_0^1 f \left(h(t,s) \right) \frac{ \partial h }{\partial t
@@ -492,11 +492,11 @@ f \left( h(t,s) \right) \frac{ \partial^2 h }{ \partial t \,
 \end{align*}
 </div>
 <div class="para">Note that we used <a href="appendix-calculus.html#thm_mixedpartialscommute" class="xref" data-knowl="./knowl/xref/thm_mixedpartialscommute.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.7">Theorem A.0.7</a> to switch the order of the second partials in the penultimate step—here is where we need our assumption that <span class="process-math">\(h\)</span> has continuous second partials. Also, we needed continuity of <span class="process-math">\(f'\)</span> in order to apply Leibniz’s rule. If <span class="process-math">\(h\)</span> is piecewise defined, we split up the integral accordingly.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-12-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-12-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_cauchythm-12-4">
+<div class="para logical" id="sec_cauchythm-12-5">
 <div class="para">Finally, by the Fundamental Theorem of Calculus (<a href="appendix-calculus.html#fundthmcalc" class="xref" data-knowl="./knowl/xref/fundthmcalc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.3: Fundamental Theorem of Calculus">Theorem A.0.3</a>), applied separately to the real and imaginary parts of the above integrand,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fundthmcalc.html" id="sec_cauchythm-12-4-2">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fundthmcalc.html" id="sec_cauchythm-12-5-2">
 \begin{align*}
 \frac{d}{\diff{s}} I(s) \amp \ = \ \int_0^1
 \frac{\partial}{\partial t} \left( f \left( h(t,s) \right)
@@ -509,9 +509,9 @@ f \left( h(t,s) \right) \frac{ \partial^2 h }{ \partial t \,
 </div>
 <div class="para">where the last step follows from <span class="process-math">\(h(0,s) = h(1,s)\)</span> for all <span class="process-math">\(s\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-12-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-12-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 4.3.1"><a href="#sec_cauchythm-12" title="Copy heading and permalink for Proof 4.3.1">🔗</a></div></article><article class="definition definition-like" id="sec_cauchythm-13"><h3 class="heading">
+<div class="autopermalink" data-description="Proof 4.3.1: Proof of Theorem 4.3.4"><a href="#sec_cauchythm-12" title="Copy heading and permalink for Proof 4.3.1: Proof of Theorem 4.3.4">🔗</a></div></article><article class="definition definition-like" id="sec_cauchythm-13"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.3.6</span><span class="period">.</span>
 </h3>
 <div class="para" id="sec_cauchythm-13-1-1">Let <span class="process-math">\(G \subseteq \C\)</span> be a region. If the closed path <span class="process-math">\(\gg\)</span> is <span class="process-math">\(G\)</span>-homotopic to a point (that is, a constant path) then <span class="process-math">\(\gg\)</span> is <em class="emphasis"><span class="process-math">\(G\)</span>-contractible</em>, and we write <span class="process-math">\(\gg\sim_G0\text{.}\)</span>  (See <a href="sec_cauchythm.html#contractiblefig" class="xref" data-knowl="./knowl/xref/contractiblefig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3.7">Figure 4.3.7</a> for an example.)<div class="autopermalink" data-description="Paragraph"><a href="#sec_cauchythm-13-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>

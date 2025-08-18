@@ -16,12 +16,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
 <div class="para logical">
-<div class="para">The <em class="emphasis">Fibonacci <details class="ptx-footnote" aria-live="polite" id="sec_fibonacci-2-1-1"><summary class="ptx-footnote__number" title="Footnote 10.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_fibonacci-2-1-1">Named after Leonardo Pisano Fibonacci (1170–1250).</div></details> numbers</em> are a sequence of integers defined recursively through</div>
-<div class="displaymath process-math">
+<div class="para">The <em class="emphasis">Fibonacci<details class="ptx-footnote" aria-live="polite" id="sec_fibonacci-2-1-1"><summary class="ptx-footnote__number" title="Footnote 10.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_fibonacci-2-1-1">Named after Leonardo Pisano Fibonacci (1170–1250).</div></details> numbers</em> are a sequence of integers defined recursively through</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/residuethm.html">
 \begin{align*}
 f_0 \amp = 0\\
 f_1 \amp = 1\\
@@ -29,6 +42,69 @@ f_n \amp = f_{n-1} + f_{n-2} \qquad \text{ for \(n \geq
 2\) }\text{.}
 \end{align*}
 </div>
+<div class="para"> Let <span class="process-math">\(F(z) = \s f_k \, z^k\text{.}\)</span>
+</div>
+<ol class="decimal ol-marker-4" id="sec_fibonacci-2-5">
+<li>
+<div class="para">Show that <span class="process-math">\(F\)</span> has a positive radius of convergence.<div class="autopermalink" data-description="Paragraph"><a href="#sec_fibonacci-2-5-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec_fibonacci-2-5-1" title="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li>
+<div class="para">Show that the recurrence relation among the <span class="process-math">\(f_n\)</span> implies that <span class="process-math">\(F(z) = \frac{z}{1 - z - z^2}\text{.}\)</span> (<em class="emphasis">Hint</em>: Write down the power series of <span class="process-math">\(z \, F(z)\)</span> and <span class="process-math">\(z^2 \, F(z)\)</span> and rearrange both so that you can easily add.)<div class="autopermalink" data-description="Paragraph"><a href="#sec_fibonacci-2-5-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec_fibonacci-2-5-2" title="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Verify that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Res_{z=0} \left( \frac{1}{z^n (1 - z - z^2)} \right) \ = \ f_n\,\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_fibonacci-2-5-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec_fibonacci-2-5-3" title="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Use the Residue <a href="sec_residues.html#residuethm" class="xref" data-knowl="./knowl/xref/residuethm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.2.2: Residue Theorem">Theorem 9.2.2</a> to derive an identity for <span class="process-math">\(f_n\text{.}\)</span> (<em class="emphasis">Hint</em>: Integrate</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/residuethm.html">
+\begin{equation*}
+\frac{1}{z^n (1 - z - z^2)}
+\end{equation*}
+</div>
+<div class="para">around <span class="process-math">\(C[0,R]\)</span> and show that this integral vanishes as <span class="process-math">\(R \to \infty\text{.}\)</span>)</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_fibonacci-2-5-4-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#sec_fibonacci-2-5-4" title="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li>
+<div class="para">Your identity should involve the <em class="emphasis">golden ratio</em> <span class="process-math">\(\frac{ 1 + \sqrt 5 }{ 2 }\text{.}\)</span> Explain what is going on in the output of the following <code class="code-inline tex2jax_ignore">SageMath</code> prompt:<div class="autopermalink" data-description="Paragraph"><a href="#sec_fibonacci-2-5-5-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="sec_fibonacci-2-5-5-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">[n(golden_ratio^j/sqrt(5)) for j in range(1,20)]
+</script></div>
+<div class="autopermalink" data-description="Item 5"><a href="#sec_fibonacci-2-5-5" title="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Generalize to other sequences defined by recurrence relations, e.g., the <em class="emphasis">Tribonacci numbers </em>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+t_0 \amp = 0\\
+t_1 \amp = 0\\
+t_2 \amp = 1\\
+t_n \amp = t_{n-1} + t_{n-2} + t_{n-3} \qquad \text{
+for } \ n \geq 3 \, \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_fibonacci-2-5-6-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6"><a href="#sec_fibonacci-2-5-6" title="Copy heading and permalink for Item 6">🔗</a></div>
+</li>
+</ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_fibonacci-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <span class="incontext"><a class="internal" href="sec_fibonacci.html#sec_fibonacci-2">in-context</a></span>

@@ -45,8 +45,9 @@ f(z) \ = \ (z-a)^m \, g(z) \qquad \text{ for all }  z \in G \,\text{.}
 <div class="autopermalink" data-description="Item b"><a href="#classificationzeros_isolated" title="Copy heading and permalink for Item b">🔗</a></div>
 </li>
 </ol>
+<div class="para">The integer <span class="process-math">\(m\)</span> in the second case is uniquely determined by <span class="process-math">\(f\)</span> and <span class="process-math">\(a\)</span> and is called the <em class="emphasis">multiplicity</em> of the zero at <span class="process-math">\(a\text{.}\)</span>
+</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para">The integer <span class="process-math">\(m\)</span> in the second case is uniquely determined by <span class="process-math">\(f\)</span> and <span class="process-math">\(a\)</span> and is called the <em class="emphasis">multiplicity</em> of the zero at <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Theorem 8.2.1: Classification of Zeros"><a href="#classificationzeros" title="Copy heading and permalink for Theorem 8.2.1: Classification of Zeros">🔗</a></div></article><article class="proof"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
 <div class="para logical">
@@ -71,41 +72,32 @@ D[a,R] \, \text{,}
 <div class="autopermalink" data-description="Item b"><a href="#classificationzeros-3-1-5-2" title="Copy heading and permalink for Item b">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical">
 <div class="para">The first case gives <span class="process-math">\(f(z) =0\)</span> for all <span class="process-math">\(z \in D[a,R]\text{.}\)</span> So now consider the second case. We note that for <span class="process-math">\(z \in D[a,R]\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_holomorphicpower.html">
 \begin{align*}
 f(z) \amp \ = \ c_m(z-a)^m + c_{m+1}(z-a)^{m+1} + \cdots \ = \
 (z-a)^m\left( c_m+c_{m+1}(z-a) + \cdots\right)\\
 \amp \ = \ (z-a)^m\sum_{k\ge0}c_{k+m} \, (z-a)^k\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-3-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical">
 <div class="para">Thus we can define a function <span class="process-math">\(g: G \to \C\)</span> through</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_holomorphicpower.html">
 \begin{equation*}
 g(z) := \begin{cases}\ds \sum_{k\ge0}c_{k+m}(z-a)^k \amp
 \text{ if }  z \in D[a,R] \, , \\ \dfrac{f(z)}{(z-a)^m} \amp
 \text{ if } z\in G\setminus \listset a . \end{cases} 
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-3-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical">
 <div class="para">(According to our calculations above, the two definitions give the same value when <span class="process-math">\(z \in D[a,R] \setminus \listset a\text{.}\)</span>) The function <span class="process-math">\(g\)</span> is holomorphic in <span class="process-math">\(D[a,R]\)</span> by the first definition, and <span class="process-math">\(g\)</span> is holomorphic in <span class="process-math">\(G \setminus \listset a\)</span> by the second definition. Note that <span class="process-math">\(g(a)=c_m\ne0\)</span> and, by construction,</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_holomorphicpower.html">
 \begin{equation*}
 f(z) \ = \ (z-a)^m \, g(z) \qquad \text{ for all }  z \in G \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-3-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para">Since <span class="process-math">\(g(a)\ne0\)</span> there is, by continuity, <span class="process-math">\(r&gt;0\)</span> so that <span class="process-math">\(g(z)\ne0\)</span> for all <span class="process-math">\(z\in D[a,r]\text{,}\)</span> so <span class="process-math">\(D[a,r]\)</span> contains no other zero of <span class="process-math">\(f\text{.}\)</span> The integer <span class="process-math">\(m\)</span> is unique, since it is defined in terms of the power series expansion of <span class="process-math">\(f\)</span> at <span class="process-math">\(a\text{,}\)</span> which is unique by <a href="sec_powerseriesholom.html#uniqueness" class="xref" data-knowl="./knowl/xref/uniqueness.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.6">Corollary 8.1.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-3-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Since <span class="process-math">\(g(a)\ne0\)</span> there is, by continuity, <span class="process-math">\(r&gt;0\)</span> so that <span class="process-math">\(g(z)\ne0\)</span> for all <span class="process-math">\(z\in D[a,r]\text{,}\)</span> so <span class="process-math">\(D[a,r]\)</span> contains no other zero of <span class="process-math">\(f\text{.}\)</span> The integer <span class="process-math">\(m\)</span> is unique, since it is defined in terms of the power series expansion of <span class="process-math">\(f\)</span> at <span class="process-math">\(a\text{,}\)</span> which is unique by <a href="sec_powerseriesholom.html#uniqueness" class="xref" data-knowl="./knowl/xref/uniqueness.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.6">Corollary 8.1.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#classificationzeros-3-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 8.2.1.1"><a href="#classificationzeros-3" title="Copy heading and permalink for Proof 8.2.1.1">🔗</a></div></article><span class="incontext"><a class="internal" href="sec_classifzeros.html#classificationzeros">in-context</a></span>
 </body>

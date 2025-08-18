@@ -123,7 +123,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.6';
+eBookConfig.runestone_version = '7.9.8';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -485,7 +485,39 @@ f(z) \ = \ \frac{ bc-ad }{ c^2 } \frac 1 {z + \frac d c} +
 </h3>
 <div class="para" id="circlestocircles-1-1">Möbius transformations map circles and lines into circles and lines.<div class="autopermalink" data-description="Paragraph"><a href="#circlestocircles-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 3.1.5"><a href="#circlestocircles" title="Copy heading and permalink for Theorem 3.1.5">🔗</a></div></article><article class="example example-like" id="ex_mobiusinverse2"><h3 class="heading">
+<div class="autopermalink" data-description="Theorem 3.1.5"><a href="#circlestocircles" title="Copy heading and permalink for Theorem 3.1.5">🔗</a></div></article><article class="proof" id="sec_mobius-18"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para" id="sec_mobius-18-1">Translations and dilations certainly map circles and lines into circles and lines, so by <a href="sec_mobius.html#transdilinv" class="xref" data-knowl="./knowl/xref/transdilinv.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 3.1.4">Proposition 3.1.4</a>, we only have to prove the statement of the theorem for the inversion <span class="process-math">\(f(z) = \frac 1 z\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_mobius-18-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_mobius-18-2">
+<div class="para">The equation for a circle centered at <span class="process-math">\(x_0 + iy_0\)</span> with radius <span class="process-math">\(r\)</span> is <span class="process-math">\((x-x_0)^2 + (y-y_0)^2 = r^2\text{,}\)</span> which we can transform to</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_circlegenau.html ./knowl/xref/eq_circle.html" id="eq_circle">
+\begin{equation}
+\alpha (x^2 + y^2) + \beta x + \gamma y + \delta \ = \ 0\tag{3.1}
+\end{equation}
+</div>
+<div class="para">for some real numbers <span class="process-math">\(\alpha\text{,}\)</span> <span class="process-math">\(\beta\text{,}\)</span> <span class="process-math">\(\gamma\text{,}\)</span> and <span class="process-math">\(\delta\)</span> that satisfy <span class="process-math">\(\beta^2 + \gamma^2 &gt; 4 \,
+\alpha \delta\)</span> (see <a href="chapter3-exercises.html#ex_circlegenau" class="xref" data-knowl="./knowl/xref/ex_circlegenau.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.3">Exercise 3.6.3</a>). The form <a href="sec_mobius.html#eq_circle" class="xref" data-knowl="./knowl/xref/eq_circle.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1">(3.1)</a> is more convenient for us, because it includes the possibility that the equation describes a line (precisely when <span class="process-math">\(\alpha = 0\)</span>).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_mobius-18-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec_mobius-18-3">
+<div class="para">Suppose <span class="process-math">\(z = x+iy\)</span> satisfies <a href="sec_mobius.html#eq_circle" class="xref" data-knowl="./knowl/xref/eq_circle.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1">(3.1)</a>; we need to prove that <span class="process-math">\(u+iv := \frac 1 z\)</span> satisfies a similar equation. Since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_circle.html ./knowl/xref/eq_circle.html ./knowl/xref/ex_circlegenau.html">
+\begin{equation*}
+u + iv \ = \ \frac{ x - iy }{ x^2 + y^2 } \,\text{,}
+\end{equation*}
+</div>
+<div class="para">we can rewrite <a href="sec_mobius.html#eq_circle" class="xref" data-knowl="./knowl/xref/eq_circle.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1">(3.1)</a> as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_circle.html ./knowl/xref/eq_circle.html ./knowl/xref/ex_circlegenau.html" id="sec_mobius-18-3-6">
+\begin{align}
+0 \amp \ = \ \alpha + \beta \frac{ x }{ x^2 + y^2 } +
+\gamma \frac{ y }{ x^2 + y^2 } + \frac \delta { x^2 + y^2 }\notag\\
+\amp \ = \ \alpha + \beta u - \gamma v + \delta (u^2 + v^2) \,\text{.}\tag{3.2}
+\end{align}
+</div>
+<div class="para">But this equation, in conjunction with <a href="chapter3-exercises.html#ex_circlegenau" class="xref" data-knowl="./knowl/xref/ex_circlegenau.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.3">Exercise 3.6.3</a>, says that <span class="process-math">\(u+iv\)</span> lies on a circle or line.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_mobius-18-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 3.1.3"><a href="#sec_mobius-18" title="Copy heading and permalink for Proof 3.1.3">🔗</a></div></article><article class="example example-like" id="ex_mobiusinverse2"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.6</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="ex_mobiusinverse2-1-1">
@@ -506,39 +538,7 @@ e^{ i \phi } \right) }{ \left| e^{ i \phi } + 1 \right|^2 }
 <div class="para">which is a real number. Thus <a href="sec_mobius.html#circlestocircles" class="xref" data-knowl="./knowl/xref/circlestocircles.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 3.1.5">Theorem 3.1.5</a> implies that <span class="process-math">\(f\)</span> maps the unit circle to the real line.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_mobiusinverse2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 3.1.6"><a href="#ex_mobiusinverse2" title="Copy heading and permalink for Example 3.1.6">🔗</a></div></article><article class="proof" id="sec_mobius-19"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<div class="para" id="sec_mobius-19-1">Translations and dilations certainly map circles and lines into circles and lines, so by <a href="sec_mobius.html#transdilinv" class="xref" data-knowl="./knowl/xref/transdilinv.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 3.1.4">Proposition 3.1.4</a>, we only have to prove the statement of the theorem for the inversion <span class="process-math">\(f(z) = \frac 1 z\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_mobius-19-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_mobius-19-2">
-<div class="para">The equation for a circle centered at <span class="process-math">\(x_0 + iy_0\)</span> with radius <span class="process-math">\(r\)</span> is <span class="process-math">\((x-x_0)^2 + (y-y_0)^2 = r^2\text{,}\)</span> which we can transform to</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_circlegenau.html ./knowl/xref/eq_circle.html" id="eq_circle">
-\begin{equation}
-\alpha (x^2 + y^2) + \beta x + \gamma y + \delta \ = \ 0\tag{3.1}
-\end{equation}
-</div>
-<div class="para">for some real numbers <span class="process-math">\(\alpha\text{,}\)</span> <span class="process-math">\(\beta\text{,}\)</span> <span class="process-math">\(\gamma\text{,}\)</span> and <span class="process-math">\(\delta\)</span> that satisfy <span class="process-math">\(\beta^2 + \gamma^2 &gt; 4 \,
-\alpha \delta\)</span> (see <a href="chapter3-exercises.html#ex_circlegenau" class="xref" data-knowl="./knowl/xref/ex_circlegenau.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.3">Exercise 3.6.3</a>). The form <a href="sec_mobius.html#eq_circle" class="xref" data-knowl="./knowl/xref/eq_circle.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1">(3.1)</a> is more convenient for us, because it includes the possibility that the equation describes a line (precisely when <span class="process-math">\(\alpha = 0\)</span>).</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_mobius-19-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_mobius-19-3">
-<div class="para">Suppose <span class="process-math">\(z = x+iy\)</span> satisfies <a href="sec_mobius.html#eq_circle" class="xref" data-knowl="./knowl/xref/eq_circle.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1">(3.1)</a>; we need to prove that <span class="process-math">\(u+iv := \frac 1 z\)</span> satisfies a similar equation. Since</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_circle.html ./knowl/xref/eq_circle.html ./knowl/xref/ex_circlegenau.html">
-\begin{equation*}
-u + iv \ = \ \frac{ x - iy }{ x^2 + y^2 } \,\text{,}
-\end{equation*}
-</div>
-<div class="para">we can rewrite <a href="sec_mobius.html#eq_circle" class="xref" data-knowl="./knowl/xref/eq_circle.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1">(3.1)</a> as</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_circle.html ./knowl/xref/eq_circle.html ./knowl/xref/ex_circlegenau.html" id="sec_mobius-19-3-6">
-\begin{align}
-0 \amp \ = \ \alpha + \beta \frac{ x }{ x^2 + y^2 } +
-\gamma \frac{ y }{ x^2 + y^2 } + \frac \delta { x^2 + y^2 }\notag\\
-\amp \ = \ \alpha + \beta u - \gamma v + \delta (u^2 + v^2) \,\text{.}\tag{3.2}
-\end{align}
-</div>
-<div class="para">But this equation, in conjunction with <a href="chapter3-exercises.html#ex_circlegenau" class="xref" data-knowl="./knowl/xref/ex_circlegenau.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.3">Exercise 3.6.3</a>, says that <span class="process-math">\(u+iv\)</span> lies on a circle or line.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_mobius-19-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Proof 3.1.3"><a href="#sec_mobius-19" title="Copy heading and permalink for Proof 3.1.3">🔗</a></div></article><div class="para" id="sec_mobius-20">
+<div class="autopermalink" data-description="Example 3.1.6"><a href="#ex_mobiusinverse2" title="Copy heading and permalink for Example 3.1.6">🔗</a></div></article><div class="para" id="sec_mobius-20">
 <a href="sec_mobius.html#fig-inversion" class="xref" data-knowl="./knowl/xref/fig-inversion.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.1.7">Figure 3.1.7</a> demonstrates the effect that the inversion <span class="process-math">\(f(z)=\frac1z\)</span> has on horizontal and vertical lines.  In particular, the vertical line defined by <span class="process-math">\(\Re(z)=x_0\)</span> is mapped into the circle of radius <span class="process-math">\(\frac1{2x_0}\)</span> centered at <span class="process-math">\(\left(\frac1{2x_0},0\right)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_mobius-20" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig-inversion"><div class="sidebyside"><div class="sbsrow" style="margin-left:1%;margin-right:1%;">

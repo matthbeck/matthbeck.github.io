@@ -22,11 +22,62 @@
 <div class="para logical">
 <div class="para">The <em class="emphasis">binomial coefficient</em> <span class="process-math">\(\binom n k = \frac{ 1 }{ k! } n(n-1)(n-2) \cdots (n-k+1)\)</span> is a natural candidate for being explored analytically, as the <em class="emphasis">binomial theorem</em>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/unifc.html ./knowl/xref/unifc.html ./knowl/xref/residuethm.html">
 \begin{equation*}
 (x+y)^n \ = \ \sum_{k=0}^n \binom n k x^k \, y^{n-k}
 \end{equation*}
 </div>
+<div class="para"> (for <span class="process-math">\(x,y \in \C\)</span> and <span class="process-math">\(n \in \Z_{ \ge 0 }\)</span>) tells us that <span class="process-math">\(\binom n k\)</span> is the coefficient of <span class="process-math">\(z^k\)</span> in <span class="process-math">\((z+1)^n\text{.}\)</span> You will derive two sample identities in the course of the exercises below.</div>
+<ol class="decimal ol-marker-4" id="sec_binomialcoeff-2-11">
+<li>
+<div class="para logical">
+<div class="para">Convince yourself that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\binom{n}{k} \ = \ \frac 1 {2 \pi i} \int_\gamma \frac{
+(z+1)^{n} }{ z^{k+1} } \, \diff{z} 
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\gamma\)</span> is any simple, closed, positively oriented, piecewise smooth path such that 0 is inside <span class="process-math">\(\gamma\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_binomialcoeff-2-11-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec_binomialcoeff-2-11-1" title="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li>
+<div class="para">Derive a recurrence relation for binomial coefficients from the fact that <span class="process-math">\(\frac 1 z + 1 = \frac{ z+1 }{ z }\text{.}\)</span> (<em class="emphasis">Hint</em>: Multiply both sides by <span class="process-math">\(\frac{ (z+1)^n }{ z^k }\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#sec_binomialcoeff-2-11-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec_binomialcoeff-2-11-2" title="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Now suppose <span class="process-math">\(x \in \R\)</span> with <span class="process-math">\(|x|\lt 1/4\text{.}\)</span> Find a simple closed path <span class="process-math">\(\gamma\)</span> surrounding the origin such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\s \left( \frac{ (z+1)^2 }{ z } \, x \right)^k
+\end{equation*}
+</div>
+<div class="para">converges uniformly on <span class="process-math">\(\gamma\)</span> as a function of <span class="process-math">\(z\text{.}\)</span> Evaluate this sum.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#unifc-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#unifc" title="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Keeping <span class="process-math">\(x\)</span> and <span class="process-math">\(\gg\)</span> from (<a href="sec_binomialcoeff.html#unifc" class="xref" data-knowl="./knowl/xref/unifc.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 3">3</a>), convince yourself that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/unifc.html ./knowl/xref/unifc.html ./knowl/xref/residuethm.html">
+\begin{equation*}
+\s \binom{2k}{k} x^k \ = \ \frac 1 {2 \pi i} \s \int_\gamma
+\frac{ (z+1)^{2k} }{ z^{k+1} } \, x^k \, \diff{z} \, \text{,}
+\end{equation*}
+</div>
+<div class="para">Use (<a href="sec_binomialcoeff.html#unifc" class="xref" data-knowl="./knowl/xref/unifc.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 3">3</a>) to interchange summation and integral, and use the Residue <a href="sec_residues.html#residuethm" class="xref" data-knowl="./knowl/xref/residuethm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.2.2: Residue Theorem">Theorem 9.2.2</a> to evaluate the integral, giving an identity for <span class="process-math">\(\s \binom{2k}{k} x^k\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_binomialcoeff-2-11-4-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#sec_binomialcoeff-2-11-4" title="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_binomialcoeff-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <span class="incontext"><a class="internal" href="sec_binomialcoeff.html#sec_binomialcoeff-2">in-context</a></span>

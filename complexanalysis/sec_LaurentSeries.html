@@ -123,7 +123,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.6';
+eBookConfig.runestone_version = '7.9.8';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -379,44 +379,40 @@ z \right)^k \ = \ \s \frac 1 {k!} \, z^{-k} \text{,}
 \sz a_k \ := \ \s a_k + \sum_{k \geq 1} a_{-k} \,\text{.}
 \end{equation*}
 </div>
+<div class="para"> Here <span class="process-math">\(a_k \in \C\)</span> are terms indexed by the integers. The double series above <em class="emphasis">converges</em> if and only if the two series on the right-hand side do. Absolute and uniform convergence are defined analogously. Equipped with this, we can now introduce the following central concept.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_LaurentSeries-3">Here <span class="process-math">\(a_k \in \C\)</span> are terms indexed by the integers. The double series above <em class="emphasis">converges</em> if and only if the two series on the right-hand side do. Absolute and uniform convergence are defined analogously. Equipped with this, we can now introduce the following central concept.<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<article class="definition definition-like" id="sec_LaurentSeries-4"><h3 class="heading">
+<article class="definition definition-like" id="sec_LaurentSeries-3"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.3.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_LaurentSeries-4-1-1">
-<div class="para">A <em class="emphasis">Laurent <details class="ptx-footnote" aria-live="polite" id="sec_LaurentSeries-4-1-1-1-1"><summary class="ptx-footnote__number" title="Footnote 8.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_LaurentSeries-4-1-1-1-1">After Pierre Alphonse Laurent (1813–1854).</div></details> series centered at <span class="process-math">\(z_0\)</span></em> is a double series of the form</div>
+<div class="para logical" id="sec_LaurentSeries-3-1-1">
+<div class="para">A <em class="emphasis">Laurent<details class="ptx-footnote" aria-live="polite" id="sec_LaurentSeries-3-1-1-1-1"><summary class="ptx-footnote__number" title="Footnote 8.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_LaurentSeries-3-1-1-1-1">After Pierre Alphonse Laurent (1813–1854).</div></details> series centered at <span class="process-math">\(z_0\)</span></em> is a double series of the form</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \ds \sz c_k ( z - z_0 )^k\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-4-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 8.3.1"><a href="#sec_LaurentSeries-4" title="Copy heading and permalink for Definition 8.3.1">🔗</a></div></article><article class="example example-like" id="sec_LaurentSeries-5"><h3 class="heading">
+<div class="autopermalink" data-description="Definition 8.3.1"><a href="#sec_LaurentSeries-3" title="Copy heading and permalink for Definition 8.3.1">🔗</a></div></article><article class="example example-like" id="sec_LaurentSeries-4"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.3.2</span><span class="period">.</span>
 </h3>
-<div class="para" id="sec_LaurentSeries-5-1-1">The series that started this section is the Laurent series of <span class="process-math">\(\exp ( \frac 1 z )\)</span> centered at <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-5-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_LaurentSeries-4-1-1">The series that started this section is the Laurent series of <span class="process-math">\(\exp ( \frac 1 z )\)</span> centered at <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-4-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 8.3.2"><a href="#sec_LaurentSeries-5" title="Copy heading and permalink for Example 8.3.2">🔗</a></div></article><article class="example example-like" id="sec_LaurentSeries-6"><h3 class="heading">
+<div class="autopermalink" data-description="Example 8.3.2"><a href="#sec_LaurentSeries-4" title="Copy heading and permalink for Example 8.3.2">🔗</a></div></article><article class="example example-like" id="sec_LaurentSeries-5"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.3.3</span><span class="period">.</span>
 </h3>
-<div class="para" id="sec_LaurentSeries-6-1-1">Any power series is a Laurent series (with <span class="process-math">\(c_k = 0\)</span> for <span class="process-math">\(k \lt 0\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-6-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_LaurentSeries-5-1-1">Any power series is a Laurent series (with <span class="process-math">\(c_k = 0\)</span> for <span class="process-math">\(k \lt 0\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-5-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 8.3.3"><a href="#sec_LaurentSeries-6" title="Copy heading and permalink for Example 8.3.3">🔗</a></div></article><div class="para logical" id="sec_LaurentSeries-7">
+<div class="autopermalink" data-description="Example 8.3.3"><a href="#sec_LaurentSeries-5" title="Copy heading and permalink for Example 8.3.3">🔗</a></div></article><div class="para logical" id="sec_LaurentSeries-6">
 <div class="para">We should pause for a minute and ask for which <span class="process-math">\(z\)</span> a general Laurent series can possibly converge. By definition</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/convergenceradius.html ./knowl/xref/ex_laurentconvergenceradius.html ./knowl/xref/convergenceradius.html">
 \begin{equation*}
 \sz c_k \left( z - z_0 \right)^k \ = \ \s c_k \left( z - z_0
 \right)^k + \sum_{k \geq 1} c_{-k} \left( z - z_0 \right)^{-k} \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_LaurentSeries-8">
-<div class="para">The first series on the right-hand side is a power series with some radius of convergence <span class="process-math">\(R_2\text{,}\)</span> that is, with <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a>, it converges in <span class="process-math">\(\left\{ z \in \C : \, | z-z_0 | \lt  R_2
+<div class="para">The first series on the right-hand side is a power series with some radius of convergence <span class="process-math">\(R_2\text{,}\)</span> thus with <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a>, it converges in <span class="process-math">\(\left\{ z \in \C : \, | z-z_0 | \lt  R_2
 \right\}\text{,}\)</span> and the convergence is uniform in <span class="process-math">\(\left\{ z \in \C : \, | z-z_0
 | \le r_2 \right\}\text{,}\)</span> for any fixed <span class="process-math">\(r_2 \lt  R_2\text{.}\)</span> For the second series, we invite you (in <a href="taylorchapter-6.html#ex_laurentconvergenceradius" class="xref" data-knowl="./knowl/xref/ex_laurentconvergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 8.4.30">Exercise 8.4.30</a>) to revise our proof of <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a> to show that this series converges for</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/convergenceradius.html ./knowl/xref/ex_laurentconvergenceradius.html ./knowl/xref/convergenceradius.html">
@@ -432,60 +428,53 @@ A \ := \ \left\{ z \in \C : \, R_1 \lt  | z-z_0 | \lt  R_2
 \right\} 
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_LaurentSeries-9">
 <div class="para">(assuming this set is not empty, i.e., <span class="process-math">\(R_1 \lt  R_2\)</span>), and the convergence is uniform on any set of the form</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/convergenceradius.html ./knowl/xref/ex_laurentconvergenceradius.html ./knowl/xref/convergenceradius.html">
 \begin{equation*}
 \left\{ z \in \C : \, r_1 \leq | z-z_0 | \leq r_2 \right\}
 \qquad \text{ for }  \ R_1 \lt  r_1 \lt  r_2 \lt  R_2 \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="ex_1_sinlaurent"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.3.4</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="ex_1_sinlaurent-1-1">
 <div class="para">We’d like to compute the start of a Laurent series for <span class="process-math">\(\frac 1 {\sin(z)}\)</span> centered at <span class="process-math">\(z_0 = 0\text{.}\)</span> We start by considering the function <span class="process-math">\(g: D[0,\pi] \to \C\)</span> defined by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lhospital.html ./knowl/xref/ex_lhospitalfor1oversin.html ./knowl/xref/riemannzeta.html ./knowl/xref/thm_holomorphicpower.html ./knowl/xref/taylor.html ./knowl/xref/cor_powerseriesboundary.html">
 \begin{equation*}
 g(z) := \begin{cases}\frac 1 { \sin(z) } - \frac 1 z \amp
 \text{ if }  z \ne 0 \, , \\ 0
 \amp  \text{ if }  z=0 \, . \end{cases} 
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex_1_sinlaurent-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="ex_1_sinlaurent-1-2">
-<div class="para">A quick application of L’Hôpital’s Rule (lhospital) shows that <span class="process-math">\(g\)</span> is continuous (see <a href="taylorchapter-6.html#ex_lhospitalfor1oversin" class="xref" data-knowl="./knowl/xref/ex_lhospitalfor1oversin.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 8.4.31">Exercise 8.4.31</a>). Even better, another round of L’Hôpital’s Rule proves that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_lhospitalfor1oversin.html">
+<div class="para">A quick application of L’Hôpital’s Rule (<a href="appendix-calculus.html#lhospital" class="xref" data-knowl="./knowl/xref/lhospital.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.11: L’Hôspital’s Rule">Theorem A.0.11</a>) shows that <span class="process-math">\(g\)</span> is continuous (see <a href="taylorchapter-6.html#ex_lhospitalfor1oversin" class="xref" data-knowl="./knowl/xref/ex_lhospitalfor1oversin.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 8.4.31">Exercise 8.4.31</a>). Even better, another round of L’Hôpital’s Rule proves that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lhospital.html ./knowl/xref/ex_lhospitalfor1oversin.html ./knowl/xref/riemannzeta.html ./knowl/xref/thm_holomorphicpower.html ./knowl/xref/taylor.html ./knowl/xref/cor_powerseriesboundary.html">
 \begin{equation*}
 \lim_{ z \to 0 } \frac{ \frac 1 { \sin(z) } - \frac 1 z }{ z
 } \ = \ \frac 1 6 \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex_1_sinlaurent-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="ex_1_sinlaurent-1-3">
 <div class="para">But this means that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/riemannzeta.html ./knowl/xref/thm_holomorphicpower.html ./knowl/xref/taylor.html ./knowl/xref/cor_powerseriesboundary.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lhospital.html ./knowl/xref/ex_lhospitalfor1oversin.html ./knowl/xref/riemannzeta.html ./knowl/xref/thm_holomorphicpower.html ./knowl/xref/taylor.html ./knowl/xref/cor_powerseriesboundary.html">
 \begin{equation*}
 g'(z) = \begin{cases}- \frac{ \cos(z) }{ \sin^2(z) } + \frac
 1 {z^2} \amp  \text{ if }  z \ne 0 \, , \\ \frac 1 6
 \amp  \text{ if }  z=0 \, , \end{cases} 
 \end{equation*}
 </div>
-<div class="para">in particular, <span class="process-math">\(g\)</span> is holomorphic in <span class="process-math">\(D[0,\pi]\text{.}\)</span> <details class="ptx-footnote" aria-live="polite" id="ex_1_sinlaurent-1-3-4"><summary class="ptx-footnote__number" title="Footnote 8.3.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="ex_1_sinlaurent-1-3-4">This is a (simple) example of <em class="emphasis">analytic continuation</em>: the function <span class="process-math">\(g\)</span> is holomorphic in <span class="process-math">\(D[0,\pi]\)</span> and agrees with <span class="process-math">\(\frac 1 { \sin(z) } - \frac 1 z\)</span> in <span class="process-math">\(D[0,\pi]
+<div class="para">in particular, <span class="process-math">\(g\)</span> is holomorphic in <span class="process-math">\(D[0,\pi]\text{.}\)</span><details class="ptx-footnote" aria-live="polite" id="ex_1_sinlaurent-1-1-12"><summary class="ptx-footnote__number" title="Footnote 8.3.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="ex_1_sinlaurent-1-1-12">This is a (simple) example of <em class="emphasis">analytic continuation</em>: the function <span class="process-math">\(g\)</span> is holomorphic in <span class="process-math">\(D[0,\pi]\)</span> and agrees with <span class="process-math">\(\frac 1 { \sin(z) } - \frac 1 z\)</span> in <span class="process-math">\(D[0,\pi]
 \setminus \{ 0 \}\text{,}\)</span> the domain in which the latter function is holomorphic. When we said, in <a href="sec_series.html#riemannzeta" class="xref" data-knowl="./knowl/xref/riemannzeta.html" data-reveal-label="Reveal" data-close-label="Close" title="Footnote 7.2.1">Footnote 7.2.1</a>, that the Riemann zeta function <span class="process-math">\(\zeta(z) = \sum_{ k \ge 1 } \frac 1 {k^z}\)</span> can be extended to a function that is holomorphic on <span class="process-math">\(\C
 \setminus \{ 1 \}\text{,}\)</span> we were also talking about analytic continuation.</div></details> By <a href="sec_powerseriesholom.html#thm_holomorphicpower" class="xref" data-knowl="./knowl/xref/thm_holomorphicpower.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.1.8">Theorem 8.1.8</a>, <span class="process-math">\(g\)</span> has a power series expansion at 0, which we may compute using <a href="sec_powerseriesholom.html#taylor" class="xref" data-knowl="./knowl/xref/taylor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.5">Corollary 8.1.5</a>. It starts with</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/riemannzeta.html ./knowl/xref/thm_holomorphicpower.html ./knowl/xref/taylor.html ./knowl/xref/cor_powerseriesboundary.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lhospital.html ./knowl/xref/ex_lhospitalfor1oversin.html ./knowl/xref/riemannzeta.html ./knowl/xref/thm_holomorphicpower.html ./knowl/xref/taylor.html ./knowl/xref/cor_powerseriesboundary.html">
 \begin{equation*}
 g(z) \ = \ \frac 1 6 \, z + \frac{ 7 }{ 360 } \, z^3 + \frac{
 31 }{ 15120 } \, z^5 + \cdots 
 \end{equation*}
 </div>
 <div class="para">and it converges, by <a href="sec_powerseriesholom.html#cor_powerseriesboundary" class="xref" data-knowl="./knowl/xref/cor_powerseriesboundary.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.10">Corollary 8.1.10</a>, for <span class="process-math">\(|z| \lt  \pi\text{.}\)</span> But this gives our sought-after Laurent series</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/riemannzeta.html ./knowl/xref/thm_holomorphicpower.html ./knowl/xref/taylor.html ./knowl/xref/cor_powerseriesboundary.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lhospital.html ./knowl/xref/ex_lhospitalfor1oversin.html ./knowl/xref/riemannzeta.html ./knowl/xref/thm_holomorphicpower.html ./knowl/xref/taylor.html ./knowl/xref/cor_powerseriesboundary.html">
 \begin{equation*}
 \frac 1 { \sin(z) } \ = \ z^{ -1 } + \frac 1 6 \, z + \frac{ 7
 }{ 360 } \, z^3 + \frac{ 31 }{ 15120 } \, z^5 + \cdots 
@@ -493,21 +482,21 @@ g(z) \ = \ \frac 1 6 \, z + \frac{ 7 }{ 360 } \, z^3 + \frac{
 </div>
 <div class="para">which converges for <span class="process-math">\(0 \lt  |z| \lt  \pi\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex_1_sinlaurent-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_1_sinlaurent-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 8.3.4"><a href="#ex_1_sinlaurent" title="Copy heading and permalink for Example 8.3.4">🔗</a></div></article><div class="para" id="sec_LaurentSeries-11">
-<code class="code-inline tex2jax_ignore">SageMath</code> has a hard time with Laurent series with infinitely many negative exponents:<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 8.3.4"><a href="#ex_1_sinlaurent" title="Copy heading and permalink for Example 8.3.4">🔗</a></div></article><div class="para" id="sec_LaurentSeries-8">
+<code class="code-inline tex2jax_ignore">SageMath</code> has a hard time with Laurent series with infinitely many negative exponents:<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="sec_LaurentSeries-12" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('z')
+<div id="sec_LaurentSeries-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('z')
 taylor(exp(1/z),z,0,20)
 </script></div>
-<div class="para" id="sec_LaurentSeries-13">But it can handle finitely many negative exponents:<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_LaurentSeries-10">But it can handle finitely many negative exponents:<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="sec_LaurentSeries-14" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('z')
+<div id="sec_LaurentSeries-11" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('z')
 taylor(1/sin(z),z,0,10)
 </script></div>
-<div class="para" id="sec_LaurentSeries-15">
-<a href="sec_powerseriesholom.html#thm_powerholomorphic" class="xref" data-knowl="./knowl/xref/thm_powerholomorphic.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.1.1">Theorem 8.1.1</a> implies that a Laurent series represents a function that is holomorphic in its annulus of convergence. The fact that we can conversely represent any function holomorphic in such an annulus by a Laurent series is the substance of the next result.<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-15" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_LaurentSeries-12">
+<a href="sec_powerseriesholom.html#thm_powerholomorphic" class="xref" data-knowl="./knowl/xref/thm_powerholomorphic.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.1.1">Theorem 8.1.1</a> implies that a Laurent series represents a function that is holomorphic in its annulus of convergence. The fact that we can conversely represent any function holomorphic in such an annulus by a Laurent series is the substance of the next result.<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-12" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="holomorphiclaurent"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.3.5</span><span class="period">.</span>
@@ -532,13 +521,13 @@ f(w) }{ (w-z_0)^{k+1} } \, \diff{w} \, \text{,}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#holomorphiclaurent-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 8.3.5"><a href="#holomorphiclaurent" title="Copy heading and permalink for Theorem 8.3.5">🔗</a></div></article><div class="para" id="sec_LaurentSeries-17">By Cauchy’s <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a> we can replace the circle <span class="process-math">\(C[z_0,r]\)</span> in the formula for the Laurent coefficients by any path <span class="process-math">\(\gg \sim_A C[z_0,r]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-17" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem 8.3.5"><a href="#holomorphiclaurent" title="Copy heading and permalink for Theorem 8.3.5">🔗</a></div></article><div class="para" id="sec_LaurentSeries-14">By Cauchy’s <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a> we can replace the circle <span class="process-math">\(C[z_0,r]\)</span> in the formula for the Laurent coefficients by any path <span class="process-math">\(\gg \sim_A C[z_0,r]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-14" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="proof" id="sec_LaurentSeries-18"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<div class="para logical" id="sec_LaurentSeries-18-1">
+<article class="proof" id="sec_LaurentSeries-15"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="sec_LaurentSeries-15-1">
 <div class="para">Let <span class="process-math">\(g(z) = f(z+z_0)\text{;}\)</span> so <span class="process-math">\(g\)</span> is a function holomorphic in <span class="process-math">\(\left\{ z \in \C :
 \, R_1 \lt  |z| \lt  R_2 \right\}\text{.}\)</span> Fix <span class="process-math">\(R_1 \lt  r_1 \lt  |z| \lt  r_2 \lt  R_2\text{,}\)</span> and let <span class="process-math">\(\gg\)</span> be the path in <a href="sec_LaurentSeries.html#laurentfig" class="xref" data-knowl="./knowl/xref/laurentfig.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.3.6">Figure 8.3.6</a>, where <span class="process-math">\(\gg_1 := C[0,r_1]\)</span> and <span class="process-math">\(\gg_2 := C[0,r_2]\text{.}\)</span> By Cauchy’s Integral Formula (<a href="sec_CIF.html#cauchyformula" class="xref" data-knowl="./knowl/xref/cauchyformula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.5: Cauchy’s Integral Formula">Theorem 4.4.5</a>),</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/laurentfig.html ./knowl/xref/cauchyformula.html" id="sec_LaurentSeries-18-1-10">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/laurentfig.html ./knowl/xref/cauchyformula.html" id="sec_LaurentSeries-15-1-10">
 \begin{align}
 g(z) \amp \ = \ \frac 1 {2 \pi i} \int_\gg \frac{ g(w) }{ w-z } \,
 \diff{w}\notag\\
@@ -547,10 +536,10 @@ w-z } \, \diff{w} - \frac 1 {2 \pi i} \int_{ \gg_1 } \frac{
 g(w) }{ w-z } \, \diff{w} \,\text{.}\tag{8.1}
 \end{align}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-18-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-15-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="laurentfig"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/prefigure/laurent_path.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.3.6<span class="period">.</span></span><span class="space"> </span>The path <span class="process-math">\(\gg\)</span> in our proof.<div class="autopermalink" data-description="Figure 8.3.6"><a href="#laurentfig" title="Copy heading and permalink for Figure 8.3.6">🔗</a></div></figcaption></figure><div class="para logical" id="sec_LaurentSeries-18-3">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.3.6<span class="period">.</span></span><span class="space"> </span>The path <span class="process-math">\(\gg\)</span> in our proof.<div class="autopermalink" data-description="Figure 8.3.6"><a href="#laurentfig" title="Copy heading and permalink for Figure 8.3.6">🔗</a></div></figcaption></figure><div class="para logical" id="sec_LaurentSeries-15-3">
 <div class="para">For the integral over <span class="process-math">\(\gg_2\)</span> we play exactly the same game as in our proof of <a href="sec_powerseriesholom.html#thm_holomorphicpower" class="xref" data-knowl="./knowl/xref/thm_holomorphicpower.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.1.8">Theorem 8.1.8</a>. The factor <span class="process-math">\(\frac 1 {w-z}\)</span> in this integral can be expanded into a geometric series (note that <span class="process-math">\(w \in \gg_2\)</span> and so <span class="process-math">\(| \frac z w | \lt  1\)</span>)</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_holomorphicpower.html ./knowl/xref/prob_geomseriesfunky.html ./knowl/xref/seriesintegral.html">
 \begin{equation*}
@@ -567,9 +556,9 @@ g(w) \, \frac 1 w \s \left( \frac z w \right)^k \diff{w} \ = \ \s
 \right) z^k \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-18-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-15-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_LaurentSeries-18-4">
+<div class="para logical" id="sec_LaurentSeries-15-4">
 <div class="para">The integral over <span class="process-math">\(\gg_1\)</span> is computed in a similar fashion; now we expand the factor <span class="process-math">\(\frac 1 {w-z}\)</span> into the following geometric series (note that <span class="process-math">\(w \in \gg_1\)</span> and so <span class="process-math">\(| \frac w z | \lt  1\)</span>)</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/seriesintegral.html">
 \begin{equation*}
@@ -578,7 +567,7 @@ g(w) \, \frac 1 w \s \left( \frac z w \right)^k \diff{w} \ = \ \s
 \end{equation*}
 </div>
 <div class="para">which converges uniformly in the variable <span class="process-math">\(w \in \gg_1\text{.}\)</span> Again <a href="sec_sequseriesfunctions.html#seriesintegral" class="xref" data-knowl="./knowl/xref/seriesintegral.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.6">Proposition 7.3.6</a> applies:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/seriesintegral.html" id="sec_LaurentSeries-18-4-8">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/seriesintegral.html" id="sec_LaurentSeries-15-4-8">
 \begin{align*}
 \int_{\gg_1} \frac{ g(w) }{ w-z } \, \diff{w} \amp \ = \ -
 \int_{\gg_1} g(w) \, \frac 1 z \s \left( \frac w z \right)^k
@@ -589,11 +578,11 @@ g(w) \, \frac 1 w \s \left( \frac z w \right)^k \diff{w} \ = \ \s
 g(w) }{ w^{k+1} } \, \diff{w} \right) z^k \text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-18-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-15-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_LaurentSeries-18-5">
-<div class="para">Putting everything back into <a href="sec_LaurentSeries.html#sec_LaurentSeries-18-1-10" class="xref" data-knowl="./knowl/xref/laurentsum.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 8.1">(8.1)</a> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/laurentsum.html">
+<div class="para logical" id="sec_LaurentSeries-15-5">
+<div class="para">Putting everything back into <a href="sec_LaurentSeries.html#sec_LaurentSeries-15-1-10" class="xref" data-knowl="./knowl/xref/laurentsum.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 8.1">(8.1)</a> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/laurentsum.html ./knowl/xref/cauchythm.html">
 \begin{equation*}
 g(z) \ = \ \frac 1 {2 \pi i} \left( \s \left( \int_{\gg_2} \frac{
 g(w) }{ w^{k+1} } \, \diff{w} \right) z^k + \sum_{k \leq -1}
@@ -601,21 +590,18 @@ g(w) }{ w^{k+1} } \, \diff{w} \right) z^k + \sum_{k \leq -1}
 \right) z^k \right) \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-18-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_LaurentSeries-18-6">
 <div class="para">By Cauchy’s <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a>, we can now change both <span class="process-math">\(\gg_1\)</span> and <span class="process-math">\(\gg_2\)</span> to <span class="process-math">\(C[0,r]\text{,}\)</span> as long as <span class="process-math">\(R_1 \lt  r \lt  R_2\text{,}\)</span> which finally gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchythm.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/laurentsum.html ./knowl/xref/cauchythm.html">
 \begin{equation*}
 g(z) \ = \ \frac 1 {2 \pi i} \sz \left( \int_{C[0,r]} \frac{ g(w)
 }{ w^{k+1} } \, \diff{w} \right) z^k \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-18-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-15-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_LaurentSeries-18-7">The statement follows now with <span class="process-math">\(f(z) = g(z-z_0)\)</span> and a change of variables in the integral.<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-18-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_LaurentSeries-15-6">The statement follows now with <span class="process-math">\(f(z) = g(z-z_0)\)</span> and a change of variables in the integral.<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-15-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 8.3.1"><a href="#sec_LaurentSeries-18" title="Copy heading and permalink for Proof 8.3.1">🔗</a></div></article><div class="para" id="sec_LaurentSeries-19">This theorem, naturally, has several corollaries that have analogues in the world of Taylor series. Here are two samples:<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 8.3.1"><a href="#sec_LaurentSeries-15" title="Copy heading and permalink for Proof 8.3.1">🔗</a></div></article><div class="para" id="sec_LaurentSeries-16">This theorem, naturally, has several corollaries that have analogues in the world of Taylor series. Here are two samples:<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="corollary theorem-like" id="laurentunique"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">8.3.7</span><span class="period">.</span>
@@ -623,12 +609,12 @@ g(z) \ = \ \frac 1 {2 \pi i} \sz \left( \int_{C[0,r]} \frac{ g(w)
 <div class="para" id="laurentunique-1-1">If <span class="process-math">\(\sz c_k (z-z_0)^k\)</span> and <span class="process-math">\(\sz d_k (z-z_0)^k\)</span> are two Laurent series that both converge, for <span class="process-math">\(R_1 \lt |z-z_0| \lt R_2\text{,}\)</span> to the same function, then <span class="process-math">\(c_k=d_k\)</span> for all <span class="process-math">\(k
 \in \Z\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#laurentunique-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Corollary 8.3.7"><a href="#laurentunique" title="Copy heading and permalink for Corollary 8.3.7">🔗</a></div></article><article class="corollary theorem-like" id="sec_LaurentSeries-21"><h3 class="heading">
+<div class="autopermalink" data-description="Corollary 8.3.7"><a href="#laurentunique" title="Copy heading and permalink for Corollary 8.3.7">🔗</a></div></article><article class="corollary theorem-like" id="sec_LaurentSeries-18"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">8.3.8</span><span class="period">.</span>
 </h3>
-<div class="para" id="sec_LaurentSeries-21-1-1">If <span class="process-math">\(G\)</span> is a region, <span class="process-math">\(z_0 \in G\text{,}\)</span> and <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(G \setminus \{ z_0 \}\text{,}\)</span> then <span class="process-math">\(f\)</span> can be expanded into a Laurent series centered at <span class="process-math">\(z_0\)</span> that converges for <span class="process-math">\(0 \lt |z - z_0 | \lt R\)</span> where <span class="process-math">\(R\)</span> is at least the distance of <span class="process-math">\(z_0\)</span> to <span class="process-math">\(\partial G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-21-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_LaurentSeries-18-1-1">If <span class="process-math">\(G\)</span> is a region, <span class="process-math">\(z_0 \in G\text{,}\)</span> and <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(G \setminus \{ z_0 \}\text{,}\)</span> then <span class="process-math">\(f\)</span> can be expanded into a Laurent series centered at <span class="process-math">\(z_0\)</span> that converges for <span class="process-math">\(0 \lt |z - z_0 | \lt R\)</span> where <span class="process-math">\(R\)</span> is at least the distance of <span class="process-math">\(z_0\)</span> to <span class="process-math">\(\partial G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-18-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Corollary 8.3.8"><a href="#sec_LaurentSeries-21" title="Copy heading and permalink for Corollary 8.3.8">🔗</a></div></article><div class="para" id="sec_LaurentSeries-22">Finally, we come to the analogue of <a href="sec_regionsconvergence.html#powseriesintegral" class="xref" data-knowl="./knowl/xref/powseriesintegral.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.4.10">Corollary 7.4.10</a> for Laurent series. We could revisit its proof, but the statement that would follow is actually the special case <span class="process-math">\(k = -1\)</span> of <a href="sec_LaurentSeries.html#holomorphiclaurent" class="xref" data-knowl="./knowl/xref/holomorphiclaurent.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.3.5">Theorem 8.3.5</a>, read from right to left:<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-22" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Corollary 8.3.8"><a href="#sec_LaurentSeries-18" title="Copy heading and permalink for Corollary 8.3.8">🔗</a></div></article><div class="para" id="sec_LaurentSeries-19">Finally, we come to the analogue of <a href="sec_regionsconvergence.html#powseriesintegral" class="xref" data-knowl="./knowl/xref/powseriesintegral.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.4.10">Corollary 7.4.10</a> for Laurent series. We could revisit its proof, but the statement that would follow is actually the special case <span class="process-math">\(k = -1\)</span> of <a href="sec_LaurentSeries.html#holomorphiclaurent" class="xref" data-knowl="./knowl/xref/holomorphiclaurent.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.3.5">Theorem 8.3.5</a>, read from right to left:<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="corollary theorem-like" id="cor_firstresidue"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">8.3.9</span><span class="period">.</span>
@@ -641,17 +627,15 @@ g(z) \ = \ \frac 1 {2 \pi i} \sz \left( \int_{C[0,r]} \frac{ g(w)
 f(z) \ = \ \sz c_k \left( z - z_0 \right)^k\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#cor_firstresidue-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="cor_firstresidue-1-2">
 <div class="para">If <span class="process-math">\(\gg\)</span> is any simple, closed, piecewise smooth path in <span class="process-math">\(A\text{,}\)</span> such that <span class="process-math">\(z_0\)</span> is inside <span class="process-math">\(\gg\text{,}\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \int_\gg f(z) \, \diff{z} \ = \ 2 \pi i \, c_{ -1 } \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#cor_firstresidue-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor_firstresidue-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Corollary 8.3.9"><a href="#cor_firstresidue" title="Copy heading and permalink for Corollary 8.3.9">🔗</a></div></article><div class="para" id="sec_LaurentSeries-24">This result is profound: it says that we can integrate (at least over closed curves) by computing Laurent series—in fact, we “only” need to compute <em class="emphasis">one coefficient</em> of a Laurent series. We will have more to say about this in the next chapter; for now, we give just one application, which might have been bugging you since the beginning of <a href="powerchapter.html" class="internal" title="Chapter 7: Power Series">Chapter 7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-24" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Corollary 8.3.9"><a href="#cor_firstresidue" title="Copy heading and permalink for Corollary 8.3.9">🔗</a></div></article><div class="para" id="sec_LaurentSeries-21">This result is profound: it says that we can integrate (at least over closed curves) by computing Laurent series—in fact, we “only” need to compute <em class="emphasis">one coefficient</em> of a Laurent series. We will have more to say about this in the next chapter; for now, we give just one application, which might have been bugging you since the beginning of <a href="powerchapter.html" class="internal" title="Chapter 7: Power Series">Chapter 7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_LaurentSeries-21" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="ex_expoversin"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.3.10</span><span class="period">.</span>
@@ -659,18 +643,19 @@ f(z) \ = \ \sz c_k \left( z - z_0 \right)^k\text{.}
 <div class="para logical" id="ex_expoversin-1-1">
 <div class="para">We will (finally!) compute <a href="powerchapter.html#eq_laurentmotivation" class="xref" data-knowl="./knowl/xref/eq_laurentmotivation.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 7.1">(7.1)</a>, the integral <span class="process-math">\(\int_{ C[2,3] } \frac{ \exp(z) }{ \sin(z) } \,
 \diff{z}\text{.}\)</span> Our plan is to split up the integration path <span class="process-math">\(C[2,3]\)</span> as in <a href="powerchapter.html#fig_laurentmotivation" class="xref" data-knowl="./knowl/xref/fig_laurentmotivation.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.0.1">Figure 7.0.1</a>, which gives, say,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_laurentmotivation.html ./knowl/xref/fig_laurentmotivation.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_laurentmotivation.html ./knowl/xref/fig_laurentmotivation.html ./knowl/xref/cor_firstresidue.html">
 \begin{equation*}
 \int_{ C[2,3] } \frac{ \exp(z) }{ \sin(z) } \, \diff{z} \ = \
 \int_{ C[0,1] } \frac{ \exp(z) }{ \sin(z) } \, \diff{z} +
 \int_{ C[\pi,1] } \frac{ \exp(z) }{ \sin(z) } \, \diff{z} \, \text{.}
 \end{equation*}
 </div>
+<div class="para">To compute the two integrals on the right-hand side, we can use <a href="sec_LaurentSeries.html#cor_firstresidue" class="xref" data-knowl="./knowl/xref/cor_firstresidue.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.3.9">Corollary 8.3.9</a>, for which we need the Laurent expansions of <span class="process-math">\(\frac{ \exp(z) }{ \sin(z) }\)</span> centered at 0 and <span class="process-math">\(\pi\text{.}\)</span>
+</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_expoversin-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="ex_expoversin-1-2">To compute the two integrals on the right-hand side, we can use <a href="sec_LaurentSeries.html#cor_firstresidue" class="xref" data-knowl="./knowl/xref/cor_firstresidue.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.3.9">Corollary 8.3.9</a>, for which we need the Laurent expansions of <span class="process-math">\(\frac{ \exp(z) }{ \sin(z) }\)</span> centered at 0 and <span class="process-math">\(\pi\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex_expoversin-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="ex_expoversin-1-3">
+</div> <div class="para logical" id="ex_expoversin-1-2">
 <div class="para">By <a href="sec_powerseriesholom.html#ex_exptaylor" class="xref" data-knowl="./knowl/xref/ex_exptaylor.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.1.3">Example 8.1.3</a> and <a href="sec_LaurentSeries.html#ex_1_sinlaurent" class="xref" data-knowl="./knowl/xref/ex_1_sinlaurent.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.3.4">Example 8.3.4</a>,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_exptaylor.html ./knowl/xref/ex_1_sinlaurent.html ./knowl/xref/cor_firstresidue.html" id="ex_expoversin-1-3-3">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_exptaylor.html ./knowl/xref/ex_1_sinlaurent.html ./knowl/xref/cor_firstresidue.html" id="ex_expoversin-1-2-3">
 \begin{align*}
 \frac{ \exp(z) }{ \sin(z) } \amp \ = \ \left( 1 + z +
 \frac 1 2 \, z^2 + \cdots \right) \left(
@@ -679,23 +664,21 @@ z^{ -1 } + \frac 1 6 \, z + \frac{ 7 }{ 360 } \, z^3 +
 \amp \ = \ z^{ -1 } + 1 + \frac 2 3 \, z + \cdots
 \end{align*}
 </div>
-<div class="para">and <a href="sec_LaurentSeries.html#cor_firstresidue" class="xref" data-knowl="./knowl/xref/cor_firstresidue.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.3.9">Corollary 8.3.9</a> gives <span class="process-math">\(\int_{ C[0,1] } \frac{ \exp(z) }{ \sin(z) } \,
+<div class="para">and so <a href="sec_LaurentSeries.html#cor_firstresidue" class="xref" data-knowl="./knowl/xref/cor_firstresidue.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.3.9">Corollary 8.3.9</a> gives <span class="process-math">\(\int_{ C[0,1] } \frac{ \exp(z) }{ \sin(z) } \,
 \diff{z} = 2 \pi i\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex_expoversin-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="ex_expoversin-1-4">
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_expoversin-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="ex_expoversin-1-3">
 <div class="para">For the integral around <span class="process-math">\(\pi\text{,}\)</span> we use the fact that <span class="process-math">\(\sin(z) = \sin(\pi - z)\text{,}\)</span> and so we can compute the Laurent expansion of <span class="process-math">\(\frac 1 { \sin(z) }\)</span> at <span class="process-math">\(\pi\)</span> also via <a href="sec_LaurentSeries.html#ex_1_sinlaurent" class="xref" data-knowl="./knowl/xref/ex_1_sinlaurent.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.3.4">Example 8.3.4</a>:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_1_sinlaurent.html" id="ex_expoversin-1-4-6">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_1_sinlaurent.html ./knowl/xref/ex_expatpi.html ./knowl/xref/cor_firstresidue.html" id="ex_expoversin-1-3-6">
 \begin{align*}
 \frac 1 { \sin(z) } \ \amp= \ - \frac 1 { \sin(z-\pi) } \\
 \amp = \ -(z-\pi)^{ -1 } - \frac 1 6 \, (z-\pi) - \frac{ 7 }{ 360 }
 \, (z-\pi)^3 - \cdots 
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex_expoversin-1-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="ex_expoversin-1-5">
 <div class="para">Adding <a href="sec_powerseriesholom.html#ex_expatpi" class="xref" data-knowl="./knowl/xref/ex_expatpi.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.1.7">Example 8.1.7</a> to the mix yields</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_expatpi.html ./knowl/xref/cor_firstresidue.html" id="ex_expoversin-1-5-2">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_1_sinlaurent.html ./knowl/xref/ex_expatpi.html ./knowl/xref/cor_firstresidue.html" id="ex_expoversin-1-3-8">
 \begin{align*}
 \frac{ \exp(z) }{ \sin(z) } \amp \ = \ \left( e^\pi +
 e^\pi (z-\pi) + \cdots
@@ -707,13 +690,13 @@ e^\pi (z-\pi) + \cdots
 </div>
 <div class="para">and now <a href="sec_LaurentSeries.html#cor_firstresidue" class="xref" data-knowl="./knowl/xref/cor_firstresidue.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.3.9">Corollary 8.3.9</a> gives <span class="process-math">\(\int_{ C[\pi,1] } \frac{ \exp(z) }{ \sin(z) } \,
 \diff{z} = -2 \pi i \, e^\pi\text{.}\)</span> Putting it all together yields the integral we’ve been after for two chapters:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_expatpi.html ./knowl/xref/cor_firstresidue.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_1_sinlaurent.html ./knowl/xref/ex_expatpi.html ./knowl/xref/cor_firstresidue.html">
 \begin{equation*}
 \int_{ C[2,3] } \frac{ \exp(z) }{ \sin(z) } \, \diff{z} \ = \ 2
 \pi i \left( 1 - e^\pi \right) \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex_expoversin-1-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_expoversin-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Example 8.3.10"><a href="#ex_expoversin" title="Copy heading and permalink for Example 8.3.10">🔗</a></div></article><div class="autopermalink" data-description="Section 8.3: Laurent Series"><a href="#sec_LaurentSeries" title="Copy heading and permalink for Section 8.3: Laurent Series">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">

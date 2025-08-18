@@ -123,7 +123,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.6';
+eBookConfig.runestone_version = '7.9.8';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -396,7 +396,7 @@ f'(z) \ = \ \sum_{ k \geq 1 } k \, c_k ( z - z_0 )^{k-1}
 <div class="autopermalink" data-description="Theorem 8.1.2"><a href="#powerderivative" title="Copy heading and permalink for Theorem 8.1.2">🔗</a></div></article><article class="proof" id="powerderivative-2"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
 <div class="para logical" id="powerderivative-2-1">
 <div class="para">If <span class="process-math">\(z\in D[z_0,R]\)</span> then <span class="process-math">\(|z-z_0|\lt R\text{,}\)</span> so we can choose <span class="process-math">\(R_1\)</span> so that <span class="process-math">\(|z-z_0|\lt R_1\lt R\text{.}\)</span> Then the circle <span class="process-math">\(\gg:=C[z_0,R_1]\)</span> lies in <span class="process-math">\(D[z_0,R]\)</span> and <span class="process-math">\(z\)</span> is inside <span class="process-math">\(\gg\text{.}\)</span> Since <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(D[z_0,R]\)</span> we can use Cauchy’s Integral Formula for <span class="process-math">\(f'\)</span> (<a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a>), as well as <a href="sec_regionsconvergence.html#powseriesintegral" class="xref" data-knowl="./knowl/xref/powseriesintegral.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.4.10">Corollary 7.4.10</a>:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformula2.html ./knowl/xref/powseriesintegral.html" id="powerderivative-2-1-14">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformula2.html ./knowl/xref/powseriesintegral.html ./knowl/xref/cauchyformula2.html" id="powerderivative-2-1-14">
 \begin{align*}
 f'(z) \amp \ = \ \frac{1}{2 \pi i} \int_\gg
 \frac{f(w)}{(w-z)^2} \, \diff{w} \ = \ \frac{1}{2 \pi i} \int_\gg
@@ -407,36 +407,32 @@ f'(z) \amp \ = \ \frac{1}{2 \pi i} \int_\gg
 \amp \ = \ \sum_{ k \ge 1 }  k \, c_k (z-z_0)^{k-1} \text{.}
 \end{align*}
 </div>
+<div class="para">Note that we used <a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a> <em class="emphasis">again</em> in the penultimate step, but now applied to the function <span class="process-math">\((z-z_0)^k\text{.}\)</span>
+</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#powerderivative-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="powerderivative-2-2">Note that we used <a href="sec_variationstheme.html#cauchyformula2" class="xref" data-knowl="./knowl/xref/cauchyformula2.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.1">Theorem 5.1.1</a> <em class="emphasis">again</em> in the penultimate step, but now applied to the function <span class="process-math">\((z-z_0)^k\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#powerderivative-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="powerderivative-2-3">The last statement of the theorem is easy to show: the radius of convergence of <span class="process-math">\(f'(z)\)</span> is at least <span class="process-math">\(R\)</span> (since we have shown that the series for <span class="process-math">\(f'\)</span> converges whenever <span class="process-math">\(\abs{z-z_0}\lt R\)</span>), and it cannot be larger than <span class="process-math">\(R\)</span> by comparison to the series for <span class="process-math">\(f(z)\text{,}\)</span> since the coefficients for <span class="process-math">\((z-z_0) \, f'(z)\)</span> are larger than the corresponding ones for <span class="process-math">\(f(z)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#powerderivative-2-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="powerderivative-2-2">The last statement of the theorem is easy to show: the radius of convergence of <span class="process-math">\(f'(z)\)</span> is at least <span class="process-math">\(R\)</span> (since we have shown that the series for <span class="process-math">\(f'\)</span> converges whenever <span class="process-math">\(\abs{z-z_0}\lt R\)</span>), and it cannot be larger than <span class="process-math">\(R\)</span> by comparison to the series for <span class="process-math">\(f(z)\text{,}\)</span> since the coefficients for <span class="process-math">\((z-z_0) \, f'(z)\)</span> are larger than the corresponding ones for <span class="process-math">\(f(z)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#powerderivative-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 8.1.2.1"><a href="#powerderivative-2" title="Copy heading and permalink for Proof 8.1.2.1">🔗</a></div></article><article class="example example-like" id="ex_exptaylor"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.1.3</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="ex_exptaylor-1-1">
 <div class="para">Let</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exponentialfunctionradius.html ./knowl/xref/powerderivative.html ./knowl/xref/derivative0.html">
 \begin{equation*}
 f(z) \ = \ \s \frac{ z^k }{ k! } \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex_exptaylor-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="ex_exptaylor-1-2">
 <div class="para">In <a href="sec_regionsconvergence.html#exponentialfunctionradius" class="xref" data-knowl="./knowl/xref/exponentialfunctionradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.4.8">Example 7.4.8</a>, we showed that <span class="process-math">\(f\)</span> converges in <span class="process-math">\(\C\text{.}\)</span> We claim that <span class="process-math">\(f(z) = \exp(z)\text{,}\)</span> in analogy with the real exponential function. First, by <a href="sec_powerseriesholom.html#powerderivative" class="xref" data-knowl="./knowl/xref/powerderivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.1.2">Theorem 8.1.2</a>,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exponentialfunctionradius.html ./knowl/xref/powerderivative.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exponentialfunctionradius.html ./knowl/xref/powerderivative.html ./knowl/xref/derivative0.html">
 \begin{equation*}
 f'(z) \ = \ \frac{d}{\diff{z}} \sum_{k \geq 0} \frac{z^k}{k!}
 \ = \ \sum_{k \geq 1} \frac{z^{k-1}}{(k-1)!} \ = \ \sum_{k \geq 0}
 \frac{z^k}{k!} \ = \ f(z)\, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex_exptaylor-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="ex_exptaylor-1-3">
 <div class="para">Thus</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/derivative0.html" id="ex_exptaylor-1-3-1">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exponentialfunctionradius.html ./knowl/xref/powerderivative.html ./knowl/xref/derivative0.html" id="ex_exptaylor-1-1-8">
 \begin{align*}
 \frac{ d }{ \diff{z} } \frac{ f(z) }{ \exp(z) }
 \ \amp= \ \frac{ d }{ \diff{z} } \left( f(z) \exp(-z) \right)
@@ -446,10 +442,9 @@ f'(z) \ = \ \frac{d}{\diff{z}} \sum_{k \geq 0} \frac{z^k}{k!}
 </div>
 <div class="para">and so, by <a href="sec_constantfcts.html#derivative0" class="xref" data-knowl="./knowl/xref/derivative0.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.4.2">Theorem 2.4.2</a>, <span class="process-math">\(\frac{ f(z) }{ \exp(z) }\)</span> is constant. Evaluating at <span class="process-math">\(z=0\)</span> gives that this constant is 1, and so <span class="process-math">\(f(z) = \exp(z)\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex_exptaylor-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_exptaylor-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 8.1.3"><a href="#ex_exptaylor" title="Copy heading and permalink for Example 8.1.3">🔗</a></div></article><div id="sec_powerseriesholom-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('k')
-var('z')
+<div class="autopermalink" data-description="Example 8.1.3"><a href="#ex_exptaylor" title="Copy heading and permalink for Example 8.1.3">🔗</a></div></article><div id="sec_powerseriesholom-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('k', 'z')
 sum(z^k/factorial(k),k,0, +oo)
 </script></div>
 <article class="example example-like" id="ex_sinpowerser"><h3 class="heading">
@@ -474,13 +469,13 @@ sum(z^k/factorial(k),k,0, +oo)
 \frac{z^7}{7!} + \cdots \,\text{.}
 \end{align*}
 </div>
+<div class="para">Note that we are allowed to rearrange the terms of the two added sums because the corresponding series have infinite radii of convergence.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_sinpowerser-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="ex_sinpowerser-1-2">Note that we are allowed to rearrange the terms of the two added sums because the corresponding series have infinite radii of convergence.<div class="autopermalink" data-description="Paragraph"><a href="#ex_sinpowerser-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Example 8.1.4"><a href="#ex_sinpowerser" title="Copy heading and permalink for Example 8.1.4">🔗</a></div></article><div id="sec_powerseriesholom-10" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('z')
 taylor(sin(z),z,0,10)
 </script></div>
-<div class="para" id="sec_powerseriesholom-11">Naturally, <a href="sec_powerseriesholom.html#powerderivative" class="xref" data-knowl="./knowl/xref/powerderivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.1.2">Theorem 8.1.2</a> can be repeatedly applied to <span class="process-math">\(f'\text{,}\)</span> then to <span class="process-math">\(f''\text{,}\)</span> and so on. The various derivatives of a power series can also be seen as ingredients of the series itself—this is the statement of the following <em class="emphasis">Taylor series expansion</em>.  <details class="ptx-footnote" aria-live="polite" id="sec_powerseriesholom-11-7"><summary class="ptx-footnote__number" title="Footnote 8.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_powerseriesholom-11-7">Named after Brook Taylor (1685–1731).</div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_powerseriesholom-11">Naturally, <a href="sec_powerseriesholom.html#powerderivative" class="xref" data-knowl="./knowl/xref/powerderivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.1.2">Theorem 8.1.2</a> can be repeatedly applied to <span class="process-math">\(f'\text{,}\)</span> then to <span class="process-math">\(f''\text{,}\)</span> and so on. The various derivatives of a power series can also be seen as ingredients of the series itself—this is the statement of the following <em class="emphasis">Taylor series expansion</em>.<details class="ptx-footnote" aria-live="polite" id="sec_powerseriesholom-11-6"><summary class="ptx-footnote__number" title="Footnote 8.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_powerseriesholom-11-6">Named after Brook Taylor (1685–1731).</div></details> <div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="corollary theorem-like" id="taylor"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">8.1.5</span><span class="period">.</span>
@@ -503,7 +498,8 @@ f''(z) \ = \ \sum_{ k \geq 2 } k (k-1) \, c_k \left( z - z_0
 \right)^{k-2} 
 \end{equation*}
 </div>
-<div class="para">and so <span class="process-math">\(f''(z_0) = 2 \, c_2\text{.}\)</span> A quick induction game establishes <span class="process-math">\(f'''(z_0) = 6 \, c_3\text{,}\)</span> <span class="process-math">\(f''''(z_0) = 24 \, c_4\text{,}\)</span> etc.</div>
+<div class="para">and so <span class="process-math">\(f''(z_0) = 2 \, c_2\text{.}\)</span> A quick induction game establishes <span class="process-math">\(f^{(k)} (z_0) = k! \, c_k\text{.}\)</span>
+</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-13-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 8.1.1"><a href="#sec_powerseriesholom-13" title="Copy heading and permalink for Proof 8.1.1">🔗</a></div></article><div class="para" id="sec_powerseriesholom-14">Taylor’s formula shows that the coefficients of any power series converging to <span class="process-math">\(f\)</span> on some open disk <span class="process-math">\(D\)</span> can be determined from the function <span class="process-math">\(f\)</span> restricted to <span class="process-math">\(D\text{.}\)</span> It follows immediately that the coefficients of a power series are unique:<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-14" title="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -518,13 +514,11 @@ f''(z) \ = \ \sum_{ k \geq 2 } k (k-1) \, c_k \left( z - z_0
 </h3>
 <div class="para logical" id="ex_expatpi-1-1">
 <div class="para">We’d like to compute a power series expansion for <span class="process-math">\(f(z) = \exp(z)\)</span> centered at <span class="process-math">\(z_0 = \pi\text{.}\)</span> Since</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/taylor.html ./knowl/xref/exponentialfunctionradius.html">
 \begin{equation*}
 f^{ (k) } (z_0) \ = \ \biggl. \exp(z) \biggr|_{ z=\pi } \ = \ e^\pi\text{,}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex_expatpi-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="ex_expatpi-1-2">
 <div class="para">
 <a href="sec_powerseriesholom.html#taylor" class="xref" data-knowl="./knowl/xref/taylor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.1.5">Corollary 8.1.5</a> suggests that this power series is</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/taylor.html ./knowl/xref/exponentialfunctionradius.html">
@@ -533,7 +527,7 @@ f^{ (k) } (z_0) \ = \ \biggl. \exp(z) \biggr|_{ z=\pi } \ = \ e^\pi\text{,}
 \end{equation*}
 </div>
 <div class="para">which converges for all <span class="process-math">\(z \in \C\)</span> (essentially by <a href="sec_regionsconvergence.html#exponentialfunctionradius" class="xref" data-knowl="./knowl/xref/exponentialfunctionradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.4.8">Example 7.4.8</a>).</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex_expatpi-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex_expatpi-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Example 8.1.7"><a href="#ex_expatpi" title="Copy heading and permalink for Example 8.1.7">🔗</a></div></article><div class="para" id="sec_powerseriesholom-17">We now turn to the second cornerstone result of this section, that a holomorphic function can be locally represented by a power series.<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-17" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -557,24 +551,21 @@ c_k \ = \ \frac 1 {2 \pi i} \int_\gg \frac{ f(w) }{
 <div class="autopermalink" data-description="Theorem 8.1.8"><a href="#thm_holomorphicpower" title="Copy heading and permalink for Theorem 8.1.8">🔗</a></div></article><article class="proof" id="thm_holomorphicpower-2"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
 <div class="para logical" id="thm_holomorphicpower-2-1">
 <div class="para">Let <span class="process-math">\(g(z) := f(z+z_0)\text{;}\)</span> so <span class="process-math">\(g\)</span> is a function holomorphic in <span class="process-math">\(D[0,R]\text{.}\)</span> Given <span class="process-math">\(z \in D[0,R]\text{,}\)</span> let <span class="process-math">\(r := \frac{ |z|+R }{ 2 }\text{.}\)</span> By Cauchy’s Integral Formula (<a href="sec_CIF.html#cauchyformula" class="xref" data-knowl="./knowl/xref/cauchyformula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.5: Cauchy’s Integral Formula">Theorem 4.4.5</a>),</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformula.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformula.html ./knowl/xref/prob_geomseriesfunky.html ./knowl/xref/seriesintegral.html">
 \begin{equation*}
 g (z) \ = \ \frac 1 {2 \pi i} \int_{C[0,r]} \frac{ g(w) }{ w-z }
 \, \diff{w} \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#thm_holomorphicpower-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="thm_holomorphicpower-2-2">
 <div class="para">The factor <span class="process-math">\(\frac 1 {w-z}\)</span> in this integral can be expanded into a geometric series (note that <span class="process-math">\(w \in C[0,r]\)</span> and so <span class="process-math">\(| \frac z w | \lt  1\)</span>):</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prob_geomseriesfunky.html ./knowl/xref/seriesintegral.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformula.html ./knowl/xref/prob_geomseriesfunky.html ./knowl/xref/seriesintegral.html">
 \begin{equation*}
 \frac 1 {w-z} \ = \ \frac 1 w \, \frac 1 { 1 - \frac z w } \ = \
 \frac 1 w \s \left( \frac z w \right)^k 
 \end{equation*}
 </div>
 <div class="para">which converges uniformly in the variable <span class="process-math">\(w \in C[0,r]\)</span> by <a href="powerchapter-7.html#prob_geomseriesfunky" class="xref" data-knowl="./knowl/xref/prob_geomseriesfunky.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.30">Exercise 7.5.30</a>. Hence <a href="sec_sequseriesfunctions.html#seriesintegral" class="xref" data-knowl="./knowl/xref/seriesintegral.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.6">Proposition 7.3.6</a> applies:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prob_geomseriesfunky.html ./knowl/xref/seriesintegral.html" id="thm_holomorphicpower-2-2-8">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchyformula.html ./knowl/xref/prob_geomseriesfunky.html ./knowl/xref/seriesintegral.html" id="thm_holomorphicpower-2-1-15">
 \begin{align*}
 g (z) \amp \ = \ \frac{1}{2 \pi i} \int_{C[0,r]} \frac{
 g(w) }{ w-z } \, \diff{w}\\
@@ -585,19 +576,16 @@ g(w) \, \frac{1}{w} \s \left( \frac z w \right)^k \diff{w}\\
 \, \diff{w} \right) z^k \text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#thm_holomorphicpower-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm_holomorphicpower-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="thm_holomorphicpower-2-3">
+<div class="para logical" id="thm_holomorphicpower-2-2">
 <div class="para">Now, since <span class="process-math">\(f(z) = g(z-z_0)\text{,}\)</span> we apply a change of variables to obtain</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchythm.html">
 \begin{equation*}
 f(z) \ = \ \s \left( \frac 1 {2 \pi i} \int_{C[z_0, r]} \frac{
 f(w) }{ (w-z_0)^{k+1} } \, \diff{w} \right) (z-z_0)^k \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#thm_holomorphicpower-2-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="thm_holomorphicpower-2-4">
 <div class="para">The only differences of this right-hand side to the statement of the theorem are the paths we’re integrating over. However, by Cauchy’s <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a>,</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchythm.html">
 \begin{equation*}
@@ -605,7 +593,7 @@ f(w) }{ (w-z_0)^{k+1} } \, \diff{w} \right) (z-z_0)^k \text{.}
 \int_\gg \frac{ f(w) }{ (w-z_0)^{k+1} } \, \diff{w} \,  \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#thm_holomorphicpower-2-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm_holomorphicpower-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 8.1.8.1"><a href="#thm_holomorphicpower-2" title="Copy heading and permalink for Proof 8.1.8.1">🔗</a></div></article><div class="para" id="sec_powerseriesholom-19">We note a remarkable feature of our proof: namely, if we are given a holomorphic function <span class="process-math">\(f: G \to \C\)</span> and are interested in expanding <span class="process-math">\(f\)</span> into a power series centered at <span class="process-math">\(z_0 \in G\text{,}\)</span> then we may maximize the radius of convergence <span class="process-math">\(R\)</span> of this power series, in the sense that its region of convergence reaches to the boundary of <span class="process-math">\(G\text{.}\)</span> Let’s make this precise.<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -685,9 +673,9 @@ f^{(k)} (w) \ = \ \frac{k!}{2 \pi i} \int_\gg \frac{ f(z) }{
 \amp \ = \ \frac{ k! \, M }{ r^k } \, \text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-29-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">The statement now follows since <span class="process-math">\(r\)</span> can be chosen arbitrarily close to <span class="process-math">\(R\text{.}\)</span>
 </div>
-<div class="para" id="sec_powerseriesholom-29-2">The statement now follows since <span class="process-math">\(r\)</span> can be chosen arbitrarily close to <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-29-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-29-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 8.1.2"><a href="#sec_powerseriesholom-29" title="Copy heading and permalink for Proof 8.1.2">🔗</a></div></article><div class="para" id="sec_powerseriesholom-30">A key aspect of this section is worth emphasizing: namely, we have developed an alternative characterization of what it means for a function to be holomorphic. In <a href="functionchapter.html" class="internal" title="Chapter 2: Differentiation">Chapter 2</a>, we defined a function to be <em class="emphasis">holomorphic</em> in a region <span class="process-math">\(G\)</span> if it is differentiable at each point <span class="process-math">\(z_0 \in G\text{.}\)</span> We now define what it means for a function to be <em class="emphasis">analytic</em> in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_powerseriesholom-30" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>

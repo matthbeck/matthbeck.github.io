@@ -123,7 +123,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.6';
+eBookConfig.runestone_version = '7.9.8';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -365,9 +365,7 @@ eBookConfig.enable_chatcodes =  false;
 \lim_{ n \to \infty } f_n(z) \ = \ f(z) \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="sec_sequseriesfunctions-3-1-2">
-<div class="para">We say that <span class="process-math">\((f_n)\)</span> <em class="emphasis">converges uniformly</em> to <span class="process-math">\(f: G \to \C\)</span> if for all <span class="process-math">\(\epsilon&gt;0\)</span> there is an <span class="process-math">\(N\)</span> such that for all <span class="process-math">\(z
+<div class="para"> We say that <span class="process-math">\((f_n)\)</span> <em class="emphasis">converges uniformly</em> to <span class="process-math">\(f: G \to \C\)</span> if for all <span class="process-math">\(\epsilon&gt;0\)</span> there is an <span class="process-math">\(N\)</span> such that for all <span class="process-math">\(z
 \in G\)</span> and for all <span class="process-math">\(n \geq N\)</span>
 </div>
 <div class="displaymath process-math">
@@ -375,8 +373,9 @@ eBookConfig.enable_chatcodes =  false;
 \left| f_n(z) - f(z) \right| \ \lt  \ \epsilon\,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-3-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="sec_sequseriesfunctions-3-1-3">Sometimes we want to express that either notion of convergence holds only on a subset <span class="process-math">\(H\)</span> of <span class="process-math">\(G\text{,}\)</span> in which case we say that <span class="process-math">\((f_n)\)</span> converges pointwise/uniformly on <span class="process-math">\(H\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-3-1-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para"> Sometimes we want to express that either notion of convergence holds only on a subset <span class="process-math">\(H\)</span> of <span class="process-math">\(G\text{,}\)</span> in which case we say that <span class="process-math">\((f_n)\)</span> converges pointwise/uniformly on <span class="process-math">\(H\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Definition 7.3.1"><a href="#sec_sequseriesfunctions-3" title="Copy heading and permalink for Definition 7.3.1">🔗</a></div></article><div class="para" id="sec_sequseriesfunctions-4">It should be clear that uniform convergence on a set implies pointwise convergence on that set; but the converse is not generally true.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -397,9 +396,8 @@ eBookConfig.enable_chatcodes =  false;
 \ \epsilon \, \text{.}
 \end{equation*}
 </div>
+<div class="para">No big deal — we only exchanged two of the quantifiers. In the first case, <span class="process-math">\(N\)</span> may well depend on <span class="process-math">\(z\text{,}\)</span> in the second case we need to find an <span class="process-math">\(N\)</span> that works for all <span class="process-math">\(z \in G\text{.}\)</span> And this can make all the difference …</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="sec_sequseriesfunctions-6">No big deal — we only exchanged two of the quantifiers. In the first case, <span class="process-math">\(N\)</span> may well depend on <span class="process-math">\(z\text{,}\)</span> in the second case we need to find an <span class="process-math">\(N\)</span> that works for all <span class="process-math">\(z \in G\text{.}\)</span> And this can make all the difference …<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="ex_nonuniformconv"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.3.2</span><span class="period">.</span>
@@ -413,8 +411,8 @@ eBookConfig.enable_chatcodes =  false;
 |z|^n \ \le \ |z|^N \ \lt  \ \epsilon \, \text{.}
 \end{equation*}
 </div>
+<div class="para">(You ought to check carefully that all of our inequalities work the way we claim they do.)</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_nonuniformconv-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="ex_nonuniformconv-1-2">(You ought to check carefully that all of our inequalities work the way we claim they do.)<div class="autopermalink" data-description="Paragraph"><a href="#ex_nonuniformconv-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Example 7.3.2"><a href="#ex_nonuniformconv" title="Copy heading and permalink for Example 7.3.2">🔗</a></div></article><article class="example example-like" id="ex_uniformconv"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.3.3</span><span class="period">.</span>
@@ -428,12 +426,12 @@ eBookConfig.enable_chatcodes =  false;
 \left( \tfrac 1 2 \right)^N \ \lt  \ \epsilon \, \text{.}
 \end{equation*}
 </div>
+<div class="para">(Again, you should carefully check our inequalities.)</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_uniformconv-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="ex_uniformconv-1-2">(Again, you should carefully check our inequalities.)<div class="autopermalink" data-description="Paragraph"><a href="#ex_uniformconv-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 7.3.3"><a href="#ex_uniformconv" title="Copy heading and permalink for Example 7.3.3">🔗</a></div></article><div class="para" id="sec_sequseriesfunctions-9">The differences between <a href="sec_sequseriesfunctions.html#ex_nonuniformconv" class="xref" data-knowl="./knowl/xref/ex_nonuniformconv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.2">Example 7.3.2</a> and <a href="sec_sequseriesfunctions.html#ex_uniformconv" class="xref" data-knowl="./knowl/xref/ex_uniformconv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.3">Example 7.3.3</a> are subtle, and we suggest you meditate over them for a while with a good cup of coffee. You might already suspect that the function sequence in <a href="sec_sequseriesfunctions.html#ex_nonuniformconv" class="xref" data-knowl="./knowl/xref/ex_nonuniformconv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.2">Example 7.3.2</a> does <em class="emphasis">not</em> converge uniformly, as we will see in a moment. <div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 7.3.3"><a href="#ex_uniformconv" title="Copy heading and permalink for Example 7.3.3">🔗</a></div></article><div class="para" id="sec_sequseriesfunctions-8">The differences between <a href="sec_sequseriesfunctions.html#ex_nonuniformconv" class="xref" data-knowl="./knowl/xref/ex_nonuniformconv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.2">Example 7.3.2</a> and <a href="sec_sequseriesfunctions.html#ex_uniformconv" class="xref" data-knowl="./knowl/xref/ex_uniformconv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.3">Example 7.3.3</a> are subtle, and we suggest you meditate over them for a while with a good cup of coffee. You might already suspect that the function sequence in <a href="sec_sequseriesfunctions.html#ex_nonuniformconv" class="xref" data-knowl="./knowl/xref/ex_nonuniformconv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.2">Example 7.3.2</a> does <em class="emphasis">not</em> converge uniformly, as we will see in a moment. <div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_sequseriesfunctions-10">
+<div class="para logical" id="sec_sequseriesfunctions-9">
 <div class="para">The first application illustrating the difference between pointwise and uniform convergence says, in essence, that if we have a sequence of functions <span class="process-math">\(\left( f_n \right)\)</span> that converges uniformly on <span class="process-math">\(G\)</span> then for all <span class="process-math">\(z_0 \in G\)</span>
 </div>
 <div class="displaymath process-math">
@@ -442,9 +440,8 @@ eBookConfig.enable_chatcodes =  false;
 z_0} \ \lim_{n \to \infty} f_n(z) \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="sec_sequseriesfunctions-11">We will need similar interchanges of limits frequently.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">We will need similar interchanges of limits frequently.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="sequencecontionuos"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">7.3.4</span><span class="period">.</span>
@@ -487,24 +484,24 @@ f_n(z) + f_n(z) - f_n(z_0) + f_n(z_0) - f(z_0) \right|\\
 </div>
 <div class="para" id="sequencecontionuos-2-4">This proves that <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(z_0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sequencecontionuos-2-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 7.3.4.1"><a href="#sequencecontionuos-2" title="Copy heading and permalink for Proof 7.3.4.1">🔗</a></div></article><div class="para" id="sec_sequseriesfunctions-13">
-<a href="sec_sequseriesfunctions.html#sequencecontionuos" class="xref" data-knowl="./knowl/xref/sequencecontionuos.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.4">Proposition 7.3.4</a> can sometimes give a hint that a function sequence does not converge uniformly.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 7.3.4.1"><a href="#sequencecontionuos-2" title="Copy heading and permalink for Proof 7.3.4.1">🔗</a></div></article><div class="para" id="sec_sequseriesfunctions-11">
+<a href="sec_sequseriesfunctions.html#sequencecontionuos" class="xref" data-knowl="./knowl/xref/sequencecontionuos.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.4">Proposition 7.3.4</a> can sometimes give a hint that a function sequence does not converge uniformly.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="example example-like" id="sec_sequseriesfunctions-14"><h3 class="heading">
+<article class="example example-like" id="sec_sequseriesfunctions-12"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.3.5</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="sec_sequseriesfunctions-14-1-1">
+<div class="para logical" id="sec_sequseriesfunctions-12-1-1">
 <div class="para">We modify <a href="sec_sequseriesfunctions.html#ex_nonuniformconv" class="xref" data-knowl="./knowl/xref/ex_nonuniformconv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.2">Example 7.3.2</a> and consider the real function sequence <span class="process-math">\(f_n: [0,1] \to \R\)</span> given by <span class="process-math">\(f_n(x) = x^n\text{.}\)</span> It converges pointwise to <span class="process-math">\(f: [0,1] \to \R\)</span> given by</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_nonuniformconv.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_nonuniformconv.html ./knowl/xref/ex_nonuniformconv.html ./knowl/xref/ex_nonuniformconv.html ./knowl/xref/fn_zn___0.html">
 \begin{equation*}
 f(x) = \begin{cases}0 \amp  \text{ if }  0 \le x \lt  1 \, ,
 \\ 1 \amp  \text{ if }  x = 1 \, . \end{cases} 
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-14-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="sec_sequseriesfunctions-14-1-2">As this limiting function is not continuous, the above convergence cannot be uniform. This gives a strong indication that the convergence in <a href="sec_sequseriesfunctions.html#ex_nonuniformconv" class="xref" data-knowl="./knowl/xref/ex_nonuniformconv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.2">Example 7.3.2</a> is not uniform either, though this needs a separate proof, as the domain of the functions in <a href="sec_sequseriesfunctions.html#ex_nonuniformconv" class="xref" data-knowl="./knowl/xref/ex_nonuniformconv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.2">Example 7.3.2</a> is the unit disk (<a href="powerchapter-7.html#fn_zn___0" class="xref" data-knowl="./knowl/xref/fn_zn___0.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.20">Exercise 7.5.20</a>(b)).<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-14-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">As this limiting function is not continuous, the above convergence cannot be uniform. This gives a strong indication that the convergence in <a href="sec_sequseriesfunctions.html#ex_nonuniformconv" class="xref" data-knowl="./knowl/xref/ex_nonuniformconv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.2">Example 7.3.2</a> is not uniform either, though this needs a separate proof, as the domain of the functions in <a href="sec_sequseriesfunctions.html#ex_nonuniformconv" class="xref" data-knowl="./knowl/xref/ex_nonuniformconv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.2">Example 7.3.2</a> is the unit disk (<a href="powerchapter-7.html#fn_zn___0" class="xref" data-knowl="./knowl/xref/fn_zn___0.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.20">Exercise 7.5.20</a>(b)).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-12-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 7.3.5"><a href="#sec_sequseriesfunctions-14" title="Copy heading and permalink for Example 7.3.5">🔗</a></div></article><div class="para" id="sec_sequseriesfunctions-15">Now that we have established <a href="sec_sequseriesfunctions.html#sequencecontionuos" class="xref" data-knowl="./knowl/xref/sequencecontionuos.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.4">Proposition 7.3.4</a> about continuity, we can ask about integration of sequences or series of functions. The next theorem should come as no surprise; however, its consequences (which we will see shortly) are wide ranging.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-15" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 7.3.5"><a href="#sec_sequseriesfunctions-12" title="Copy heading and permalink for Example 7.3.5">🔗</a></div></article><div class="para" id="sec_sequseriesfunctions-13">Now that we have established <a href="sec_sequseriesfunctions.html#sequencecontionuos" class="xref" data-knowl="./knowl/xref/sequencecontionuos.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.4">Proposition 7.3.4</a> about continuity, we can ask about integration of sequences or series of functions. The next theorem should come as no surprise; however, its consequences (which we will see shortly) are wide ranging.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="seriesintegral"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">7.3.6</span><span class="period">.</span>
@@ -522,15 +519,12 @@ f(x) = \begin{cases}0 \amp  \text{ if }  0 \le x \lt  1 \, ,
 <div class="para logical" id="seriesintegral-2-1">
 <div class="para">We may assume that <span class="process-math">\(\gg\)</span> is not just a point, in which case the proposition holds trivially. Given <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> there exists <span class="process-math">\(N\)</span> such that for all <span class="process-math">\(z \in G\)</span> and all <span class="process-math">\(n \ge N\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/intprop.html ./knowl/xref/int4.html">
 \begin{equation*}
 \left| f_n(z) - f(z) \right| \ \lt  \ \frac{ \epsilon }{
 \length(\gg) } \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#seriesintegral-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="seriesintegral-2-2">
 <div class="para">With <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>) we can thus estimate</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/intprop.html ./knowl/xref/int4.html">
 \begin{equation*}
@@ -540,9 +534,9 @@ f(x) = \begin{cases}0 \amp  \text{ if }  0 \le x \lt  1 \, ,
 \epsilon \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#seriesintegral-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#seriesintegral-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 7.3.6.1"><a href="#seriesintegral-2" title="Copy heading and permalink for Proof 7.3.6.1">🔗</a></div></article><div class="para logical" id="sec_sequseriesfunctions-17">
+<div class="autopermalink" data-description="Proof 7.3.6.1"><a href="#seriesintegral-2" title="Copy heading and permalink for Proof 7.3.6.1">🔗</a></div></article><div class="para logical" id="sec_sequseriesfunctions-15">
 <div class="para">All of these notions for sequences of functions hold verbatim for series of functions. For example, if <span class="process-math">\(\sum_{ k \ge 1 } f_k(z)\)</span> converges uniformly on <span class="process-math">\(G\)</span> and <span class="process-math">\(\gg \subseteq G\)</span> is a piecewise smooth path, then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -550,11 +544,10 @@ f(x) = \begin{cases}0 \amp  \text{ if }  0 \le x \lt  1 \, ,
 \int_\gg f_k(z) \, \diff{z} \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-17" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">In some sense, the above identity is <em class="emphasis">the</em> reason we care about uniform convergence.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-15" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_sequseriesfunctions-18">In some sense, the above identity is <em class="emphasis">the</em> reason we care about uniform convergence.<div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-18" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="sec_sequseriesfunctions-19">There are several criteria for uniform convergence; see, e.g., <a href="powerchapter-7.html#sup-_0" class="xref" data-knowl="./knowl/xref/sup-_0.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.19">Exercise 7.5.19</a> and <a href="powerchapter-7.html#fn_zn___0" class="xref" data-knowl="./knowl/xref/fn_zn___0.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.20">Exercise 7.5.20</a>, and the following result, sometimes called the <em class="emphasis">Weierstraß <span class="process-math">\(M\)</span>-test</em>. <div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_sequseriesfunctions-16">There are several criteria for uniform convergence; see, e.g., <a href="powerchapter-7.html#sup-_0" class="xref" data-knowl="./knowl/xref/sup-_0.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.19">Exercise 7.5.19</a> and <a href="powerchapter-7.html#fn_zn___0" class="xref" data-knowl="./knowl/xref/fn_zn___0.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.20">Exercise 7.5.20</a>, and the following result, sometimes called the <em class="emphasis">Weierstraß <span class="process-math">\(M\)</span>-test</em>. <div class="autopermalink" data-description="Paragraph"><a href="#sec_sequseriesfunctions-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="mtest"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">7.3.7</span><span class="period">.</span>
@@ -571,12 +564,9 @@ f(x) = \begin{cases}0 \amp  \text{ if }  0 \le x \lt  1 \, ,
 \ \epsilon \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#mtest-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="mtest-2-2">
 <div class="para">Thus for all <span class="process-math">\(z \in G\)</span> and <span class="process-math">\(n \ge N\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html">
 \begin{equation*}
 \abs{\sum_{k \geq 1} f_k(z)-\sum_{k=1}^nf_k(z)} \ = \
 \abs{\sum_{k &gt;n}f_k(z)} \ \le \ \sum_{k &gt;n}\abs{f_k(z)} \ \le
@@ -584,7 +574,7 @@ f(x) = \begin{cases}0 \amp  \text{ if }  0 \le x \lt  1 \, ,
 \end{equation*}
 </div>
 <div class="para">which proves uniform convergence. Replace <span class="process-math">\(f_k\)</span> with <span class="process-math">\(\left|f_k\right|\)</span> in this argument to see that <span class="process-math">\(\sum_{k \geq 1} \left|f_k\right|\)</span> also converges uniformly.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#mtest-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#mtest-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 7.3.7.1"><a href="#mtest-2" title="Copy heading and permalink for Proof 7.3.7.1">🔗</a></div></article><article class="example example-like" id="ex_geomseriesasfunction"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.3.8</span><span class="period">.</span>

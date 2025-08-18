@@ -123,7 +123,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.6';
+eBookConfig.runestone_version = '7.9.8';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -372,13 +372,14 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para logical" id="sec_regionsconvergence-4-1-1">
 <div class="para">A slight modification of <a href="sec_sequseriesfunctions.html#ex_geomseriesasfunction" class="xref" data-knowl="./knowl/xref/ex_geomseriesasfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.8">Example 7.3.8</a> gives a fundamental power series, namely the <em class="emphasis">geometric series</em>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_geomseriesasfunction.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_geomseriesasfunction.html ./knowl/xref/ex_geomseriesasfunction.html ./knowl/xref/ex_geomseriesdiv.html">
 \begin{equation*}
 \sum_{ k \ge 0 } z^k \ = \ \frac 1 {1-z} \,\text{.}
 \end{equation*}
 </div>
+<div class="para">So here <span class="process-math">\(z_0 = 0\)</span> and <span class="process-math">\(c_k = 1\)</span> for all <span class="process-math">\(k \ge 0\text{.}\)</span> We note that, as in <a href="sec_sequseriesfunctions.html#ex_geomseriesasfunction" class="xref" data-knowl="./knowl/xref/ex_geomseriesasfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.8">Example 7.3.8</a>, this power series converges absolutely for <span class="process-math">\(|z| \lt 1\)</span> and uniformly for <span class="process-math">\(|z| \le r\text{,}\)</span> for any fixed <span class="process-math">\(r\lt 1\text{.}\)</span> Finally, as in <a href="sec_series.html#ex_geomseriesdiv" class="xref" data-knowl="./knowl/xref/ex_geomseriesdiv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.2.9">Example 7.2.9</a>, the geometric series <span class="process-math">\(\sum_{ k \ge 0 } z^k\)</span> diverges for <span class="process-math">\(|z| \ge 1\text{.}\)</span>
+</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-4-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="sec_regionsconvergence-4-1-2">So here <span class="process-math">\(z_0 = 0\)</span> and <span class="process-math">\(c_k = 1\)</span> for all <span class="process-math">\(k \ge 0\text{.}\)</span> We note that, as in <a href="sec_sequseriesfunctions.html#ex_geomseriesasfunction" class="xref" data-knowl="./knowl/xref/ex_geomseriesasfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.8">Example 7.3.8</a>, this power series converges absolutely for <span class="process-math">\(|z| \lt 1\)</span> and uniformly for <span class="process-math">\(|z| \le r\text{,}\)</span> for any fixed <span class="process-math">\(r\lt 1\text{.}\)</span> Finally, as in <a href="sec_series.html#ex_geomseriesdiv" class="xref" data-knowl="./knowl/xref/ex_geomseriesdiv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.2.9">Example 7.2.9</a>, the geometric series <span class="process-math">\(\sum_{ k \ge 0 } z^k\)</span> diverges for <span class="process-math">\(|z| \ge 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-4-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Example 7.4.2"><a href="#sec_regionsconvergence-4" title="Copy heading and permalink for Example 7.4.2">🔗</a></div></article><div class="para" id="sec_regionsconvergence-5">A general power series has a very similar convergence behavior which, in fact, comes from comparing it to a geometric series.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -414,7 +415,7 @@ eBookConfig.enable_chatcodes =  false;
 <article class="definition definition-like" id="sec_regionsconvergence-8"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.4.4</span><span class="period">.</span>
 </h3>
-<div class="para" id="sec_regionsconvergence-8-1-1">The number <span class="process-math">\(R\)</span> in <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a> is called the <em class="emphasis">radius of convergence</em> of <span class="process-math">\(\s c_k ( z - z_0)^k\text{.}\)</span> The open disk <span class="process-math">\(D[z_0,R]\)</span> in which the power series converges absolutely is the <em class="emphasis">region of convergence</em>. (If <span class="process-math">\(R=\infty\)</span> then this is <span class="process-math">\(\C\text{.}\)</span>) <div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-8-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_regionsconvergence-8-1-1">The number <span class="process-math">\(R\)</span> in <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a> is called the <em class="emphasis">radius of convergence</em> of <span class="process-math">\(\s c_k ( z - z_0)^k\text{.}\)</span> The open disk <span class="process-math">\(D[z_0,R]\)</span> in which the power series converges absolutely is the <em class="emphasis">region of convergence</em>. (If <span class="process-math">\(R=\infty\)</span> then this is <span class="process-math">\(\C\text{.}\)</span>) <div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-8-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Definition 7.4.4"><a href="#sec_regionsconvergence-8" title="Copy heading and permalink for Definition 7.4.4">🔗</a></div></article><div class="para" id="sec_regionsconvergence-9">In preparation for the proof of <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a>, we start with the following observation.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -427,30 +428,26 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" data-description="Proposition 7.4.5"><a href="#prop_convergenceradius" title="Copy heading and permalink for Proposition 7.4.5">🔗</a></div></article><article class="proof" id="sec_regionsconvergence-11"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
 <div class="para logical" id="sec_regionsconvergence-11-1">
 <div class="para">Let <span class="process-math">\(r := |w - z_0|\text{.}\)</span> If <span class="process-math">\(\s c_k ( w - z_0)^k\)</span> converges then <span class="process-math">\(\lim_{ k \to \infty } c_k ( w - z_0)^k = 0\)</span> and so this sequence of terms is bounded (by <a href="powerchapter-7.html#ex_convseqbounded" class="xref" data-knowl="./knowl/xref/ex_convseqbounded.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.6">Exercise 7.5.6</a>), say</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_convseqbounded.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_convseqbounded.html ./knowl/xref/cor_comparisonseries.html">
 \begin{equation*}
 \left| c_k ( w - z_0)^k \right| \ = \ |c_k| \, r^k \ \le \ M \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-11-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_regionsconvergence-11-2">
 <div class="para">Now if <span class="process-math">\(|z - z_0| \lt  |w - z_0|\text{,}\)</span> then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_convseqbounded.html ./knowl/xref/cor_comparisonseries.html">
 \begin{equation*}
 \s \left| c_k ( z - z_0)^k \right| \ = \ \s |c_k| \, r^k \left(
 \frac{ |z-z_0| }{ r } \right)^k \ \le \ M \s \left( \frac{
 |z-z_0| }{ r } \right)^k \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-11-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="sec_regionsconvergence-11-3">The sum on the right-hand side is a convergent geometric sequence, since <span class="process-math">\(|z-z_0| \lt r\text{,}\)</span> and so <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges absolutely by <a href="sec_series.html#cor_comparisonseries" class="xref" data-knowl="./knowl/xref/cor_comparisonseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.6">Corollary 7.2.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-11-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">The sum on the right-hand side is a convergent geometric sequence, since <span class="process-math">\(|z-z_0| \lt r\text{,}\)</span> and so <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges absolutely by <a href="sec_series.html#cor_comparisonseries" class="xref" data-knowl="./knowl/xref/cor_comparisonseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.6">Corollary 7.2.6</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-11-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 7.4.1"><a href="#sec_regionsconvergence-11" title="Copy heading and permalink for Proof 7.4.1">🔗</a></div></article><div class="para" id="sec_regionsconvergence-12">With this preparation, we can now prove <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-12" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="proof" id="sec_regionsconvergence-13"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<div class="para logical" id="sec_regionsconvergence-13-1">
+<article class="proof" id="sec_regionsconvergence-13"><h3 class="heading"><span class="title">Proof of Theorem 7.4.3.</span></h3>
+<div class="para logical" id="sec_regionsconvergence-13-2">
 <div class="para">Consider the set</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -458,9 +455,8 @@ S \ := \ \left\{ x \in \R_{ \ge 0 } : \, \s c_k \, x^k \text{
 converges }  \right\} \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-13-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="sec_regionsconvergence-13-2">(This set is nonempty since <span class="process-math">\(0 \in S\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-13-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">(This set is nonempty since <span class="process-math">\(0 \in S\text{.}\)</span>)</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-13-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sec_regionsconvergence-13-3">If <span class="process-math">\(S\)</span> is unbounded then <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges absolutely and uniformly for <span class="process-math">\(|z-z_0| \le r\text{,}\)</span> for any <span class="process-math">\(r\)</span> (and so this gives the <span class="process-math">\(R = \infty\)</span> case of <a href="sec_regionsconvergence.html#convergenceradius" class="xref" data-knowl="./knowl/xref/convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.4.3">Theorem 7.4.3</a>): choose <span class="process-math">\(x \in S\)</span> with <span class="process-math">\(x &gt; r\text{,}\)</span> then <a href="sec_regionsconvergence.html#prop_convergenceradius" class="xref" data-knowl="./knowl/xref/prop_convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.4.5">Proposition 7.4.5</a> says that <span class="process-math">\(\s c_k \, r^k\)</span> converges absolutely. Since <span class="process-math">\(\left| c_k ( z - z_0)^k \right| \le |c_k| r^k\text{,}\)</span> we can now use <a href="sec_sequseriesfunctions.html#mtest" class="xref" data-knowl="./knowl/xref/mtest.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.7">Proposition 7.3.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-13-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -468,30 +464,28 @@ converges }  \right\} \text{.}
 </div>
 <div class="para logical" id="sec_regionsconvergence-13-5">
 <div class="para">Now assume <span class="process-math">\(R &gt; 0\text{.}\)</span> If <span class="process-math">\(|z-z_0| \lt  R\)</span> then (because <span class="process-math">\(R\)</span> is a least upper bound for <span class="process-math">\(S\)</span>) there exists <span class="process-math">\(r \in S\)</span> such that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_convergenceradius.html">
 \begin{equation*}
 |z-z_0| \lt  r \le R \,\text{.}
 \end{equation*}
 </div>
+<div class="para">Thus <span class="process-math">\(\s c_k ( w - z_0)^k\)</span> converges for <span class="process-math">\(w=z_0+r\text{,}\)</span> and so <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges absolutely by <a href="sec_regionsconvergence.html#prop_convergenceradius" class="xref" data-knowl="./knowl/xref/prop_convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.4.5">Proposition 7.4.5</a>. This finishes (a).</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-13-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_regionsconvergence-13-6">Thus <span class="process-math">\(\s c_k ( w - z_0)^k\)</span> converges for <span class="process-math">\(w=z_0+r\text{,}\)</span> and so <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges absolutely by <a href="sec_regionsconvergence.html#prop_convergenceradius" class="xref" data-knowl="./knowl/xref/prop_convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.4.5">Proposition 7.4.5</a>. This finishes (a).<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-13-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_regionsconvergence-13-6">If <span class="process-math">\(|z-z_0| \le r\)</span> for some <span class="process-math">\(r \lt R\text{,}\)</span> again we can find <span class="process-math">\(x \in S\)</span> such that <span class="process-math">\(r \lt x \le R\text{.}\)</span> Then <span class="process-math">\(\s |c_k| \, r^k\)</span> converges by <a href="sec_regionsconvergence.html#prop_convergenceradius" class="xref" data-knowl="./knowl/xref/prop_convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.4.5">Proposition 7.4.5</a>, and so <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges absolutely and uniformly for <span class="process-math">\(|z-z_0|\le r\)</span> by <a href="sec_sequseriesfunctions.html#mtest" class="xref" data-knowl="./knowl/xref/mtest.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.7">Proposition 7.3.7</a>. This proves (b).<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-13-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_regionsconvergence-13-7">If <span class="process-math">\(|z-z_0| \le r\)</span> for some <span class="process-math">\(r \lt R\text{,}\)</span> again we can find <span class="process-math">\(x \in S\)</span> such that <span class="process-math">\(r \lt x \le R\text{.}\)</span> Then <span class="process-math">\(\s |c_k| \, r^k\)</span> converges by <a href="sec_regionsconvergence.html#prop_convergenceradius" class="xref" data-knowl="./knowl/xref/prop_convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.4.5">Proposition 7.4.5</a>, and so <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> converges absolutely and uniformly for <span class="process-math">\(|z-z_0|\le r\)</span> by <a href="sec_sequseriesfunctions.html#mtest" class="xref" data-knowl="./knowl/xref/mtest.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.7">Proposition 7.3.7</a>. This proves (b).<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-13-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_regionsconvergence-13-8">
+<div class="para logical" id="sec_regionsconvergence-13-7">
 <div class="para">Finally, if <span class="process-math">\(|z-z_0| &gt; R\)</span> then there exists <span class="process-math">\(r \notin
 S\)</span> such that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/absconvthm.html ./knowl/xref/prop_convergenceradius.html">
 \begin{equation*}
 R \le r \lt  |z-z_0| \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-13-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">But <span class="process-math">\(\s c_k \, r^k\)</span> diverges, so (by the contrapositive of <a href="sec_series.html#absconvthm" class="xref" data-knowl="./knowl/xref/absconvthm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.2.16">Theorem 7.2.16</a>) <span class="process-math">\(\s |c_k| \, r^k\)</span> diverges, and so (by the contrapositive of <a href="sec_regionsconvergence.html#prop_convergenceradius" class="xref" data-knowl="./knowl/xref/prop_convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.4.5">Proposition 7.4.5</a>) <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> diverges, which finishes (c).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-13-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_regionsconvergence-13-9">But <span class="process-math">\(\s c_k \, r^k\)</span> diverges, so (by the contrapositive of <a href="sec_series.html#absconvthm" class="xref" data-knowl="./knowl/xref/absconvthm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.2.16">Theorem 7.2.16</a>) <span class="process-math">\(\s |c_k| \, r^k\)</span> diverges, and so (by the contrapositive of <a href="sec_regionsconvergence.html#prop_convergenceradius" class="xref" data-knowl="./knowl/xref/prop_convergenceradius.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.4.5">Proposition 7.4.5</a>) <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> diverges, which finishes (c).<div class="autopermalink" data-description="Paragraph"><a href="#sec_regionsconvergence-13-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Proof 7.4.2"><a href="#sec_regionsconvergence-13" title="Copy heading and permalink for Proof 7.4.2">🔗</a></div></article><article class="corollary theorem-like" id="cor_roottest"><h3 class="heading">
+<div class="autopermalink" data-description="Proof 7.4.2: Proof of Theorem 7.4.3"><a href="#sec_regionsconvergence-13" title="Copy heading and permalink for Proof 7.4.2: Proof of Theorem 7.4.3">🔗</a></div></article><article class="corollary theorem-like" id="cor_roottest"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">7.4.6</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="cor_roottest-1-1">
@@ -546,7 +540,7 @@ r \right)^k \ &gt; \ \left( \frac{ 2r }{ R+r } \right)^k \ &gt; \
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.7</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="sec_regionsconvergence-16-1-1">
-<div class="para">For the power series <span class="process-math">\(\ds \s k \, z^k\)</span> we compute</div>
+<div class="para">For the power series <span class="process-math">\(\s k \, z^k\)</span> we compute</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_roottest.html">
 \begin{equation*}
 \lim_{ k \to \infty } \sqrt[k]{ |c_k| } \ = \ \lim_{ k \to
@@ -562,7 +556,7 @@ k \ln(k) } \ = \ e^{ \lim_{ k \to \infty } \frac { \ln(k) } k }
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.8</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="exponentialfunctionradius-1-1">
-<div class="para">Consider the power series <span class="process-math">\(\ds \sum_{ k \ge 0 } \frac{ 1 }{
+<div class="para">Consider the power series <span class="process-math">\(\sum_{ k \ge 0 } \frac{ 1 }{
 k! } \, z^k \text{.}\)</span> Since</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_ratiotest.html">
 \begin{equation*}
@@ -572,7 +566,7 @@ k! } \, z^k \text{.}\)</span> Since</div>
 \end{equation*}
 </div>
 <div class="para">the ratio test (<a href="powerchapter-7.html#ex_ratiotest" class="xref" data-knowl="./knowl/xref/ex_ratiotest.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.32">Exercise 7.5.32</a>) implies that the radius of convergence of <span class="process-math">\(\sum_{ k \ge 0 }
-\frac{ 1 }{ k! } \, z^k\)</span> is <span class="process-math">\(\infty\text{,}\)</span> and so the power series converges absolutely in <span class="process-math">\(\C\text{.}\)</span> <details class="ptx-footnote" aria-live="polite" id="exponentialfunctionradius-1-1-7"><summary class="ptx-footnote__number" title="Footnote 7.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="exponentialfunctionradius-1-1-7">In the next chapter, we will see that this power series represents the exponential function.</div></details>
+\frac{ 1 }{ k! } \, z^k\)</span> is <span class="process-math">\(\infty\text{,}\)</span> and so the power series converges absolutely in <span class="process-math">\(\C\text{.}\)</span><details class="ptx-footnote" aria-live="polite" id="exponentialfunctionradius-1-1-7"><summary class="ptx-footnote__number" title="Footnote 7.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="exponentialfunctionradius-1-1-7">In the next chapter, we will see that this power series represents the exponential function.</div></details>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#exponentialfunctionradius-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>

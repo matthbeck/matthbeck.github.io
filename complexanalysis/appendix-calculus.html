@@ -123,7 +123,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.6';
+eBookConfig.runestone_version = '7.9.8';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -371,9 +371,11 @@ eBookConfig.enable_chatcodes =  false;
 \max_{ x \in K } f(x)
 \end{equation*}
 </div>
-<div class="para">exist in \R</div>
+<div class="para">exist in <span class="process-math">\(\R\text{.}\)</span>
+</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#realEVT-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>.<div class="autopermalink" data-description="Theorem A.0.1: Extreme-Value Theorem"><a href="#realEVT" title="Copy heading and permalink for Theorem A.0.1: Extreme-Value Theorem">🔗</a></div></article><article class="theorem theorem-like" id="realmeanvalue"><h2 class="heading">
+</div>
+<div class="autopermalink" data-description="Theorem A.0.1: Extreme-Value Theorem"><a href="#realEVT" title="Copy heading and permalink for Theorem A.0.1: Extreme-Value Theorem">🔗</a></div></article><article class="theorem theorem-like" id="realmeanvalue"><h2 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">A.0.2</span><span class="period">.</span><span class="space"> </span><span class="title">Mean-Value Theorem.</span>
 </h2>
 <div class="para logical" id="realmeanvalue-3-1">
@@ -382,7 +384,7 @@ eBookConfig.enable_chatcodes =  false;
 I\text{.}\)</span> Then there exists <span class="process-math">\(0\lt a \lt 1\)</span> such that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{f(x + \D x) - f(x)}{ \D x } = f'(x + a \, \D x) \, \text{.}
+\frac{f(x + \D x) - f(x)}{ \D x } \ = \ f'(x + a \, \D x) \, \text{.}
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#realmeanvalue-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -428,13 +430,13 @@ F(a)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a 
 </h2>
 <div class="para logical" id="thm_realintegralupperbound-1-1">
 <div class="para">If <span class="process-math">\(f, g : [a,b] \to \R\)</span> are continuous functions then</div>
-<div class="displaymath process-math">
-\begin{equation*}
+<div class="displaymath process-math" id="thm_realintegralupperbound-1-1-2">
+\begin{align*}
 \left| \int_a^b f(x) \, g(x) \, \diff{x} \right|
-\ \le \ \int_a^b \left| f(x) \, g(x) \right| \diff{x}
-\ \le \ \left( \max_{ a \le x \le b } |f(x)| \right)
+\ \amp\le \ \int_a^b \left| f(x) \, g(x) \right| \diff{x}\\
+\amp\le \ \left( \max_{ a \le x \le b } |f(x)| \right)
 \int_a^b \left| g(x) \right| \diff{x} \,\text{.}
-\end{equation*}
+\end{align*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#thm_realintegralupperbound-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -452,7 +454,7 @@ g(b) } f(x) \, \diff{x} \,\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#thm_calcsubstitution-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem A.0.6"><a href="#thm_calcsubstitution" title="Copy heading and permalink for Theorem A.0.6">🔗</a></div></article><div class="para" id="appendix-calculus-11">For functions of several variables we can perform differentiation/integration operations in any order, if we have sufficient continuity:<div class="autopermalink" data-description="Paragraph"><a href="#appendix-calculus-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem A.0.6"><a href="#thm_calcsubstitution" title="Copy heading and permalink for Theorem A.0.6">🔗</a></div></article><div class="para" id="appendix-calculus-11">For functions of several variables, we can perform differentiation/integration operations in any order, if we have sufficient continuity:<div class="autopermalink" data-description="Paragraph"><a href="#appendix-calculus-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm_mixedpartialscommute"><h2 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">A.0.7</span><span class="period">.</span>
@@ -489,7 +491,7 @@ g(b) } f(x) \, \diff{x} \,\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#leibnizrule-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem A.0.9: Leibniz’s Rule"><a href="#leibnizrule" title="Copy heading and permalink for Theorem A.0.9: Leibniz’s Rule">🔗</a></div></article><div class="para" id="appendix-calculus-16">Leibniz’s Rule follows from the Fundamental Theorem of Calculus (<a href="appendix-calculus.html#fundthmcalc" class="xref" data-knowl="./knowl/xref/fundthmcalc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.3: Fundamental Theorem of Calculus">Theorem A.0.3</a>). You can try to prove it, e.g., as follows: Define <span class="process-math">\(F(x)=\int_c^d f(x,y)\,\diff{y}\text{,}\)</span> get an expression for <span class="process-math">\(F(x)-F(a)\)</span> as an iterated integral by writing <span class="process-math">\(f(x,y)-f(a,y)\)</span> as the integral of <span class="process-math">\(\fderiv fx\text{,}\)</span> interchange the order of integrations, and then diafferentiate using <a href="appendix-calculus.html#fundthmcalc" class="xref" data-knowl="./knowl/xref/fundthmcalc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.3: Fundamental Theorem of Calculus">Theorem A.0.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#appendix-calculus-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem A.0.9: Leibniz’s Rule"><a href="#leibnizrule" title="Copy heading and permalink for Theorem A.0.9: Leibniz’s Rule">🔗</a></div></article><div class="para" id="appendix-calculus-16">Leibniz’s Rule follows from the Fundamental Theorem of Calculus (<a href="appendix-calculus.html#fundthmcalc" class="xref" data-knowl="./knowl/xref/fundthmcalc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.3: Fundamental Theorem of Calculus">Theorem A.0.3</a>). You can try to prove it, e.g., as follows: Define <span class="process-math">\(F(x)=\int_c^d f(x,y)\,\diff{y}\text{,}\)</span> get an expression for <span class="process-math">\(F(x)-F(a)\)</span> as an iterated integral by writing <span class="process-math">\(f(x,y)-f(a,y)\)</span> as the integral of <span class="process-math">\(\fderiv fx\text{,}\)</span> interchange the order of integration, and then differentiate using <a href="appendix-calculus.html#fundthmcalc" class="xref" data-knowl="./knowl/xref/fundthmcalc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.3: Fundamental Theorem of Calculus">Theorem A.0.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#appendix-calculus-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm_green"><h2 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">A.0.10</span><span class="period">.</span><span class="space"> </span><span class="title">Green’s Theorem.</span>

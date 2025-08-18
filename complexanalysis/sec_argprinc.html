@@ -123,7 +123,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.6';
+eBookConfig.runestone_version = '7.9.8';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -357,16 +357,13 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para logical" id="sec_argprinc-4">
 <div class="para">Now let’s say we have two functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> holomorphic in some region. Then the logarithmic derivative of their product behaves very nicely:</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html">
 \begin{equation*}
 \frac{ (fg)' }{ fg } \ = \ \frac{ f' g + f g' }{ fg } \ = \ \frac{ f'
 }{ f } + \frac{ g' }{ g } \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec_argprinc-5">
-<div class="para">We can apply this fact to the following situation: Suppose that <span class="process-math">\(f\)</span> is holomorphic in a region <span class="process-math">\(G\)</span> and <span class="process-math">\(f\)</span> has (finitely many) zeros <span class="process-math">\(z_1, \dots,
+<div class="para">We can apply this philosophy to the following situation: Suppose that <span class="process-math">\(f\)</span> is holomorphic in a region <span class="process-math">\(G\)</span> and <span class="process-math">\(f\)</span> has (finitely many) zeros <span class="process-math">\(z_1, \dots,
 z_j\)</span> of multiplicities <span class="process-math">\(n_1, \dots, n_j\text{,}\)</span> respectively. By <a href="sec_classifzeros.html#classificationzeros" class="xref" data-knowl="./knowl/xref/classificationzeros.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.2.1: Classification of Zeros">Theorem 8.2.1</a>, we can express <span class="process-math">\(f\)</span> as</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html">
 \begin{equation*}
@@ -374,7 +371,7 @@ f(z) \ = \ ( z - z_1 )^{n_1} \cdots ( z - z_j )^{n_j} g(z) \,\text{,}
 \end{equation*}
 </div>
 <div class="para">where <span class="process-math">\(g\)</span> is also holomorphic in <span class="process-math">\(G\)</span> and never zero. Let’s compute the logarithmic derivative of <span class="process-math">\(f\)</span> and play the same remarkable cancellation game as above:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html" id="sec_argprinc-5-12">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html" id="sec_argprinc-4-15">
 \begin{align}
 \frac{ f'(z) }{ f(z) } \amp \ = \ \frac{n_1 (z - z_1)^{n_1-1}
 \cdots (z - z_j)^{n_j} \, g(z) + \cdots }{ ( z - z_1 )^{n_1}
@@ -384,9 +381,9 @@ f(z) \ = \ ( z - z_1 )^{n_1} \cdots ( z - z_j )^{n_j} g(z) \,\text{,}
 z_j } + \frac{ g'(z) }{ g(z) } \, \text{.}\tag{9.1}
 \end{align}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_argprinc-6">
+<div class="para logical" id="sec_argprinc-5">
 <div class="para">Something similar happens if <span class="process-math">\(f\)</span> has finitely many poles in <span class="process-math">\(G\text{.}\)</span> In <a href="residuechapter-6.html#ex_logderpoles" class="xref" data-knowl="./knowl/xref/ex_logderpoles.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 9.4.18">Exercise 9.4.18</a>, we invite you to prove that, if <span class="process-math">\(p_1, \dots, p_k\)</span> are all the poles of <span class="process-math">\(f\)</span> in <span class="process-math">\(G\)</span> with order <span class="process-math">\(m_1, \dots, m_k\text{,}\)</span> respectively, then the logarithmic derivative of <span class="process-math">\(f\)</span> can be expressed as</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_logderpoles.html" id="logderpoles">
 \begin{equation}
@@ -396,15 +393,15 @@ g'(z) }{ g(z) } \, \text{,}\tag{9.2}
 \end{equation}
 </div>
 <div class="para">where <span class="process-math">\(g\)</span> is a function without poles in <span class="process-math">\(G\text{.}\)</span> Naturally, we can combine the expressions for zeros and poles, as we will do in a moment.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-5" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="sec_argprinc-7"><h3 class="heading">
+<article class="definition definition-like" id="sec_argprinc-6"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.3.1</span><span class="period">.</span>
 </h3>
-<div class="para" id="sec_argprinc-7-1-1">A function <span class="process-math">\(f\)</span> is <em class="emphasis">meromorphic</em> in the region <span class="process-math">\(G\)</span> if <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(G\)</span> except for poles. <div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-7-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_argprinc-6-1-1">A function <span class="process-math">\(f\)</span> is <em class="emphasis">meromorphic</em> in the region <span class="process-math">\(G\)</span> if <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(G\)</span> except for poles. <div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-6-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 9.3.1"><a href="#sec_argprinc-7" title="Copy heading and permalink for Definition 9.3.1">🔗</a></div></article><article class="theorem theorem-like" id="argprinc"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Argument Principle <details class="ptx-footnote" aria-live="polite" id="argprinc-1-1"><summary class="ptx-footnote__number" title="Footnote 9.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="argprinc-1-1">The name <em class="emphasis">Argument Principle</em> stems from interpreting the integral <span class="process-math">\(\int_\gamma \frac{f'}{f}\)</span> as the change in the argument of <span class="process-math">\(f(z)\)</span> as <span class="process-math">\(z\)</span> traverses <span class="process-math">\(\gg\text{,}\)</span> since <span class="process-math">\(\fLog(f(z))' =
+<div class="autopermalink" data-description="Definition 9.3.1"><a href="#sec_argprinc-6" title="Copy heading and permalink for Definition 9.3.1">🔗</a></div></article><article class="theorem theorem-like" id="argprinc"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Argument Principle<details class="ptx-footnote" aria-live="polite" id="argprinc-1-1"><summary class="ptx-footnote__number" title="Footnote 9.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="argprinc-1-1">The name <em class="emphasis">Argument Principle</em> stems from interpreting the integral <span class="process-math">\(\int_\gamma \frac{f'}{f}\)</span> as the change in the argument of <span class="process-math">\(f(z)\)</span> as <span class="process-math">\(z\)</span> traverses <span class="process-math">\(\gg\text{,}\)</span> since <span class="process-math">\(\fLog(f(z))' =
 \frac{ f'(z) }{ f(z) }\text{.}\)</span>
 </div></details>.</span>
 </h3>
@@ -417,10 +414,10 @@ g'(z) }{ g(z) } \, \text{,}\tag{9.2}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#argprinc-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 9.3.2: Argument Principle "><a href="#argprinc" title="Copy heading and permalink for Theorem 9.3.2: Argument Principle ">🔗</a></div></article><article class="proof" id="argprinc-3"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="autopermalink" data-description="Theorem 9.3.2: Argument Principle"><a href="#argprinc" title="Copy heading and permalink for Theorem 9.3.2: Argument Principle">🔗</a></div></article><article class="proof" id="argprinc-3"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
 <div class="para logical" id="argprinc-3-1">
-<div class="para">Suppose the zeros of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gg\)</span> are <span class="process-math">\(z_1, \dots,z_j\)</span> of multiplicities <span class="process-math">\(n_1, \dots, n_j\text{,}\)</span> respectively, and the poles inside <span class="process-math">\(\gg\)</span> are <span class="process-math">\(p_1, \dots, p_k\)</span> with order <span class="process-math">\(m_1, \dots, m_k\text{,}\)</span> respectively. (You may meditate about the fact why there can be only finitely many zeros and poles inside <span class="process-math">\(\gg\text{.}\)</span>) In fact, we may shrink <span class="process-math">\(G\text{,}\)</span> if necessary, so that these are the only zeros and poles in <span class="process-math">\(G\text{.}\)</span> By <a href="sec_argprinc.html#sec_argprinc-5-12" class="xref" data-knowl="./knowl/xref/logderzeros.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 9.1">(9.1)</a> and <a href="sec_argprinc.html#logderpoles" class="xref" data-knowl="./knowl/xref/logderpoles.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 9.2">(9.2)</a>,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/logderpoles.html ./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html">
+<div class="para">Suppose the zeros of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gg\)</span> are <span class="process-math">\(z_1, \dots,z_j\)</span> of multiplicities <span class="process-math">\(n_1, \dots, n_j\text{,}\)</span> respectively, and the poles inside <span class="process-math">\(\gg\)</span> are <span class="process-math">\(p_1, \dots, p_k\)</span> with order <span class="process-math">\(m_1, \dots, m_k\text{,}\)</span> respectively. (You may meditate about the fact why there can be only finitely many zeros and poles inside <span class="process-math">\(\gg\text{.}\)</span>) In fact, we may shrink <span class="process-math">\(G\text{,}\)</span> if necessary, so that these are the only zeros and poles in <span class="process-math">\(G\text{.}\)</span> By <a href="sec_argprinc.html#sec_argprinc-4-15" class="xref" data-knowl="./knowl/xref/logderzeros.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 9.1">(9.1)</a> and <a href="sec_argprinc.html#logderpoles" class="xref" data-knowl="./knowl/xref/logderpoles.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 9.2">(9.2)</a>,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/logderpoles.html ./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html ./knowl/xref/cauchycor.html">
 \begin{equation*}
 \frac{ f'(z) }{ f(z) } \ = \ \frac{ n_1 }{ z - z_1 } + \dots +
 \frac{ n_j }{ z - z_j } - \frac{ m_1 }{ z - p_1 } - \dots -
@@ -428,7 +425,7 @@ g'(z) }{ g(z) } \, \text{,}\tag{9.2}
 \end{equation*}
 </div>
 <div class="para">where <span class="process-math">\(g\)</span> is a function that is holomorphic in <span class="process-math">\(G\)</span> (in particular, without poles) and never zero. Thanks to Cauchy’s <a href="sec_cauchythm.html#cauchythm" class="xref" data-knowl="./knowl/xref/cauchythm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.3.4: Cauchy’s Theorem">Theorem 4.3.4</a> and <a href="intchapter-7.html#ex_circleint" class="xref" data-knowl="./knowl/xref/ex_circleint.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.4">Exercise 4.5.4</a>, the integral is easy:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/logderpoles.html ./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html" id="argprinc-3-1-19">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/logderpoles.html ./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html ./knowl/xref/cauchycor.html" id="argprinc-3-1-19">
 \begin{align*}
 \i \frac{ f' }{ f } \amp \ = \ n_1 \i \frac{ \diff{z}
 }{ z - z_1 } \, + \, \cdots \, + \, n_j \i \frac{ \diff{z}
@@ -440,20 +437,17 @@ g'(z) }{ g(z) } \, \text{,}\tag{9.2}
 \dots - m_k \right) + \i \frac{ g' }{ g } \, \text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#argprinc-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="argprinc-3-2">
 <div class="para">Finally, <span class="process-math">\(\frac{g'}{g}\)</span> is holomorphic in <span class="process-math">\(G\)</span> (because <span class="process-math">\(g\)</span> is never zero in <span class="process-math">\(G\)</span>), so that <a href="sec_cauchythm.html#cauchycor" class="xref" data-knowl="./knowl/xref/cauchycor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.3.8">Corollary 4.3.8</a> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchycor.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/logderpoles.html ./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html ./knowl/xref/cauchycor.html">
 \begin{equation*}
 \i \frac{g'} g \ = \ 0 \,  \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#argprinc-3-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#argprinc-3-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 9.3.2.1"><a href="#argprinc-3" title="Copy heading and permalink for Proof 9.3.2.1">🔗</a></div></article><div class="para" id="sec_argprinc-9">As mentioned above, this beautiful theorem helps to locate poles and zeroes of a function <span class="process-math">\(f\text{.}\)</span> The idea is simple: we can first numerically integrate <span class="process-math">\(\frac{f'}{f}\)</span> over a big circle <span class="process-math">\(\gamma\)</span> that includes all possible paths over which we potentially will be integrating <span class="process-math">\(f\text{.}\)</span> Then the numerical value of <span class="process-math">\(\frac{ 1 }{ 2 \pi i } \int_{\gamma} \frac{ f' }{ f }\)</span> will be close to an integer that, according to the Argument Principle, equals <span class="process-math">\(Z(f,\gamma)-P(f,\gamma)\text{.}\)</span> Then we can integrate <span class="process-math">\(\frac{f'}{f}\)</span> over a smaller closed path <span class="process-math">\(\gamma_1\)</span> that encompasses half of the interior of <span class="process-math">\(\gamma\)</span> and find <span class="process-math">\(Z(f,\gamma_1)-P(f,\gamma_1)\text{.}\)</span> Continuing this process for smaller and smaller regions will (after certain verification) produce small regions where <span class="process-math">\(f\)</span> has exactly one zero or exactly one pole. Integrating <span class="process-math">\(f\)</span> over the boundaries of those small regions that contain poles and dividing by <span class="process-math">\(2\pi i\)</span> gives all residues of <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 9.3.2.1"><a href="#argprinc-3" title="Copy heading and permalink for Proof 9.3.2.1">🔗</a></div></article><div class="para" id="sec_argprinc-8">As mentioned above, this beautiful theorem helps to locate poles and zeroes of a function <span class="process-math">\(f\text{.}\)</span> The idea is simple: we can first numerically integrate <span class="process-math">\(\frac{f'}{f}\)</span> over a big circle <span class="process-math">\(\gamma\)</span> that includes all possible paths over which we potentially will be integrating <span class="process-math">\(f\text{.}\)</span> Then the numerical value of <span class="process-math">\(\frac{ 1 }{ 2 \pi i } \int_{\gamma} \frac{ f' }{ f }\)</span> will be close to an integer that, according to the Argument Principle, equals <span class="process-math">\(Z(f,\gamma)-P(f,\gamma)\text{.}\)</span> Then we can integrate <span class="process-math">\(\frac{f'}{f}\)</span> over a smaller closed path <span class="process-math">\(\gamma_1\)</span> that encompasses half of the interior of <span class="process-math">\(\gamma\)</span> and find <span class="process-math">\(Z(f,\gamma_1)-P(f,\gamma_1)\text{.}\)</span> Continuing this process for smaller and smaller regions will (after certain verification) produce small regions where <span class="process-math">\(f\)</span> has exactly one zero or exactly one pole. Integrating <span class="process-math">\(f\)</span> over the boundaries of those small regions that contain poles and dividing by <span class="process-math">\(2\pi i\)</span> gives all residues of <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_argprinc-10">Another nice related application of the Argument Principle is a famous theorem due to Eugene Rouché (1832–1910). <div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_argprinc-9">Another nice related application of the Argument Principle is a famous theorem due to Eugene Rouché (1832–1910). <div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-9" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="rouche"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Rouché’s Theorem.</span>
@@ -467,35 +461,33 @@ Z(f+g,\gg) \ = \ Z(f,\gg) \,\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#rouche-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 9.3.3: Rouché’s Theorem"><a href="#rouche" title="Copy heading and permalink for Theorem 9.3.3: Rouché’s Theorem">🔗</a></div></article><div class="para" id="sec_argprinc-12">This theorem is of surprising practicality. It allows us to locate the zeros of a function fairly precisely. Here is an illustration.<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-12" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem 9.3.3: Rouché’s Theorem"><a href="#rouche" title="Copy heading and permalink for Theorem 9.3.3: Rouché’s Theorem">🔗</a></div></article><div class="para" id="sec_argprinc-11">This theorem is of surprising practicality. It allows us to locate the zeros of a function fairly precisely. Here is an illustration.<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="roucheexample"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.3.4</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="roucheexample-1-1">
-<div class="para">All the roots of the polynomial <span class="process-math">\(p(z) = z^5 + z^4 + z^3 + z^2 + z + 1\)</span> have modulus less than two.<details class="ptx-footnote" aria-live="polite" id="roucheexample-1-1-2"><summary class="ptx-footnote__number" title="Footnote 9.3.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="roucheexample-1-1-2">The Fundamental Theorem of Algebra (<a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra">Theorem 5.3.2</a>) asserts that <span class="process-math">\(p\)</span> has five roots in <span class="process-math">\(\C\text{.}\)</span>  What’s special about the statement of <a href="sec_argprinc.html#roucheexample" class="xref" data-knowl="./knowl/xref/roucheexample.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.3.4">Example 9.3.4</a> is that they all have modulus <span class="process-math">\(\lt 2\text{.}\)</span> Note also that there is no general formula for computing roots of a polynomial of degree 5. (Although for this <span class="process-math">\(p\)</span> it’s not hard to find one root—and therefore all of them.)</div></details> To see this, let <span class="process-math">\(f(z) = z^5\)</span> and <span class="process-math">\(g(z) = z^4 + z^3 + z^2 + z + 1\text{.}\)</span> Then for <span class="process-math">\(z \in C[0,2]\)</span>
+<div class="para">All the roots of the polynomial <span class="process-math">\(p(z) = z^5 + z^4 + z^3 + z^2 + z + 1\)</span> have modulus less than two.<details class="ptx-footnote" aria-live="polite" id="roucheexample-1-1-2"><summary class="ptx-footnote__number" title="Footnote 9.3.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="roucheexample-1-1-2">The Fundamental Theorem of Algebra (<a href="sec_cauchytothelimit.html#fundthmalg" class="xref" data-knowl="./knowl/xref/fundthmalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.2: Fundamental Theorem of Algebra">Theorem 5.3.2</a>) asserts that <span class="process-math">\(p\)</span> has five roots in <span class="process-math">\(\C\text{.}\)</span>  What’s special about the statement of <a href="sec_argprinc.html#roucheexample" class="xref" data-knowl="./knowl/xref/roucheexample.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.3.4">Example 9.3.4</a> is that they all have modulus <span class="process-math">\(\lt 2\text{.}\)</span> Note also that there is no general formula for computing roots of a polynomial of degree 5. (Although for this <span class="process-math">\(p\)</span> it’s not hard to find all of its roots.)</div></details> To see this, let <span class="process-math">\(f(z) = z^5\)</span> and <span class="process-math">\(g(z) = z^4 + z^3 + z^2 + z + 1\text{.}\)</span> Then for <span class="process-math">\(z \in C[0,2]\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fundthmalg.html ./knowl/xref/roucheexample.html" id="roucheexample-1-1-6">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fundthmalg.html ./knowl/xref/roucheexample.html ./knowl/xref/rouche.html" id="roucheexample-1-1-6">
 \begin{align*}
 |g(z)| \ \amp \le \ |z|^4 + |z|^3 + |z|^2 + |z| + 1 \ = \ 16 + 8 + 4
 + 2 + 1 \ = \ 31 \\
 \amp \lt  \ 32 \ = \ |z|^5 \ = \ |f(z)| \, \text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#roucheexample-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="roucheexample-1-2">
 <div class="para">So <span class="process-math">\(g\)</span> and <span class="process-math">\(f\)</span> satisfy the condition of the <a href="sec_argprinc.html#rouche" class="xref" data-knowl="./knowl/xref/rouche.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.3.3: Rouché’s Theorem">Theorem 9.3.3</a>. But <span class="process-math">\(f\)</span> has just one root, of multiplicity 5 at the origin, whence</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/rouche.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fundthmalg.html ./knowl/xref/roucheexample.html ./knowl/xref/rouche.html">
 \begin{equation*}
 Z(p, \, C[0,2]) \ = \ Z(f+g, \, C[0,2]) \ = \ Z(f, \, C[0,2]) \ = \ 5 \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#roucheexample-1-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#roucheexample-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 9.3.4"><a href="#roucheexample" title="Copy heading and permalink for Example 9.3.4">🔗</a></div></article><article class="proof" id="sec_argprinc-14"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<div class="para logical" id="sec_argprinc-14-1">
-<div class="para">By <a href="sec_argprinc.html#sec_argprinc-5-12" class="xref" data-knowl="./knowl/xref/logderzeros.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 9.1">(9.1)</a> and the Argument Principle (<a href="sec_argprinc.html#argprinc" class="xref" data-knowl="./knowl/xref/argprinc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.3.2: Argument Principle ">Theorem 9.3.2</a>)</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/argprinc.html" id="sec_argprinc-14-1-3">
+<div class="autopermalink" data-description="Example 9.3.4"><a href="#roucheexample" title="Copy heading and permalink for Example 9.3.4">🔗</a></div></article><article class="proof" id="sec_argprinc-13"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="para logical" id="sec_argprinc-13-1">
+<div class="para">By <a href="sec_argprinc.html#sec_argprinc-4-15" class="xref" data-knowl="./knowl/xref/logderzeros.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 9.1">(9.1)</a> and the Argument Principle (<a href="sec_argprinc.html#argprinc" class="xref" data-knowl="./knowl/xref/argprinc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.3.2: Argument Principle">Theorem 9.3.2</a>)</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/argprinc.html" id="sec_argprinc-13-1-3">
 \begin{align*}
 Z(f+g,\gg) \amp \ = \ \frac 1 {2 \pi i} \i \frac{ (f+g)' }{
 f+g }\\
@@ -508,9 +500,9 @@ g f \right) \right)' }{ f \left( 1 + \frac g f \right) }\\
 \frac g f \right)' }{ 1 + \frac g f } \, \text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-14-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-13-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec_argprinc-14-2">
+<div class="para logical" id="sec_argprinc-13-2">
 <div class="para">We are assuming that <span class="process-math">\(| \frac g f | \lt  1\)</span> on <span class="process-math">\(\gg\text{,}\)</span> which means that the function <span class="process-math">\(1 + \frac g f\)</span> evaluated on <span class="process-math">\(\gg\)</span> stays away from <span class="process-math">\(\R_{ \le 0 }\text{.}\)</span> But then <span class="process-math">\(\Log ( 1 + \frac g f)\)</span> is a well-defined holomorphic function on <span class="process-math">\(\gg\text{.}\)</span> Its derivative is</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antidercor.html">
 \begin{equation*}
@@ -524,9 +516,9 @@ g f \right) \right)' }{ f \left( 1 + \frac g f \right) }\\
 \right)' }{ 1 + \frac g f } \ = \ 0 \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-14-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_argprinc-13-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 9.3.1"><a href="#sec_argprinc-14" title="Copy heading and permalink for Proof 9.3.1">🔗</a></div></article><div class="autopermalink" data-description="Section 9.3: Argument Principle and Rouché’s Theorem"><a href="#sec_argprinc" title="Copy heading and permalink for Section 9.3: Argument Principle and Rouché’s Theorem">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Proof 9.3.1"><a href="#sec_argprinc-13" title="Copy heading and permalink for Proof 9.3.1">🔗</a></div></article><div class="autopermalink" data-description="Section 9.3: Argument Principle and Rouché’s Theorem"><a href="#sec_argprinc" title="Copy heading and permalink for Section 9.3: Argument Principle and Rouché’s Theorem">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec_residues.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="residuechapter-6.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

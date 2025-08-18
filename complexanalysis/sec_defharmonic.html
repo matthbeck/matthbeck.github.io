@@ -123,7 +123,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.6';
+eBookConfig.runestone_version = '7.9.8';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -369,7 +369,7 @@ sagecell.makeSagecell({
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.1</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="sec_defharmonic-3-1-1">
-<div class="para">Let <span class="process-math">\(G \subseteq \C\)</span> be a region. A function <span class="process-math">\(u: G \to \R\)</span> is <em class="emphasis">harmonic</em> in <span class="process-math">\(G\)</span> if it has continuous second partials in <span class="process-math">\(G\)</span> and satisfies the <em class="emphasis">Laplace <details class="ptx-footnote" aria-live="polite" id="sec_defharmonic-3-1-1-6-1"><summary class="ptx-footnote__number" title="Footnote 6.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_defharmonic-3-1-1-6-1">Named after Pierre-Simon Laplace (1749–1827).</div></details> equation</em>
+<div class="para">Let <span class="process-math">\(G \subseteq \C\)</span> be a region. A function <span class="process-math">\(u: G \to \R\)</span> is <em class="emphasis">harmonic</em> in <span class="process-math">\(G\)</span> if it has continuous second partials in <span class="process-math">\(G\)</span> and satisfies the <em class="emphasis">Laplace<details class="ptx-footnote" aria-live="polite" id="sec_defharmonic-3-1-1-6-1"><summary class="ptx-footnote__number" title="Footnote 6.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_defharmonic-3-1-1-6-1">Named after Pierre-Simon Laplace (1749–1827).</div></details> equation</em>
 </div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -548,8 +548,7 @@ v(x,y) \ := \ - \tfrac 1 2 \left( x^2 - y^2 \right)
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-18-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 6.1.8"><a href="#sec_defharmonic-18" title="Copy heading and permalink for Example 6.1.8">🔗</a></div></article><div id="sec_defharmonic-19" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('x')
-var('y')
+<div class="autopermalink" data-description="Example 6.1.8"><a href="#sec_defharmonic-18" title="Copy heading and permalink for Example 6.1.8">🔗</a></div></article><div id="sec_defharmonic-19" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('x', 'y')
 u = x*y
 diff(u,x) - i*diff(u,y)
 </script></div>
@@ -608,8 +607,7 @@ v(x,y) := \int_0^y \frac{ \partial u }{ \partial x } (x,t)
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_defharmonic-23-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 6.1.2"><a href="#sec_defharmonic-23" title="Copy heading and permalink for Proof 6.1.2">🔗</a></div></article><div id="sec_defharmonic-24" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('x')
-var('y')
+<div class="autopermalink" data-description="Proof 6.1.2"><a href="#sec_defharmonic-23" title="Copy heading and permalink for Proof 6.1.2">🔗</a></div></article><div id="sec_defharmonic-24" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('t', 'x', 'y')
 u = x*y
 integral( diff(u.subs(y=t),x), t, 0, y) - integral( diff(u.subs(x=t),y).subs(y=0), t,0 , x)
 </script></div>
