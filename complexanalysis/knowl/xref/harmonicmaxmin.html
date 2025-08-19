@@ -19,11 +19,11 @@
 </head>
 <body class="ignore-math">
 <article class="theorem theorem-like"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.2.3</span><span class="period">.</span>
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
-<div class="para">If <span class="process-math">\(u\)</span> is harmonic in the region <span class="process-math">\(G\text{,}\)</span> then it does not have a strong relative maximum or minimum in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#harmonicmaxmin-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">If <span class="process-math">\(u\)</span> is harmonic in the region <span class="process-math">\(G\text{,}\)</span> then it does not have a strong relative maximum or minimum in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#harmonicmaxmin-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 6.2.3"><a href="#harmonicmaxmin" title="Copy heading and permalink for Theorem 6.2.3">🔗</a></div></article><article class="proof"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="autopermalink" data-description="Theorem 6.2.3"><a href="#harmonicmaxmin" title="Copy heading and permalink for Theorem 6.2.3" aria-label="Copy heading and permalink for Theorem 6.2.3">🔗</a></div></article><article class="proof"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical">
 <div class="para">Assume, by way of contradiction, that <span class="process-math">\(w\)</span> is a strong relative maximum. Then there is a disk in <span class="process-math">\(G\)</span> centered at <span class="process-math">\(w\)</span> containing a point <span class="process-math">\(z_0\)</span> with <span class="process-math">\(u(z_0) \lt  u(w)\text{.}\)</span> Let <span class="process-math">\(r := |z_0 - w|\)</span> and apply <a href="sec_harmonicmeanvalue.html#harmonicmeanvalue" class="xref" data-knowl="./knowl/xref/harmonicmeanvalue.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.2.1">Theorem 6.2.1</a>:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/harmonicmeanvalue.html">
@@ -32,13 +32,10 @@ u(w) \ = \ \frac 1 {2 \pi} \int_0^{2 \pi} u \! \left( w + r \,
 e^{it} \right) \diff{t} \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#harmonicmaxmin-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical">
 <div class="para">Intuitively, this cannot hold, because some of the function values we’re integrating are smaller than <span class="process-math">\(u(w)\text{,}\)</span> contradicting the mean-value property. To make this into a thorough argument, suppose that <span class="process-math">\(z_0 = w + r \, e^{it_0}\)</span> for <span class="process-math">\(0 \leq t_0
 \lt  2\pi\text{.}\)</span> Because <span class="process-math">\(u(z_0) \lt  u(w)\)</span> and <span class="process-math">\(u\)</span> is continuous, there is a whole interval of parameters <span class="process-math">\([t_0, t_1] \subseteq
 [0, 2 \pi]\)</span> such that <span class="process-math">\(u( w + r \, e^{it}) \lt  u(w)\)</span> for <span class="process-math">\(t_0 \le t \le t_1\text{.}\)</span> Now we split up the mean-value integral:</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/harmonicmeanvalue.html">
 \begin{align*}
 u(w) \amp \ = \ \frac{1}{2 \pi} \int_0^{2 \pi} u \! \left(
 w + r \, e^{it} \right) \diff{t}\\
@@ -50,7 +47,7 @@ w + r \, e^{it} \right) \diff{t} + \int_{t_0}^{t_1} u \!
 \end{align*}
 </div>
 <div class="para">All the integrands can be bounded by <span class="process-math">\(u(w)\text{;}\)</span> for the middle integral we get a <em class="emphasis">strict</em> inequality. Hence</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/harmonicmeanvalue.html">
 \begin{equation*}
 u(w) \ \lt  \ \frac 1 {2 \pi} \left( \int_0^{t_0} u(w) \,
 \diff{t} + \int_{t_0}^{t_1} u(w)\, \diff{t} + \int_{t_1}^{2
@@ -58,10 +55,10 @@ u(w) \ \lt  \ \frac 1 {2 \pi} \left( \int_0^{t_0} u(w) \,
 \end{equation*}
 </div>
 <div class="para">a contradiction.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#harmonicmaxmin-2-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#harmonicmaxmin-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para">The same argument works if we assume that <span class="process-math">\(u\)</span> has a relative minimum. But in this case there’s a shortcut argument: if <span class="process-math">\(u\)</span> has a strong relative minimum then the harmonic function <span class="process-math">\(-u\)</span> has a strong relative maximum, which we just showed cannot exist.<div class="autopermalink" data-description="Paragraph"><a href="#harmonicmaxmin-2-3" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">The same argument works if we assume that <span class="process-math">\(u\)</span> has a relative minimum. But in this case there’s a shortcut argument: if <span class="process-math">\(u\)</span> has a strong relative minimum then the harmonic function <span class="process-math">\(-u\)</span> has a strong relative maximum, which we just showed cannot exist.<div class="autopermalink" data-description="Paragraph"><a href="#harmonicmaxmin-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 6.2.3.1"><a href="#harmonicmaxmin-2" title="Copy heading and permalink for Proof 6.2.3.1">🔗</a></div></article><span class="incontext"><a class="internal" href="sec_harmonicmeanvalue.html#harmonicmaxmin">in-context</a></span>
+<div class="autopermalink" data-description="Proof 6.2.3.1"><a href="#harmonicmaxmin-2" title="Copy heading and permalink for Proof 6.2.3.1" aria-label="Copy heading and permalink for Proof 6.2.3.1">🔗</a></div></article><span class="incontext"><a class="internal" href="sec_harmonicmeanvalue.html#harmonicmaxmin">in-context</a></span>
 </body>
 </html>

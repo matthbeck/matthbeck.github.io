@@ -361,13 +361,13 @@ sagecell.makeSagecell({
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_exptrigfcts"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">3.4</span><span class="space"> </span><span class="title">Exponential and Trigonometric Functions</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exponential and Trigonometric Functions</span>
 </h2>
 <div class="para" id="sec_exptrigfcts-2">To define the complex exponential function, we once more borrow concepts from calculus, namely the real exponential function<details class="ptx-footnote" aria-live="polite" id="sec_exptrigfcts-2-1"><summary class="ptx-footnote__number" title="Footnote 3.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_exptrigfcts-2-1">How to define the real exponential function is a nontrivial question. Our preferred way to do this is through a power series: <span class="process-math">\(e^x = \sum_{k \geq 0} \frac 1 {k!} x^k\text{.}\)</span> In light of this definition, you might think we should have simply defined the complex exponential function through a complex power series. In fact, this is possible (and an elegant definition); however, one of the promises of this book is to introduce complex power series as late as possible. We agree with those readers who think that we are cheating at this point, as we borrow the concept of a (real) power series to define the real exponential function.</div></details> and the real sine and cosine, and we finally make sense of the notation <span class="process-math">\(e^{it} = \cos t + i
-\sin t\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+\sin t\text{.}\)</span> <div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="sec_exptrigfcts-3"><h3 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.4.1</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para logical" id="sec_exptrigfcts-3-1-1">
 <div class="para">The <em class="emphasis">(complex) exponential function </em> is <span class="process-math">\(\exp: \C \to \C\text{,}\)</span> defined for <span class="process-math">\(z=x+iy\)</span> as</div>
@@ -376,12 +376,12 @@ sagecell.makeSagecell({
 \exp(z) \ := \ e^x \left( \cos y + i \sin y \right) \ = \ e^x e^{iy}\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 3.4.1"><a href="#sec_exptrigfcts-3" title="Copy heading and permalink for Definition 3.4.1">🔗</a></div></article><div class="para" id="sec_exptrigfcts-4">This definition seems a bit arbitrary. Our first justification is that all exponential rules that we are used to from real numbers carry over to the complex case.  They mainly follow from <a href="geomprop.html#easyexp" class="xref" data-knowl="./knowl/xref/easyexp.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.2.7">Proposition 1.2.7</a> and are collected in the following.<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 3.4.1"><a href="#sec_exptrigfcts-3" title="Copy heading and permalink for Definition 3.4.1" aria-label="Copy heading and permalink for Definition 3.4.1">🔗</a></div></article><div class="para" id="sec_exptrigfcts-4">This definition seems a bit arbitrary. Our first justification is that all exponential rules that we are used to from real numbers carry over to the complex case.  They mainly follow from <a href="geomprop.html#easyexp" class="xref" data-knowl="./knowl/xref/easyexp.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.2.7">Proposition 1.2.7</a> and are collected in the following.<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="expproperties"><h3 class="heading">
-<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.4.2</span><span class="period">.</span>
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para logical" id="expproperties-1-1">
 <div class="para">For all <span class="process-math">\(z, z_1, z_2 \in \C\text{,}\)</span>
@@ -390,54 +390,54 @@ sagecell.makeSagecell({
 <li id="expproperties-1-1-2-1">
 <div class="para" id="expproperties-1-1-2-1-1">
 <span class="process-math">\(\displaystyle \exp \left( z_1 \right) \exp \left( z_2 \right) =
-\exp \left( z_1 + z_2 \right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#expproperties-1-1-2-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+\exp \left( z_1 + z_2 \right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#expproperties-1-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item a"><a href="#expproperties-1-1-2-1" title="Copy heading and permalink for Item a">🔗</a></div>
+<div class="autopermalink" data-description="Item a"><a href="#expproperties-1-1-2-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
 </li>
 <li id="expproperties-1-1-2-2">
 <div class="para" id="expproperties-1-1-2-2-1">
 <span class="process-math">\(\displaystyle \frac 1 {\exp \left( z \right)} = \exp \left( -z
-\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#expproperties-1-1-2-2-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#expproperties-1-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item b"><a href="#expproperties-1-1-2-2" title="Copy heading and permalink for Item b">🔗</a></div>
+<div class="autopermalink" data-description="Item b"><a href="#expproperties-1-1-2-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
 </li>
 <li id="expperiodic">
 <div class="para" id="expperiodic-1">
 <span class="process-math">\(\displaystyle \exp \left( z + 2 \pi i \right) = \exp \left( z
-\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#expperiodic-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#expperiodic-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item c"><a href="#expperiodic" title="Copy heading and permalink for Item c">🔗</a></div>
+<div class="autopermalink" data-description="Item c"><a href="#expperiodic" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
 </li>
 <li id="expproperties-1-1-2-4">
 <div class="para" id="expproperties-1-1-2-4-1">
 <span class="process-math">\(\displaystyle \left| \exp \left( z \right) \right| = \exp \left(
-\Re z \right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#expproperties-1-1-2-4-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+\Re z \right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#expproperties-1-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item d"><a href="#expproperties-1-1-2-4" title="Copy heading and permalink for Item d">🔗</a></div>
+<div class="autopermalink" data-description="Item d"><a href="#expproperties-1-1-2-4" title="Copy heading and permalink for Item d" aria-label="Copy heading and permalink for Item d">🔗</a></div>
 </li>
 <li id="expproperties-1-1-2-5">
 <div class="para" id="expproperties-1-1-2-5-1">
-<span class="process-math">\(\displaystyle \exp(z) \ne 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#expproperties-1-1-2-5-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\displaystyle \exp(z) \ne 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#expproperties-1-1-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item e"><a href="#expproperties-1-1-2-5" title="Copy heading and permalink for Item e">🔗</a></div>
+<div class="autopermalink" data-description="Item e"><a href="#expproperties-1-1-2-5" title="Copy heading and permalink for Item e" aria-label="Copy heading and permalink for Item e">🔗</a></div>
 </li>
 <li id="expder">
 <div class="para" id="expder-1">
 <span class="process-math">\(\frac{ d }{ d z } \exp \left( z \right) = \exp \left(
-z \right) \, \text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#expder-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+z \right) \, \text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#expder-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item f"><a href="#expder" title="Copy heading and permalink for Item f">🔗</a></div>
+<div class="autopermalink" data-description="Item f"><a href="#expder" title="Copy heading and permalink for Item f" aria-label="Copy heading and permalink for Item f">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Paragraph"><a href="#expproperties-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#expproperties-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proposition 3.4.2"><a href="#expproperties" title="Copy heading and permalink for Proposition 3.4.2">🔗</a></div></article><div class="para" id="sec_exptrigfcts-6">Item (<a href="sec_exptrigfcts.html#expperiodic" class="xref" data-knowl="./knowl/xref/expperiodic.html" data-reveal-label="Reveal" data-close-label="Close" title="Item c">c</a>) is very special and has no counterpart for the real exponential function. It says that the complex exponential function is <em class="emphasis">periodic</em> with period <span class="process-math">\(2 \pi i\text{.}\)</span>  This has many interesting consequences; one that may not seem too pleasant at first sight is the fact that the complex exponential function is not one-to-one.<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-6" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proposition 3.4.2"><a href="#expproperties" title="Copy heading and permalink for Proposition 3.4.2" aria-label="Copy heading and permalink for Proposition 3.4.2">🔗</a></div></article><div class="para" id="sec_exptrigfcts-6">Item (<a href="sec_exptrigfcts.html#expperiodic" class="xref" data-knowl="./knowl/xref/expperiodic.html" data-reveal-label="Reveal" data-close-label="Close" title="Item c">c</a>) is very special and has no counterpart for the real exponential function. It says that the complex exponential function is <em class="emphasis">periodic</em> with period <span class="process-math">\(2 \pi i\text{.}\)</span>  This has many interesting consequences; one that may not seem too pleasant at first sight is the fact that the complex exponential function is not one-to-one.<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_exptrigfcts-7">Item (<a href="sec_exptrigfcts.html#expder" class="xref" data-knowl="./knowl/xref/expder.html" data-reveal-label="Reveal" data-close-label="Close" title="Item f">f</a>) is not only remarkable, but we invite you to meditate on its proof below; it gives a strong indication that our definition of <span class="process-math">\(\exp\)</span> is reasonable. We also note that (<a href="sec_exptrigfcts.html#expder" class="xref" data-knowl="./knowl/xref/expder.html" data-reveal-label="Reveal" data-close-label="Close" title="Item f">f</a>) implies that <span class="process-math">\(\exp\)</span> is entire.<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_exptrigfcts-7">Item (<a href="sec_exptrigfcts.html#expder" class="xref" data-knowl="./knowl/xref/expder.html" data-reveal-label="Reveal" data-close-label="Close" title="Item f">f</a>) is not only remarkable, but we invite you to meditate on its proof below; it gives a strong indication that our definition of <span class="process-math">\(\exp\)</span> is reasonable. We also note that (<a href="sec_exptrigfcts.html#expder" class="xref" data-knowl="./knowl/xref/expder.html" data-reveal-label="Reveal" data-close-label="Close" title="Item f">f</a>) implies that <span class="process-math">\(\exp\)</span> is entire.<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_exptrigfcts-8">We leave the proof of <a href="sec_exptrigfcts.html#expproperties" class="xref" data-knowl="./knowl/xref/expproperties.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 3.4.2">Proposition 3.4.2</a> as <a href="chapter3-exercises.html#ex_expproperties" class="xref" data-knowl="./knowl/xref/ex_expproperties.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.33">Exercise 3.6.33</a> but give one sample.<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-8" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_exptrigfcts-8">We leave the proof of <a href="sec_exptrigfcts.html#expproperties" class="xref" data-knowl="./knowl/xref/expproperties.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 3.4.2">Proposition 3.4.2</a> as <a href="chapter3-exercises.html#ex_expproperties" class="xref" data-knowl="./knowl/xref/ex_expproperties.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.33">Exercise 3.6.33</a> but give one sample.<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="proof" id="sec_exptrigfcts-9"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<article class="proof" id="sec_exptrigfcts-9"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="sec_exptrigfcts-9-1">
 <div class="para">(<a href="sec_exptrigfcts.html#expder" class="xref" data-knowl="./knowl/xref/expder.html" data-reveal-label="Reveal" data-close-label="Close" title="Item f">f</a>) The partial derivatives of <span class="process-math">\(f(z) = \exp(z)\)</span> are</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/expder.html ./knowl/xref/complexcr.html ./knowl/xref/cre.html">
@@ -459,25 +459,25 @@ y \right) \text{.}
 f'(z) \ = \ \fderiv fx(z) \ = \ \exp(z) \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-9-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 3.4.1"><a href="#sec_exptrigfcts-9" title="Copy heading and permalink for Proof 3.4.1">🔗</a></div></article><div class="para logical" id="sec_exptrigfcts-10">
+<div class="autopermalink" data-description="Proof 3.4.1"><a href="#sec_exptrigfcts-9" title="Copy heading and permalink for Proof 3.4.1" aria-label="Copy heading and permalink for Proof 3.4.1">🔗</a></div></article><div class="para logical" id="sec_exptrigfcts-10">
 <div class="para">We should make sure that the complex exponential function specializes to the real exponential function for real arguments: indeed, if <span class="process-math">\(z = x \in \R\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \exp(x) \ = \ e^x \left( \cos 0 + i \sin 0 \right) \ = \ e^x\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="figure figure-like" id="fig-complex-exponential"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
-<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/prefigure/exp-domain.svg" role="img" class="contained"></div>
-<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/prefigure/exp-codomain.svg" role="img" class="contained"></div>
+<figure class="figure figure-like" id="fig-complex-exponential"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;grid-template-columns:44.4444444444444% 44.4444444444444%;column-gap:10%;">
+<div class="sbspanel sbspanel--top top" style=""><img src="generated/prefigure/exp-domain.svg" role="img" class="contained"></div>
+<div class="sbspanel sbspanel--top top" style=""><img src="generated/prefigure/exp-codomain.svg" role="img" class="contained"></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.4.3<span class="period">.</span></span><span class="space"> </span>The domain of the complex exponential function is shown on the left and the codomain on the right.  The function maps the blue vertical lines on the left into circles on the right and maps the red dashed horizontal lines on the left into the rays on the right.<div class="autopermalink" data-description="Figure 3.4.3"><a href="#fig-complex-exponential" title="Copy heading and permalink for Figure 3.4.3">🔗</a></div></figcaption></figure><div class="para" id="sec_exptrigfcts-12">The trigonometric functions—sine, cosine, tangent, cotangent, etc.—also have complex analogues; however, they do not play the same prominent role as in the real case.  In fact, we can define them as merely being special combinations of the exponential function. <div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-12" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The domain of the complex exponential function is shown on the left and the codomain on the right.  The function maps the blue vertical lines on the left into circles on the right and maps the red dashed horizontal lines on the left into the rays on the right.<div class="autopermalink" data-description="Figure 3.4.3"><a href="#fig-complex-exponential" title="Copy heading and permalink for Figure 3.4.3" aria-label="Copy heading and permalink for Figure 3.4.3">🔗</a></div></figcaption></figure><div class="para" id="sec_exptrigfcts-12">The trigonometric functions—sine, cosine, tangent, cotangent, etc.—also have complex analogues; however, they do not play the same prominent role as in the real case.  In fact, we can define them as merely being special combinations of the exponential function. <div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="sec_exptrigfcts-13"><h3 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.4.4</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para logical" id="sec_exptrigfcts-13-1-1">
 <div class="para">The <em class="emphasis">(complex) sine</em> and <em class="emphasis">cosine</em> are defined as</div>
@@ -499,9 +499,9 @@ f'(z) \ = \ \fderiv fx(z) \ = \ \exp(z) \, \text{.}
 \end{align*}
 </div>
 <div class="para">respectively.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-13-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-13-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 3.4.4"><a href="#sec_exptrigfcts-13" title="Copy heading and permalink for Definition 3.4.4">🔗</a></div></article><div class="para" id="sec_exptrigfcts-14">Note that to write tangent and cotangent in terms of the exponential function, we used the fact that <span class="process-math">\(\exp(z) \exp(-z) = \exp(0) = 1\text{.}\)</span> Because <span class="process-math">\(\exp\)</span> is entire, so are <span class="process-math">\(\sin\)</span> and <span class="process-math">\(\cos\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-14" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 3.4.4"><a href="#sec_exptrigfcts-13" title="Copy heading and permalink for Definition 3.4.4" aria-label="Copy heading and permalink for Definition 3.4.4">🔗</a></div></article><div class="para" id="sec_exptrigfcts-14">Note that to write tangent and cotangent in terms of the exponential function, we used the fact that <span class="process-math">\(\exp(z) \exp(-z) = \exp(0) = 1\text{.}\)</span> Because <span class="process-math">\(\exp\)</span> is entire, so are <span class="process-math">\(\sin\)</span> and <span class="process-math">\(\cos\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="sec_exptrigfcts-15">
 <div class="para">As with the exponential function, we should make sure that we’re not redefining the real sine and cosine: if <span class="process-math">\(z = x \in \R\)</span> then</div>
@@ -514,12 +514,12 @@ f'(z) \ = \ \fderiv fx(z) \ = \ \exp(z) \, \text{.}
 \amp \ = \ \sin x\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-15" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_exptrigfcts-16">A similar calculation holds for the cosine. Not too surprisingly, the following properties follow mostly from <a href="sec_exptrigfcts.html#expproperties" class="xref" data-knowl="./knowl/xref/expproperties.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 3.4.2">Proposition 3.4.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-16" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_exptrigfcts-16">A similar calculation holds for the cosine. Not too surprisingly, the following properties follow mostly from <a href="sec_exptrigfcts.html#expproperties" class="xref" data-knowl="./knowl/xref/expproperties.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 3.4.2">Proposition 3.4.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="trigproperties"><h3 class="heading">
-<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.4.5</span><span class="period">.</span>
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para logical" id="trigproperties-1-1">
 <div class="para">For all <span class="process-math">\(z, z_1, z_2 \in \C\text{,}\)</span>
@@ -544,14 +544,14 @@ f'(z) \ = \ \fderiv fx(z) \ = \ \exp(z) \, \text{.}
 \frac{ d }{ \diff{z} } \cos z \amp = - \sin z \,\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#trigproperties-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#trigproperties-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proposition 3.4.5"><a href="#trigproperties" title="Copy heading and permalink for Proposition 3.4.5">🔗</a></div></article><div class="para" id="sec_exptrigfcts-18">Finally, one word of caution: unlike in the real case, the complex sine and cosine are <em class="emphasis">not</em> bounded—consider, for example, <span class="process-math">\(\sin (iy)\)</span> as <span class="process-math">\(y \to \pm \infty\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-18" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proposition 3.4.5"><a href="#trigproperties" title="Copy heading and permalink for Proposition 3.4.5" aria-label="Copy heading and permalink for Proposition 3.4.5">🔗</a></div></article><div class="para" id="sec_exptrigfcts-18">Finally, one word of caution: unlike in the real case, the complex sine and cosine are <em class="emphasis">not</em> bounded—consider, for example, <span class="process-math">\(\sin (iy)\)</span> as <span class="process-math">\(y \to \pm \infty\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_exptrigfcts-19">We end this section with a remark on hyperbolic trig functions.  The <em class="emphasis">hyperbolic sine</em>, <em class="emphasis">cosine</em>, <em class="emphasis">tangent</em>, and <em class="emphasis">cotangent</em> are defined as in the real case:<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_exptrigfcts-19">We end this section with a remark on hyperbolic trig functions.  The <em class="emphasis">hyperbolic sine</em>, <em class="emphasis">cosine</em>, <em class="emphasis">tangent</em>, and <em class="emphasis">cotangent</em> are defined as in the real case:<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="sec_exptrigfcts-20"><h3 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.4.6</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="displaymath process-math" id="sec_exptrigfcts-20-1-1">
 \begin{align*}
@@ -564,7 +564,7 @@ f'(z) \ = \ \fderiv fx(z) \ = \ \exp(z) \, \text{.}
 \exp (2z) + 1 }{ \exp (2z) - 1 } \,\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Definition 3.4.6"><a href="#sec_exptrigfcts-20" title="Copy heading and permalink for Definition 3.4.6">🔗</a></div></article><div class="para logical" id="sec_exptrigfcts-21">
+<div class="autopermalink" data-description="Definition 3.4.6"><a href="#sec_exptrigfcts-20" title="Copy heading and permalink for Definition 3.4.6" aria-label="Copy heading and permalink for Definition 3.4.6">🔗</a></div></article><div class="para logical" id="sec_exptrigfcts-21">
 <div class="para">As such, they are yet more special combinations of the exponential function. They still satisfy the identities you already know, e.g.,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -579,11 +579,11 @@ f'(z) \ = \ \fderiv fx(z) \ = \ \exp(z) \, \text{.}
 \cos z \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-21" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_exptrigfcts-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div id="sec_exptrigfcts-22" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">sin(2*i)
 </script></div>
-<div class="autopermalink" data-description="Section 3.4: Exponential and Trigonometric Functions"><a href="#sec_exptrigfcts" title="Copy heading and permalink for Section 3.4: Exponential and Trigonometric Functions">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Section 3.4: Exponential and Trigonometric Functions"><a href="#sec_exptrigfcts" title="Copy heading and permalink for Section 3.4: Exponential and Trigonometric Functions" aria-label="Copy heading and permalink for Section 3.4: Exponential and Trigonometric Functions">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec_stereoproj.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_logexp.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

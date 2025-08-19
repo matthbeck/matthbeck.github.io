@@ -361,7 +361,7 @@ sagecell.makeSagecell({
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_logexp"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">3.5</span><span class="space"> </span><span class="title">Logarithms and Complex Exponentials</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Logarithms and Complex Exponentials</span>
 </h2>
 <div class="para logical" id="sec_logexp-2">
 <div class="para">The complex logarithm is the first function we’ll encounter that is of a somewhat tricky nature.  It is motivated as an inverse to the exponential function, that is, we’re looking for a function <span class="process-math">\(\fLog\)</span> such that</div>
@@ -371,14 +371,14 @@ sagecell.makeSagecell({
 \end{equation}
 </div>
 <div class="para"> But because <span class="process-math">\(\exp\)</span> is not one-to-one, this is too much to hope for. In fact, given a function <span class="process-math">\(\fLog\)</span> that satisfies the first equation in <a href="sec_logexp.html#eq_expinv" class="xref" data-knowl="./knowl/xref/eq_expinv.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.3">(3.3)</a>, the function <span class="process-math">\(f(z) = \fLog(z) + 2 \pi i\)</span> does as well, and so there cannot be an inverse of <span class="process-math">\(\exp\)</span> (which would have to be unique). On the other hand, <span class="process-math">\(\exp\)</span> becomes one-to-one if we restrict its domain, so there is hope for a logarithm if we are careful about its construction and about its domain.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-2" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="sec_logexp-3"><h3 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
-<div class="para" id="sec_logexp-3-1-1">Given a region <span class="process-math">\(G\text{,}\)</span> any continuous function <span class="process-math">\(\fLog : G \to \C\)</span> that satisfies <span class="process-math">\(\exp(\fLog z) = z\)</span> is <em class="emphasis">a branch of the logarithm (on <span class="process-math">\(G\)</span>)</em>. <div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-3-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_logexp-3-1-1">Given a region <span class="process-math">\(G\text{,}\)</span> any continuous function <span class="process-math">\(\fLog : G \to \C\)</span> that satisfies <span class="process-math">\(\exp(\fLog z) = z\)</span> is <em class="emphasis">a branch of the logarithm (on <span class="process-math">\(G\)</span>)</em>. <div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 3.5.1"><a href="#sec_logexp-3" title="Copy heading and permalink for Definition 3.5.1">🔗</a></div></article><div class="para logical" id="sec_logexp-4">
+<div class="autopermalink" data-description="Definition 3.5.1"><a href="#sec_logexp-3" title="Copy heading and permalink for Definition 3.5.1" aria-label="Copy heading and permalink for Definition 3.5.1">🔗</a></div></article><div class="para logical" id="sec_logexp-4">
 <div class="para">To make sure this definition is not vacuous, let’s write, as usual, <span class="process-math">\(z = r \, e^{i \phi}\text{,}\)</span> and suppose that <span class="process-math">\(\fLog z = u(z) + i \, v(z)\text{.}\)</span> Then for the first equation in <a href="sec_logexp.html#eq_expinv" class="xref" data-knowl="./knowl/xref/eq_expinv.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.3">(3.3)</a> to hold, we need</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_expinv.html">
 \begin{equation*}
@@ -386,10 +386,10 @@ sagecell.makeSagecell({
 \end{equation*}
 </div>
 <div class="para">that is, <span class="process-math">\(e^{u} = r\)</span> and <span class="process-math">\(e^{i v} = e^{i \phi}\text{.}\)</span> The latter equation is equivalent to <span class="process-math">\(v = \phi + 2 \pi k\)</span> for some <span class="process-math">\(k \in \Z\text{,}\)</span> and denoting the natural logarithm of the positive real number <span class="process-math">\(x\)</span> by <span class="process-math">\(\ln(x)\text{,}\)</span> the former equation is equivalent to <span class="process-math">\(u = \ln |z|\text{.}\)</span> A reasonable definition of a logarithm function <span class="process-math">\(\fLog\)</span> would hence be <span class="process-math">\(\fLog z = \ln |z| + i \fArg z\)</span> where <span class="process-math">\(\fArg z\)</span> gives the argument for the complex number <span class="process-math">\(z\)</span> according to some convention—here is an example.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-4" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="sec_logexp-5"><h3 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.5.2</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para logical" id="sec_logexp-5-1-1">
 <div class="para">Let <span class="process-math">\(\Arg z\)</span> denote the unique argument of <span class="process-math">\(z \ne 0\)</span> that lies in <span class="process-math">\((-\pi, \pi]\)</span> (the <em class="emphasis">principal argument of <span class="process-math">\(z\)</span></em>).  Then the <em class="emphasis">principal logarithm</em> is the function <span class="process-math">\(\Log: \C \setminus \{ 0 \} \to \C\)</span> defined through</div>
@@ -398,10 +398,10 @@ sagecell.makeSagecell({
 \Log(z) := \ln |z| + i \Arg(z) \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-5-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 3.5.2"><a href="#sec_logexp-5" title="Copy heading and permalink for Definition 3.5.2">🔗</a></div></article><article class="example example-like" id="sec_logexp-6"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.3</span><span class="period">.</span>
+<div class="autopermalink" data-description="Definition 3.5.2"><a href="#sec_logexp-5" title="Copy heading and permalink for Definition 3.5.2" aria-label="Copy heading and permalink for Definition 3.5.2">🔗</a></div></article><article class="example example-like" id="sec_logexp-6"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para logical" id="sec_logexp-6-1-1">
 <div class="para">Here are a few evaluations of <span class="process-math">\(\Log\)</span> to illustrate this function:</div>
@@ -416,10 +416,10 @@ i\\
 \frac 1 2 \ln(2) - \frac{ \pi i }{ 4 } \, \text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-6-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 3.5.3"><a href="#sec_logexp-6" title="Copy heading and permalink for Example 3.5.3">🔗</a></div></article><div class="para" id="sec_logexp-7">
-<code class="code-inline tex2jax_ignore">SageMath</code> computes “our” principal logarithm.<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-7" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 3.5.3"><a href="#sec_logexp-6" title="Copy heading and permalink for Example 3.5.3" aria-label="Copy heading and permalink for Example 3.5.3">🔗</a></div></article><div class="para" id="sec_logexp-7">
+<code class="code-inline tex2jax_ignore">SageMath</code> computes “our” principal logarithm.<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div id="sec_logexp-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">real(log(1-i))
 </script></div>
@@ -427,7 +427,7 @@ i\\
 </script></div>
 <div class="para" id="sec_logexp-10">The principal logarithm is not continuous on the negative part of the real line, and so <span class="process-math">\(\Log\)</span> is a branch of the logarithm on <span class="process-math">\(\C \setminus
 \R_{ \le 0 }\text{.}\)</span> Any branch of the logarithm on a region <span class="process-math">\(G\)</span> can be similarly extended to a function defined on <span class="process-math">\(\overline G \setminus \{ 0
-\}\text{.}\)</span> Furthermore, the evaluation of any branch of the logarithm at a specific <span class="process-math">\(z_0\)</span> can differ from <span class="process-math">\(\Log(z_0)\)</span> only by a multiple of <span class="process-math">\(2 \pi i\text{;}\)</span> the reason for this is once more the periodicity of the exponential function.<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-10" title="Copy heading and permalink for Paragraph">🔗</a></div>
+\}\text{.}\)</span> Furthermore, the evaluation of any branch of the logarithm at a specific <span class="process-math">\(z_0\)</span> can differ from <span class="process-math">\(\Log(z_0)\)</span> only by a multiple of <span class="process-math">\(2 \pi i\text{;}\)</span> the reason for this is once more the periodicity of the exponential function.<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="sec_logexp-11">
 <div class="para">So what about the second equation in <a href="sec_logexp.html#eq_expinv" class="xref" data-knowl="./knowl/xref/eq_expinv.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.3">(3.3)</a>, namely, <span class="process-math">\(\fLog (\exp z) = z\text{?}\)</span> Let’s try the principal logarithm: if <span class="process-math">\(z=x+iy\)</span> then</div>
@@ -442,7 +442,7 @@ e^{iy} )\\
 <div class="para">The right-hand side is equal to <span class="process-math">\(z=x+iy\)</span> if and only if <span class="process-math">\(y
 \in (-\pi, \pi]\text{.}\)</span> Something similar will happen with any other branch <span class="process-math">\(\fLog\)</span> of the logarithm—there will always be many <span class="process-math">\(z\)</span>’s for which <span class="process-math">\(\fLog ( \exp z ) \ne z\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-11" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="sec_logexp-12">
 <div class="para">A warning sign pointing in a similar direction concerns the much-cherished real logarithm rule <span class="process-math">\(\ln(xy) = \ln(x) +
@@ -460,7 +460,7 @@ e^{iy} )\\
 i} 4 \, \text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-12" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="sec_logexp-13">
 <div class="para">The problem is that we need to come up with an argument convention to define a logarithm and then stick to this convention. There is quite a bit of subtlety here; e.g., the multi-valued map</div>
@@ -477,12 +477,12 @@ i} 4 \, \text{.}
 </div>
 <div class="para"> Neither <span class="process-math">\(\arg\)</span> nor <span class="process-math">\(\log\)</span> is a function, yet <span class="process-math">\(\exp ( \log z ) = z\text{.}\)</span> We invite you to check this thoroughly; in particular, you should note how the periodicity of the exponential function takes care of the multi-valuedness of <span class="process-math">\(\log\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-13" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_logexp-14">To end our discussion of complex logarithms on a happy note, we prove that <em class="emphasis">any</em> branch of the logarithm has the <em class="emphasis">same</em> derivative; one just has to be cautious with regions of holomorphicity.<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-14" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_logexp-14">To end our discussion of complex logarithms on a happy note, we prove that <em class="emphasis">any</em> branch of the logarithm has the <em class="emphasis">same</em> derivative; one just has to be cautious with regions of holomorphicity.<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="sec_logexp-15"><h3 class="heading">
-<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.5.4</span><span class="period">.</span>
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para logical" id="sec_logexp-15-1-1">
 <div class="para">If <span class="process-math">\(\fLog\)</span> is a branch of the logarithm on <span class="process-math">\(G\text{,}\)</span> then <span class="process-math">\(\fLog\)</span> is differentiable on <span class="process-math">\(G\)</span> with</div>
@@ -491,9 +491,9 @@ i} 4 \, \text{.}
 \frac{ d }{ \diff{z} } \fLog(z) \ = \ \frac 1 z \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-15-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proposition 3.5.4"><a href="#sec_logexp-15" title="Copy heading and permalink for Proposition 3.5.4">🔗</a></div></article><article class="proof" id="sec_logexp-16"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<div class="autopermalink" data-description="Proposition 3.5.4"><a href="#sec_logexp-15" title="Copy heading and permalink for Proposition 3.5.4" aria-label="Copy heading and permalink for Proposition 3.5.4">🔗</a></div></article><article class="proof" id="sec_logexp-16"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="sec_logexp-16-1">
 <div class="para">The idea is to apply <a href="sec_diffholom.html#inversederivative" class="xref" data-knowl="./knowl/xref/inversederivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.2.8">Proposition 2.2.8</a> to <span class="process-math">\(\exp\)</span> and <span class="process-math">\(\fLog\text{,}\)</span> but we need to be careful about the domains of these functions. Let <span class="process-math">\(H := \{ \fLog(z) : \, z \in G \}\text{,}\)</span> the image of <span class="process-math">\(\fLog\text{.}\)</span> We apply <a href="sec_diffholom.html#inversederivative" class="xref" data-knowl="./knowl/xref/inversederivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.2.8">Proposition 2.2.8</a> with <span class="process-math">\(f: H \to G\)</span> given by <span class="process-math">\(f(z) = \exp(z)\)</span> and <span class="process-math">\(g: G \to H\)</span> given by <span class="process-math">\(g(z) = \fLog(z)\text{;}\)</span> note that <span class="process-math">\(g\)</span> is continuous, and <a href="chapter3-exercises.html#ex_logexpinv" class="xref" data-knowl="./knowl/xref/ex_logexpinv.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.47">Exercise 3.6.47</a> checks that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are inverses of each other. Thus <a href="sec_diffholom.html#inversederivative" class="xref" data-knowl="./knowl/xref/inversederivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.2.8">Proposition 2.2.8</a> gives</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/inversederivative.html ./knowl/xref/inversederivative.html ./knowl/xref/ex_logexpinv.html ./knowl/xref/inversederivative.html">
@@ -502,12 +502,12 @@ i} 4 \, \text{.}
 \fLog z ) } \ = \ \frac 1 z \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-16-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 3.5.1"><a href="#sec_logexp-16" title="Copy heading and permalink for Proof 3.5.1">🔗</a></div></article><div class="para" id="sec_logexp-17">We finish this section by defining complex exponentials.<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-17" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 3.5.1"><a href="#sec_logexp-16" title="Copy heading and permalink for Proof 3.5.1" aria-label="Copy heading and permalink for Proof 3.5.1">🔗</a></div></article><div class="para" id="sec_logexp-17">We finish this section by defining complex exponentials.<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="sec_logexp-18"><h3 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.5.5</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para logical" id="sec_logexp-18-1-1">
 <div class="para">Given <span class="process-math">\(a, b \in \C\)</span> with <span class="process-math">\(a \ne 0\text{,}\)</span> the <em class="emphasis">principal value of <span class="process-math">\(a^b\)</span></em> is defined as</div>
@@ -516,9 +516,9 @@ i} 4 \, \text{.}
 a^b \ := \ \exp ( b \Log(a)) \,\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-18-1-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-18-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 3.5.5"><a href="#sec_logexp-18" title="Copy heading and permalink for Definition 3.5.5">🔗</a></div></article><div class="para" id="sec_logexp-19">Naturally, we can just as well define <span class="process-math">\(a^b\)</span> through a different branch of the logarithm; our convention is that we use the principal value unless otherwise stated. <a href="chapter3-exercises.html#singlevaluedexp" class="xref" data-knowl="./knowl/xref/singlevaluedexp.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.50">Exercise 3.6.50</a> explores what happens when we use the multi-valued <span class="process-math">\(\log\)</span> in the definition of <span class="process-math">\(a^b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-19" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 3.5.5"><a href="#sec_logexp-18" title="Copy heading and permalink for Definition 3.5.5" aria-label="Copy heading and permalink for Definition 3.5.5">🔗</a></div></article><div class="para" id="sec_logexp-19">Naturally, we can just as well define <span class="process-math">\(a^b\)</span> through a different branch of the logarithm; our convention is that we use the principal value unless otherwise stated. <a href="chapter3-exercises.html#singlevaluedexp" class="xref" data-knowl="./knowl/xref/singlevaluedexp.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.50">Exercise 3.6.50</a> explores what happens when we use the multi-valued <span class="process-math">\(\log\)</span> in the definition of <span class="process-math">\(a^b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div id="sec_logexp-20" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">real(i^i)
 </script></div>
@@ -538,11 +538,11 @@ e^z \amp \ = \ \exp ( z \Log(e))\\
 \left( z \right)\text{.}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-22" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_logexp-23">A word of caution: this only works out this nicely because we have carefully defined <span class="process-math">\(a^b\)</span> for complex numbers. Using a different branch of logarithm in the definition of <span class="process-math">\(a^b\)</span> can easily lead to <span class="process-math">\(e^z \ne \exp(z)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-23" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_logexp-23">A word of caution: this only works out this nicely because we have carefully defined <span class="process-math">\(a^b\)</span> for complex numbers. Using a different branch of logarithm in the definition of <span class="process-math">\(a^b\)</span> can easily lead to <span class="process-math">\(e^z \ne \exp(z)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec_logexp-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Section 3.5: Logarithms and Complex Exponentials"><a href="#sec_logexp" title="Copy heading and permalink for Section 3.5: Logarithms and Complex Exponentials">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Section 3.5: Logarithms and Complex Exponentials"><a href="#sec_logexp" title="Copy heading and permalink for Section 3.5: Logarithms and Complex Exponentials" aria-label="Copy heading and permalink for Section 3.5: Logarithms and Complex Exponentials">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec_exptrigfcts.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="chapter3-exercises.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
