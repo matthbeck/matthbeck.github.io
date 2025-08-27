@@ -19,6 +19,12 @@ sage: b = vector([1, 2, 3])
 sage: A.solve_right(b) # solves Ax = b
 (4, -1, 0)
 
+sage: B = matrix(3, 4, [0, -1, -1, 1, 1, 2, 1, 2, 1, 1, 2, 3])
+sage: B.rref() # reduced row echelon form
+[ 1  0  0  4]
+[ 0  1  0 -1]
+[ 0  0  1  0]
+
 sage: A.inverse()
 [ 3/2  1/2  1/2]
 [-1/2  1/2 -1/2]
