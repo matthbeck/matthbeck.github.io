@@ -1,3 +1,3 @@
-ID	Name	Partic	Homew	Defs	Exams		HW1																					
-92403	Meridi	19																										
+ID	Name	Partic	Homew	Defs	Exams		HW1	selfie																				
+92403	Meridi	19	0																									
 OOOOO	max	20	3	0	0		3																					
