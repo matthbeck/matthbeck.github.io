@@ -1,3 +1,3 @@
 ID	Name	Partic	Homew	Defs	Exams		HW1	selfie																				
-92181	JasonX	20	0																									
+92181	JasonX	20	2				2																					
 OOOOO	max	20	3	0	0		3																					
