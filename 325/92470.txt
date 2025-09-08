@@ -1,3 +1,3 @@
-ID	Name	Partic	Homew	Defs	Exams		HW1	selfie																				
-92470	Nick	20	0																									
-OOOOO	max	20	3	0	0		3																					
+ID	Name	Partic	Homew	Defs	Exams		HW1	selfie	HW2																			
+92470	Nick	20	3				3																					
+OOOOO	max	20	3	0	0		3	1																				

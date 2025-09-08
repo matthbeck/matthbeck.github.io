@@ -1,3 +1,3 @@
 ID	Name	Partic	Homew	Defs	Exams		HW1																					
-92360	Nick	20																										
+92360	Nick	20	5				5																					
 OOOOO	max	20	5	0	0		5																					
