@@ -1,3 +1,3 @@
-ID	Name	Partic	Homew	Defs	Exams		HW1	HW2		Def1	Exam1																	
-92341	Megan	20	10	3	3		5	5		3	3																	
-OOOOO	max	20	10	3	3		5	5		3	3																	
+ID	Name	Partic	Homew	Defs	Exams		HW1	HW2	HW3	Def1	Exam1																	
+92341	Megan	20	15	3	3		5	5	5	3	3																	
+OOOOO	max	20	15	3	3		5	5	5	3	3																	
