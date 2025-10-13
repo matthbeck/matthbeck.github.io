@@ -1,3 +1,3 @@
-ID	Name	Partic	Homew	Defs	Exams		HW1	HW2	HW3	HW4		Def1	Exam1																	
-92250	Alec	20	17	2	2		4	4	5	4		2	2																	
-OOOOO	max	20	20	3	3		5	5	5	5		3	3																	
+ID	Name	Partic	Homew	Defs	Exams		HW1	HW2	HW3	HW4		Def1	Exam1	Def2	Exam2															
+92250	Alec	20	17	4	4		4	4	5	4		2	2	2	2															
+OOOOO	max	20	20	6	6		5	5	5	5		3	3	3	3															
