@@ -1,3 +1,3 @@
-ID	Name	Partic	Homew	Defs	Exams		HW1	selfie	HW2	HW3	HW4	HW5			Def1	Ex1													
-91856	Lauren	13	15	3	2		3		3	3	3	3			3	2													
-OOOOO	max	20	15	3	3		3	1	3	3	3	3			3	3													
+ID	Name	Partic	Homew	Defs	Exams		HW1	selfie	HW2	HW3	HW4	HW5	HW6			Def1	Ex1	Def2	Ex2											
+91856	Lauren	13	15	5	2		3		3	3	3	3				3	2	2	0											
+OOOOO	max	20	15	6	6		3	1	3	3	3	3				3	3	3	3											
