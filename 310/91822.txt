@@ -1,3 +1,3 @@
-ID	Name	Partic	Homew	Defs	Exams		HW1	HW2	HW3	HW4	HW5	HW6	HW7				Def1	Exam1	Def2	Exam2	Def3	Exam3											
-91822	Kin	20	22	4	2		2	4	5	5	3	3					1	2	2	0	1	0											
-OOOOO	max	20	35	9	9		5	5	5	5	5	5	5				3	3	3	3	3	3											
+ID	Name	Partic	Homew	Defs	Exams	E/H%	HW1	HW2	HW3	HW4	HW5	HW6	HW7			Def1	Exam1	Def2	Exam2	Def3	Exam3											
+91822	Kin	20	26	4	2	29.91452991	2	4	5	5	3	3	4			1	2	2	0	1	0											
+OOOOO	max	20	35	9	9		5	5	5	5	5	5	5			3	3	3	3	3	3											

@@ -1,3 +1,3 @@
-ID	Name	Partic	Homew	Defs	Exams		HW1	selfie	HW2	HW3	HW4	HW5	HW6	HW7		Def1	Ex1	Def2	Ex2											
-92250	Alec	20	20	5	4		3		3	3	3	3	2	3		3	2	2	2											
-OOOOO	max	20	21	6	6		3	1	3	3	3	3	3	3		3	3	3	3											
+ID	Name	Partic	Homew	Defs	Exams	E/H%	HW1	selfie	HW2	HW3	HW4	HW5	HW6	HW7	HW8				Def1	Ex1	Def2	Ex2											
+92250	Alec	20	23	5	4	69.56521739	3		3	3	3	3	2	3	3				3	2	2	2											
+OOOOO	max	20	24	6	6		3	1	3	3	3	3	3	3	3				3	3	3	3											
