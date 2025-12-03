@@ -1,3 +1,3 @@
-ID	Name	Partic	Homew	Defs	Exams	E/H%	HW1	HW2	HW3	HW4	HW5	HW6	HW7	HW8		Def1	Exam1	Def2	Exam2	Def3	Exam3	Def4	Exam4									
+ID	Name	Partic	Homew	Defs	Exams	E/H%	HW1	HW2	HW3	HW4	HW5	HW6	HW7	HW8	HW9	Def1	Exam1	Def2	Exam2	Def3	Exam3	Def4	Exam4									
 92323	Violet	19	20	11	8	133	5	5	4	1	3		2			3	2	2	3	3	1	3	2									
-OOOOO	max	20	40	12	12		5	5	5	5	5	5	5	5		3	3	3	3	3	3	3	3									
+OOOOO	max	20	40	12	12		5	5	5	5	5	5	5	5	5	3	3	3	3	3	3	3	3									
