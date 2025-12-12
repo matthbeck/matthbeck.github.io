@@ -1,3 +1,3 @@
-ID	Name	Partic	Homew	Defs	Exams	E/H%	HW1	HW2	HW3	HW4	HW5	HW6	HW7	HW8	HW9	Def1	Exam1	Def2	Exam2	Def3	Exam3	Def4	Exam4									
-92498	Fatima	19	43	12	12	105	5	5	5	5	5	5	4	4	5	3	3	3	3	3	3	3	3									
-OOOOO	max	20	45	12	12		5	5	5	5	5	5	5	5	5	3	3	3	3	3	3	3	3									
+ID	Name	Partic	Homew	Defs	Exams		HW1	HW2	HW3	HW4	HW5	HW6	HW7	HW8	HW9	HW10	Def1	Exam1	Def2	Exam2	Def3	Exam3	Def4	Exam4									
+92498	Fatima	19	43	12	12		5	5	5	5	5	5	4	4	5		3	3	3	3	3	3	3	3									
+OOOOO	max	20	50	12	12		5	5	5	5	5	5	5	5	5	5	3	3	3	3	3	3	3	3									
