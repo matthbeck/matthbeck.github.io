@@ -1,3 +1,3 @@
-ID	Name	Partic	Homew	Defs	Exams		HW1	HW2	HW3	HW4	HW5	HW6	HW7	HW8	HW9	HW10	Def1	Exam1	Def2	Exam2	Def3	Exam3	Def4	Exam4									
-92322	Rachel	19	40	11	7		5	4	5	4	5	5	3	4	5	0	3	2	2	2	3	1	3	2									
-OOOOO	max	20	50	12	12		5	5	5	5	5	5	5	5	5	5	3	3	3	3	3	3	3	3									
+ID	Name	Partic	Homew	Defs	Exams		HW1	HW2	HW3	HW4	HW5	HW6	HW7	HW8	HW9	HW10	Def1	Exam1	Def2	Exam2	Def3	Exam3	Def4	Exam4	Def5	Exam5							
+92322	Rachel	19	40	11	7	C-	5	4	5	4	5	5	3	4	5	0	3	2	2	2	3	1	3	2	1	1							
+OOOOO	max	20	50	15	15		5	5	5	5	5	5	5	5	5	5	3	3	3	3	3	3	3	3	3	3							
