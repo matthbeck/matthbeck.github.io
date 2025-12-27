@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -392,7 +392,7 @@ G\)</span> with <span class="process-math">\(\abs z&gt;B\text{.}\)</span><div cl
 <div class="para logical" id="sec_riemannspere-5-1-1">
 <div class="para">We claim that <span class="process-math">\(\lim_{ z \to 0 } \frac 1 { z^2 } =
 \infty\text{:}\)</span> Given <span class="process-math">\(M &gt; 0\text{,}\)</span> let <span class="process-math">\(\delta := \frac 1 { \sqrt M }\text{.}\)</span> Then <span class="process-math">\(0 \lt  |z| \lt  \delta\)</span> implies</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_riemannspere-5-1-1-5">
 \begin{equation*}
 |f(z)| \ = \ \left| \frac 1 { z^2 } \right| \ &gt; \ \frac 1 {
 \delta^2 } \ = \ M \, \text{.}
@@ -408,14 +408,14 @@ G\)</span> with <span class="process-math">\(\abs z&gt;B\text{.}\)</span><div cl
 <div class="para">To simplify the notation, introduce the constant <span class="process-math">\(L := |ad
 -bc|\text{.}\)</span> Given <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> let <span class="process-math">\(N := \frac L { |c|^2 \epsilon } + \left| \frac d c
 \right|\text{.}\)</span> Then <span class="process-math">\(|z| &gt; N\)</span> implies, with the reverse triangle inequality (<a href="sec_geometricprops.html#cor_triangleineq" class="xref" data-knowl="./knowl/xref/cor_triangleineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 1.3.5">Corollary 1.3.5</a>(<a href="sec_geometricprops.html#revtrianineq" class="xref" data-knowl="./knowl/xref/revtrianineq.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">b</a>)), that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_triangleineq.html ./knowl/xref/revtrianineq.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_triangleineq.html ./knowl/xref/revtrianineq.html" id="sec_riemannspere-6-1-2-7">
 \begin{equation*}
 |cz+d| \ \ge \ \bigl| |c||z| - |d| \bigr| \ \ge \ |c||z| -
 |d| \ &gt; \ \frac L { |c| \epsilon } 
 \end{equation*}
 </div>
 <div class="para">and so</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_triangleineq.html ./knowl/xref/revtrianineq.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_triangleineq.html ./knowl/xref/revtrianineq.html" id="sec_riemannspere-6-1-2-8">
 \begin{equation*}
 \left| f(z) - \frac a c \right| \ = \ \left| \frac{ c(az+b) -
 a(cz+d) }{ c(cz+d) } \right| \ = \ \frac L { |c| \, |cz+d| } \
@@ -479,7 +479,7 @@ z_0}(f(z)+g(z))=\infty\text{.}\)</span> The following definition captures the ph
 </h3>
 <div class="para logical" id="cor_inversemobius-1-1">
 <div class="para">Suppose <span class="process-math">\(ad-bc \ne 0\)</span> and <span class="process-math">\(c \ne 0\text{,}\)</span> and consider <span class="process-math">\(f: \Chat \to \Chat\)</span> defined through</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="cor_inversemobius-1-1-4">
 \begin{equation*}
 f(z) := \begin{cases}\frac{az+b}{cz+d} \amp  \text{ if }  z
 \in \C \setminus \left\{ - \frac d c \right\} , \\ \infty
@@ -508,7 +508,7 @@ f(z) := \begin{cases}\frac{az+b}{cz+d} \amp  \text{ if }  z
 </h3>
 <div class="para logical" id="sec_riemannspere-16-1-1">
 <div class="para">The Möbius transformation <span class="process-math">\(f: \Chat \to \Chat\)</span> given by <span class="process-math">\(f(z) = \frac{ z-1 }{ iz+i }\)</span> maps</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_riemannspere-16-1-1-3">
 \begin{equation*}
 1 \mapsto 0 \, , \qquad \qquad i \mapsto 1 \, , \qquad
 \text{ and }  \qquad -1 \mapsto \infty \, \text{.}
@@ -524,7 +524,7 @@ f(z) := \begin{cases}\frac{az+b}{cz+d} \amp  \text{ if }  z
 </h3>
 <div class="para logical" id="sec_riemannspere-18-1-1">
 <div class="para">If <span class="process-math">\(z\text{,}\)</span> <span class="process-math">\(z_1\text{,}\)</span> <span class="process-math">\(z_2\text{,}\)</span> and <span class="process-math">\(z_3\)</span> are any four points in <span class="process-math">\(\Chat\)</span> with <span class="process-math">\(z_1\text{,}\)</span> <span class="process-math">\(z_2\text{,}\)</span> and <span class="process-math">\(z_3\)</span> distinct, then their <em class="emphasis">cross ratio</em> is defined as</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_riemannspere-18-1-1-10">
 \begin{equation*}
 [z,z_1,z_2,z_3] \ := \ \frac{(z-z_1)(z_2-z_3)}{(z-z_3)(z_2-z_1)} \,\text{.}
 \end{equation*}
@@ -544,7 +544,7 @@ f(z) := \begin{cases}\frac{az+b}{cz+d} \amp  \text{ if }  z
 </h3>
 <div class="para logical" id="crossratio-1-1">
 <div class="para">The function <span class="process-math">\(f: \Chat \to \Chat\)</span> defined by <span class="process-math">\(f(z)=[z,z_1,z_2,z_3]\)</span> is a Möbius transformation that satisfies</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="crossratio-1-1-3">
 \begin{equation*}
 f(z_1) = 0 \, ,\qquad f(z_2) = 1 \, ,\qquad f(z_3)= \infty \,\text{.}
 \end{equation*}
@@ -566,7 +566,7 @@ c=0\\
 \end{align*}
 </div>
 <div class="para">and so</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/inversemobius.html ./knowl/xref/ex_mobiusgroup.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/inversemobius.html ./knowl/xref/ex_mobiusgroup.html" id="crossratio-2-1-11">
 \begin{equation*}
 h(z)\ = \\frac{az+b}{cz+d} \ = \ \frac{az+0}{0+d} \ = \ \frac ad \, z
 \ = \ z \, \text{,}

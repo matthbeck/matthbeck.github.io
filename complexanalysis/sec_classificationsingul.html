@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -355,7 +355,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para">What are the differences among the functions <span class="process-math">\(\frac{ \exp(z) - 1
 }{ z }\text{,}\)</span> <span class="process-math">\(\frac{ 1 }{ z^4 }\text{,}\)</span> and <span class="process-math">\(\exp ( \frac 1 z )\)</span> at <span class="process-math">\(z=0\text{?}\)</span> None of them are defined at <span class="process-math">\(0\text{,}\)</span> but each singularity is of a different nature. We will frequently consider functions in this chapter that are holomorphic in a disk except at its center (usually because that’s where a singularity lies), and it will be handy to define the <em class="emphasis">punctured disk</em> with center <span class="process-math">\(z_0\)</span> and radius <span class="process-math">\(R\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_classificationsingul-2-9">
 \begin{equation*}
 \Dp[z_0, R] \ := \ \left\{ z \in \C : \, 0 \lt  |z-z_0| \lt  R
 \right\} \ = \ D[z_0, R] \setminus \{ z_0 \} \, \text{.}
@@ -397,13 +397,13 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para logical" id="sec_classificationsingul-4-1-1">
 <div class="para">Let <span class="process-math">\(f: \C \setminus \{ 0 \} \to \C\)</span> be given by <span class="process-math">\(f(z)
 = \frac{ \exp(z) - 1 }{ z }\text{.}\)</span> Since</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_classificationsingul-4-1-1-3">
 \begin{equation*}
 \exp(z) - 1 \ = \ \sum_{ k \ge 1 } \frac 1 {k!} \, z^k\text{,}
 \end{equation*}
 </div>
 <div class="para">the function <span class="process-math">\(g: \C \to \C\)</span> defined by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_classificationsingul-4-1-1-5">
 \begin{equation*}
 g(z) \ := \ \sum_{ k \ge 0 } \frac 1 {(k+1)!} \, z^k\text{,}
 \end{equation*}
@@ -418,7 +418,7 @@ g(z) \ := \ \sum_{ k \ge 0 } \frac 1 {(k+1)!} \, z^k\text{,}
 <div class="para">In <a href="sec_LaurentSeries.html#ex_1_sinlaurent" class="xref" data-knowl="./knowl/xref/ex_1_sinlaurent.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.3.4">Example 8.3.4</a>, we showed that <span class="process-math">\(f: \C \setminus \{ j \pi : \, j \in \Z \}
 \to \C\)</span> given by <span class="process-math">\(f(z) = \frac 1 { \sin(z) } - \frac 1 z\)</span> has a removable singularity at 0, because we proved that <span class="process-math">\(g: D[0,\pi] \to
 \C\)</span> defined by</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_1_sinlaurent.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_1_sinlaurent.html" id="sec_classificationsingul-5-1-1-5">
 \begin{equation*}
 g(z) = \begin{cases}\frac 1 { \sin(z) } - \frac 1 z \amp
 \text{ if }  z \ne 0 \, , \\ 0
@@ -434,7 +434,7 @@ g(z) = \begin{cases}\frac 1 { \sin(z) } - \frac 1 z \amp
 </h3>
 <div class="para logical" id="sec_classificationsingul-6-1-1">
 <div class="para">The function <span class="process-math">\(f: \C \setminus \{ 0 \} \to \C\)</span> given by <span class="process-math">\(f(z) = \frac{ 1 }{ z^4 }\)</span> has a pole at <span class="process-math">\(0\text{,}\)</span> as</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_classificationsingul-6-1-1-4">
 \begin{equation*}
 \lim_{z \to 0} \left| \frac 1 {z^4} \right| \ = \ \infty \,\text{.}
 \end{equation*}
@@ -446,7 +446,7 @@ g(z) = \begin{cases}\frac 1 { \sin(z) } - \frac 1 z \amp
 </h3>
 <div class="para logical" id="sec_classificationsingul-7-1-1">
 <div class="para">The function <span class="process-math">\(f: \C \setminus \{ 0 \} \to \C\)</span> given by <span class="process-math">\(f(z) = \exp ( \frac 1 z )\)</span> has an essential singularity at <span class="process-math">\(0\text{:}\)</span> the two limits</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_classificationsingul-7-1-1-4">
 \begin{equation*}
 \lim_{ x \to 0^+ } \exp \left( \frac 1 x \right) \ = \ \infty
 \qquad \text{ and }  \qquad \lim_{ x \to 0^- } \exp \left(
@@ -487,7 +487,7 @@ z_0} \left( z - z_0 \right) f(z) = 0\text{;}\)</span><div class="autopermalink" 
 <li id="singbasics-2-1-1-1">
 <div class="para logical" id="singbasics-2-1-1-1-1">
 <div class="para">Suppose that <span class="process-math">\(z_0\)</span> is a removable singularity of <span class="process-math">\(f\text{,}\)</span> so there exists a holomorphic function <span class="process-math">\(h\)</span> on <span class="process-math">\(D[z_0,R]\)</span> such that <span class="process-math">\(f(z) = h(z)\)</span> for all <span class="process-math">\(z \in \Dp[z_0,R]\text{.}\)</span> But then <span class="process-math">\(h\)</span> is continuous at <span class="process-math">\(z_0\text{,}\)</span> and so</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="singbasics-2-1-1-1-1-9">
 \begin{equation*}
 \lim_{z \to z_0} \left( z - z_0 \right) f(z) \ = \ \lim_{z
 \to z_0} \left( z - z_0 \right) h(z) \ = \ h(z_0) \lim_{z
@@ -499,7 +499,7 @@ z_0} \left( z - z_0 \right) f(z) = 0\text{;}\)</span><div class="autopermalink" 
 <div class="para logical" id="singbasics-2-1-1-1-2">
 <div class="para">Conversely, suppose that <span class="process-math">\(\lim_{z \to z_0} \left( z -
 z_0 \right) f(z) = 0\)</span> and <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(\Dp[z_0,R]\text{.}\)</span> We define the function <span class="process-math">\(g: D[z_0,R] \to \C\)</span> by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="singbasics-2-1-1-1-2-5">
 \begin{equation*}
 g(z) := \begin{cases}(z-z_0)^2 \, f(z) \amp \text{ if } z\ne
 z_0 \, , \\ 0             \amp \text{ if } z=z_0 \,
@@ -522,19 +522,19 @@ z_0}\frac{g(z)-g(z_0)}{z-z_0}\\
 \end{align*}
 </div>
 <div class="para">so <span class="process-math">\(g\)</span> is holomorphic in <span class="process-math">\(D[z_0,R]\text{.}\)</span> We can thus expand <span class="process-math">\(g\)</span> into a power series</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="singbasics-2-1-1-1-3-7">
 \begin{equation*}
 g(z) \ = \ \s c_k \, (z-z_0)^k
 \end{equation*}
 </div>
 <div class="para">whose first two terms are zero: <span class="process-math">\(c_0 = g(z_0) = 0\)</span> and <span class="process-math">\(c_1 = g'(z_0) = 0\text{.}\)</span> But then we can write</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="singbasics-2-1-1-1-3-10">
 \begin{equation*}
 g(z) \ = \ (z-z_0)^2 \sum_{k\ge0}c_{k+2} \, (z-z_0)^k
 \end{equation*}
 </div>
 <div class="para">and so</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="singbasics-2-1-1-1-3-11">
 \begin{equation*}
 f(z) \ = \ \sum_{k\ge0}c_{k+2} \, (z-z_0)^k \quad \text{
 for all } \quad z \in \Dp[z_0,R] \, \text{.}
@@ -549,13 +549,13 @@ for all } \quad z \in \Dp[z_0,R] \, \text{.}
 <li id="singbasics-2-1-1-2">
 <div class="para logical" id="singbasics-2-1-1-2-1">
 <div class="para">Suppose that <span class="process-math">\(z_0\)</span> is a pole of <span class="process-math">\(f\text{.}\)</span> Since <span class="process-math">\(f(z)\to\infty\)</span> as <span class="process-math">\(z\to z_0\)</span> we may assume that <span class="process-math">\(R\)</span> is small enough that <span class="process-math">\(f(z)\ne 0\)</span> for <span class="process-math">\(z\in \Dp[z_0,R]\text{.}\)</span> Then <span class="process-math">\(\frac1f\)</span> is holomorphic in <span class="process-math">\(\Dp[z_0,R]\)</span> and</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html" id="singbasics-2-1-1-2-1-10">
 \begin{equation*}
 \lim_{z \to z_0} \frac 1 {f(z)} \ = \ 0 \,\text{,}
 \end{equation*}
 </div>
 <div class="para">so part (a) implies that <span class="process-math">\(\frac 1 f\)</span> has a removable singularity at <span class="process-math">\(z_0\text{.}\)</span> More precisely, the function <span class="process-math">\(g: D[z_0,R] \to \C\)</span> defined by</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html" id="singbasics-2-1-1-2-1-14">
 \begin{equation*}
 g(z) := \begin{cases}\frac{ 1 }{ f(z) } \amp \text{ if
 } z\in \Dp[z_0,R] \, ,\\ 0            \amp \text{ if }
@@ -578,7 +578,7 @@ z_0}(z-z_0)\\
 </div>
 <div class="para logical" id="singbasics-2-1-1-2-2">
 <div class="para">Note that <span class="process-math">\(\frac1h\)</span> is holomorphic and non-zero on <span class="process-math">\(D[z_0,R]\text{,}\)</span> <span class="process-math">\(n&gt;0\text{,}\)</span> and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="singbasics-2-1-1-2-2-4">
 \begin{equation*}
 f(z) = \frac1{g(z)} = \frac1{(z-z_0)^n} \cdot \frac1{h(z)}
 \quad \text{ for all } \quad z\in\Dp[z_0,R]\, \text{.}
@@ -589,7 +589,7 @@ f(z) = \frac1{g(z)} = \frac1{(z-z_0)^n} \cdot \frac1{h(z)}
 <div class="para logical" id="singbasics-2-1-1-2-3">
 <div class="para">Conversely, suppose <span class="process-math">\(z_0\)</span> is not a removable singularity and <span class="process-math">\(\lim_{z \to z_0} (z-z_0)^{n+1} f(z) = 0\)</span> for some non-negative integer <span class="process-math">\(n\text{.}\)</span> We choose the <em class="emphasis">smallest</em> such <span class="process-math">\(n\text{.}\)</span> By part a), <span class="process-math">\(h(z) := (z-z_0)^n f(z)\)</span> has a removable singularity at <span class="process-math">\(z_0\text{,}\)</span> so there is a holomorphic function <span class="process-math">\(g\)</span> on <span class="process-math">\(D[z_0,R]\)</span> that agrees with <span class="process-math">\(h\)</span> on <span class="process-math">\(\Dp[z_0,R]\text{.}\)</span> Now if <span class="process-math">\(n=0\)</span> this just says that <span class="process-math">\(f\)</span> has a removable singularity at <span class="process-math">\(z_0\text{,}\)</span> which we have excluded. Hence <span class="process-math">\(n&gt;0\text{.}\)</span> Since <span class="process-math">\(n\)</span> was chosen as small as possible and <span class="process-math">\(n-1\)</span> is a non-negative integer less than <span class="process-math">\(n\text{,}\)</span> we must have <span class="process-math">\(g(z_0) = \lim_{z \to z_0} (z-z_0)^n f(z)
 \ne 0\text{.}\)</span> Summarizing, <span class="process-math">\(g\)</span> is holomorphic on <span class="process-math">\(D[z_0,R]\)</span> and non-zero at <span class="process-math">\(z_0\text{,}\)</span> <span class="process-math">\(n&gt;0\text{,}\)</span> and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="singbasics-2-1-1-2-3-24">
 \begin{equation*}
 f(z) = \frac{g(z)}{(z-z_0)^n} \quad \text{ for all } \quad
 z\in\Dp[z_0,R]\, \text{.}
@@ -624,7 +624,7 @@ z_0 } \frac{ 1 }{ |z-z_0|^n }\\
 </h3>
 <div class="para logical" id="cor_orderofpole-1-1">
 <div class="para">Suppose <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(\Dp[z_0,R]\text{.}\)</span> Then <span class="process-math">\(f\)</span> has a pole at <span class="process-math">\(z_0\)</span> if and only if there exist a positive integer <span class="process-math">\(m\)</span> and a holomorphic function <span class="process-math">\(g: D[z_0,R] \to \C\text{,}\)</span> such that <span class="process-math">\(g(z_0) \ne 0\)</span> and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="cor_orderofpole-1-1-8">
 \begin{equation*}
 f(z) \ = \ \frac{ g(z) }{ (z-z_0)^m } \qquad \text{ for all } \quad
 z \in \Dp[z_0,R] \, \text{.}
@@ -659,27 +659,27 @@ z \in \Dp[z_0,R] \, \text{.}
 <div class="para logical" id="sec_classificationsingul-19-1">
 <div class="para">Suppose (by way of contradiction) that there exist <span class="process-math">\(w \in \C\)</span> and <span class="process-math">\(\epsilon &gt; 0\)</span> such that for all <span class="process-math">\(z \in \Dp[z_0,r]\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/singbasics.html ./knowl/xref/singbasics.html ./knowl/xref/singbasics.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/singbasics.html ./knowl/xref/singbasics.html ./knowl/xref/singbasics.html" id="sec_classificationsingul-19-1-4">
 \begin{equation*}
 |w-f(z)| \ \ge \ \epsilon \,\text{.}
 \end{equation*}
 </div>
 <div class="para">Then the function <span class="process-math">\(g(z) := \frac{ 1 }{ f(z) - w }\)</span> stays bounded as <span class="process-math">\(z \to z_0\text{,}\)</span> and so</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/singbasics.html ./knowl/xref/singbasics.html ./knowl/xref/singbasics.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/singbasics.html ./knowl/xref/singbasics.html ./knowl/xref/singbasics.html" id="sec_classificationsingul-19-1-7">
 \begin{equation*}
 \lim_{z \to z_0} \frac{ z - z_0}{ f(z) - w } \ = \ \lim_{z \to
 z_0} (z - z_0) \, g(z) \ = \ 0 \, \text{.}
 \end{equation*}
 </div>
 <div class="para">(<a href="sec_classificationsingul.html#singbasics" class="xref" data-knowl="./knowl/xref/singbasics.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 9.1.6">Proposition 9.1.6</a>(a) tells us that <span class="process-math">\(g\)</span> has a removable singularity at <span class="process-math">\(z_0\text{.}\)</span>) Hence</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/singbasics.html ./knowl/xref/singbasics.html ./knowl/xref/singbasics.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/singbasics.html ./knowl/xref/singbasics.html ./knowl/xref/singbasics.html" id="sec_classificationsingul-19-1-11">
 \begin{equation*}
 \lim_{z \to z_0} \left| \frac{ f(z) - w }{ z - z_0} \right| \ = \
 \infty 
 \end{equation*}
 </div>
 <div class="para">and so the function <span class="process-math">\(\frac{ f(z) - w }{ z - z_0}\)</span> has a pole at <span class="process-math">\(z_0\text{.}\)</span> By <a href="sec_classificationsingul.html#singbasics" class="xref" data-knowl="./knowl/xref/singbasics.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 9.1.6">Proposition 9.1.6</a>(b), there is a positive integer <span class="process-math">\(n\)</span> so that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/singbasics.html ./knowl/xref/singbasics.html ./knowl/xref/singbasics.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/singbasics.html ./knowl/xref/singbasics.html ./knowl/xref/singbasics.html" id="sec_classificationsingul-19-1-16">
 \begin{equation*}
 \lim_{ z \to z_0 } (z-z_0)^{ n+1 } \frac{ f(z) - w }{ z - z_0}
 \ = \ \lim_{ z \to z_0 } (z-z_0)^{ n } \left( f(z) - w \right) \ = \
@@ -696,7 +696,7 @@ z_0} (z - z_0) \, g(z) \ = \ 0 \, \text{.}
 </h3>
 <div class="para logical" id="singlaurent-1-1">
 <div class="para">Suppose <span class="process-math">\(z_0\)</span> is an isolated singularity of <span class="process-math">\(f\)</span> with Laurent series</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="singlaurent-1-1-3">
 \begin{equation*}
 f(z) \ = \ \sz c_k ( z - z_0 )^k\text{,}
 \end{equation*}
@@ -737,7 +737,7 @@ f(z) \ = \ \sz c_k ( z - z_0 )^k\text{,}
 <li id="singlaurent-2-1-1-2">
 <div class="para logical" id="singlaurent-2-1-1-2-1">
 <div class="para">Suppose <span class="process-math">\(z_0\)</span> is a pole of order <span class="process-math">\(n\text{.}\)</span> Then, by <a href="sec_classificationsingul.html#cor_orderofpole" class="xref" data-knowl="./knowl/xref/cor_orderofpole.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 9.1.7">Corollary 9.1.7</a>, <span class="process-math">\(f(z)=(z-z_0)^{-n}g(z)\)</span> on some punctured disk <span class="process-math">\(\Dp[z_0,R]\text{,}\)</span> where <span class="process-math">\(g\)</span> is holomorphic on <span class="process-math">\(D[z_0,R]\)</span> and <span class="process-math">\(g(z_0)\ne0\text{.}\)</span> Thus <span class="process-math">\(g(z)=\sum_{k\ge0}c_k(z-z_0)^k\)</span> in <span class="process-math">\(D[z_0,R]\)</span> with <span class="process-math">\(c_0\ne0\text{,}\)</span> so</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_orderofpole.html ./knowl/xref/laurentunique.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_orderofpole.html ./knowl/xref/laurentunique.html" id="singlaurent-2-1-1-2-1-12">
 \begin{equation*}
 f(z)=(z-z_0)^{-n}\sum_{k\ge0}c_k(z-z_0)^k =
 \sum_{k\ge-n}c_{k+n}(z-z_0)^k\, \text{,}
@@ -777,7 +777,7 @@ c_{-n}\ne0\)</span> so, by <a href="sec_classificationsingul.html#cor_orderofpol
 </h3>
 <div class="para logical" id="ex_sinoverz3-1-1">
 <div class="para">The order of the pole at <span class="process-math">\(0\)</span> of <span class="process-math">\(f(z)=\frac{\sin(z)}{z^3}\)</span> is 2 because (by <a href="sec_powerseriesholom.html#ex_sinpowerser" class="xref" data-knowl="./knowl/xref/ex_sinpowerser.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.1.4">Example 8.1.4</a>)</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_sinpowerser.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_sinpowerser.html" id="ex_sinoverz3-1-1-4">
 \begin{equation*}
 f(z)\ = \ \frac{\sin(z)}{z^3}\ = \ \frac{z-\frac{z^3}{3!}+
 \frac{z^5}{5!}-\cdots}{z^3}\ = \ \frac{1}{z^2}-\frac{1}{3!}+

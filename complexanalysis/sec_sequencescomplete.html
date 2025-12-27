@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
@@ -372,7 +372,7 @@ sagecell.makeSagecell({
 <div class="para logical" id="sec_sequencescomplete-3-1-1">
 <div class="para">Suppose <span class="process-math">\(\left( a_n \right)\)</span> is a sequence and <span class="process-math">\(L \in
 \C\)</span> such that for all <span class="process-math">\(\epsilon&gt;0\)</span> there is an integer <span class="process-math">\(N\)</span> such that for all <span class="process-math">\(n \geq N\text{,}\)</span> we have <span class="process-math">\(\left| a_n - L \right| \lt  \epsilon\text{.}\)</span> Then the sequence <span class="process-math">\(\left( a_n \right)\)</span> is <em class="emphasis">convergent</em> and <span class="process-math">\(L\)</span> is its <em class="emphasis">limit</em>; in symbols we write</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_sequencescomplete-3-1-1-11">
 \begin{equation*}
 \lim_{n \to \infty} a_n \ = \ L \,\text{.}
 \end{equation*}
@@ -390,7 +390,7 @@ sagecell.makeSagecell({
 <div class="para">We claim that <span class="process-math">\(\ds \lim_{n \to \infty} \tfrac {i^n} n =
 0\text{:}\)</span> Given <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> choose <span class="process-math">\(N &gt; \frac 1 \epsilon\text{.}\)</span> Then for any <span class="process-math">\(n \geq N\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ex_1_n_converges-1-1-5">
 \begin{equation*}
 \left| \frac{i^n} n - 0 \right| \ = \ \left| \frac{i^n} n
 \right| \ = \ \frac {|i|^n} n \ = \ \frac 1 n \ \leq \ \frac 1 N \
@@ -409,7 +409,7 @@ limit(i^n/n, n=oo)
 </h3>
 <div class="para logical" id="sec_sequencescomplete-8-1-1">
 <div class="para">The sequence <span class="process-math">\(\left( a_n = i^n \right)\)</span> diverges: Given <span class="process-math">\(L \in \C\text{,}\)</span> choose <span class="process-math">\(\epsilon = \frac 1 2\text{.}\)</span> We consider two cases: If <span class="process-math">\(\Re(L) \geq 0\text{,}\)</span> then for any <span class="process-math">\(N\text{,}\)</span> choose <span class="process-math">\(n \geq N\)</span> such that <span class="process-math">\(a_n = -1\text{.}\)</span> (This is always possible since <span class="process-math">\(a_{4k+2} = i^{4k+2} = -1\)</span> for any <span class="process-math">\(k \geq 0\text{.}\)</span>) Then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_sequencescomplete-8-1-1-10">
 \begin{equation*}
 \left| a_n - L \right| \ = \ \left| 1 + L \right| \ \geq \ 1 \
 &gt; \ \frac 1 2 \, \text{.}
@@ -418,7 +418,7 @@ limit(i^n/n, n=oo)
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_sequencescomplete-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="sec_sequencescomplete-8-1-2">
 <div class="para">If <span class="process-math">\(\Re(L) \lt  0\text{,}\)</span> then for any <span class="process-math">\(N\text{,}\)</span> choose <span class="process-math">\(n \geq N\)</span> such that <span class="process-math">\(a_n = 1\text{.}\)</span> (This is always possible since <span class="process-math">\(a_{4k} = i^{4k} = 1\)</span> for any <span class="process-math">\(k &gt; 0\text{.}\)</span>) Then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_sequencescomplete-8-1-2-7">
 \begin{equation*}
 \left| a_n - L \right| \ = \ \left| 1 - L \right| \ &gt; \ 1 \ &gt; \
 \frac 1 2 \, \text{.}
@@ -472,7 +472,7 @@ n \to \infty } b_n \, = \, \lim_{ n \to \infty } \left( a_n
 </ol>
 <div class="para">Furthermore, if <span class="process-math">\(f: G \to \C\)</span> is continuous at <span class="process-math">\(L := \lim_{ n \to \infty } a_n\)</span> and all <span class="process-math">\(a_n \in
 G\text{,}\)</span> then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="limitrules-1-1-8">
 \begin{equation*}
 \lim_{n\to\infty} f(a_n) \ = \ f(L) \,\text{.}
 \end{equation*}
@@ -502,13 +502,13 @@ G\text{,}\)</span> then</div>
 </h3>
 <div class="para logical" id="ex_e-1series-1-1">
 <div class="para">Consider the sequence <span class="process-math">\((a_n)\)</span> defined by</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_edefdaslimit.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_edefdaslimit.html" id="ex_e-1series-1-1-2">
 \begin{equation*}
 a_n \ := \ 1 + \frac 1 2 + \frac 1 6 + \dots + \frac 1 {n!} \,\text{.}
 \end{equation*}
 </div>
 <div class="para">This sequence is increasing (by definition) and each <span class="process-math">\(a_n \le 3\)</span> by <a href="powerchapter-7.html#ex_edefdaslimit" class="xref" data-knowl="./knowl/xref/ex_edefdaslimit.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.9">Exercise 7.5.9</a>. By the Monotone Sequence Property, <span class="process-math">\((a_n)\)</span> converges, which allows us to define one of the most famous numbers in all of mathematics, </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_edefdaslimit.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_edefdaslimit.html" id="ex_e-1series-1-1-7">
 \begin{equation*}
 e \ := \ 1 + \lim_{ n \to \infty } a_n \,\text{.}
 \end{equation*}
@@ -520,7 +520,7 @@ e \ := \ 1 + \lim_{ n \to \infty } a_n \,\text{.}
 </h3>
 <div class="para logical" id="r_n-_0-1-1">
 <div class="para">Fix <span class="process-math">\(0\le r\lt 1\text{.}\)</span> We claim that <span class="process-math">\(\lim_{n\to\infty}r^n=0\text{:}\)</span> First, the sequence <span class="process-math">\((a_n = r^n)\)</span> converges because it is decreasing and bounded below by <span class="process-math">\(0\text{.}\)</span> Let <span class="process-math">\(L := \lim_{n\to\infty}r^n\text{.}\)</span> By <a href="sec_sequencescomplete.html#limitrules" class="xref" data-knowl="./knowl/xref/limitrules.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.1.4">Proposition 7.1.4</a>,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/limitrules.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/limitrules.html" id="r_n-_0-1-1-7">
 \begin{equation*}
 L \ = \ \lim_{n\to\infty}r^n \ = \ \lim_{n\to\infty} r^{n+1} \ = \ r
 \lim_{n\to\infty}r^n \ = \ r \, L \, \text{.}
@@ -551,7 +551,7 @@ L \ = \ \lim_{n\to\infty}r^n \ = \ \lim_{n\to\infty} r^{n+1} \ = \ r
 <div class="para logical" id="prop_pairoflimits-1-1-1-1-1">
 <div class="para">Exponentials beat polynomials: for any polynomial <span class="process-math">\(p(n)\)</span> (with complex coefficients) and any <span class="process-math">\(c \in \C\)</span> with <span class="process-math">\(\abs{c} &gt; 1\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="prop_pairoflimits-1-1-1-1-1-4">
 \begin{equation*}
 \lim_{n\to\infty}\frac{p(n)}{c^n}\ = \ 0 \,\text{.}
 \end{equation*}
@@ -564,7 +564,7 @@ L \ = \ \lim_{n\to\infty}r^n \ = \ \lim_{n\to\infty} r^{n+1} \ = \ r
 <div class="para logical" id="prop_pairoflimits-1-1-1-2-1">
 <div class="para">Factorials beat exponentials: for any <span class="process-math">\(c \in \C\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="prop_pairoflimits-1-1-1-2-1-2">
 \begin{equation*}
 \lim_{n\to\infty} \frac{c^n}{n!}\ = \ 0 \,\text{.}
 \end{equation*}

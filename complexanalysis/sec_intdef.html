@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
@@ -381,7 +381,7 @@ sagecell.makeSagecell({
 <div class="para logical" id="sec_intdef-4-1-1">
 <div class="para">Suppose <span class="process-math">\(\gg\)</span> is a smooth path parametrized by <span class="process-math">\(\gg (t)
 , \ a \leq t \leq b\text{,}\)</span> and <span class="process-math">\(f\)</span> is a complex function which is continuous on <span class="process-math">\(\gg\text{.}\)</span> Then we define the <em class="emphasis">integral  of <span class="process-math">\(f\)</span> on <span class="process-math">\(\gg\)</span></em> as</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_intdef-4-1-1-6">
 \begin{equation*}
 \int_\gg f \ = \ \int_\gg f(z) \, \diff{z} \ := \ \int_a^b
 f(\gg(t)) \gg'(t) \, \diff{t} \, \text{.}
@@ -415,7 +415,7 @@ f(\gg(t)) \gg'(t) \, \diff{t} \, \text{.}
 + i\text{.}\)</span>  A parametrization of this path is <span class="process-math">\(\gg(t) =
 t + i t , \ 0 \leq t \leq 1\text{.}\)</span> Here <span class="process-math">\(\gg'(t) = 1+i\)</span> and <span class="process-math">\(f(\gg(t)) = \left( t-it
 \right)^2\text{,}\)</span> and so</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="firstintexample-1-1-4-1-1-7">
 \begin{equation*}
 \int_\gg f \ = \ \int_0^1 \left( t-it \right)^2 \left(
 1+i \right) \diff{t} \ = \ 2(1-i) \int_0^1 t^2 \,
@@ -430,7 +430,7 @@ t + i t , \ 0 \leq t \leq 1\text{.}\)</span> Here <span class="process-math">\(\
 <div class="para logical" id="firstintexample-1-1-4-2-1">
 <div class="para">Let <span class="process-math">\(\gg\)</span> be the arc of the parabola <span class="process-math">\(y=x^2\)</span> from <span class="process-math">\(0\)</span> to <span class="process-math">\(1 + i\text{.}\)</span> A parametrization of this path is <span class="process-math">\(\gg(t) = t + i t^2
 , \ 0 \leq t \leq 1\text{.}\)</span> Now we have <span class="process-math">\(\gg'(t) = 1 + 2it\)</span> and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="firstintexample-1-1-4-2-1-7">
 \begin{equation*}
 f(\gg(t)) \ = \ \left( t - it^2 \right)^2 = t^2 - t^4 -
 2it^3 \, \text{,}
@@ -487,7 +487,7 @@ integral(f.subs(z=gamma) * diff(gamma, t), t, 0, 1)
 </h3>
 <div class="para logical" id="prop_integrationIsIndependentOfParametrization-1-1">
 <div class="para">If <span class="process-math">\(\gg (t) , \ a \leq t \leq b\)</span> is a piecewise smooth parametrization of a curve and <span class="process-math">\(\sigma (t) , \ c \leq t \leq d\)</span> is a reparametrization of <span class="process-math">\(\gg\)</span> then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="prop_integrationIsIndependentOfParametrization-1-1-4">
 \begin{equation*}
 \int_c^d f(\sigma(t)) \, \sigma'(t) \, \diff{t} \ = \ \int_a^b
 f(\gg(t)) \, \gg'(t) \, \diff{t} \, \text{.}
@@ -500,7 +500,7 @@ f(\gg(t)) \, \gg'(t) \, \diff{t} \, \text{.}
 </h3>
 <div class="para logical" id="sec_intdef-10-1-1">
 <div class="para">To appreciate this statement, consider the two parametrizations</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_intdef-10-1-1-1">
 \begin{equation*}
 \gamma(t) = e^{ i t } , \ 0 \le t \le 2 \pi \, , \qquad
 \text{ and }  \qquad \sigma(t) = e^{ 2 \pi i \sin(t) } , \ 0
@@ -508,14 +508,14 @@ f(\gg(t)) \, \gg'(t) \, \diff{t} \, \text{.}
 \end{equation*}
 </div>
 <div class="para">of the unit circle. Then we could write <span class="process-math">\(\int_\gg f\)</span> in the two ways:</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_intdef-10-1-1-3">
 \begin{equation*}
 \int_\gg f \ = \ i \int_0^{ 2 \pi } f \left( e^{ i t } \right)
 e^{ i t } \, \diff{t} 
 \end{equation*}
 </div>
 <div class="para">and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_intdef-10-1-1-4">
 \begin{equation*}
 \int_\gg f
 \ = \ 2 \pi i \int_0^{ \frac \pi 2 } f \left( e^{ 2 \pi i
@@ -534,7 +534,7 @@ e^{ i t } \, \diff{t}
 </h3>
 <div class="para logical" id="sec_intdef-12-1-1">
 <div class="para">The <em class="emphasis">length </em> of a smooth path <span class="process-math">\(\gg\)</span> is</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_intdef-12-1-1-3">
 \begin{equation*}
 \length(\gg) \ := \ \int_a^b \left| \gg'(t) \right| \, \diff{t}
 \end{equation*}
@@ -547,7 +547,7 @@ e^{ i t } \, \diff{t}
 </h3>
 <div class="para logical" id="sec_intdef-13-1-1">
 <div class="para">Let <span class="process-math">\(\gamma\)</span> be the line segment from <span class="process-math">\(0\)</span> to <span class="process-math">\(1+i\text{,}\)</span> which can be parametrized by <span class="process-math">\(\gamma(t) = t + it\)</span> for <span class="process-math">\(0 \le t \le 1\text{.}\)</span> Then <span class="process-math">\(\gamma'(t) = 1+i\)</span> and so</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_intdef-13-1-1-7">
 \begin{equation*}
 \length(\gamma) \ = \ \int_0^1 | 1+i |\, \diff{t} \ = \ \int_0^1
 \sqrt 2 \, \diff{t} \ = \ \sqrt 2 \, \text{.}
@@ -560,7 +560,7 @@ e^{ i t } \, \diff{t}
 </h3>
 <div class="para logical" id="example_circlelength-1-1">
 <div class="para">Let <span class="process-math">\(\gamma\)</span> be the unit circle, which can be parametrized by <span class="process-math">\(\gamma(t) = e ^{ it }\)</span> for <span class="process-math">\(0 \le t \le 2 \pi\text{.}\)</span> Then <span class="process-math">\(\gamma'(t) = i \, e^{ it }\)</span> and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="example_circlelength-1-1-5">
 \begin{equation*}
 \length(\gamma) \ = \ \int_0^{2 \pi} | i \, e^{ it } |\,
 \diff{t} \ = \ \int_0^{2 \pi} \diff{t} \ = \ 2 \pi \, \text{.}
@@ -593,7 +593,7 @@ integral(abs(diff(gamma,t)), t, 0, 2*pi)
 <div class="para">If <span class="process-math">\(\gg\)</span> is parametrized by <span class="process-math">\(\gg (t) , \ a \leq t
 \leq b\text{,}\)</span> we define the path <span class="process-math">\(-\gg\)</span> by <span class="process-math">\(-\gg(t) := \gg
 (a+b-t) , \ a \leq t \leq b\text{.}\)</span> Then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="int2-1-5">
 \begin{equation*}
 \int_{-\gg} f \ = \ - \int_\gg f \,\text{.}
 \end{equation*}
@@ -605,7 +605,7 @@ integral(abs(diff(gamma,t)), t, 0, 2*pi)
 <li id="int3">
 <div class="para logical" id="int3-1">
 <div class="para">If <span class="process-math">\(\gg_1\)</span> and <span class="process-math">\(\gg_2\)</span> are piecewise smooth paths so that <span class="process-math">\(\gg_2\)</span> starts where <span class="process-math">\(\gg_1\)</span> ends, we define the path <span class="process-math">\(\gg_1\gg_2\)</span>  by following <span class="process-math">\(\gg_1\)</span> to its end and then continuing on <span class="process-math">\(\gg_2\)</span> to its end. Then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="int3-1-8">
 \begin{equation*}
 \int_{\gg_1\gg_2} f \ = \ \int_{\gg_1}f+\int_{\gg_2}f \,\text{.}
 \end{equation*}
@@ -650,7 +650,7 @@ integral(abs(diff(gamma,t)), t, 0, 2*pi)
 </div>
 <div class="para logical" id="sec_intdef-19-3">
 <div class="para">For (<a href="sec_intdef.html#int3" class="xref" data-knowl="./knowl/xref/int3.html" data-reveal-label="Reveal" data-close-label="Close" title="Item c">c</a>), we need a suitable parametrization <span class="process-math">\(\gg(t)\)</span> for <span class="process-math">\(\gamma_1\gamma_2\text{.}\)</span> If <span class="process-math">\(\gamma_1\)</span> has domain <span class="process-math">\([a_1,b_1]\)</span> and <span class="process-math">\(\gamma_2\)</span> has domain <span class="process-math">\([a_2,b_2]\)</span> then we can use</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/int3.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/int3.html" id="sec_intdef-19-3-8">
 \begin{equation*}
 \gg(t) := \begin{cases}\gg_1(t) \amp \text{ if }  a_1\le t\le
 b_1 \, , \\ \gg_2(t-b_1+a_2) \amp \text{ if }  b_1\le t\le
@@ -700,13 +700,13 @@ f(\gg(t))\gg'(t)\,\diff{t}\\
 </h3>
 <div class="para logical" id="sec_intdef-20-1-1">
 <div class="para">In <a href="intchapter-7.html#ex_circleint" class="xref" data-knowl="./knowl/xref/ex_circleint.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.5.4">Exercise 4.5.4</a>, you are invited to show</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_circleint.html ./knowl/xref/intprop.html ./knowl/xref/int2.html ./knowl/xref/intprop.html ./knowl/xref/int4.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_circleint.html ./knowl/xref/intprop.html ./knowl/xref/int2.html ./knowl/xref/intprop.html ./knowl/xref/int4.html" id="sec_intdef-20-1-1-2">
 \begin{equation*}
 \int_\gg \frac{\diff{z}}{z-w} \ = \ 2 \pi i \,\text{,}
 \end{equation*}
 </div>
 <div class="para">where <span class="process-math">\(\gg\)</span> is any circle centered at <span class="process-math">\(w \in \C\text{,}\)</span> oriented counter-clockwise. Thus <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int2" class="xref" data-knowl="./knowl/xref/int2.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">b</a>) says that the analogous integral over a <em class="emphasis">clockwise</em> circle equals <span class="process-math">\(- 2 \pi i\text{.}\)</span> Incidentally, the same example shows that the inequality in <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>) is sharp: if <span class="process-math">\(\gg\)</span> has radius <span class="process-math">\(r\text{,}\)</span> then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_circleint.html ./knowl/xref/intprop.html ./knowl/xref/int2.html ./knowl/xref/intprop.html ./knowl/xref/int4.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_circleint.html ./knowl/xref/intprop.html ./knowl/xref/int2.html ./knowl/xref/intprop.html ./knowl/xref/int4.html" id="sec_intdef-20-1-1-13">
 \begin{equation*}
 2 \pi \ = \ \left| \int_{ \gg } \frac{\diff{z}}{z-w} \right| \
 \le \ \max_{ z \in \gg } \left| \frac{1}{z-w} \right|

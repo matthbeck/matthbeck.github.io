@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -356,7 +356,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para logical" id="sec_stereoproj-3">
 <div class="para">To begin, we think of <span class="process-math">\(\C\)</span> as the <span class="process-math">\((x,y)\)</span>-plane in <span class="process-math">\(\R^3\text{,}\)</span> that is, <span class="process-math">\(\C = \{(x,y,0) \in \R^3\}\text{.}\)</span>  To describe stereographic projection, we will be less concerned with actual complex numbers <span class="process-math">\(x + iy\)</span> and more concerned with their coordinates.  Consider the <em class="emphasis">unit sphere</em>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_stereoproj-3-7">
 \begin{equation*}
 \mathbb{S}^2 \ := \ \left\{(x,y,z) \in \R^3 : \, x^2+y^2+z^2=1 \right\} \, \text{.}
 \end{equation*}
@@ -377,7 +377,7 @@ eBookConfig.enable_chatcodes =  false;
 </h3>
 <div class="para logical" id="prop_coordmaps-1-1">
 <div class="para">The map <span class="process-math">\(\phi\)</span> is given by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="prop_coordmaps-1-1-2">
 \begin{equation*}
 \phi(x,y,z) = \begin{cases}\left(\frac{x}{1-z}, \,
 \frac{y}{1-z},\, 0\right) \amp  \text{ if }  z \ne 1 \, , \\
@@ -386,7 +386,7 @@ eBookConfig.enable_chatcodes =  false;
 \end{equation*}
 </div>
 <div class="para">It is bijective, with inverse map</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="prop_coordmaps-1-1-3">
 \begin{equation*}
 \phi^{-1}(p,q,0) \ = \ \left(\frac{2p}{p^2+q^2+1},\,
 \frac{2q}{p^2+q^2+1}, \, \frac{p^2+q^2-1}{p^2+q^2+1}\right)
@@ -411,7 +411,7 @@ r(t) \amp \ = \ N + t(P-N)\\
 </div>
 <div class="para logical" id="sec_stereoproj-7-2">
 <div class="para">To see the formula for the inverse map <span class="process-math">\(\phi^{-1}\text{,}\)</span> we begin with a point <span class="process-math">\(Q = (p,q,0) \in \C\)</span> and solve for a point <span class="process-math">\(P = (x,y,z) \in \mathbb{S}^2\)</span> so that <span class="process-math">\(\phi(P) = Q\text{.}\)</span> The point <span class="process-math">\(P\)</span> satisfies the equation <span class="process-math">\(x^2+y^2+z^2 = 1\text{.}\)</span> The equation <span class="process-math">\(\phi(P) = Q\)</span> tells us that <span class="process-math">\(\frac{x}{1-z} = p\)</span> and <span class="process-math">\(\frac{y}{1-z} = q\text{.}\)</span> Thus, we solve three equations for three unknowns. The latter two equations yield</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_stereoproj-7-2-10">
 \begin{equation*}
 p^2 + q^2 \ = \ \frac{x^2+y^2}{(1-z)^2} \ = \ \frac{1-z^2}{(1-z)^2}
 \ = \ \frac{1+z}{1-z}\, \text{.}
@@ -445,7 +445,7 @@ H \amp \ = \ \left\{(x,y,z) \in \R^3 : \, (x,y,z)\cdot
 <div class="para logical" id="sec_stereoproj-9-2">
 <div class="para">Consider the circle of intersection <span class="process-math">\(H \cap \mathbb{S}^2\text{.}\)</span> A point <span class="process-math">\((p,q,0)\)</span> in the complex plane lies on the image of this circle under <span class="process-math">\(\phi\)</span> if and only if <span class="process-math">\(\phi^{-1}(p,q,0)\)</span> satisfies the defining equation for <span class="process-math">\(H\text{.}\)</span>  Using the equations from <a href="sec_stereoproj.html#prop_coordmaps" class="xref" data-knowl="./knowl/xref/prop_coordmaps.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 3.3.3">Proposition 3.3.3</a> for <span class="process-math">\(\phi^{-1}(p,q,0)\text{,}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_coordmaps.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_coordmaps.html" id="sec_stereoproj-9-2-8">
 \begin{equation*}
 (z_0-k)p^2 + (2x_0)p + (z_0-k)q^2 + (2y_0)q \ = \ z_0+k\,\text{.}
 \end{equation*}
@@ -456,7 +456,7 @@ H \amp \ = \ \left\{(x,y,z) \in \R^3 : \, (x,y,z)\cdot
 </div>
 <div class="para logical" id="sec_stereoproj-9-4">
 <div class="para">If <span class="process-math">\(z_0-k \neq 0\text{,}\)</span> then completing the square yields</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_everycircleins2.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_everycircleins2.html" id="sec_stereoproj-9-4-2">
 \begin{equation*}
 \left(p+ \frac{x_0}{z_0-k}\right)^2 +
 \left(q+\frac{y_0}{z_0-k} \right)^2 = \
@@ -475,7 +475,7 @@ rz\text{,}\)</span> or a translation, <span class="process-math">\(f(z) = z+b\te
 </div>
 <div class="para logical" id="sec_stereoproj-13">
 <div class="para">We know <span class="process-math">\(\phi(x,y,z)=(\frac x {1-z}, \, \frac y {1-z}, \, 0)\)</span> which we now regard as the complex number</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_stereoproj-13-2">
 \begin{equation*}
 p+iq \ = \ \frac{x}{1-z} + i \, \frac{y}{1-z}\,\text{.}
 \end{equation*}

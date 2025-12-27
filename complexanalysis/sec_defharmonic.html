@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
@@ -371,7 +371,7 @@ sagecell.makeSagecell({
 <div class="para logical" id="sec_defharmonic-3-1-1">
 <div class="para">Let <span class="process-math">\(G \subseteq \C\)</span> be a region. A function <span class="process-math">\(u: G \to \R\)</span> is <em class="emphasis">harmonic</em> in <span class="process-math">\(G\)</span> if it has continuous second partials in <span class="process-math">\(G\)</span> and satisfies the <em class="emphasis">Laplace<details class="ptx-footnote" aria-live="polite" id="sec_defharmonic-3-1-1-6-1"><summary class="ptx-footnote__number" title="Footnote 6.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_defharmonic-3-1-1-6-1">Named after Pierre-Simon Laplace (1749–1827).</div></details> equation</em>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_defharmonic-3-1-1-7">
 \begin{equation*}
 u_{xx} + u_{yy} \ = \ 0 \,\text{.}
 \end{equation*}
@@ -388,7 +388,7 @@ u_{xx} + u_{yy} \ = \ 0 \,\text{.}
 </h3>
 <div class="para logical" id="exam_excosyharmonic-1-1">
 <div class="para">The function <span class="process-math">\(u(x,y) = e^x \cos(y)\)</span> is harmonic in <span class="process-math">\(\C\)</span> because</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="exam_excosyharmonic-1-1-3">
 \begin{equation*}
 u_{xx} + u_{yy} \ = \ e^x \cos(y) - e^x \cos(y) \ = \ 0 \,\text{.}
 \end{equation*}
@@ -406,13 +406,13 @@ u_{xx} + u_{yy} \ = \ e^x \cos(y) - e^x \cos(y) \ = \ 0 \,\text{.}
 <div class="para logical" id="reimharmonic-2-1">
 <div class="para">First, by <a href="sec_variationstheme.html#infdiff" class="xref" data-knowl="./knowl/xref/infdiff.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.1.6">Corollary 5.1.6</a>, <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> have continuous second partials. By <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a>, <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> satisfy the Cauchy–Riemann equations <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/infdiff.html ./knowl/xref/cre.html ./knowl/xref/crequations.html ./knowl/xref/eq_firstharmonicinstance.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/infdiff.html ./knowl/xref/cre.html ./knowl/xref/crequations.html ./knowl/xref/eq_firstharmonicinstance.html" id="reimharmonic-2-1-10">
 \begin{equation*}
 u_x = v_y \qquad \text{ and }  \qquad u_y = - v_x
 \end{equation*}
 </div>
 <div class="para">in <span class="process-math">\(G\text{.}\)</span> Hence we can repeat our argumentation in <a href="sec_Cauchy-Riemann.html#eq_firstharmonicinstance" class="xref" data-knowl="./knowl/xref/eq_firstharmonicinstance.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4">(2.4)</a>,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/infdiff.html ./knowl/xref/cre.html ./knowl/xref/crequations.html ./knowl/xref/eq_firstharmonicinstance.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/infdiff.html ./knowl/xref/cre.html ./knowl/xref/crequations.html ./knowl/xref/eq_firstharmonicinstance.html" id="reimharmonic-2-1-13">
 \begin{equation*}
 u_{xx} + u_{yy} \ = \ \left( u_x \right)_x + \left( u_y
 \right)_y \ = \ \left( v_y \right)_x + \left( -v_x \right)_y \ = \
@@ -430,7 +430,7 @@ v_{yx} - v_{xy} \ = \ 0 \, \text{.}
 </h3>
 <div class="para logical" id="sec_defharmonic-9-1-1">
 <div class="para">Revisiting <a href="sec_defharmonic.html#exam_xyharmonic" class="xref" data-knowl="./knowl/xref/exam_xyharmonic.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.1.2">Example 6.1.2</a>, we can see that <span class="process-math">\(u(x,y) = xy\)</span> is harmonic in <span class="process-math">\(\C\)</span> also by noticing that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_xyharmonic.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_xyharmonic.html" id="sec_defharmonic-9-1-1-4">
 \begin{equation*}
 f(z) \ = \ \tfrac 1 2 \, z^2 \ = \ \tfrac 1 2 \left( x^2 - y^2
 \right) + i xy 
@@ -445,7 +445,7 @@ f(z) \ = \ \tfrac 1 2 \, z^2 \ = \ \tfrac 1 2 \left( x^2 - y^2
 </h3>
 <div class="para logical" id="sec_defharmonic-10-1-1">
 <div class="para">A second reason that the function <span class="process-math">\(u(x,y) = e^x \cos(y)\)</span> from <a href="sec_defharmonic.html#exam_excosyharmonic" class="xref" data-knowl="./knowl/xref/exam_excosyharmonic.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.1.3">Example 6.1.3</a> is harmonic in <span class="process-math">\(\C\)</span> is that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_excosyharmonic.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_excosyharmonic.html" id="sec_defharmonic-10-1-1-4">
 \begin{equation*}
 f(z) \ = \ \exp(z) \ = \ e^x \cos(y) + i \, e^x \sin(y)
 \end{equation*}
@@ -467,7 +467,7 @@ f(z) \ = \ \exp(z) \ = \ e^x \cos(y) + i \, e^x \sin(y)
 <article class="proof" id="sec_defharmonic-14"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="sec_defharmonic-14-1">
 <div class="para">We will explicitly construct a holomorphic function <span class="process-math">\(f\)</span> (and thus <span class="process-math">\(v = \Im f\)</span>). First, let</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_defharmonic-14-1-3">
 \begin{equation*}
 g \ := \ u_x - i \, u_y \,\text{.}
 \end{equation*}
@@ -476,14 +476,14 @@ g \ := \ u_x - i \, u_y \,\text{.}
 </div>
 <div class="para logical" id="sec_defharmonic-14-2">
 <div class="para">The plan is to prove that <span class="process-math">\(g\)</span> is holomorphic, and then to construct an antiderivative of <span class="process-math">\(g\text{,}\)</span> which will be almost the function <span class="process-math">\(f\)</span> that we’re after. To prove that <span class="process-math">\(g\)</span> is holomorphic, we use <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a>: first because <span class="process-math">\(u\)</span> is harmonic, <span class="process-math">\(\Re g = u_x\)</span> and <span class="process-math">\(\Im g = - u_y\)</span> have continuous partials. Moreover, again because <span class="process-math">\(u\)</span> is harmonic, <span class="process-math">\(\Re g\)</span> and <span class="process-math">\(\Im g\)</span> satisfy the Cauchy–Riemann equations <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a>:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/crequations.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/crequations.html" id="sec_defharmonic-14-2-15">
 \begin{equation*}
 \left( \Re g \right)_x \ = \ u_{xx} \ = \ - u_{yy} \ = \ \left( \Im g
 \right)_y 
 \end{equation*}
 </div>
 <div class="para">and</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/crequations.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/crequations.html" id="sec_defharmonic-14-2-16">
 \begin{equation*}
 \left( \Re g \right)_y \ = \ u_{xy} \ = \ u_{yx} \ = \ - \left( \Im g
 \right)_x \, \text{.}
@@ -494,13 +494,13 @@ g \ := \ u_x - i \, u_y \,\text{.}
 <div class="para logical" id="sec_defharmonic-14-3">
 <div class="para">
 <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a> implies that <span class="process-math">\(g\)</span> is holomorphic in <span class="process-math">\(G\text{,}\)</span> and so we can use <a href="sec_antiderivagain.html#cor_simplyconnectedprimitive" class="xref" data-knowl="./knowl/xref/cor_simplyconnectedprimitive.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.2.4">Corollary 5.2.4</a> to obtain an antiderivative <span class="process-math">\(h\)</span> of <span class="process-math">\(g\)</span> on <span class="process-math">\(G\)</span> (here is where we use the fact that <span class="process-math">\(G\)</span> is simply connected). Now we decompose <span class="process-math">\(h\)</span> into its real and imaginary parts as <span class="process-math">\(h=a+ib\text{.}\)</span> Then, again using <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a>,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/cor_simplyconnectedprimitive.html ./knowl/xref/cre.html ./knowl/xref/crequations.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/cor_simplyconnectedprimitive.html ./knowl/xref/cre.html ./knowl/xref/crequations.html" id="sec_defharmonic-14-3-12">
 \begin{equation*}
 g \ = \ h' \ = \ a_x + i \, b_x \ = \ a_x - i \, a_y \,\text{.}
 \end{equation*}
 </div>
 <div class="para">(The second equation follows from the Cauchy–Riemann equations <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a>.) But the real part of <span class="process-math">\(g\)</span> is <span class="process-math">\(u_x\text{,}\)</span> so we obtain <span class="process-math">\(u_x = a_x\)</span> and thus <span class="process-math">\(u(x,y) = a(x,y) + c(y)\)</span> for some function <span class="process-math">\(c\)</span> that depends only on <span class="process-math">\(y\text{.}\)</span> On the other hand, comparing the imaginary parts of <span class="process-math">\(g\)</span> and <span class="process-math">\(h'\)</span> yields <span class="process-math">\(-u_y = -a_y\)</span> and so <span class="process-math">\(u(x,y) = a(x,y) + c(x)\)</span> where <span class="process-math">\(c\)</span> depends only on <span class="process-math">\(x\text{.}\)</span> Hence <span class="process-math">\(c\)</span> has to be constant, and <span class="process-math">\(u(x,y)=a(x,y)+c\text{.}\)</span> But then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/cor_simplyconnectedprimitive.html ./knowl/xref/cre.html ./knowl/xref/crequations.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/cor_simplyconnectedprimitive.html ./knowl/xref/cre.html ./knowl/xref/crequations.html" id="sec_defharmonic-14-3-29">
 \begin{equation*}
 f(z) \ := \ h(z) + c
 \end{equation*}
@@ -510,7 +510,7 @@ f(z) \ := \ h(z) + c
 </div>
 <div class="autopermalink" data-description="Proof 6.1.1"><a href="#sec_defharmonic-14" title="Copy heading and permalink for Proof 6.1.1" aria-label="Copy heading and permalink for Proof 6.1.1">🔗</a></div></article><div class="para logical" id="sec_defharmonic-15">
 <div class="para">As a side remark, with hindsight it should not be surprising that the function <span class="process-math">\(g\)</span> that we first constructed in our proof is the derivative of the sought-after function <span class="process-math">\(f\text{.}\)</span> Namely, by <a href="sec_Cauchy-Riemann.html#cre" class="xref" data-knowl="./knowl/xref/cre.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.1">Theorem 2.3.1</a> such a function <span class="process-math">\(f=u+iv\)</span> must satisfy</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/crequations.html ./knowl/xref/harmonictoholomorphic.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cre.html ./knowl/xref/crequations.html ./knowl/xref/harmonictoholomorphic.html" id="sec_defharmonic-15-5">
 \begin{equation*}
 f' \ = \ u_x + i \, v_x \ = \ u_x - i \, u_y \,\text{.}
 \end{equation*}
@@ -525,20 +525,20 @@ f' \ = \ u_x + i \, v_x \ = \ u_x - i \, u_y \,\text{.}
 </h3>
 <div class="para logical" id="sec_defharmonic-17-1-1">
 <div class="para">Revisiting <a href="sec_defharmonic.html#exam_xyharmonic" class="xref" data-knowl="./knowl/xref/exam_xyharmonic.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.1.2">Example 6.1.2</a> for the second time, we can construct a harmonic conjugate of <span class="process-math">\(u(x,y) = xy\)</span> along the lines of our proof of <a href="sec_defharmonic.html#harmonictoholomorphic" class="xref" data-knowl="./knowl/xref/harmonictoholomorphic.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.1.7">Theorem 6.1.7</a>: first let</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_xyharmonic.html ./knowl/xref/harmonictoholomorphic.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_xyharmonic.html ./knowl/xref/harmonictoholomorphic.html" id="sec_defharmonic-17-1-1-4">
 \begin{equation*}
 g \ := \ u_x - i \, u_y \ = \   y - i \, x \ = \  -i \, z
 \end{equation*}
 </div>
 <div class="para">which has antiderivative</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_xyharmonic.html ./knowl/xref/harmonictoholomorphic.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_xyharmonic.html ./knowl/xref/harmonictoholomorphic.html" id="sec_defharmonic-17-1-1-5">
 \begin{equation*}
 h(z) \ = \ - \tfrac i 2 \, z^2 \ = \ xy - \tfrac i 2 \left( x^2 -
 y^2 \right) 
 \end{equation*}
 </div>
 <div class="para">whose real part is <span class="process-math">\(u\)</span> and whose imaginary part</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_xyharmonic.html ./knowl/xref/harmonictoholomorphic.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_xyharmonic.html ./knowl/xref/harmonictoholomorphic.html" id="sec_defharmonic-17-1-1-7">
 \begin{equation*}
 v(x,y) \ := \ - \tfrac 1 2 \left( x^2 - y^2 \right)
 \end{equation*}
@@ -564,7 +564,7 @@ imaginary(h)
 </h3>
 <div class="para logical" id="thm_axler-1-1">
 <div class="para">Suppose <span class="process-math">\(u\)</span> is harmonic on <span class="process-math">\(\C\text{.}\)</span> Then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="thm_axler-1-1-3">
 \begin{equation*}
 v(x,y) := \int_0^y \frac{ \partial u }{ \partial x } (x,t)
 \, \diff{t} - \int_0^x \frac{ \partial u }{ \partial y }
@@ -578,7 +578,7 @@ v(x,y) := \int_0^y \frac{ \partial u }{ \partial x } (x,t)
 <div class="autopermalink" data-description="Theorem 6.1.9"><a href="#thm_axler" title="Copy heading and permalink for Theorem 6.1.9" aria-label="Copy heading and permalink for Theorem 6.1.9">🔗</a></div></article><article class="proof" id="sec_defharmonic-22"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="sec_defharmonic-22-1">
 <div class="para">We will prove that <span class="process-math">\(u+iv\)</span> satisfies the Cauchy–Riemann equations  <a href="sec_Cauchy-Riemann.html#crequations" class="xref" data-knowl="./knowl/xref/crequations.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a>. The first follows from</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/crequations.html ./knowl/xref/fundthmcalc.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/crequations.html ./knowl/xref/fundthmcalc.html" id="sec_defharmonic-22-1-5">
 \begin{equation*}
 \frac{ \partial v }{ \partial y } (x,y) = \frac{ \partial u }{
 \partial x } (x,y) \, \text{,}

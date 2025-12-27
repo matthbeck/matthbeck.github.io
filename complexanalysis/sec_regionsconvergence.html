@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -358,7 +358,7 @@ eBookConfig.enable_chatcodes =  false;
 </h3>
 <div class="para logical" id="sec_regionsconvergence-3-1-1">
 <div class="para">A <em class="emphasis">power series centered at <span class="process-math">\(z_0\)</span></em> is a series of the form</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_regionsconvergence-3-1-1-2">
 \begin{equation*}
 \s c_k \left( z - z_0 \right)^k
 \end{equation*}
@@ -372,7 +372,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para logical" id="sec_regionsconvergence-4-1-1">
 <div class="para">A slight modification of <a href="sec_sequseriesfunctions.html#ex_geomseriesasfunction" class="xref" data-knowl="./knowl/xref/ex_geomseriesasfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.8">Example 7.3.8</a> gives a fundamental power series, namely the <em class="emphasis">geometric series</em>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_geomseriesasfunction.html ./knowl/xref/ex_geomseriesasfunction.html ./knowl/xref/ex_geomseriesdiv.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_geomseriesasfunction.html ./knowl/xref/ex_geomseriesasfunction.html ./knowl/xref/ex_geomseriesdiv.html" id="sec_regionsconvergence-4-1-1-3">
 \begin{equation*}
 \sum_{ k \ge 0 } z^k \ = \ \frac 1 {1-z} \,\text{.}
 \end{equation*}
@@ -428,13 +428,13 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" data-description="Proposition 7.4.5"><a href="#prop_convergenceradius" title="Copy heading and permalink for Proposition 7.4.5" aria-label="Copy heading and permalink for Proposition 7.4.5">🔗</a></div></article><article class="proof" id="sec_regionsconvergence-11"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="sec_regionsconvergence-11-1">
 <div class="para">Let <span class="process-math">\(r := |w - z_0|\text{.}\)</span> If <span class="process-math">\(\s c_k ( w - z_0)^k\)</span> converges then <span class="process-math">\(\lim_{ k \to \infty } c_k ( w - z_0)^k = 0\)</span> and so this sequence of terms is bounded (by <a href="powerchapter-7.html#ex_convseqbounded" class="xref" data-knowl="./knowl/xref/ex_convseqbounded.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.6">Exercise 7.5.6</a>), say</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_convseqbounded.html ./knowl/xref/cor_comparisonseries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_convseqbounded.html ./knowl/xref/cor_comparisonseries.html" id="sec_regionsconvergence-11-1-5">
 \begin{equation*}
 \left| c_k ( w - z_0)^k \right| \ = \ |c_k| \, r^k \ \le \ M \,\text{.}
 \end{equation*}
 </div>
 <div class="para">Now if <span class="process-math">\(|z - z_0| \lt  |w - z_0|\text{,}\)</span> then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_convseqbounded.html ./knowl/xref/cor_comparisonseries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_convseqbounded.html ./knowl/xref/cor_comparisonseries.html" id="sec_regionsconvergence-11-1-7">
 \begin{equation*}
 \s \left| c_k ( z - z_0)^k \right| \ = \ \s |c_k| \, r^k \left(
 \frac{ |z-z_0| }{ r } \right)^k \ \le \ M \s \left( \frac{
@@ -449,7 +449,7 @@ eBookConfig.enable_chatcodes =  false;
 <article class="proof" id="sec_regionsconvergence-13"><h3 class="heading"><span class="title">Proof of Theorem 7.4.3.</span></h3>
 <div class="para logical" id="sec_regionsconvergence-13-2">
 <div class="para">Consider the set</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_regionsconvergence-13-2-1">
 \begin{equation*}
 S \ := \ \left\{ x \in \R_{ \ge 0 } : \, \s c_k \, x^k \text{
 converges }  \right\} \text{.}
@@ -464,7 +464,7 @@ converges }  \right\} \text{.}
 </div>
 <div class="para logical" id="sec_regionsconvergence-13-5">
 <div class="para">Now assume <span class="process-math">\(R &gt; 0\text{.}\)</span> If <span class="process-math">\(|z-z_0| \lt  R\)</span> then (because <span class="process-math">\(R\)</span> is a least upper bound for <span class="process-math">\(S\)</span>) there exists <span class="process-math">\(r \in S\)</span> such that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_convergenceradius.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_convergenceradius.html" id="sec_regionsconvergence-13-5-6">
 \begin{equation*}
 |z-z_0| \lt  r \le R \,\text{.}
 \end{equation*}
@@ -477,7 +477,7 @@ converges }  \right\} \text{.}
 <div class="para logical" id="sec_regionsconvergence-13-7">
 <div class="para">Finally, if <span class="process-math">\(|z-z_0| &gt; R\)</span> then there exists <span class="process-math">\(r \notin
 S\)</span> such that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/absconvthm.html ./knowl/xref/prop_convergenceradius.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/absconvthm.html ./knowl/xref/prop_convergenceradius.html" id="sec_regionsconvergence-13-7-3">
 \begin{equation*}
 R \le r \lt  |z-z_0| \,\text{.}
 \end{equation*}
@@ -490,7 +490,7 @@ R \le r \lt  |z-z_0| \,\text{.}
 </h3>
 <div class="para logical" id="cor_roottest-1-1">
 <div class="para">If <span class="process-math">\(\lim_{ k \to \infty } \sqrt[k]{ |c_k| }\)</span> exists then the radius of convergence of <span class="process-math">\(\s c_k ( z - z_0)^k\)</span> equals</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="cor_roottest-1-1-3">
 \begin{equation*}
 R = \begin{cases}\infty \amp  \text{ if }  \lim_{ k \to
 \infty } \sqrt[k]{ |c_k| } = 0 \, , \\ \frac{ 1 }{ \lim_{ k
@@ -509,7 +509,7 @@ R = \begin{cases}\infty \amp  \text{ if }  \lim_{ k \to
 <div class="para">Suppose <span class="process-math">\(r := |z-z_0| \lt  R\text{.}\)</span> Since <span class="process-math">\(\lim_{ k \to \infty } \sqrt[k]{ |c_k| } = \frac 1
 R\)</span> and <span class="process-math">\(\frac{ 2 }{ R+r } &gt; \frac 1 R\text{,}\)</span> there exists <span class="process-math">\(N\)</span> such that <span class="process-math">\(\sqrt[k]{ |c_k| } \lt  \frac{
 2 }{ R+r }\)</span> for <span class="process-math">\(k \ge N\text{.}\)</span> For those <span class="process-math">\(k\)</span> we then have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/mtest.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/mtest.html" id="cor_roottest-2-3-8">
 \begin{equation*}
 \left| c_k (z-z_0)^k \right| \ = \ |c_k| |z-z_0|^k \ = \ \left(
 \sqrt[k]{ |c_k| } \, r \right)^k \ \lt  \ \left( \frac{ 2r
@@ -524,7 +524,7 @@ R\)</span> and <span class="process-math">\(\frac{ 2 }{ R+r } &gt; \frac 1 R\tex
 \frac 1 R\)</span> and now <span class="process-math">\(\frac{ 2 }{ R+r } \lt  \frac 1 R\text{,}\)</span> there exists <span class="process-math">\(N\)</span> such that <span class="process-math">\(\sqrt[k]{ |c_k| } &gt; \frac{
 2 }{ R+r }\)</span> for <span class="process-math">\(k \ge N\text{.}\)</span> For those <span class="process-math">\(k\text{,}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_divtest.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_divtest.html" id="cor_roottest-2-4-8">
 \begin{equation*}
 \left| c_k (z-z_0)^k \right| \ = \ \left( \sqrt[k]{ |c_k| } \,
 r \right)^k \ &gt; \ \left( \frac{ 2r }{ R+r } \right)^k \ &gt; \
@@ -541,7 +541,7 @@ r \right)^k \ &gt; \ \left( \frac{ 2r }{ R+r } \right)^k \ &gt; \
 </h3>
 <div class="para logical" id="sec_regionsconvergence-16-1-1">
 <div class="para">For the power series <span class="process-math">\(\s k \, z^k\)</span> we compute</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_roottest.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_roottest.html" id="sec_regionsconvergence-16-1-1-2">
 \begin{equation*}
 \lim_{ k \to \infty } \sqrt[k]{ |c_k| } \ = \ \lim_{ k \to
 \infty } \sqrt[k]{ k } \ = \ \lim_{ k \to \infty } e^{ \frac 1
@@ -558,7 +558,7 @@ k \ln(k) } \ = \ e^{ \lim_{ k \to \infty } \frac { \ln(k) } k }
 <div class="para logical" id="exponentialfunctionradius-1-1">
 <div class="para">Consider the power series <span class="process-math">\(\sum_{ k \ge 0 } \frac{ 1 }{
 k! } \, z^k \text{.}\)</span> Since</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_ratiotest.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_ratiotest.html" id="exponentialfunctionradius-1-1-2">
 \begin{equation*}
 \lim_{ k \to \infty } \left| \frac{ c_{ k+1 } }{ c_{ k } }
 \right| \ = \ \lim_{ k \to \infty } \frac{ k! }{ (k+1)! } \ = \
@@ -587,7 +587,7 @@ k! } \, z^k \text{.}\)</span> Since</div>
 </h3>
 <div class="para logical" id="powseriesintegral-1-1">
 <div class="para">Suppose the power series <span class="process-math">\(\s c_k ( z - z_0 )^k\)</span> has radius of convergence <span class="process-math">\(R&gt;0\)</span> and <span class="process-math">\(\gamma\)</span> is a piecewise smooth path in <span class="process-math">\(D[z_0, R]\text{.}\)</span>  Then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="powseriesintegral-1-1-6">
 \begin{equation*}
 \int_\gamma \ \s c_k ( z - z_0 )^k \, \diff{z} \ = \ \s c_k
 \int_\gamma ( z - z_0 )^k \, \diff{z} \, \text{.}

@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -369,7 +369,7 @@ eBookConfig.enable_chatcodes =  false;
 </h3>
 <div class="para logical" id="sec_antiderivatives-6-1-1">
 <div class="para">Since</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_antiderivatives-6-1-1-1">
 \begin{equation*}
 \frac{ d }{ \diff{z} } \left( \frac 1 {2i} (\exp(iz) -
 \exp(-iz)) \right) \ = \ \frac 1 2 (\exp(iz) + \exp(-iz)) \, \text{,}
@@ -393,7 +393,7 @@ eBookConfig.enable_chatcodes =  false;
 </h3>
 <div class="para logical" id="antiderthm-1-1">
 <div class="para">Suppose <span class="process-math">\(G \subseteq \C\)</span> is a region and <span class="process-math">\(\gg \subset G\)</span> is a piecewise smooth path with parametrization <span class="process-math">\(\gg(t)\text{,}\)</span> <span class="process-math">\(a \leq t \leq b\text{.}\)</span> If <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\(G\)</span> and <span class="process-math">\(F\)</span> is any antiderivative of <span class="process-math">\(f\)</span> on <span class="process-math">\(G\)</span> then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="antiderthm-1-1-10">
 \begin{equation*}
 \int_\gg f \ = \ F \left( \gg(b) \right) - F \left( \gg(a)
 \right)  \, \text{.}
@@ -406,7 +406,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para">This follows immediately from the definition of a complex integral and <a href="appendix-calculus.html#fundthmcalc" class="xref" data-knowl="./knowl/xref/fundthmcalc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.3: Fundamental Theorem of Calculus">Theorem A.0.3</a>(<a href="appendix-calculus.html#fundthmcalc2" class="xref" data-knowl="./knowl/xref/fundthmcalc2.html" data-reveal-label="Reveal" data-close-label="Close" title="Item b">b</a>), since <span class="process-math">\(\frac{ d }{ \diff{t} } F(\gg(t)) = f(\gg(t)) \,
 \gg'(t)\text{:}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fundthmcalc.html ./knowl/xref/fundthmcalc2.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fundthmcalc.html ./knowl/xref/fundthmcalc2.html" id="sec_antiderivatives-10-1-4">
 \begin{equation*}
 \int_\gg f \ = \ \int_a^b f(\gg(t)) \, \gg'(t) \, \diff{t} \ = \ F
 \left( \gg(b) \right) - F \left( \gg(a) \right) \, .
@@ -420,7 +420,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para logical" id="sec_antiderivatives-11-1-1">
 <div class="para">Since <span class="process-math">\(F(z) = \frac 1 2 \, z^2\)</span> is an antiderivative of <span class="process-math">\(f(z) = z\)</span> in <span class="process-math">\(\C\text{,}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/firstintexample.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/firstintexample.html" id="sec_antiderivatives-11-1-1-4">
 \begin{equation*}
 \int_\gg f \ = \ \frac 1 2 (1+i)^2 - \frac 1 2 \, 0^2 \ = \ i
 \end{equation*}
@@ -435,7 +435,7 @@ eBookConfig.enable_chatcodes =  false;
 </h3>
 <div class="para logical" id="antidercor-1-1">
 <div class="para">Suppose <span class="process-math">\(G \subseteq \C\)</span> is open, <span class="process-math">\(\gg \subset G\)</span> is a piecewise smooth closed path, and <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\(G\)</span> and has an antiderivative on <span class="process-math">\(G\text{.}\)</span> Then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="antidercor-1-1-6">
 \begin{equation*}
 \int_\gg f \ = \ 0 \,\text{.}
 \end{equation*}
@@ -458,7 +458,7 @@ eBookConfig.enable_chatcodes =  false;
 </h3>
 <div class="para logical" id="thm_FTC1-1-1">
 <div class="para">Suppose <span class="process-math">\(G \subseteq \C\)</span> is a region and <span class="process-math">\(z_0 \in G\text{.}\)</span> Let <span class="process-math">\(f: G \to \C\)</span> be a continuous function such that <span class="process-math">\(\int_\gg f = 0\)</span> for any closed piecewise smooth path <span class="process-math">\(\gg \subset G\text{.}\)</span> Then the function <span class="process-math">\(F: G \to \C\)</span> defined by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="thm_FTC1-1-1-7">
 \begin{equation*}
 F(z) \ := \ \int_{\gg_z} f\text{,}
 \end{equation*}
@@ -472,20 +472,20 @@ F(z) \ := \ \int_{\gg_z} f\text{,}
 </div>
 <div class="para logical" id="thm_FTC1-2-2">
 <div class="para">Suppose <span class="process-math">\(G \subseteq \C\)</span> is a region, <span class="process-math">\(z_0 \in G\text{,}\)</span> and <span class="process-math">\(f: G \to \C\)</span> is a continuous function such that <span class="process-math">\(\int_\gg f = 0\)</span> for any closed piecewise smooth path <span class="process-math">\(\gg \subset G\text{.}\)</span> Then <span class="process-math">\(\int_\sigma f\)</span> evaluates to the same number for any piecewise smooth path <span class="process-math">\(\sigma \subset G\)</span> from <span class="process-math">\(z_0\)</span> to <span class="process-math">\(z \in G\text{,}\)</span> because any two such paths <span class="process-math">\(\sigma_1\)</span> and <span class="process-math">\(\sigma_2\)</span> can be concatenated to a closed path first tracing through <span class="process-math">\(\sigma_1\)</span> and then through <span class="process-math">\(\sigma_2\)</span> backwards, which by assumption yields a zero integral:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antiderthm.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antiderthm.html" id="thm_FTC1-2-2-14">
 \begin{equation*}
 \int_{ \sigma_1 } f \ - \ \int_{ \sigma_2 } f \ = \ \int_{
 \sigma_1 - \sigma_2 } f \ = \ 0 \, \text{.}
 \end{equation*}
 </div>
 <div class="para">This means that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antiderthm.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antiderthm.html" id="thm_FTC1-2-2-15">
 \begin{equation*}
 F(z) \ := \ \int_{\gg_z} f
 \end{equation*}
 </div>
 <div class="para">is well defined. By the same argument,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antiderthm.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antiderthm.html" id="thm_FTC1-2-2-16">
 \begin{equation*}
 F(z+h) - F(z) \ = \ \int_{\gg_{z+h}} f \ - \ \int_{\gg_z} f \ = \ \int_\gg f
 \end{equation*}
@@ -514,7 +514,7 @@ F(z+h) - F(z) \ = \ \int_{\gg_{z+h}} f \ - \ \int_{\gg_z} f \ = \ \int_\gg f
 </div>
 <div class="para">We will show that the right-hand side goes to zero as <span class="process-math">\(h \to
 0\text{,}\)</span> which will conclude the theorem. Given <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> we can choose <span class="process-math">\(\delta &gt; 0\)</span> such that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_makepathstraight.html ./knowl/xref/intprop.html ./knowl/xref/int4.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_makepathstraight.html ./knowl/xref/intprop.html ./knowl/xref/int4.html" id="thm_FTC1-2-3-10">
 \begin{equation*}
 \abs{ w-z } \lt  \delta \qquad \Longrightarrow \qquad \abs{
 f(w) - f(z) } \lt  \epsilon 
@@ -541,7 +541,7 @@ f(w) - f(z) } \lt  \epsilon
 <div class="para logical" id="thm_FTC1polygonal-1-1">
 <div class="para">Suppose <span class="process-math">\(G \subseteq \C\)</span> is a region and <span class="process-math">\(z_0 \in G\text{.}\)</span> Let <span class="process-math">\(f: G \to \C\)</span> be a continuous function such that <span class="process-math">\(\int_\gg f = 0\)</span> for any closed polygonal path <span class="process-math">\(\gg
 \subset G\text{.}\)</span> Then the function <span class="process-math">\(F: G \to \C\)</span> defined by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="thm_FTC1polygonal-1-1-7">
 \begin{equation*}
 F(z) \ := \ \int_{\gg_z} f \,\text{,}
 \end{equation*}

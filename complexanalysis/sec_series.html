@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
@@ -370,7 +370,7 @@ sagecell.makeSagecell({
 </div>
 <div class="autopermalink" data-description="Definition 7.2.1"><a href="#sec_series-2" title="Copy heading and permalink for Definition 7.2.1" aria-label="Copy heading and permalink for Definition 7.2.1">🔗</a></div></article><div class="para logical" id="sec_series-3">
 <div class="para">If we wanted to be lazy we would define convergence of a series simply by referring to convergence of the partial sums of the series—after all, we just defined series through sequences. However, there are some convergence features that take on special appearances for series, so we mention them here explicitly. For starters, a series <em class="emphasis">converges</em> to the <em class="emphasis">limit</em> (or <em class="emphasis">sum</em>) <span class="process-math">\(L\)</span> by definition if</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_series-3-6">
 \begin{equation*}
 \lim_{n \to \infty} a_n \ = \ \lim_{n \to \infty} \sum_{k=1}^n b_k
 \ = \ L \, \text{.}
@@ -381,7 +381,7 @@ sagecell.makeSagecell({
 <div class="para logical" id="sec_series-4">
 <div class="para">To prove that a series converges we use the definition of limit of a sequence: for any <span class="process-math">\(\epsilon &gt; 0\)</span> we have to find an <span class="process-math">\(N\)</span> such that for all <span class="process-math">\(n \geq N\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_series-4-4">
 \begin{equation*}
 \left| \sum_{k=1}^n b_k - L \right| \ \lt  \ \epsilon \,\text{.}
 \end{equation*}
@@ -395,7 +395,7 @@ sagecell.makeSagecell({
 </h3>
 <div class="para logical" id="ex_geomseries-1-1">
 <div class="para">Fix <span class="process-math">\(z \in \C\)</span> with <span class="process-math">\(|z| \lt  1\text{.}\)</span> We claim that the <em class="emphasis">geometric series</em> <span class="process-math">\(\sum_{ k \ge 1 } z^k\)</span> converges with limit</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ex_geomseries-1-1-5">
 \begin{equation*}
 \sum_{ k \ge 1 } z^k \ = \ \frac z {1-z} \,\text{.}
 \end{equation*}
@@ -403,7 +403,7 @@ sagecell.makeSagecell({
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_geomseries-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="ex_geomseries-1-2">
 <div class="para">In this case, we can compute the partial sums explicitly:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/r_n-_0.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/r_n-_0.html" id="ex_geomseries-1-2-1">
 \begin{equation*}
 \sum_{k=1}^n z^k \ = \ z + z^2 + \dots + z^n \ = \ \frac{ z -
 z^{n+1} }{ 1 - z } \, \text{,}
@@ -453,7 +453,7 @@ sum(1/(k^2+k),k,1, +oo)
 <div class="para logical" id="sec_series-11-1-1">
 <div class="para">With this new terminology, we can revisit <a href="sec_sequencescomplete.html#ex_e-1series" class="xref" data-knowl="./knowl/xref/ex_e-1series.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.1.7">Example 7.1.7</a>: Let <span class="process-math">\(b_k = \frac
 1 {k!}\text{.}\)</span> In <a href="sec_sequencescomplete.html#ex_e-1series" class="xref" data-knowl="./knowl/xref/ex_e-1series.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.1.7">Example 7.1.7</a> we showed that the partial sums</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_e-1series.html ./knowl/xref/ex_e-1series.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_e-1series.html ./knowl/xref/ex_e-1series.html" id="sec_series-11-1-1-4">
 \begin{equation*}
 \sum_{ k=1 }^{ n } b_k \ = \ \sum_{ k=1 }^{ n } \frac 1 {k!}
 \end{equation*}
@@ -472,7 +472,7 @@ sum(1/(k^2+k),k,1, +oo)
 <div class="autopermalink" data-description="Corollary 7.2.6"><a href="#cor_comparisonseries" title="Copy heading and permalink for Corollary 7.2.6" aria-label="Copy heading and permalink for Corollary 7.2.6">🔗</a></div></article><article class="proof" id="cor_comparisonseries-2"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="cor_comparisonseries-2-1">
 <div class="para">By <a href="sec_series.html#positiveseries" class="xref" data-knowl="./knowl/xref/positiveseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.4">Corollary 7.2.4</a>, the partial sums <span class="process-math">\(\sum_{k=1}^n b_k\)</span> are bounded, and thus so are</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/positiveseries.html ./knowl/xref/positiveseries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/positiveseries.html ./knowl/xref/positiveseries.html" id="cor_comparisonseries-2-1-3">
 \begin{equation*}
 \sum_{k=1}^n c_k \ \le \ \sum_{k=1}^n b_k \,\text{.}
 \end{equation*}
@@ -523,7 +523,7 @@ L \ \amp = \ 1+\frac12 + \frac13 + \frac 14 + \frac 15
 </h3>
 <div class="para logical" id="prop_integraltest-2-1">
 <div class="para">If <span class="process-math">\(f: [1,\infty) \to \R_{ \ge 0 }\)</span> is continuous and nonincreasing, then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="prop_integraltest-2-1-2">
 \begin{equation*}
 \int_1^\infty f(t)\,\diff{t} \ \le \ \sum_{k \ge 1} f(k) \
 \le \ f(1) + \int_1^\infty f(t)\,\diff{t} \, \text{.}
@@ -552,7 +552,7 @@ L \ \amp = \ 1+\frac12 + \frac13 + \frac 14 + \frac 15
 </h3>
 <div class="para logical" id="exam_riemannzetaprep-1-1">
 <div class="para">The series <span class="process-math">\(\sum_{k\ge1} \frac 1 {k^p}\)</span> converges for <span class="process-math">\(p &gt; 1\)</span> and diverges for <span class="process-math">\(p \lt  1\)</span> (and the case <span class="process-math">\(p=1\)</span> was the subject of <a href="sec_series.html#ex_harmonic" class="xref" data-knowl="./knowl/xref/ex_harmonic.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.2.10">Example 7.2.10</a>) because</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_harmonic.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_harmonic.html" id="exam_riemannzetaprep-1-1-6">
 \begin{equation*}
 \int_1^\infty \frac{ \diff{x} }{ x^p } \ = \ \lim_{ a \to
 \infty } \frac{ a^{ -p+1 } }{ -p+1 } + \frac 1 { p-1 } 
@@ -579,7 +579,7 @@ L \ \amp = \ 1+\frac12 + \frac13 + \frac 14 + \frac 15
 <article class="proof" id="sec_series-30"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="sec_series-30-1">
 <div class="para">Suppose <span class="process-math">\(\sum_{k \geq 1} \left| b_k \right|\)</span> converges. We first consider the case that each <span class="process-math">\(b_k\)</span> is real. Let</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html" id="sec_series-30-1-3">
 \begin{equation*}
 b_k^+ := \begin{cases}b_k \amp  \text{ if }  b_k \ge 0, \\ 0
 \amp  \text{ otherwise } \end{cases} \qquad \text{ and }
@@ -588,14 +588,14 @@ b_k^+ := \begin{cases}b_k \amp  \text{ if }  b_k \ge 0, \\ 0
 \end{equation*}
 </div>
 <div class="para">Then <span class="process-math">\(0 \le b_k^+ \le |b_k|\)</span> and <span class="process-math">\(0 \le - b_k^- \le |b_k|\)</span> for all <span class="process-math">\(k \ge 1\text{,}\)</span> and so by <a href="sec_series.html#cor_comparisonseries" class="xref" data-knowl="./knowl/xref/cor_comparisonseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.6">Corollary 7.2.6</a>, both</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html" id="sec_series-30-1-8">
 \begin{equation*}
 \sum_{ k \ge 1 } b_k^+ \qquad \text{ and }  \qquad - \sum_{ k
 \ge 1 } b_k^- 
 \end{equation*}
 </div>
 <div class="para">converge. But then so does</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html" id="sec_series-30-1-9">
 \begin{equation*}
 \sum_{ k \ge 1 } b_k \ = \ \sum_{ k \ge 1 } b_k^+ + \sum_{ k \ge
 1 } b_k^- \text{.}
@@ -606,7 +606,7 @@ b_k^+ := \begin{cases}b_k \amp  \text{ if }  b_k \ge 0, \\ 0
 <div class="para logical" id="sec_series-30-2">
 <div class="para">For the general case <span class="process-math">\(b_k \in \C\text{,}\)</span> we write each term as <span class="process-math">\(b_k = c_k + i \, d_k\text{.}\)</span> Since <span class="process-math">\(0 \le |c_k| \le |b_k|\)</span> for all <span class="process-math">\(k \ge 1\text{,}\)</span> <a href="sec_series.html#cor_comparisonseries" class="xref" data-knowl="./knowl/xref/cor_comparisonseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.6">Corollary 7.2.6</a> implies that <span class="process-math">\(\sum_{ k \ge 1 } c_k\)</span> converges absolutely, and by an analogous argument, so does <span class="process-math">\(\sum_{ k \ge 1 } d_k\text{.}\)</span> But now we can use the first case to deduce that both <span class="process-math">\(\sum_{
 k \ge 1 } c_k\)</span> and <span class="process-math">\(\sum_{ k \ge 1 } d_k\)</span> converge, and thus so does</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html" id="sec_series-30-2-10">
 \begin{equation*}
 \sum_{ k \ge 1 } b_k \ = \ \sum_{ k \ge 1 } c_k + i \sum_{ k \ge
 1 } d_k \, \text{.}
@@ -619,13 +619,13 @@ k \ge 1 } c_k\)</span> and <span class="process-math">\(\sum_{ k \ge 1 } d_k\)</
 </h3>
 <div class="para logical" id="exam_riemannzet-1-1">
 <div class="para">Continuing <a href="sec_series.html#exam_riemannzetaprep" class="xref" data-knowl="./knowl/xref/exam_riemannzetaprep.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.2.14">Example 7.2.14</a>,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_riemannzetaprep.html ./knowl/xref/ex_absolutepowers.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_riemannzetaprep.html ./knowl/xref/ex_absolutepowers.html" id="exam_riemannzet-1-1-2">
 \begin{equation*}
 \zeta(z) \ := \ \sum_{k\ge1} \frac 1 {k^z}
 \end{equation*}
 </div>
 <div class="para">converges for <span class="process-math">\(\Re(z)&gt;1\text{,}\)</span> because then (using <a href="chapter3-exercises.html#ex_absolutepowers" class="xref" data-knowl="./knowl/xref/ex_absolutepowers.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.6.48">Exercise 3.6.48</a>)</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_riemannzetaprep.html ./knowl/xref/ex_absolutepowers.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_riemannzetaprep.html ./knowl/xref/ex_absolutepowers.html" id="exam_riemannzet-1-1-5">
 \begin{equation*}
 \sum_{k\ge1} \left| k^{ -z } \right| \ = \ \sum_{k\ge1} k^{ - \Re(z) }
 \end{equation*}
@@ -652,7 +652,7 @@ k \ge 1 } c_k\)</span> and <span class="process-math">\(\sum_{ k \ge 1 } d_k\)</
 \end{align*}
 </div>
 <div class="para"> (There is a small technical detail to be checked here, since we are effectively ignoring half the partial sums of the original series; see <a href="powerchapter-7.html#ex_groupingterms" class="xref" data-knowl="./knowl/xref/ex_groupingterms.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 7.5.16">Exercise 7.5.16</a>.) Since</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_groupingterms.html ./knowl/xref/cor_comparisonseries.html ./knowl/xref/exam_riemannzetaprep.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_groupingterms.html ./knowl/xref/cor_comparisonseries.html ./knowl/xref/exam_riemannzetaprep.html" id="ex_altharmonic-1-1-6">
 \begin{equation*}
 \frac1{2k-1}-\frac1{2k} \ = \ \frac1{2k(2k-1)} \ \le \ \frac 1
 { (2k-1)^2 } \ \le \ \frac 1 { k^2 } \, \text{,}

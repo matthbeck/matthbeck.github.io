@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -360,7 +360,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para">Let <span class="process-math">\(G \subseteq \C\)</span> and <span class="process-math">\(f_n : G \to \C\)</span> for <span class="process-math">\(n
 \ge 1\text{.}\)</span> We say that <span class="process-math">\((f_n)\)</span> <em class="emphasis">converges pointwise</em> to <span class="process-math">\(f: G \to \C\)</span> if for each <span class="process-math">\(z \in G\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_sequseriesfunctions-3-1-1-8">
 \begin{equation*}
 \lim_{ n \to \infty } f_n(z) \ = \ f(z) \,\text{.}
 \end{equation*}
@@ -368,7 +368,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para"> We say that <span class="process-math">\((f_n)\)</span> <em class="emphasis">converges uniformly</em> to <span class="process-math">\(f: G \to \C\)</span> if for all <span class="process-math">\(\epsilon&gt;0\)</span> there is an <span class="process-math">\(N\)</span> such that for all <span class="process-math">\(z
 \in G\)</span> and for all <span class="process-math">\(n \geq N\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_sequseriesfunctions-3-1-1-18">
 \begin{equation*}
 \left| f_n(z) - f(z) \right| \ \lt  \ \epsilon\,\text{.}
 \end{equation*}
@@ -381,7 +381,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para logical" id="sec_sequseriesfunctions-5">
 <div class="para">Let’s digest these two notions of convergence of a function sequence by describing them using quantifiers; as usual, <span class="process-math">\(\forall\)</span> denotes <em class="emphasis">for all</em> and <span class="process-math">\(\exists\)</span> means <em class="emphasis">there exists</em>. Pointwise convergence on <span class="process-math">\(G\)</span> says</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_sequseriesfunctions-5-6">
 \begin{equation*}
 \forall \, \epsilon &gt; 0 \ \ \forall \, z \in G \ \ \exists \, N
 \ \ \forall \, n \geq N \ \ \left| f_n(z) - f(z) \right| \ \lt
@@ -389,7 +389,7 @@ eBookConfig.enable_chatcodes =  false;
 \end{equation*}
 </div>
 <div class="para">whereas uniform convergence on <span class="process-math">\(G\)</span> translates into</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_sequseriesfunctions-5-8">
 \begin{equation*}
 \forall \, \epsilon &gt; 0 \ \ \exists \, N \ \ \forall \, z \in G
 \ \ \forall \, n \geq N \ \ \left| f_n(z) - f(z) \right| \ \lt
@@ -405,7 +405,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para logical" id="ex_nonuniformconv-1-1">
 <div class="para">Let <span class="process-math">\(f_n : D[0,1] \to \C\)</span> be defined by <span class="process-math">\(f_n(z) = z^n\text{.}\)</span> We claim that this sequence of functions converges pointwise to <span class="process-math">\(f: D[0,1] \to \C\)</span> given by <span class="process-math">\(f(z) = 0\text{.}\)</span> This is immediate for the point <span class="process-math">\(z =0\text{.}\)</span> Now given any <span class="process-math">\(\epsilon &gt; 0\)</span> and <span class="process-math">\(0 \lt  |z| \lt  1\text{,}\)</span> choose <span class="process-math">\(N &gt; \frac{ \ln(\epsilon) }{ \ln|z| }\text{.}\)</span> Then for all <span class="process-math">\(n \ge N\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ex_nonuniformconv-1-1-10">
 \begin{equation*}
 \left| f_n(z) - f(z) \right| \ = \ \left| z^n - 0 \right| \ = \
 |z|^n \ \le \ |z|^N \ \lt  \ \epsilon \, \text{.}
@@ -420,7 +420,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para logical" id="ex_uniformconv-1-1">
 <div class="para">Let <span class="process-math">\(f_n : D[0, \frac 1 2] \to \C\)</span> be defined by <span class="process-math">\(f_n(z) = z^n\text{.}\)</span> We claim that this sequence of functions converges uniformly to <span class="process-math">\(f: D[0, \frac 1 2] \to \C\)</span> given by <span class="process-math">\(f(z) = 0\text{.}\)</span> Given any <span class="process-math">\(\epsilon &gt; 0\)</span> and <span class="process-math">\(|z| \lt  \frac 1 2\text{,}\)</span> choose <span class="process-math">\(N &gt; - \frac{ \ln(\epsilon) }{ \ln(2) }\text{.}\)</span> Then for all <span class="process-math">\(n \ge N\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ex_uniformconv-1-1-9">
 \begin{equation*}
 \left| f_n(z) - f(z) \right| \ = \ |z|^n \ \le \ |z|^N \ \lt  \
 \left( \tfrac 1 2 \right)^N \ \lt  \ \epsilon \, \text{.}
@@ -434,7 +434,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para logical" id="sec_sequseriesfunctions-9">
 <div class="para">The first application illustrating the difference between pointwise and uniform convergence says, in essence, that if we have a sequence of functions <span class="process-math">\(\left( f_n \right)\)</span> that converges uniformly on <span class="process-math">\(G\)</span> then for all <span class="process-math">\(z_0 \in G\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_sequseriesfunctions-9-4">
 \begin{equation*}
 \lim_{n \to \infty} \ \lim_{z \to z_0} f_n(z) \ = \ \lim_{z \to
 z_0} \ \lim_{n \to \infty} f_n(z) \, \text{.}
@@ -452,7 +452,7 @@ z_0} \ \lim_{n \to \infty} f_n(z) \, \text{.}
 <div class="para logical" id="sequencecontionuos-2-1">
 <div class="para">Let <span class="process-math">\(z_0 \in G\text{;}\)</span> we will prove that <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(z_0\text{.}\)</span> By uniform convergence, given <span class="process-math">\(\epsilon&gt;0\text{,}\)</span> there is an <span class="process-math">\(N\)</span> such that for all <span class="process-math">\(z \in G\)</span> and all <span class="process-math">\(n \geq N\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sequencecontionuos-2-1-8">
 \begin{equation*}
 \left| f_n(z) - f(z) \right| \ \lt  \ \frac \epsilon 3 \,\text{.}
 \end{equation*}
@@ -462,7 +462,7 @@ z_0} \ \lim_{n \to \infty} f_n(z) \, \text{.}
 <div class="para logical" id="sequencecontionuos-2-2">
 <div class="para">Now we make use of the continuity of the <span class="process-math">\(f_n\)</span>’s. This means that given (the same) <span class="process-math">\(\epsilon&gt;0\text{,}\)</span> there is a <span class="process-math">\(\delta&gt;0\)</span> such that whenever <span class="process-math">\(|z-z_0| \lt  \delta\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sequencecontionuos-2-2-5">
 \begin{equation*}
 \left| f_n(z) - f_n(z_0) \right| \ \lt  \ \frac \epsilon 3 \,\text{.}
 \end{equation*}
@@ -492,7 +492,7 @@ f_n(z) + f_n(z) - f_n(z_0) + f_n(z_0) - f(z_0) \right|\\
 </h3>
 <div class="para logical" id="sec_sequseriesfunctions-12-1-1">
 <div class="para">We modify <a href="sec_sequseriesfunctions.html#ex_nonuniformconv" class="xref" data-knowl="./knowl/xref/ex_nonuniformconv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.3.2">Example 7.3.2</a> and consider the real function sequence <span class="process-math">\(f_n: [0,1] \to \R\)</span> given by <span class="process-math">\(f_n(x) = x^n\text{.}\)</span> It converges pointwise to <span class="process-math">\(f: [0,1] \to \R\)</span> given by</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_nonuniformconv.html ./knowl/xref/ex_nonuniformconv.html ./knowl/xref/ex_nonuniformconv.html ./knowl/xref/fn_zn___0.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_nonuniformconv.html ./knowl/xref/ex_nonuniformconv.html ./knowl/xref/ex_nonuniformconv.html ./knowl/xref/fn_zn___0.html" id="sec_sequseriesfunctions-12-1-1-5">
 \begin{equation*}
 f(x) = \begin{cases}0 \amp  \text{ if }  0 \le x \lt  1 \, ,
 \\ 1 \amp  \text{ if }  x = 1 \, . \end{cases} 
@@ -508,7 +508,7 @@ f(x) = \begin{cases}0 \amp  \text{ if }  0 \le x \lt  1 \, ,
 </h3>
 <div class="para logical" id="seriesintegral-1-1">
 <div class="para">Suppose <span class="process-math">\(f_n: G \to \C\)</span> is continuous, for <span class="process-math">\(n \ge 1\text{,}\)</span> <span class="process-math">\((f_n)\)</span> converges uniformly to <span class="process-math">\(f: G \to \C\text{,}\)</span> and <span class="process-math">\(\gg \subseteq G\)</span> is a piecewise smooth path. Then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="seriesintegral-1-1-6">
 \begin{equation*}
 \lim_{n \to \infty} \int_\gamma f_n \ = \ \int_\gamma f \,\text{.}
 \end{equation*}
@@ -519,14 +519,14 @@ f(x) = \begin{cases}0 \amp  \text{ if }  0 \le x \lt  1 \, ,
 <div class="para logical" id="seriesintegral-2-1">
 <div class="para">We may assume that <span class="process-math">\(\gg\)</span> is not just a point, in which case the proposition holds trivially. Given <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> there exists <span class="process-math">\(N\)</span> such that for all <span class="process-math">\(z \in G\)</span> and all <span class="process-math">\(n \ge N\text{,}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/intprop.html ./knowl/xref/int4.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/intprop.html ./knowl/xref/int4.html" id="seriesintegral-2-1-6">
 \begin{equation*}
 \left| f_n(z) - f(z) \right| \ \lt  \ \frac{ \epsilon }{
 \length(\gg) } \, \text{.}
 \end{equation*}
 </div>
 <div class="para">With <a href="sec_intdef.html#intprop" class="xref" data-knowl="./knowl/xref/intprop.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.8">Proposition 4.1.8</a>(<a href="sec_intdef.html#int4" class="xref" data-knowl="./knowl/xref/int4.html" data-reveal-label="Reveal" data-close-label="Close" title="Item d">d</a>) we can thus estimate</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/intprop.html ./knowl/xref/int4.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/intprop.html ./knowl/xref/int4.html" id="seriesintegral-2-1-9">
 \begin{equation*}
 \left| \int_\gamma f_n - \int_\gamma f \right| \ = \ \left|
 \int_\gamma f_n - f \right| \ \leq \ \max_{z \in \gamma}
@@ -538,7 +538,7 @@ f(x) = \begin{cases}0 \amp  \text{ if }  0 \le x \lt  1 \, ,
 </div>
 <div class="autopermalink" data-description="Proof 7.3.6.1"><a href="#seriesintegral-2" title="Copy heading and permalink for Proof 7.3.6.1" aria-label="Copy heading and permalink for Proof 7.3.6.1">🔗</a></div></article><div class="para logical" id="sec_sequseriesfunctions-15">
 <div class="para">All of these notions for sequences of functions hold verbatim for series of functions. For example, if <span class="process-math">\(\sum_{ k \ge 1 } f_k(z)\)</span> converges uniformly on <span class="process-math">\(G\)</span> and <span class="process-math">\(\gg \subseteq G\)</span> is a piecewise smooth path, then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_sequseriesfunctions-15-4">
 \begin{equation*}
 \int_\gg \sum_{ k \ge 1 } f_k(z) \, \diff{z} \ = \ \sum_{ k \ge 1 }
 \int_\gg f_k(z) \, \diff{z} \, \text{.}
@@ -558,7 +558,7 @@ f(x) = \begin{cases}0 \amp  \text{ if }  0 \le x \lt  1 \, ,
 <div class="para logical" id="mtest-2-1">
 <div class="para">For each fixed <span class="process-math">\(z\text{,}\)</span> the series <span class="process-math">\(\sum_{k \geq 1} f_k(z)\)</span> converges absolutely by <a href="sec_series.html#cor_comparisonseries" class="xref" data-knowl="./knowl/xref/cor_comparisonseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 7.2.6">Corollary 7.2.6</a>. To show that the convergence is uniform, let <span class="process-math">\(\epsilon &gt; 0\text{.}\)</span> Then there exists <span class="process-math">\(N\)</span> such that for all <span class="process-math">\(n \ge N\text{,}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html" id="mtest-2-1-7">
 \begin{equation*}
 \sum_{k \ge 1} M_k - \sum_{k=1}^nM_k \ = \ \sum_{k &gt;n}M_k \ \lt
 \ \epsilon \, \text{.}
@@ -566,7 +566,7 @@ f(x) = \begin{cases}0 \amp  \text{ if }  0 \le x \lt  1 \, ,
 </div>
 <div class="para">Thus for all <span class="process-math">\(z \in G\)</span> and <span class="process-math">\(n \ge N\text{,}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_comparisonseries.html" id="mtest-2-1-10">
 \begin{equation*}
 \abs{\sum_{k \geq 1} f_k(z)-\sum_{k=1}^nf_k(z)} \ = \
 \abs{\sum_{k &gt;n}f_k(z)} \ \le \ \sum_{k &gt;n}\abs{f_k(z)} \ \le
@@ -582,7 +582,7 @@ f(x) = \begin{cases}0 \amp  \text{ if }  0 \le x \lt  1 \, ,
 <div class="para logical" id="ex_geomseriesasfunction-1-1">
 <div class="para">We revisit <a href="sec_series.html#ex_geomseries" class="xref" data-knowl="./knowl/xref/ex_geomseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.2.2">Example 7.2.2</a> and consider the geometric series <span class="process-math">\(\sum_{ k \ge 1 } z^k\)</span> as a series of functions in <span class="process-math">\(z\text{.}\)</span> We know from <a href="sec_series.html#ex_geomseries" class="xref" data-knowl="./knowl/xref/ex_geomseries.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.2.2">Example 7.2.2</a> that this function series converges pointwise for <span class="process-math">\(|z| \lt  1\text{:}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_geomseries.html ./knowl/xref/ex_geomseries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_geomseries.html ./knowl/xref/ex_geomseries.html" id="ex_geomseriesasfunction-1-1-6">
 \begin{equation*}
 \sum_{ k \ge 1 } z^k \ = \ \frac z {1-z} \,\text{.}
 \end{equation*}
@@ -590,7 +590,7 @@ f(x) = \begin{cases}0 \amp  \text{ if }  0 \le x \lt  1 \, ,
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_geomseriesasfunction-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="ex_geomseriesasfunction-1-2">
 <div class="para">To study uniform convergence, we apply <a href="sec_sequseriesfunctions.html#mtest" class="xref" data-knowl="./knowl/xref/mtest.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 7.3.7">Proposition 7.3.7</a> with <span class="process-math">\(f_k(z) = z^k\text{.}\)</span> We need a series of upper bounds that converges, so fix a real number <span class="process-math">\(0 \lt  r \lt  1\)</span> and let <span class="process-math">\(M_k = r^k\text{.}\)</span> Then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/mtest.html ./knowl/xref/ex_geomseries.html ./knowl/xref/mtest.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/mtest.html ./knowl/xref/ex_geomseries.html ./knowl/xref/mtest.html" id="ex_geomseriesasfunction-1-2-5">
 \begin{equation*}
 |f_k(z)| \ = \ |z|^k \ \le \ r^k \qquad \text{ for }  \ |z| \le
 r \, \text{,}

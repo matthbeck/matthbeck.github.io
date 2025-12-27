@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
@@ -365,7 +365,7 @@ sagecell.makeSagecell({
 </h2>
 <div class="para logical" id="sec_geometricprops-2">
 <div class="para">From the chain of basic inequalities</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_geometricprops-2-1">
 \begin{equation*}
 - \sqrt{ x^2 + y^2 } \le - \sqrt{ x^2 } \le x \le \sqrt{ x^2 }
 \le \sqrt{ x^2 + y^2 }
@@ -382,7 +382,7 @@ sagecell.makeSagecell({
 </div>
 <div class="para logical" id="sec_geometricprops-3">
 <div class="para">The square of the absolute value has the nice property</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_geometricprops-3-1">
 \begin{equation*}
 \left| x+iy \right|^2 \ = \ x^2 + y^2 \ = \ (x+iy) (x-iy) \,\text{.}
 \end{equation*}
@@ -396,7 +396,7 @@ sagecell.makeSagecell({
 </h3>
 <div class="para logical" id="sec_geometricprops-5-1-1">
 <div class="para">The number <span class="process-math">\(x-iy\)</span> is the <em class="emphasis">(complex) conjugate</em> of <span class="process-math">\(x+iy\text{.}\)</span>  We denote the conjugate by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_geometricprops-5-1-1-5">
 \begin{equation*}
 \overline{x+iy} \ := \ x-iy \,\text{.}
 \end{equation*}
@@ -493,7 +493,7 @@ sagecell.makeSagecell({
 </div>
 <div class="autopermalink" data-description="Proof 1.3.1"><a href="#sec_geometricprops-12" title="Copy heading and permalink for Proof 1.3.1" aria-label="Copy heading and permalink for Proof 1.3.1">🔗</a></div></article><div class="para logical" id="sec_geometricprops-13">
 <div class="para">We note that the property <span class="process-math">\(\abs{z}^2=z\conj z\)</span> yields a neat formula for the inverse of a nonzero complex number, which is implicit already in <a href="sec_defalg.html#alg-1-2" class="xref" data-knowl="./knowl/xref/eq-lastmult.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.14">(1.14)</a>:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-lastmult.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-lastmult.html" id="sec_geometricprops-13-3">
 \begin{equation*}
 z^{-1} \ = \ \frac1z \ = \ \frac{\conj z}{\abs{z}^2} \,\text{.}
 \end{equation*}
@@ -549,7 +549,7 @@ z^{-1} \ = \ \frac1z \ = \ \frac{\conj z}{\abs{z}^2} \,\text{.}
 <li id="trianineqcor">
 <div class="para logical" id="trianineqcor-1">
 <div class="para">The triangle inequality:</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="trianineqcor-1-1">
 \begin{equation*}
 \abs{\pm z_1\pm z_2} \le
 \abs{z_1}+\abs{z_2} \,\text{.}
@@ -562,7 +562,7 @@ z^{-1} \ = \ \frac1z \ = \ \frac{\conj z}{\abs{z}^2} \,\text{.}
 <li id="revtrianineq">
 <div class="para logical" id="revtrianineq-1">
 <div class="para">The reverse triangle inequality:</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="revtrianineq-1-1">
 \begin{equation*}
 \abs{\pm z_1\pm z_2} \ge \bigl|
 \abs{z_1}-\abs{z_2} \bigr| \,\text{.}
@@ -575,7 +575,7 @@ z^{-1} \ = \ \frac1z \ = \ \frac{\conj z}{\abs{z}^2} \,\text{.}
 <li id="trianineqsum">
 <div class="para logical" id="trianineqsum-1">
 <div class="para">The triangle inequality for sums:</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="trianineqsum-1-1">
 \begin{equation*}
 \abs{\sum_{k=1}^n z_k} \ \le \ \sum_{k=1}^n \abs{z_k} \, \text{.}
 \end{equation*}

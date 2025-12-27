@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
@@ -398,7 +398,7 @@ f'(z_0) \ := \ \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0} \,\text{,}\tag{2.1
 </div>
 <div class="autopermalink" data-description="Example 2.2.2"><a href="#exam_zcubedentire" title="Copy heading and permalink for Example 2.2.2" aria-label="Copy heading and permalink for Example 2.2.2">🔗</a></div></article><div class="para logical" id="sec_diffholom-5">
 <div class="para">The difference quotient limit <a href="sec_diffholom.html#eq_f_def" class="xref" data-knowl="./knowl/xref/eq_f_def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.1">(2.1)</a> can be rewritten as</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_f_def.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_f_def.html" id="sec_diffholom-5-2">
 \begin{equation*}
 f'(z_0) \ = \ \lim_{ h \to 0 } \frac{ f(z_0+h) - f(z_0) }{ h } \,\text{.}
 \end{equation*}
@@ -438,7 +438,7 @@ f'(z_0) \ = \ \lim_{ h \to 0 } \frac{ f(z_0+h) - f(z_0) }{ h } \,\text{.}
 </div> <div class="para logical" id="exam_zbarsquareddiff-1-3">
 <div class="para">On the other hand, if <span class="process-math">\(z_0 = 0\)</span> then the right-hand side above equals <span class="process-math">\(r
 \, e^{ -3i \phi } = |z| \, e^{ -3i \phi }\text{.}\)</span> Hence</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_limiteq0.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_limiteq0.html" id="exam_zbarsquareddiff-1-3-3">
 \begin{equation*}
 \lim_{ z \to 0 } \left| \frac{ \conj{z}^2 }{ z } \right| \ = \
 \lim_{ z \to 0 } \left| |z| \, e^{ -3i \phi } \right| \ = \
@@ -446,7 +446,7 @@ f'(z_0) \ = \ \lim_{ h \to 0 } \frac{ f(z_0+h) - f(z_0) }{ h } \,\text{.}
 \end{equation*}
 </div>
 <div class="para">which implies, by <a href="chapter2-exercises.html#ex_limiteq0" class="xref" data-knowl="./knowl/xref/ex_limiteq0.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.5">Exercise 2.5.5</a>, that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_limiteq0.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_limiteq0.html" id="exam_zbarsquareddiff-1-3-5">
 \begin{equation*}
 \lim_{ z \to z_0 } \frac{ \conj{z}^2 - \conj{z_0}^2 }{ z -
 z_0 } \ = \ \lim_{ z \to 0 } \frac{ \conj{z}^2 }{ z } \ = \ 0 \, \text{.}
@@ -459,7 +459,7 @@ z_0 } \ = \ \lim_{ z \to 0 } \frac{ \conj{z}^2 }{ z } \ = \ 0 \, \text{.}
 </h3>
 <div class="para logical" id="sec_diffholom-8-1-1">
 <div class="para">The function <span class="process-math">\(f: \C \to \C\)</span> given by <span class="process-math">\(f(z) = \overline z\)</span> is nowhere differentiable:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_limitdoesnotexist.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_limitdoesnotexist.html" id="sec_diffholom-8-1-1-3">
 \begin{equation*}
 \lim_{ z \to z_0 } \frac{ \o z - \o{ z_0 } }{ z - z_0 } \ = \ \lim_{ z \to z_0 } \frac{ \ \o { z - z_0 } \ }{ z - z_0 } \ = \ \lim_{ z \to 0 } \frac{\, \overline z \, } z \,\text{,}
 \end{equation*}
@@ -550,7 +550,7 @@ g(z) }{ h }\\
 <div class="para logical" id="sec_diffholom-15-1">
 <div class="para">Let <span class="process-math">\(\gamma_1(t)\)</span> and <span class="process-math">\(\gamma_2(t)\)</span> be parametrizations of the two paths such that <span class="process-math">\(\gamma_1(0) =
 \gamma_2(0) = a\text{.}\)</span>  Then <span class="process-math">\(\gamma_1'(0)\)</span> (considered as a vector) is the tangent vector of <span class="process-math">\(\gamma_1\)</span> at the point <span class="process-math">\(a\text{,}\)</span> and <span class="process-math">\(\gamma_2'(0)\)</span> is the tangent vector of <span class="process-math">\(\gamma_2\)</span> at <span class="process-math">\(a\text{.}\)</span>  Moving to the image of <span class="process-math">\(\gamma_1\)</span> and <span class="process-math">\(\gamma_2\)</span> under <span class="process-math">\(f\text{,}\)</span> the tangent vector of <span class="process-math">\(f(\gamma_1)\)</span> at the point <span class="process-math">\(f(a)\)</span> is</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_diffholom-15-1-15">
 \begin{equation*}
 \left. \frac{ d }{\diff{t} } f(\gamma_1(t)) \right|_{t = 0} =
 \ f'(\gamma_1(0)) \, \gamma_1'(0) \ = \ f'(a) \, \gamma_1'(0) \, \text{,}
@@ -579,7 +579,7 @@ G\)</span> such that <span class="process-math">\(f(z)=w\text{.}\)</span>  The f
 </h3>
 <div class="para logical" id="inversederivative-1-1">
 <div class="para">Suppose <span class="process-math">\(G, H \subseteq \C\)</span> are open sets, <span class="process-math">\(f: G \to H\)</span> is a bijection, <span class="process-math">\(g: H \to G\)</span> is the inverse function  of <span class="process-math">\(f\text{,}\)</span> and <span class="process-math">\(w_0 \in H\text{.}\)</span> If <span class="process-math">\(f\)</span> is differentiable at <span class="process-math">\(g(w_0)\)</span> with <span class="process-math">\(f'(g(w_0)) \ne 0\)</span> and <span class="process-math">\(g\)</span> is continuous at <span class="process-math">\(w_0\text{,}\)</span> then <span class="process-math">\(g\)</span> is differentiable at <span class="process-math">\(w_0\)</span> with</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="inversederivative-1-1-14">
 \begin{equation*}
 g'(w_0) \ = \ \frac 1 { f' \left( g(w_0) \right) } \,\text{.}
 \end{equation*}
@@ -604,7 +604,7 @@ f(g(w_0)) }{g(w) - g(w_0) } } \,\text{.}
 </div>
 <div class="para logical" id="inversederivative-2-2">
 <div class="para">Now define <span class="process-math">\(z_0:=g(w_0)\)</span> and set</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/funoflimit.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/funoflimit.html" id="inversederivative-2-2-2">
 \begin{equation*}
 \phi(z) \, := \, \begin{cases}\dfrac{f(z)-f(z_0)}{z-z_0}
 \amp \text{ if }  z\ne z_0\\ f'(z_0)
@@ -612,7 +612,7 @@ f(g(w_0)) }{g(w) - g(w_0) } } \,\text{.}
 \end{equation*}
 </div>
 <div class="para">This is continuous at <span class="process-math">\(z_0\)</span> and <span class="process-math">\(\lim_{w\to w_0}g(w) = z_0\)</span> by continuity of <span class="process-math">\(g\text{,}\)</span> so we can apply <a href="sec_limitsandcontinuity.html#funoflimit" class="xref" data-knowl="./knowl/xref/funoflimit.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.1.11">Proposition 2.1.11</a>:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/funoflimit.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/funoflimit.html" id="inversederivative-2-2-7">
 \begin{equation*}
 g'(w_0) = \lim_{w\to w_0} \frac {1}{\phi\left(g(w)\right)
 } = \frac {1} { \displaystyle\phi\left(\lim_{w\to

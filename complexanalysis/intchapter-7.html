@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -418,7 +418,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para logical" id="ex_circleint-1-1">
 <div class="para">Compute <span class="process-math">\(\int_\gg \frac{ \diff{z} }{ z }\)</span> where <span class="process-math">\(\gg\)</span> is the unit circle, oriented counterclockwise. More generally, show that for any <span class="process-math">\(w \in \C\)</span> and <span class="process-math">\(r &gt; 0\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ex_circleint-1-1-5">
 \begin{equation*}
 \int_{ C[w,r] } \frac{\diff{z}}{z-w} \ = \ 2 \pi i \,\text{.}
 \end{equation*}
@@ -573,7 +573,7 @@ t\le1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a
 <div class="autopermalink" data-description="Exercise 4.5.9"><a href="#ex_IntegrationIsIndependentOfParametrization" title="Copy heading and permalink for Exercise 4.5.9" aria-label="Copy heading and permalink for Exercise 4.5.9">🔗</a></div></article><article class="exercise exercise-like" id="intchapter-7-10"><h3 class="heading"><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="intchapter-7-10-1-1">
 <div class="para">Prove the following <em class="emphasis">integration by parts</em> statement: Let <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> be holomorphic in <span class="process-math">\(G\text{,}\)</span> and suppose <span class="process-math">\(\gg \subset G\)</span> is a piecewise smooth path from <span class="process-math">\(\gg(a)\)</span> to <span class="process-math">\(\gg(b)\text{.}\)</span>  Then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="intchapter-7-10-1-1-9">
 \begin{equation*}
 \int_\gg f g' \ = \ f(\gg(b)) g(\gg(b)) - f(\gg(a)) g(\gg(a)) -
 \int_\gg f' g \, \text{.}
@@ -614,7 +614,7 @@ z^{-1}\,\diff{z}=2m\pi i\text{.}\)</span><div class="autopermalink" data-descrip
 <div class="para logical" id="ex_laurentoutlook-1-1">
 <div class="para">Taking the previous two exercises one step further, fix <span class="process-math">\(z_0 \in \C\)</span> and let <span class="process-math">\(\gg\)</span> be a simple, closed, positively oriented, piecewise smooth path such that <span class="process-math">\(z_0\)</span> is inside <span class="process-math">\(\gg\text{.}\)</span> Show that, for any integer <span class="process-math">\(n\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ex_laurentoutlook-1-1-6">
 \begin{equation*}
 \int_\gg (z-z_0)^n \, \diff{z} \ = \ \begin{cases}2 \pi i \amp
 \text{ if }  n = -1 \, , \\ 0       \amp  \text{
@@ -716,7 +716,7 @@ otherwise. } \end{cases}
 <div class="autopermalink" data-description="Task 4.5.25.b"><a href="#C-contractible-2" title="Copy heading and permalink for Task 4.5.25.b" aria-label="Copy heading and permalink for Task 4.5.25.b">🔗</a></div></article><div class="autopermalink" data-description="Exercise 4.5.25"><a href="#C-contractible" title="Copy heading and permalink for Exercise 4.5.25" aria-label="Copy heading and permalink for Exercise 4.5.25">🔗</a></div></article><article class="exercise exercise-like" id="ex_cauchyfromgreen"><h3 class="heading"><span class="codenumber">26<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="ex_cauchyfromgreen-1-1">
 <div class="para">This exercise gives an alternative proof of <a href="sec_cauchythm.html#cauchycor" class="xref" data-knowl="./knowl/xref/cauchycor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.3.8">Corollary 4.3.8</a> via Green’s <a href="appendix-calculus.html#thm_green" class="xref" data-knowl="./knowl/xref/thm_green.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem A.0.10: Green’s Theorem">Theorem A.0.10</a>.  Suppose <span class="process-math">\(G \subseteq \C\)</span> is a region, <span class="process-math">\(f\)</span> is holomorphic in <span class="process-math">\(G\text{,}\)</span> <span class="process-math">\(f'\)</span> is continuous, <span class="process-math">\(\gg\)</span> is a simple piecewise smooth closed curve, and <span class="process-math">\(\gg\sim_G0\text{.}\)</span> Explain that we may write</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchycor.html ./knowl/xref/thm_green.html ./knowl/xref/thm_green.html ./knowl/xref/simpleContractible.html ./knowl/xref/complexcr.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cauchycor.html ./knowl/xref/thm_green.html ./knowl/xref/thm_green.html ./knowl/xref/simpleContractible.html ./knowl/xref/complexcr.html" id="ex_cauchyfromgreen-1-1-10">
 \begin{equation*}
 \int_\gg f(z) \, \diff{z} \ = \ \int_\gg (u + i \, v)
 (\diff{x} + i \, \diff{y}) \ = \ \int_\gg u \, \diff{x} - v
@@ -729,7 +729,7 @@ otherwise. } \end{cases}
 <div class="autopermalink" data-description="Exercise 4.5.26"><a href="#ex_cauchyfromgreen" title="Copy heading and permalink for Exercise 4.5.26" aria-label="Copy heading and permalink for Exercise 4.5.26">🔗</a></div></article><article class="exercise exercise-like" id="ex_circleint2"><h3 class="heading"><span class="codenumber">27<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="ex_circleint2-1-1">
 <div class="para">Fix <span class="process-math">\(a \in \C\text{.}\)</span> Compute</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ex_circleint2-1-1-2">
 \begin{equation*}
 I(r) \ := \ \int_{ C[0,r] } \frac{ \diff{z} }{ z-a } \,\text{.}
 \end{equation*}
@@ -755,7 +755,7 @@ I(r) \ := \ \int_{ C[0,r] } \frac{ \diff{z} }{ z-a } \,\text{.}
 <div class="autopermalink" data-description="Exercise 4.5.28"><a href="#intchapter-7-28" title="Copy heading and permalink for Exercise 4.5.28" aria-label="Copy heading and permalink for Exercise 4.5.28">🔗</a></div></article><article class="exercise exercise-like" id="ex_pathtoinfty"><h3 class="heading"><span class="codenumber">29<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="ex_pathtoinfty-1-1">
 <div class="para">Show that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/intprop.html ./knowl/xref/int4.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/intprop.html ./knowl/xref/int4.html" id="ex_pathtoinfty-1-1-1">
 \begin{equation*}
 \int_{ C[0,2] } \frac{ \diff{z} }{ z^3 + 1 } \ = \ 0
 \end{equation*}
@@ -767,7 +767,7 @@ I(r) \ := \ \int_{ C[0,r] } \frac{ \diff{z} }{ z-a } \,\text{.}
 <div class="autopermalink" data-description="Exercise 4.5.29"><a href="#ex_pathtoinfty" title="Copy heading and permalink for Exercise 4.5.29" aria-label="Copy heading and permalink for Exercise 4.5.29">🔗</a></div></article><article class="exercise exercise-like" id="ex_4_5"><h3 class="heading"><span class="codenumber">30<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="ex_4_5-1-1">
 <div class="para">Compute the <em class="emphasis">real</em> integral</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ex_4_5-1-1-2">
 \begin{equation*}
 \int_0^{2 \pi} \frac{\diff\phi}{2 + \sin \phi}
 \end{equation*}
@@ -785,7 +785,7 @@ I(r) \ := \ \int_{ C[0,r] } \frac{ \diff{z} }{ z-a } \,\text{.}
 <div class="para logical" id="ex_poissonkernel-1-1">
 <div class="para">Prove that for <span class="process-math">\(0 \lt  r \lt  1\text{,}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_poissonkernelapp.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_poissonkernelapp.html" id="ex_poissonkernel-1-1-2">
 \begin{equation*}
 \frac 1 {2 \pi} \int_0^{ 2 \pi } \frac{ 1-r^2 }{ 1 - 2r
 \cos(\phi) + r^2 } \, \diff\phi \ = \ 1 \, \text{.}
@@ -804,7 +804,7 @@ I(r) \ := \ \int_{ C[0,r] } \frac{ \diff{z} }{ z-a } \,\text{.}
 <div class="autopermalink" data-description="Exercise 4.5.33"><a href="#intchapter-7-33" title="Copy heading and permalink for Exercise 4.5.33" aria-label="Copy heading and permalink for Exercise 4.5.33">🔗</a></div></article><article class="exercise exercise-like" id="ex_4_4"><h3 class="heading"><span class="codenumber">34<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="ex_4_4-1-1">
 <div class="para">Compute</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ex_4_4-1-1-1">
 \begin{equation*}
 I(r) \ := \ \int_{ C[-2i,r] } \frac{ \diff{z} }{ z^2 + 1 }
 \end{equation*}
@@ -822,7 +822,7 @@ I(r) \ := \ \int_{ C[-2i,r] } \frac{ \diff{z} }{ z^2 + 1 }
 <div class="autopermalink" data-description="Exercise 4.5.34"><a href="#ex_4_4" title="Copy heading and permalink for Exercise 4.5.34" aria-label="Copy heading and permalink for Exercise 4.5.34">🔗</a></div></article><article class="exercise exercise-like" id="ex_partfracint"><h3 class="heading"><span class="codenumber">35<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="ex_partfracint-1-1">
 <div class="para">Find</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ex_partfracint-1-1-1">
 \begin{equation*}
 \int_{ C[0,r] }\frac{\diff{z}}{z^2-2z-8}
 \end{equation*}
@@ -900,7 +900,7 @@ C[-1,1]\)</span> oriented clockwise. Show that <span class="process-math">\(\int
 <article class="task exercise-like" id="intchapter-7-39-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para logical" id="intchapter-7-39-2-1-1">
 <div class="para">Consider the function <span class="process-math">\(g: [0,1] \to \C\)</span> given by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="intchapter-7-39-2-1-1-2">
 \begin{equation*}
 g(t) \ := \ \int_\gg \frac{ f \left( w + t(z-w)
 \right) }{ z-w } \, \diff{z} \, \text{.}

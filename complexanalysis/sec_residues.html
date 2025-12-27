@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
@@ -365,13 +365,13 @@ sagecell.makeSagecell({
 </h2>
 <div class="para logical" id="sec_residues-2">
 <div class="para">We now pick up the thread from <a href="sec_LaurentSeries.html#cor_firstresidue" class="xref" data-knowl="./knowl/xref/cor_firstresidue.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 8.3.9">Corollary 8.3.9</a> and apply it to the Laurent series</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_firstresidue.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_firstresidue.html" id="sec_residues-2-2">
 \begin{equation*}
 f(z) \ = \ \sz c_k \left( z - z_0 \right)^k
 \end{equation*}
 </div>
 <div class="para">at an isolated singularity <span class="process-math">\(z_0\)</span> of <span class="process-math">\(f\text{.}\)</span> It says that if <span class="process-math">\(\gg\)</span> is any positively oriented, simple, closed, piecewise smooth path in the punctured disk of convergence of this Laurent series, and <span class="process-math">\(z_0\)</span> is inside <span class="process-math">\(\gg\text{,}\)</span> then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_firstresidue.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_firstresidue.html" id="sec_residues-2-9">
 \begin{equation*}
 \int_\gg f(z) \, \diff{z} \ = \ 2 \pi i \, c_{ -1 } \,\text{.}
 \end{equation*}
@@ -392,7 +392,7 @@ z=z_0)\text{.}\)</span> <div class="autopermalink" data-description="Paragraph">
 </h3>
 <div class="para logical" id="residuethm-2-1">
 <div class="para"> Suppose <span class="process-math">\(f\)</span> is holomorphic in the region <span class="process-math">\(G\text{,}\)</span> except for isolated singularities, and <span class="process-math">\(\gg\)</span> is a positively oriented, simple, closed, piecewise smooth path that avoids the singularities of <span class="process-math">\(f\text{,}\)</span> and <span class="process-math">\(\gg \sim_G 0\text{.}\)</span> Then there are only finitely many singularities inside <span class="process-math">\(\gg\text{,}\)</span> and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="residuethm-2-1-8">
 \begin{equation*}
 \int_\gg f \ = \ 2 \pi i \, \sum_k \Res_{z=z_k} (f(z))
 \end{equation*}
@@ -422,7 +422,7 @@ z=z_0)\text{.}\)</span> <div class="autopermalink" data-description="Paragraph">
 <li id="prop_residueAsLimit-1-1-1-2">
 <div class="para logical" id="prop_residueAsLimit-1-1-1-2-1">
 <div class="para">If <span class="process-math">\(z_0\)</span> is a pole of <span class="process-math">\(f\)</span> of order <span class="process-math">\(n\)</span> then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="prop_residueAsLimit-1-1-1-2-1-4">
 \begin{equation*}
 \Res_{z=z_0} (f(z)) \ = \ \frac 1 {(n-1)!} \lim_{z \to
 z_0} \frac{ d^{n-1} }{ \diff{z}^{n-1} } \bigl( (z -
@@ -447,7 +447,7 @@ z_0)^n f(z) \bigr) \, \text{.}
 <li id="sec_residues-9-1-1-2">
 <div class="para logical" id="sec_residues-9-1-1-2-1">
 <div class="para">We know by <a href="sec_classificationsingul.html#singlaurent" class="xref" data-knowl="./knowl/xref/singlaurent.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 9.1.10">Proposition 9.1.10</a>(b) that the Laurent series at <span class="process-math">\(z_0\)</span> looks like</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/singlaurent.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/singlaurent.html" id="sec_residues-9-1-1-2-1-3">
 \begin{equation*}
 f(z) = \sum_{k \geq -n} c_k (z-z_0)^k\text{.}
 \end{equation*}
@@ -456,7 +456,7 @@ f(z) = \sum_{k \geq -n} c_k (z-z_0)^k\text{.}
 </div>
 <div class="para logical" id="sec_residues-9-1-1-2-2">
 <div class="para">But then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/taylor.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/taylor.html" id="sec_residues-9-1-1-2-2-1">
 \begin{equation*}
 (z - z_0)^n f(z) = \sum_{k \geq -n} c_k (z-z_0)^{k+n}
 \end{equation*}
@@ -477,7 +477,7 @@ f(z) = \sum_{k \geq -n} c_k (z-z_0)^k\text{.}
 </h3>
 <div class="para logical" id="ex_expoversinrev-1-1">
 <div class="para">The integrand <span class="process-math">\(\frac{ \exp(z) }{ \sin(z) }\)</span> in <a href="sec_LaurentSeries.html#ex_expoversin" class="xref" data-knowl="./knowl/xref/ex_expoversin.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.3.10">Example 8.3.10</a> has poles of order 1 at 0 and <span class="process-math">\(\pi\text{.}\)</span> We thus compute</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_expoversin.html ./knowl/xref/ex_expoversin.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_expoversin.html ./knowl/xref/ex_expoversin.html" id="ex_expoversinrev-1-1-4">
 \begin{equation*}
 \Res_{ z=0 } \left( \frac{ \exp(z) }{ \sin(z) } \right) \ = \
 \lim_{ z \to 0 } \left( z \, \frac{ \exp(z) }{ \sin(z) }
@@ -523,7 +523,7 @@ z-\pi }{ \sin(z) }\\
 </h3>
 <div class="para logical" id="lem_computing_residues2-1-1">
 <div class="para">Suppose <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are holomorphic at <span class="process-math">\(z_0\text{,}\)</span> which is a simple zero of <span class="process-math">\(g\)</span> (i.e., a zero of multiplicity 1). Then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="lem_computing_residues2-1-1-5">
 \begin{equation*}
 \Res_{z=z_0} \left( \frac{ f(z) }{ g(z) } \right) \ = \ \frac{
 f(z_0) }{ g'(z_0) } \, \text{.}
@@ -545,7 +545,7 @@ g(z) \amp \ = \ \sum_{k \ge 1} b_k (z-z_0)^k \ = \ (z-z_0)
 </div>
 <div class="para logical" id="sec_residues-14-2">
 <div class="para">Let <span class="process-math">\(\ds h(z) := \sum_{k \geq 1} b_k (z-z_0)^{k-1}\)</span> and note that <span class="process-math">\(h(z_0) = b_1 \ne 0\text{.}\)</span> Hence</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_residueAsLimit.html ./knowl/xref/taylor.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_residueAsLimit.html ./knowl/xref/taylor.html" id="sec_residues-14-2-3">
 \begin{equation*}
 \frac{ f(z) }{ g(z) } \ = \ \frac{ f(z) }{ (z-z_0) \, h(z) } \,\text{,}
 \end{equation*}
@@ -569,14 +569,14 @@ g(z) \amp \ = \ \sum_{k \ge 1} b_k (z-z_0)^k \ = \ (z-z_0)
 </h3>
 <div class="para logical" id="sec_residues-16-1-1">
 <div class="para">Revisiting once more <a href="sec_LaurentSeries.html#ex_expoversin" class="xref" data-knowl="./knowl/xref/ex_expoversin.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.3.10">Example 8.3.10</a>, we note that <span class="process-math">\(f(z) = \exp(z)\)</span> and <span class="process-math">\(g(z) = \sin(z)\)</span> fit the bill. Thus</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_expoversin.html ./knowl/xref/ex_expoversin.html ./knowl/xref/ex_expoversinrev.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_expoversin.html ./knowl/xref/ex_expoversin.html ./knowl/xref/ex_expoversinrev.html" id="sec_residues-16-1-1-4">
 \begin{equation*}
 \Res_{ z=0 } \left( \frac{ \exp(z) }{ \sin(z) } \right) \ = \
 \frac{ \exp(0) }{ \cos(0) } \ = \ 1 
 \end{equation*}
 </div>
 <div class="para">and</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_expoversin.html ./knowl/xref/ex_expoversin.html ./knowl/xref/ex_expoversinrev.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex_expoversin.html ./knowl/xref/ex_expoversin.html ./knowl/xref/ex_expoversinrev.html" id="sec_residues-16-1-1-5">
 \begin{equation*}
 \Res_{ z=\pi } \left( \frac{ \exp(z) }{ \sin(z) } \right) \ = \
 \frac{ \exp(\pi) }{ \cos(\pi) } \ = \ - e^\pi \text{,}
@@ -592,7 +592,7 @@ g(z) \amp \ = \ \sum_{k \ge 1} b_k (z-z_0)^k \ = \ (z-z_0)
 <div class="para">We compute the residue of <span class="process-math">\(\frac{ z^2 + 2 }{ (\exp(z) - 1)
 \cos(z) }\)</span> at <span class="process-math">\(z_0 = 2 \pi i\text{,}\)</span> by applying <a href="sec_residues.html#lem_computing_residues2" class="xref" data-knowl="./knowl/xref/lem_computing_residues2.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 9.2.7">Proposition 9.2.7</a> with <span class="process-math">\(f(z) = \frac{ z^2 + 2 }{ \cos(z) }\)</span> and <span class="process-math">\(g(z) =
 \exp(z) - 1\text{.}\)</span> Thus</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem_computing_residues2.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem_computing_residues2.html" id="sec_residues-17-1-1-6">
 \begin{equation*}
 \Res_{ z = 2 \pi i } \left( \frac{ z^2 + 2 }{ (\exp(z) - 1)
 \cos(z) } \right) \ = \ \frac{ \frac{ (2 \pi i)^2 + 2 }{ \cos(2

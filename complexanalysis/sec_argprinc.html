@@ -123,15 +123,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.5';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -357,7 +357,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para logical" id="sec_argprinc-4">
 <div class="para">Now let’s say we have two functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> holomorphic in some region. Then the logarithmic derivative of their product behaves very nicely:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html" id="sec_argprinc-4-3">
 \begin{equation*}
 \frac{ (fg)' }{ fg } \ = \ \frac{ f' g + f g' }{ fg } \ = \ \frac{ f'
 }{ f } + \frac{ g' }{ g } \, \text{.}
@@ -365,7 +365,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para">We can apply this philosophy to the following situation: Suppose that <span class="process-math">\(f\)</span> is holomorphic in a region <span class="process-math">\(G\)</span> and <span class="process-math">\(f\)</span> has (finitely many) zeros <span class="process-math">\(z_1, \dots,
 z_j\)</span> of multiplicities <span class="process-math">\(n_1, \dots, n_j\text{,}\)</span> respectively. By <a href="sec_classifzeros.html#classificationzeros" class="xref" data-knowl="./knowl/xref/classificationzeros.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.2.1: Classification of Zeros">Theorem 8.2.1</a>, we can express <span class="process-math">\(f\)</span> as</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/classificationzeros.html" id="sec_argprinc-4-11">
 \begin{equation*}
 f(z) \ = \ ( z - z_1 )^{n_1} \cdots ( z - z_j )^{n_j} g(z) \,\text{,}
 \end{equation*}
@@ -407,7 +407,7 @@ g'(z) }{ g(z) } \, \text{,}\tag{9.2}
 </h3>
 <div class="para logical" id="argprinc-2-1">
 <div class="para">Suppose <span class="process-math">\(f\)</span> is meromorphic in a region <span class="process-math">\(G\)</span> and <span class="process-math">\(\gg\)</span> is a positively oriented, simple, closed, piecewise smooth path that does not pass through any zero or pole of <span class="process-math">\(f\text{,}\)</span> and <span class="process-math">\(\gg \sim_G 0\text{.}\)</span> Denote by <span class="process-math">\(Z(f,\gg)\)</span> the number of zeros of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gg\)</span> counted according to multiplicity and by <span class="process-math">\(P(f,\gg)\)</span> the number of poles of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gg\)</span> counted according to order. Then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="argprinc-2-1-12">
 \begin{equation*}
 \frac{1}{2 \pi i} \i \frac{f'}{f} \ = \ Z(f,\gg) - P(f,\gg) \,\text{.}
 \end{equation*}
@@ -417,7 +417,7 @@ g'(z) }{ g(z) } \, \text{,}\tag{9.2}
 <div class="autopermalink" data-description="Theorem 9.3.2: Argument Principle"><a href="#argprinc" title="Copy heading and permalink for Theorem 9.3.2: Argument Principle" aria-label="Copy heading and permalink for Theorem 9.3.2: Argument Principle">🔗</a></div></article><article class="proof" id="argprinc-3"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="argprinc-3-1">
 <div class="para">Suppose the zeros of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gg\)</span> are <span class="process-math">\(z_1, \dots,z_j\)</span> of multiplicities <span class="process-math">\(n_1, \dots, n_j\text{,}\)</span> respectively, and the poles inside <span class="process-math">\(\gg\)</span> are <span class="process-math">\(p_1, \dots, p_k\)</span> with order <span class="process-math">\(m_1, \dots, m_k\text{,}\)</span> respectively. (You may meditate about the fact why there can be only finitely many zeros and poles inside <span class="process-math">\(\gg\text{.}\)</span>) In fact, we may shrink <span class="process-math">\(G\text{,}\)</span> if necessary, so that these are the only zeros and poles in <span class="process-math">\(G\text{.}\)</span> By <a href="sec_argprinc.html#sec_argprinc-4-15" class="xref" data-knowl="./knowl/xref/logderzeros.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 9.1">(9.1)</a> and <a href="sec_argprinc.html#logderpoles" class="xref" data-knowl="./knowl/xref/logderpoles.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 9.2">(9.2)</a>,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/logderpoles.html ./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html ./knowl/xref/cauchycor.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/logderpoles.html ./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html ./knowl/xref/cauchycor.html" id="argprinc-3-1-14">
 \begin{equation*}
 \frac{ f'(z) }{ f(z) } \ = \ \frac{ n_1 }{ z - z_1 } + \dots +
 \frac{ n_j }{ z - z_j } - \frac{ m_1 }{ z - p_1 } - \dots -
@@ -438,7 +438,7 @@ g'(z) }{ g(z) } \, \text{,}\tag{9.2}
 \end{align*}
 </div>
 <div class="para">Finally, <span class="process-math">\(\frac{g'}{g}\)</span> is holomorphic in <span class="process-math">\(G\)</span> (because <span class="process-math">\(g\)</span> is never zero in <span class="process-math">\(G\)</span>), so that <a href="sec_cauchythm.html#cauchycor" class="xref" data-knowl="./knowl/xref/cauchycor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.3.8">Corollary 4.3.8</a> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/logderpoles.html ./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html ./knowl/xref/cauchycor.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/logderzeros.html ./knowl/xref/logderpoles.html ./knowl/xref/cauchythm.html ./knowl/xref/ex_circleint.html ./knowl/xref/cauchycor.html" id="argprinc-3-1-25">
 \begin{equation*}
 \i \frac{g'} g \ = \ 0 \,  \text{.}
 \end{equation*}
@@ -454,7 +454,7 @@ g'(z) }{ g(z) } \, \text{,}\tag{9.2}
 </h3>
 <div class="para logical" id="rouche-2-1">
 <div class="para">Suppose <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are holomorphic in a region <span class="process-math">\(G\)</span> and <span class="process-math">\(\gg\)</span> is a positively oriented, simple, closed, piecewise smooth path, such that <span class="process-math">\(\gg \sim_G 0\)</span> and <span class="process-math">\(|f(z)|&gt;|g(z)|\)</span> for all <span class="process-math">\(z \in \gg\text{.}\)</span> Then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="rouche-2-1-8">
 \begin{equation*}
 Z(f+g,\gg) \ = \ Z(f,\gg) \,\text{.}
 \end{equation*}
@@ -477,7 +477,7 @@ Z(f+g,\gg) \ = \ Z(f,\gg) \,\text{.}
 \end{align*}
 </div>
 <div class="para">So <span class="process-math">\(g\)</span> and <span class="process-math">\(f\)</span> satisfy the condition of the <a href="sec_argprinc.html#rouche" class="xref" data-knowl="./knowl/xref/rouche.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.3.3: Rouché’s Theorem">Theorem 9.3.3</a>. But <span class="process-math">\(f\)</span> has just one root, of multiplicity 5 at the origin, whence</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fundthmalg.html ./knowl/xref/roucheexample.html ./knowl/xref/rouche.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fundthmalg.html ./knowl/xref/roucheexample.html ./knowl/xref/rouche.html" id="roucheexample-1-1-11">
 \begin{equation*}
 Z(p, \, C[0,2]) \ = \ Z(f+g, \, C[0,2]) \ = \ Z(f, \, C[0,2]) \ = \ 5 \,\text{.}
 \end{equation*}
@@ -504,13 +504,13 @@ g f \right) \right)' }{ f \left( 1 + \frac g f \right) }\\
 </div>
 <div class="para logical" id="sec_argprinc-13-2">
 <div class="para">We are assuming that <span class="process-math">\(| \frac g f | \lt  1\)</span> on <span class="process-math">\(\gg\text{,}\)</span> which means that the function <span class="process-math">\(1 + \frac g f\)</span> evaluated on <span class="process-math">\(\gg\)</span> stays away from <span class="process-math">\(\R_{ \le 0 }\text{.}\)</span> But then <span class="process-math">\(\Log ( 1 + \frac g f)\)</span> is a well-defined holomorphic function on <span class="process-math">\(\gg\text{.}\)</span> Its derivative is</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antidercor.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antidercor.html" id="sec_argprinc-13-2-10">
 \begin{equation*}
 \dfrac{ \left( 1 + \frac g f \right)' }{ 1 + \frac g f }
 \end{equation*}
 </div>
 <div class="para">which implies by <a href="sec_antiderivatives.html#antidercor" class="xref" data-knowl="./knowl/xref/antidercor.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 4.2.7">Corollary 4.2.7</a> that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antidercor.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/antidercor.html" id="sec_argprinc-13-2-12">
 \begin{equation*}
 \frac 1 {2 \pi i} \int_\gamma \frac{ \left( 1 + \frac g f
 \right)' }{ 1 + \frac g f } \ = \ 0 \, \text{.}
