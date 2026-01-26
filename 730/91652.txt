@@ -1,0 +1,3 @@
+ID	Name	Partic	Homew	Defs	Exams		HW1			
+91652	Zack	20								
+OOOOO	max	20								
