@@ -1,0 +1,3 @@
+ID	Name	Partic	Homew	Defs	Exams		HW1
+92618	Ryan	20					
+OOOOO	max	20					

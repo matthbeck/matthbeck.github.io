@@ -1,0 +1,3 @@
+ID	Name	Partic	Homew	Defs	Exams		HW1
+92283	Sophia	20					
+OOOOO	max	20					
