@@ -1,3 +1,3 @@
 ID	Name	Partic	Homew	Defs	Exams		HW1
-92612	Lucien	20					
+92612	Lucien	19					
 OOOOO	max	20					

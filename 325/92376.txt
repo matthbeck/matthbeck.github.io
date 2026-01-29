@@ -1,3 +1,3 @@
 ID	Name	Partic	Homew	Defs	Exams		HW1
-92376	Savann	20					
+92376	Savann	19					
 OOOOO	max	20					
