@@ -1,3 +1,3 @@
-ID	Name	Partic	Homew	Defs	Exams		HW1	HW2		
-92429	Floren	20	6				3	3		
-OOOOO	max	20	6				3	3		
+ID	Name	Partic	Homew	Defs	Exams		HW1	HW2	HW3						
+92429	Floren	20	9				3	3	3						
+OOOOO	max	20	9				3	3	3						

@@ -1,3 +1,3 @@
-ID	Name	Partic	Homew	Defs	Exams	selfie	HW1	HW2		
-92283	Sophia	18	3				3			
-OOOOO	max	20	6				3	3		
+ID	Name	Partic	Homew	Defs	Exams	selfie	HW1	HW2				Def1	Ex1	
+92283	Sophia	19	5	1	1		3	2				1	1	
+OOOOO	max	20	6	3	3		3	3				3	3	
