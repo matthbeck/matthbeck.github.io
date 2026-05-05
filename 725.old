@@ -102,16 +102,14 @@ ul.left {
 <li><a href="index.html">home</a></li>
 <li><a href="teach.html">teaching</a>
   <ul>
-  <li><a href="310.html">math 310</a></li>
-  <li><a href="325.html">math 325</a></li>
-  <li><a href="335.html">math 335</a></li>
+  <li><a href="725.html">math 725</a></li>
   </ul>
 </li>
 <li><a href="students.html">advising</a></li>
 <li><a href="research.html">research</a></li>
 <li><a href="cv.html">curriculum vitae</a></li>
 </ul>
-  </div>
+ </div>
 
 <!--  <div class="column middle" style="background-color:#bbb;">Column</div> -->
   <div class="column middle">
@@ -121,27 +119,26 @@ ul.left {
       <td>
         <center>
           <b>
-            <p>MATH 335<p>
-            Modern Algebra<p>
+            <p>MATH 725<p>
+            Advanced Linear Algebra<p>
           </b>
-          Fall 2024
+          Fall 2021
         </center>
       </td>
-      <td width=30></td>
-      <td><IMG SRC="images/peanuts.dont.take.algebra.seriously.gif" width=550></td>
+      <td width=10></td>
+      <td><a href="http://xkcd.com"><IMG SRC="images/xkcd.matrix.png" width=400></a></td>
     </tr>
   </table>   
-
 <p>
 
 <table>
   <tr>
     <td>Lecture</td>
-    <td>Mon/Wed/Fri 2:00-2:50 a.m. Thornton Hall 211</td>
+    <td>Mondays & Wednesdays 9:30-10:45 TH 404</td>
   </tr>
   <tr>
-    <td>Prerequisites:</td>
-    <td>MATH 301 & MATH 225 or 325 with grades of C or better, or permission of the instructor</td>
+    <td>Prerequisites</td>
+    <td>MATH 335 (Modern Algebra) with a grade of C or better or consent of the instructor</td>
   </tr>
   <tr>
     <td>Instructor</td>
@@ -149,63 +146,61 @@ ul.left {
   </tr>
   <tr>
     <td>Office</td>
-    <td><a href="http://www.sfsu.edu/~sfsumap/">Creative Arts</a> 32</td>
+    <td><a href="http://www.sfsu.edu/~sfsumap/">Thornton Hall</a> 933 & <a href="https://sfsu.zoom.us/my/mattbeck?pwd=ejFTazVMQXVEY2Z5dHBHVnhLVGhBdz09">zoom</a></td>
   </tr>
   <tr>
-    <td>Office hours</td>
-    <td>Mondays 11-12, Wednesdays 10-11, Fridays 1-2, by appointment, and via <a
-href="https://sfsu.campus.eab.com/pal/do7eMTVx5q">zoom</a></td>
+    <td>Office hours (TH 933 & <a href="https://sfsu.zoom.us/my/mattbeck?pwd=ejFTazVMQXVEY2Z5dHBHVnhLVGhBdz09">zoom</a>)</td>
+    <td>Mondays 11-12, Wednesdays 1-2 & by appointment</td>
+  </tr>
   <tr><td></td><td></td></tr>
 </table>
 
-<p><b>Course objectives.</b>
-Algebra studies the structure of sets with operations, such as integers with addition and multiplication, or vector spaces with linear maps. The abstract point of view, based on an axiomatic approach, reveals many deep ideas behind seemingly innocent structures--such as the arithmetic of counting numbers--and serves as an elegant organizing tool for the vast universe of modern algebra. Generations of brilliant minds have crystallized these ideas in the ideas in the concept of groups, rings, fields, modules, and their quotient structures and homomorphisms--the topics of MATH 335 & 435.
-Our main goal in MATH 335 is the study of groups and rings. We will not strive for the maximal possible generality but rather work out as many concrete examples/incarnations of theoretical concepts as possible.
-Another goal of this course is to make the students immerse in communicating mathematical thoughts (proofs, examples, counterexamples) in a written form.
+<p>
+While our class is designed to meet in person, it will also be live streamed (zoom link on <a href="https://ilearn.sfsu.edu">iLearn</a>), so that students who cannot/should not come to campus on a given day (e.g., because they have cold symptoms) can keep up.
 </p>
+
+<p><b>Course objectives.</b>
+This is a second course in linear algebra in which students make the transition from Euclidean spaces and matrices to abstract
+vector spaces, inner product spaces and linear transformations. The emphasis is on axiomatic development, proof and conceptual
+understanding rather than calculation. Students will gain experience working abstractly without coordinates or determinants. This course should pave the way for further study
+in abstract algebra and advanced analysis. Upon successful completion, students will have a thorough understanding of the proofs of
+the finite dimensional versions of the Riesz Representation Theorem, the Spectral Theorem for normal operators, polar decomposition,
+singular value decomposition, and the Jordan canonical form. 
 
 <p><b>Syllabus.</b> 
-Topics in this course will include:
-</p>
-<ul>
-<li>Integers & the Euclidean algorithm
-<li>Complex numbers, roots of unity & Cardano's formula
-<li>Modular arithmetic & commutative rings
-<li>Polynomials, power series & integral domains
-<li>Permutations & groups
-</ul>
+Vector spaces, linear independence, bases, dimension,
+linear maps, null space, range, matrix representations, invertibility,
+invariant subspaces, upper triangular matrix representations, eigenvectors and eigenvalues,
+inner products, norms, orthonormal bases, Gram Schmidt process, orthogonal projection and best approximation, linear functionals and
+adjoints, Riesz representation,
+self-adjoint and normal operators, the spectral theorem, positive operators,
+isometries, polar and singular-value decompositions,
+generalized eigenvalues, characteristic and minimal polynomials, nilpotent operators,
+Jordan canonical form, trace, determinant.
 
-<p><b>Textbooks.</b> 
-<ul>
-<li><a href="http://ltd.edc.org/people/al-cuoco">Al Cuoco</a> & <a href="http://www.math.uiuc.edu/~rotman/">Joseph J. Rotman</a>, <a href="https://www.maa.org/press/maa-reviews/learning-modern-algebra-from-early-attempts-to-prove-fermats-last-theorem">Learning Modern Algebra</a>, MAA Textbooks, 2013.
-<li><a href="http://faculty.sfasu.edu/judsontw/">Thomas W. Judson</a>, <a
-href="http://abstract.ups.edu/">Abstract Algebra: Theory and Applications</a>.
-</ul>
-
-<p><b>Participation.</b>
-A nontrivial part of the material covered in this class will be worked out in small groups during class sessions.
-It will thus be essential that every student participates actively in every class. If you have to miss a class due to a medical or family emergency, please let me know before the class; otherwise, I expect you to be in class and actively engaged.
-</p>
+<p><b>Textbook.</b> 
+<a href="https://www.axler.net/">Sheldon Axler</a>, <a href="https://linear.axler.net/">Linear Algebra Done Right (3rd edition)</a>, Springer 2015. [<a href="https://linear.axler.net/LADRErrataThird.html">errata</a>, <a href="https://linear.axler.net/LADRvideos.html">videos</a>]
 
 <p><b>Homework.</b>
-I will assign homework problems as we go through the material. You may (and
-should) work together with your class mates. We can discuss the homework
-problems at any time during class, and you can hand any of your solutions for
-feedback. We will have a homework quiz every Monday at the beginning of class, in which you will be asked one definition and one problem given in the previous week. 
-</p>
+I will assign homework problems as we go through the material; the problems assigned in any given week are due at 9 a.m. of the following Friday.
+If you type your solutions, you are welcome to submit your solutions over email as a pdf attachment.
+We can discuss the homework problems at any time during class.
+You may hand them in early to be able to correct your mistakes. 
+Although you may (and should) work together with your class mates, the solutions you hand in have to be your own.
 
 <p><b>Grading system.</b>
 
 <table border=1>
   <tr>
-    <td>Homework quizzes</td>
+    <td>Homework</td>
     <td align=center>50%</td>
   </tr>
   <tr>
-    <td>Midterm Exam</a> (October 18, in class)</td> 
-    <td>25%</td>
+    <td><a href="725/midterm.pdf">Midterm</a> (October 20 &#177;2 days)</td>
+    <td align=center>25%</td>
   </tr>
-    <td>Final Exam (December 16, 2:45 p.m.)</td> 
+  <tr>
+    <td><a href="725/final.pdf">Final Exam</a> (December 15 &#177;2 days)</td> 
     <td align=center>25%</td>
   </tr>
 </table>
@@ -218,20 +213,23 @@ At any time you feel overwhelmed or lost, please come and talk with me.
 <p>
 <b>The math.</b>
 The way to <i>learn</i> math is through <i>doing</i> math. 
-It is vital and expected that you attend every class meeting. You will get
+It is vital and expected that you attend every lecture. You will get
 a good feel for the math from there, but it is even more crucial that you do the 
 homework. Working in groups is not only allowed but strongly recommended. 
-Our class is based on Federico Ardila's Axioms:
-<ol>
-  <li>Mathematical potential is distributed equally among different groups, irrespective of geographic, demographic, and economic boundaries.
-  <li>Everyone can have joyful, meaningful, and empowering mathematical experiences.
-  <li>Mathematics is a powerful, malleable tool that can be shaped and used differently by various communities to serve their needs.
-  <li>Every student deserves to be treated with dignity and respect.
-</ol>
+The <a href="https://ilearn.sfsu.edu">iLearn</a> system allows you to send emails to anybody in your class. 
+While I strongly encourage you to work together, the work you hand in has to be your own.
+
+<p>
+<b>The Corona situation.</b>
+We are living through a pandemic. The health and safety of you and others comes first.
+While in the times before Corona, attendance was highly correlated with student success
+in this course, I trust each of you to use your best judgement to keep you and those
+around you safe, and to attend our class when it makes sense to do so.
 
 <p>
 <b>Fine print.</b>
 <br><A HREF="http://www.sfsu.edu/deptpage/acal4.htm">SFSU academic calender</A>
+<br><A HREF="fineprint.html#dates.html">Important Deadlines</A>
 <br><A HREF="fineprint.html#bs.html">BS rule</A>
 <br><A HREF="fineprint.html#plagiarism.html">Academic Integrity and Plagiarism</A>
 <br><A HREF="fineprint.html#tutoring.html">Tutoring</A>
@@ -250,7 +248,7 @@ are given in class. If you miss a class, it is your responsibility to find
 out what's going on. I will try to keep this course web page as updated as
 possible, however, the most recent information will always be given in class. 
 Always ask lots of questions in class; my courses are interactive. 
-You are always encouraged to see me in my office.
+You are always encouraged to see me in my office (TH 933 & <a href="https://sfsu.zoom.us/my/mattbeck?pwd=ejFTazVMQXVEY2Z5dHBHVnhLVGhBdz09">zoom</a>).
 
 </div>
 
@@ -264,7 +262,7 @@ holloway ave</a>
 <br>san francisco, ca 94132
 </p>
 
-<table><tr><td><p>mattbeck</p></td><td><p>@</p></td><td><p>sfsu.edu</p></td></tr></table>
+<table><tr><td><p>becksfsu</p></td><td><p>@</p></td><td><p>gmail.com</p></td></tr></table>
 
 <table><tr><td height=10></td></tr></table>
 
@@ -273,7 +271,7 @@ holloway ave</a>
 
 <div class="footer">
   <p>
-"If you do not like your analyst, see your local algebraist!" <br>Gert Almkvist
+"It is my experience that proofs involving matrices can be shortened by 50% if one throws the matrices out." <br>E. Artin (<i>Geometric Algebra</i>, p. 14)
   </p>
   <span style="font-size:0.7em">
   <p><a href="quotes.html">more pearls of wisdom</a></p>
