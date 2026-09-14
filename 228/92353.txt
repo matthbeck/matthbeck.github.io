@@ -1,3 +1,3 @@
-ID	Name	Partic	Homew	Concept	Problem		HW1																			
-92353	Christo	15	0				0																			
-OOOOO	max	20	3				3																			
+ID	Name	Partic	Homew	Concept	Problem		HW1	HW2																		
+92353	Christo	15	3				0	3																		
+OOOOO	max	20	6				3	3																		
