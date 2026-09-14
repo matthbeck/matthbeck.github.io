@@ -1,3 +1,3 @@
 ID	Name	Partic	Homew	Defs	Exams		HW1	HW2																			
-92376	Savan	20	3				2	1																			
+92376	Savan	20	4				3	1																			
 OOOOO	max	20	6				3	3																			
