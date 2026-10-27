@@ -1,3 +1,3 @@
-ID	Name	Partic	Homew	Concept	Problem		HW1	HW2	HW3	HW4	HW5		Conc1	Prob1	Conc2	Prob2										
-92618	Kaan	19	14	3	3		3	3	3	2	3		1	1	2	2										
-OOOOO	max	20	15	6	6		3	3	3	3	3		3	3	3	3										
+ID	Name	Partic	Homew	Concept	Problem		HW1	HW2	HW3	HW4	HW5	HW6	Conc1	Prob1	Conc2	Prob2
+92618	Kaan	19	16	3	3		3	3	3	2	3	2	1	1	2	2
+																
